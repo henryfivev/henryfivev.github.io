@@ -175,7 +175,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-04-07 22:41:46 / Modified: 23:13:10" itemprop="dateCreated datePublished" datetime="2023-04-07T22:41:46+08:00">2023-04-07</time>
+      <time title="Created: 2023-04-07 22:41:46 / Modified: 23:19:12" itemprop="dateCreated datePublished" datetime="2023-04-07T22:41:46+08:00">2023-04-07</time>
     </span>
 
   
@@ -188,10 +188,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>把部署在github page上的博客从jekyll转到hexo，遇到了一点点的麻烦</p>
+          <p>把部署在github page上的博客从jekyll转到hexo时遇到了一点点的麻烦。</p>
 <ol>
-<li>hexo的deploy和我的一开始的git产生了冲突，<code>hexo deploy</code>后直接重写了我的远程仓库history，导致无法merge（远程仓库只有deploy的两个commit，而本地有博客的所有commit）。最后我把.git删了，用deploy部署（它会生成一个deploy_git文件夹，然后push这个文件夹到远端），这样就只需要<code>hexo deploy</code>而不用我手动同步了。</li>
-<li>repo里设置readme，需要先在_config.yml中设置<code>skip_render: README.md</code>，否则会转成html格式。</li>
+<li>hexo的deploy和我的一开始的git产生了冲突，<code>hexo deploy</code>后直接重写了我的远程仓库history，导致无法merge（远程仓库只有deploy的两个commit，而本地有博客的所有commit）。最后我把.git删了，用deploy部署（它会生成一个.&#x2F;deploy_git文件夹，然后push这个文件夹到远端），这样就只需要<code>hexo deploy</code>而不用我手动同步了，但git那里会显示“发布到branch”，一点小小的不足。</li>
+<li>在repo里设置readme，需要先在_config.yml中设置<code>skip_render: README.md</code>，否则会转成html格式。</li>
 </ol>
 
       
