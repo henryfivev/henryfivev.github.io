@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="2.1 进程与线程基本概念1.进程是什么？多种定义 比如进程是程序的一次执行过程，是系统进行资源分配和调度的一个独立单位 2.程序段，数据段和PCB构成了进程实体 3.PCB是进程的唯一标识 4.进程特征：动态性，并发性，独立性和异步性 进程的状态运行态，就绪态，阻塞态，创建态和终止态 进程的组成程序段，数据段和PCB PCB有进程标识符(PID)，状态，优先级，上下文等等，链接成队列或者放在索引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统-进程与线程1">
+<meta property="og:url" content="http://example.com/2023/04/03/2023-04-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
+<meta property="og:site_name" content="望尘可及的秘密基地">
+<meta property="og:description" content="2.1 进程与线程基本概念1.进程是什么？多种定义 比如进程是程序的一次执行过程，是系统进行资源分配和调度的一个独立单位 2.程序段，数据段和PCB构成了进程实体 3.PCB是进程的唯一标识 4.进程特征：动态性，并发性，独立性和异步性 进程的状态运行态，就绪态，阻塞态，创建态和终止态 进程的组成程序段，数据段和PCB PCB有进程标识符(PID)，状态，优先级，上下文等等，链接成队列或者放在索引">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-03T12:15:30.000Z">
+<meta property="article:modified_time" content="2023-04-05T05:52:50.644Z">
+<meta property="article:author" content="henryfivev">
+<meta property="article:tag" content="theory">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/04/03/2023-04-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/04/03/2023-04-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/","path":"2023/04/03/2023-04-2023-04-03-操作系统-第二章/","title":"操作系统-进程与线程1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>操作系统-进程与线程1 | 望尘可及的秘密基地</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">望尘可及的秘密基地</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">2.1 进程与线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">1.2.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">1.3.</span> <span class="nav-text">进程的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.4.</span> <span class="nav-text">进程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="nav-number">1.5.</span> <span class="nav-text">进程间通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.6.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="nav-number">1.6.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8A%B6%E6%80%81"><span class="nav-number">1.6.2.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E6%88%90%E4%B8%8E%E6%8E%A7%E5%88%B6"><span class="nav-number">1.6.3.</span> <span class="nav-text">组成与控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%BA%A7%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.6.4.</span> <span class="nav-text">用户级线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E7%BA%A7%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.6.5.</span> <span class="nav-text">内核级线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.6.6.</span> <span class="nav-text">多线程模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">2.2 处理机调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-2"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="nav-number">2.2.</span> <span class="nav-text">调度的目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.3.</span> <span class="nav-text">调度的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">调度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%87%E6%8D%A2"><span class="nav-number">2.5.</span> <span class="nav-text">进程切换</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">henryfivev</p>
+  <div class="site-description" itemprop="description">简单地记录一下</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/03/2023-04-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="操作系统-进程与线程1 | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          操作系统-进程与线程1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-03 20:15:30" itemprop="dateCreated datePublished" datetime="2023-04-03T20:15:30+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-05 13:52:50" itemprop="dateModified" datetime="2023-04-05T13:52:50+08:00">2023-04-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="2-1-进程与线程"><a href="#2-1-进程与线程" class="headerlink" title="2.1 进程与线程"></a>2.1 进程与线程</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>1.进程是什么？多种定义</p>
+<p>比如进程是程序的一次执行过程，是系统进行资源分配和调度的一个独立单位</p>
+<p>2.程序段，数据段和PCB构成了<em>进程实体</em></p>
+<p>3.PCB是进程的唯一标识</p>
+<p>4.进程特征：动态性，并发性，独立性和异步性</p>
+<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p>运行态，就绪态，阻塞态，创建态和终止态</p>
+<h3 id="进程的组成"><a href="#进程的组成" class="headerlink" title="进程的组成"></a>进程的组成</h3><p>程序段，数据段和PCB</p>
+<p>PCB有进程标识符(PID)，状态，优先级，上下文等等，链接成队列或者放在索引表中</p>
+<h3 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h3><p>创建：分配PID，申请PCB——&gt;分配资源——&gt;初始化PCB——&gt;插入就绪队列</p>
+<p>终止：查找PCB——&gt;终止子孙进程——&gt;归还资源——&gt;从所在队列中删除</p>
+<p>阻塞：查找PCB——&gt;保护现场，设置状态——&gt;插入相应队列</p>
+<p>唤醒：查找PCB——&gt;移出队列，设置状态——&gt;插入就绪队列</p>
+<h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><p>共享存储：数据结构，存储区</p>
+<p>消息传递：signal()和slot()</p>
+<p>管程：生产者消费者方式，单向</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><h4 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h4><p>基本的CPU执行单元，只拥有必不可少的资源，调度代价小</p>
+<p>可以创建和撤销另一个进程</p>
+<h4 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h4><p>执行，就绪和阻塞</p>
+<h4 id="组成与控制"><a href="#组成与控制" class="headerlink" title="组成与控制"></a>组成与控制</h4><p>TCB线程控制块：线程标识符，寄存器，状态，优先级，堆栈等等。</p>
+<p>同一进程中所有线程共享地址空间和全局变量，即各线程可读写其他线程的堆栈。</p>
+<p>线程被终止后不立即释放资源，仍可被其他线程调用，以使被终止线程重新恢复运行</p>
+<h4 id="用户级线程"><a href="#用户级线程" class="headerlink" title="用户级线程"></a>用户级线程</h4><p>内核不知道线程的存在</p>
+<p>线程切换不用转换到内核空间</p>
+<p>进程间调度算法不同</p>
+<p>一个阻塞所有阻塞（我感觉是一内核对多用户模型的问题）</p>
+<h4 id="内核级线程"><a href="#内核级线程" class="headerlink" title="内核级线程"></a>内核级线程</h4><p>阻塞可调度</p>
+<p>调度代价小</p>
+<p>但线程切换需转换到内核空间</p>
+<h4 id="多线程模型"><a href="#多线程模型" class="headerlink" title="多线程模型"></a>多线程模型</h4><p>一内核对多用户模型</p>
+<p>一对一模型</p>
+<p>多内核对多用户模型</p>
+<p>（线程阻塞后能不能及时调度到底是看什么？）</p>
+<h2 id="2-2-处理机调度"><a href="#2-2-处理机调度" class="headerlink" title="2.2 处理机调度"></a>2.2 处理机调度</h2><h3 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h3><p>调度就是对CPU进行分配，从队列中选择一个进程执行，以实现并发</p>
+<p>高级调度（创建进程），中级调度（内存调度，暂时挂起），低级调度（进程调度，上下CPU）</p>
+<p>or长程调度，短程调度</p>
+<h3 id="调度的目标"><a href="#调度的目标" class="headerlink" title="调度的目标"></a>调度的目标</h3><p>CPU利用率，系统吞吐量，周转时间（完成时间-提交时间），等待时间，响应时间</p>
+<h3 id="调度的实现"><a href="#调度的实现" class="headerlink" title="调度的实现"></a>调度的实现</h3><p>进程是怎么调度的？</p>
+<p>不能调度的情况：中断；临界区；原子操作</p>
+<p>调度方式：非抢占式调度（进程不可“中断”），抢占式调度</p>
+<p>无就绪进程，则执行闲逛进程（仅有CPU资源）</p>
+<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><p>先来先服务调度算法（FCFS）：适合CPU繁忙型</p>
+<p>短作业优先调度算法（SJF）：可能饿死；未考虑优先级；平均等待时间和平均周转时间最少</p>
+<p>优先级调度算法：非抢占型or抢占型，静态优先级or动态优先级</p>
+<p>高响应比优先调度算法：${响应比&#x3D;\frac{等待时间+要求服务时间}{要求服务时间}}$</p>
+<p>时间片轮转调度算法（RR）</p>
+<p>多级队列调度算法：不同队列不同调度算法</p>
+<p>多级反馈队列调度算法：多个就绪队列，除最后一级为RR外都使用FCFS，若若未完成则降级</p>
+<h3 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h3><p>上下文切换（计算密集型）（内核态中发生）：</p>
+<p>挂起进程，保存上下文——&gt;更新PCB——&gt;将PCB移入相应队列——&gt;</p>
+<p>选择一个进程，更新其PCB——&gt;恢复上下文——&gt;执行</p>
+<p>上下文切换和模式切换</p>
+<p>什么调度算法适合分时系统和实时系统？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/theory/" rel="tag"># theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/03/2023-04-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/" rel="prev" title="剑指offer-Day17">
+                  <i class="fa fa-chevron-left"></i> 剑指offer-Day17
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/04/04/2023-04-2023-04-04-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" rel="next" title="操作系统-进程与线程2">
+                  操作系统-进程与线程2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">henryfivev</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
