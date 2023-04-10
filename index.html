@@ -183,7 +183,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-04-10 13:28:19 / Modified: 21:11:46" itemprop="dateCreated datePublished" datetime="2023-04-10T13:28:19+08:00">2023-04-10</time>
+      <time title="Created: 2023-04-10 13:28:19 / Modified: 21:21:38" itemprop="dateCreated datePublished" datetime="2023-04-10T13:28:19+08:00">2023-04-10</time>
     </span>
 
   
@@ -219,28 +219,47 @@
 <h5 id="原理">原理</h5>
 <p>窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。</p>
 <p>窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为</p>
-<p><span class="math inline">\(E(u,v) = \sum_{x,y}w(x,y) {
-[I(x+u,y+v)-I(x,y)]^2}\)</span></p>
-<p><span
+<p><span class="math display">\[
+E(u,v) = \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}
+\]</span> <span
 class="math inline">\({w(x,y)}\)</span>是窗口函数，二维的滤波器。</p>
 <p><span class="math inline">\({I(x+u,y+v)}\)</span>和<span
 class="math inline">\({I(x,y)}\)</span>分别是平移前和平移后的窗口灰度图。</p>
 <p>再用泰勒公式<span class="math inline">\({f(x+u,y+v) =
 f(x,y)+uf_x(x,y)+vf_y(x,y)}\)</span> 简化为</p>
-<p>$ E(x,y)=[u,v]M{ } $</p>
-<p>$ M=_{x,y}w(x,y){ }$</p>
+<p><span class="math display">\[
+E(x,y)=[u,v]M{ \left[
+\begin{matrix}
+   u\\v
+  \end{matrix}
+  \right]}
+\]</span> <span class="math display">\[
+M=\sum_{x,y}w(x,y){ \left[
+\begin{matrix}
+   I_x^2&amp;I_xI_y\\
+   I_xI_y&amp;I_y^2
+  \end{matrix}
+  \right]}
+\]</span></p>
 <p><span class="math inline">\({I_x}\)</span>和<span
 class="math inline">\({I_y}\)</span>为x和y方向的梯度值，可以用Sobel进行计算。</p>
 <p>接着<span
 class="math inline">\({M}\)</span>可以用实对称矩阵对角化进一步化简：</p>
-<p><span class="math inline">\(M=R^{-1}
-{\left[  \begin{matrix}  \lambda_1&amp;0\\  0&amp;\lambda_2  \end{matrix}  \right]
-}  R\)</span></p>
-<p>最后根据<span class="math inline">\({\lambda_1}\)</span>和<span
+<p><span class="math display">\[
+M=R^{-1}
+{\left[
+\begin{matrix}
+   \lambda_1&amp;0\\
+   0&amp;\lambda_2
+  \end{matrix}
+  \right] }
+  R
+\]</span> 最后根据<span
+class="math inline">\({\lambda_1}\)</span>和<span
 class="math inline">\({\lambda_2}\)</span>计算角点响应函数R：</p>
-<p><span
-class="math inline">\(R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2\)</span></p>
-<p>k为经验常数，一般取0.04-0.06。</p>
+<p><span class="math display">\[
+R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2
+\]</span> k为经验常数，一般取0.04-0.06。</p>
 <p>当R很小且小于threshold时，认为是平坦区域；</p>
 <p>当R&lt;0且R&lt;threshold时，认为是边缘；</p>
 <p>当R&gt;0且R&gt;threshold时，认为是角点。</p>
@@ -260,11 +279,7 @@ class="math inline">\(M\)</span>矩阵</li>
 <h5 id="特性">特性</h5>
 <p>平移不变性</p>
 <p>旋转不变性</p>
-<p><span class="math display">\[ \begin{align}e^{ix}=\cos x + i\sin
-x\end{align} \]</span></p>
-<p>不满足尺度不变性 <span class="math display">\[
-e^{ix}=\cos x + i\sin x
-\]</span></p>
+<p>不满足尺度不变性</p>
 <h4 id="高斯差分滤波器dog">高斯差分滤波器（DoG）</h4>
 <p>尺度不变性</p>
 
