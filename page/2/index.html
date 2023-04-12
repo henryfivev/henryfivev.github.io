@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -144,6 +144,153 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/07/2023-04-2023-04-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/07/2023-04-2023-04-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="post-title-link" itemprop="url">操作系统-内存管理2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-07 10:30:30" itemprop="dateCreated datePublished" datetime="2023-04-07T10:30:30+08:00">2023-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-09 09:45:06" itemprop="dateModified" datetime="2023-04-09T09:45:06+08:00">2023-04-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="虚拟内存管理">3.2 虚拟内存管理</h2>
+<h3 id="基本概念">3.2.1 基本概念</h3>
+<p>传统：一次性全部装入，一直驻留</p>
+<h4 id="局部性原理">局部性原理</h4>
+<p>时间局部性：当前执行的指令不久后可能再次执行</p>
+<p>空间局部性：当前访问的数据不久后可能访问其邻近的数据</p>
+<h4 id="虚拟存储器">虚拟存储器</h4>
+<p>基于局部性原理，仅将少量页面存入内存</p>
+<h3 id="请求分页管理方式">3.2.2 请求分页管理方式</h3>
+<h4 id="页表机制">页表机制</h4>
+<p>页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址</p>
+<h4 id="缺页中断机构">缺页中断机构</h4>
+<p>产生缺页中断</p>
+<h4 id="地址变换机构">地址变换机构</h4>
+<p>从快表到页表再到外存</p>
+<h3 id="页框分配">3.2.3 页框分配</h3>
+<h4 id="驻留集大小">驻留集大小</h4>
+<p>太小缺页率高</p>
+<p>太大没意义</p>
+<h4 id="内存分配策略">内存分配策略</h4>
+<p>固定分配局部置换：所有进程块数一样，自己换自己的</p>
+<p>可变分配全局置换：</p>
+<p>可变分配局部置换：</p>
+<h4 id="物理块调入算法">物理块调入算法</h4>
+<p>固定分配时有以下几种物理块分配算法</p>
+<p>平均分配算法：</p>
+<p>按比例分配算法：</p>
+<p>优先权分配算法：</p>
+<h4 id="调入页面的时机">调入页面的时机</h4>
+<p>预调页策略</p>
+<p>请求调页策略</p>
+<h4 id="从何处调入页面">从何处调入页面</h4>
+<p>略</p>
+<h4 id="如何调入页面">如何调入页面</h4>
+<p>缺页中断</p>
+<h3 id="页面置换算法">3.2.4 页面置换算法</h3>
+<h4 id="最佳置换算法opt">最佳置换算法（OPT）</h4>
+<p>最长时间不被访问</p>
+<h4 id="先进先出置换算法fifo">先进先出置换算法（FIFO）</h4>
+<p>可能导致Belady异常（物理块增多，缺页数也增多）</p>
+<h4 id="最近最久未使用置换算法lru">最近最久未使用置换算法（LRU）</h4>
+<h4 id="时钟置换算法">时钟置换算法</h4>
+<p>简单CLOCK</p>
+<p>也叫最近未用算法（NRU）：新增访问位，被访问时访问位设置为1。缺页时若为1则置为0，若为0则置换。</p>
+<p>改进CLOCK</p>
+<p>新增修改位。优先换未访问且未修改的页，其次换未访问但修改过的页。</p>
+<h3 id="抖动和工作集">3.2.5 抖动和工作集</h3>
+<h4 id="抖动">抖动</h4>
+<p>抖动：频繁的页面调度行为，刚换入就要换出，刚换出就要换入。</p>
+<p>抖动原因：进程太多，物理块太少</p>
+<h4 id="工作集">工作集</h4>
+<p>工作集：某段时间内，进程要访问的页面集合。</p>
+<h3 id="内存映射文件">3.2.6 内存映射文件</h3>
+<p>内存映射可用于共享文件or进程通信</p>
+<h3 id="虚拟存储器性能影响因素">3.2.7 虚拟存储器性能影响因素</h3>
+<p>缺页率——页面大小，物理块数，置换算法和程序本身</p>
+<h4 id="页面大小">页面大小</h4>
+<p>小</p>
+<p>优点：内存碎片少，内存利用率高</p>
+<p>缺点：缺页率高，页表长</p>
+<p>大</p>
+<p>优点：缺页率低，页表短</p>
+<p>缺点：内部碎片大</p>
+<h4 id="物理块数">物理块数</h4>
+<p>达到一定程度后增长不明显</p>
+<h4 id="置换算法">置换算法</h4>
+<h4 id="写回">写回</h4>
+<p>把脏块存在一个链表上，到一定数量后一起写回磁盘，其他进程可直接从链表上读取</p>
+<h4 id="程序">程序</h4>
+<p>局部化</p>
+<h3 id="地址翻译">3.2.8 地址翻译</h3>
+<p>略，从逻辑地址到物理地址的整个流程</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -991,135 +1138,6 @@ target="_blank" rel="noopener" href="https://leetcode.cn/circle/discuss/uRUsKF/"
 <p>4.实现空行需要输入5个空格</p>
 <p>5.一个小技巧：不想公开的post可以把时间设在未来</p>
 <p>6.nothing</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/04/2023-04-2023-04-04-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/04/2023-04-2023-04-04-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="post-title-link" itemprop="url">操作系统-进程与线程2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-04 14:15:30" itemprop="dateCreated datePublished" datetime="2023-04-04T14:15:30+08:00">2023-04-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-06 13:28:52" itemprop="dateModified" datetime="2023-04-06T13:28:52+08:00">2023-04-06</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="同步与互斥">2.3 同步与互斥</h2>
-<h3 id="基本概念">基本概念</h3>
-<p>临界资源，同步，互斥</p>
-<h3 id="实现互斥">实现互斥</h3>
-<p>略，软件方式和硬件方式</p>
-<h3 id="互斥锁信号量">互斥锁&amp;信号量</h3>
-<p>互斥锁：原子操作acquire(), release()；需要忙等待</p>
-<p>信号量类型：整型信号量，记录型信号量</p>
-<p>整型信号量：wait(),
-signal()；wait当信号量大于0后信号量减一，signal信号量加一</p>
-<p>记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为block，signal信号量加一，当信号量大于0后从等待队列释放一个进程并唤醒该进程。</p>
-<p>信号量实现同步与互斥</p>
-<h3 id="管程">管程</h3>
-<p>略</p>
-<h3 id="经典同步问题">经典同步问题</h3>
-<h4 id="生产者-消费者问题">1. 生产者-消费者问题</h4>
-<p>要求：生产者和消费者共享一个缓存区，生产者在没满时生成，消费者在没空时消费</p>
-<p>三个信号量：mutex，full，empty</p>
-<p>先P(empty)或P(full)，再P(mutex)——可能死锁</p>
-<h4 id="读者-写者问题">2. 读者-写者问题</h4>
-<p>要求：读可以同时；只能一个写；写操作未完成前不能读或写；执行写操作前无正在执行的读或写</p>
-<p>（感觉就一句，除读读外，其他操作互斥）</p>
-<h4 id="哲学家就餐问题">3. 哲学家就餐问题</h4>
-<p>解决办法：同时拿两根筷子；动作规定</p>
-<h4 id="吸烟者问题">4. 吸烟者问题</h4>
-<p>问题描述：三个吸烟者和一个供应者。造烟需要三种材料，三个吸烟者各有一种。供应者每次拿出两种使得一个吸烟者能够吸烟。当其吸完了，供应者再拿出两种材料。</p>
-<p>分析：供应者和吸烟者同步，吸烟者之间互斥</p>
-<h2 id="死锁">2.4 死锁</h2>
-<h3 id="基本概念-1">基本概念</h3>
-<p>死锁原因：资源竞争+顺序不当</p>
-<p>产生条件：互斥+不可剥夺+请求且持有资源+循环等待</p>
-<p>处理策略：预防or避免or检测并解除</p>
-<h3 id="死锁预防">死锁预防</h3>
-<p>破坏条件即可</p>
-<h4 id="不互斥">1. 不互斥</h4>
-<p>对共享资源可行，对临界资源不可行</p>
-<h4 id="可剥夺">2. 可剥夺</h4>
-<p>有的资源可行，有的不可行（打印机）</p>
-<h4 id="获得所有资源才执行">3. 获得所有资源才执行</h4>
-<p>可能导致饿死</p>
-<h4 id="向后申请资源">4. 向后申请资源</h4>
-<p>给资源编号，只能申请编号更大的资源。</p>
-<p>麻烦</p>
-<h3 id="死锁避免">死锁避免</h3>
-<h4 id="判断安全状态">1. 判断安全状态</h4>
-<p>系统判断分配该资源后是否会导致死锁</p>
-<h4 id="银行家算法">2. 银行家算法</h4>
-<p>进程事先向系统声明所需最大资源数</p>
-<p>最大需求矩阵，分配矩阵，需求矩阵</p>
-<p>具体执行步骤略</p>
-<h3 id="死锁检测和解除">死锁检测和解除</h3>
-<p>资源分配图：进程，资源，请求边，分配边</p>
-<p>简化资源分配图后可检测系统是否死锁：略</p>
-<p>解除：剥夺资源，撤销进程和进程回退（这俩有啥区别？）</p>
 
       
     </div>
