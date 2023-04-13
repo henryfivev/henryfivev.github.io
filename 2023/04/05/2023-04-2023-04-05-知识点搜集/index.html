@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="数据库相关课本中感觉工程用的比较多的： SQL语言（优化。。。） ER图 范式 存储（raid。。。） **索引** 查询 事务 并发（锁，死锁。。。） 恢复 ​      课本外：mysql原理（事务原理，隔离级别，四大特性。。。） （Redis） 资料搜集《MySQL45讲》笔记—面试全面复习 - 知乎 (zhihu.com) 《Mysql实战45讲》笔记及总结归纳_mysql 45讲 笔记总">
+    <meta name="description" content="数据库相关 课本中 感觉工程用的比较多的： SQL语言（优化。。。） ER图 范式 存储（raid。。。） **************索引** 查询 事务 并发（锁，死锁。。。） 恢复 ​ 课本外： mysql原理（事务原理，隔离级别，四大特性。。。） （Redis） 资料搜集 《MySQL45讲》笔记--面试全面复习 - 知乎 (zhihu.com) 《M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知识点搜集">
 <meta property="og:url" content="http://example.com/2023/04/05/2023-04-2023-04-05-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%90%9C%E9%9B%86/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="数据库相关课本中感觉工程用的比较多的： SQL语言（优化。。。） ER图 范式 存储（raid。。。） **索引** 查询 事务 并发（锁，死锁。。。） 恢复 ​      课本外：mysql原理（事务原理，隔离级别，四大特性。。。） （Redis） 资料搜集《MySQL45讲》笔记—面试全面复习 - 知乎 (zhihu.com) 《Mysql实战45讲》笔记及总结归纳_mysql 45讲 笔记总">
+<meta property="og:description" content="数据库相关 课本中 感觉工程用的比较多的： SQL语言（优化。。。） ER图 范式 存储（raid。。。） **************索引** 查询 事务 并发（锁，死锁。。。） 恢复 ​ 课本外： mysql原理（事务原理，隔离级别，四大特性。。。） （Redis） 资料搜集 《MySQL45讲》笔记--面试全面复习 - 知乎 (zhihu.com) 《M">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-05T08:00:30.000Z">
 <meta property="article:modified_time" content="2023-04-06T14:34:41.916Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">数据库相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E6%9C%AC%E4%B8%AD"><span class="nav-number">1.1.</span> <span class="nav-text">课本中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E6%9C%AC%E5%A4%96%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">课本外：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">资料搜集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">数据结构相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.</span> <span class="nav-text">Python</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">数据库相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E6%9C%AC%E4%B8%AD"><span class="nav-number">1.1.</span> <span class="nav-text">课本中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BE%E6%9C%AC%E5%A4%96"><span class="nav-number">1.2.</span> <span class="nav-text">课本外：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">资料搜集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">数据结构相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python"><span class="nav-number">3.</span> <span class="nav-text">Python</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -207,25 +207,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="数据库相关"><a href="#数据库相关" class="headerlink" title="数据库相关"></a>数据库相关</h2><h3 id="课本中"><a href="#课本中" class="headerlink" title="课本中"></a>课本中</h3><p>感觉工程用的比较多的：</p>
+        <h2 id="数据库相关">数据库相关</h2>
+<h3 id="课本中">课本中</h3>
+<p>感觉工程用的比较多的：</p>
 <p>SQL语言（优化。。。）</p>
 <p>ER图</p>
 <p>范式</p>
 <p>存储（raid。。。）</p>
-<p><strong><strong><strong>**</strong></strong></strong>索引**</p>
+<p>**************索引**</p>
 <p>查询</p>
 <p>事务</p>
 <p>并发（锁，死锁。。。）</p>
 <p>恢复</p>
-<p>​     </p>
-<h3 id="课本外："><a href="#课本外：" class="headerlink" title="课本外："></a>课本外：</h3><p>mysql原理（事务原理，隔离级别，四大特性。。。）</p>
+<p>​</p>
+<h3 id="课本外">课本外：</h3>
+<p>mysql原理（事务原理，隔离级别，四大特性。。。）</p>
 <p>（Redis）</p>
-<h3 id="资料搜集"><a href="#资料搜集" class="headerlink" title="资料搜集"></a>资料搜集</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/479733772">《MySQL45讲》笔记—面试全面复习 - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50521526/article/details/123026721">《Mysql实战45讲》笔记及总结归纳_mysql 45讲 笔记总结_shuperlee的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/circle/discuss/uRUsKF/">八股文｜后端｜MySQL｜答案 - 力扣（LeetCode）</a></p>
-<h2 id="数据结构相关"><a href="#数据结构相关" class="headerlink" title="数据结构相关"></a>数据结构相关</h2><p>各种树（AVL树，红黑树，B树，B+树。。。）</p>
+<h3 id="资料搜集">资料搜集</h3>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/479733772">《MySQL45讲》笔记--面试全面复习
+- 知乎 (zhihu.com)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50521526/article/details/123026721">《Mysql实战45讲》笔记及总结归纳_mysql
+45讲 笔记总结_shuperlee的博客-CSDN博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://leetcode.cn/circle/discuss/uRUsKF/">八股文｜后端｜MySQL｜答案
+- 力扣（LeetCode）</a></p>
+<h2 id="数据结构相关">数据结构相关</h2>
+<p>各种树（AVL树，红黑树，B树，B+树。。。）</p>
 <p>哈希表</p>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>浅拷贝和深拷贝</p>
+<h2 id="python">Python</h2>
+<p>浅拷贝和深拷贝</p>
 
     </div>
 
