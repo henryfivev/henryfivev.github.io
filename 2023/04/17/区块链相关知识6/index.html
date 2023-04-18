@@ -27,7 +27,7 @@
 <meta property="og:description" content="资料 github区块链项目 一文弄懂区块链 一、拜占庭将军问题 9位将军攻打一座城市，如何使9位将军命令一致，即如何达成共识（一致性）？ 拜占庭容错：若叛徒数大于1&#x2F;3，则拜占庭将军问题不可解。 传统解决方案 口头协议or书面协议 PBFT 实用拜占庭容错算法。 大意：收到命令的将军去询问其他将军收到的命令。 区块链解决方案 每个将军都维护一个数据库，数据库中记录了所有将">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-17T08:44:20.000Z">
-<meta property="article:modified_time" content="2023-04-17T15:46:34.553Z">
+<meta property="article:modified_time" content="2023-04-18T07:55:59.112Z">
 <meta property="article:author" content="henryfivev">
 <meta property="article:tag" content="offer">
 <meta name="twitter:card" content="summary">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99"><span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98"><span class="nav-text">一、拜占庭将军问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">传统解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pbft"><span class="nav-text">PBFT</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">区块链解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%AF%94%E7%89%B9%E5%B8%81%E6%8A%80%E6%9C%AF"><span class="nav-text">二、比特币技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9"><span class="nav-text">节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E7%94%9F%E6%88%90%E9%80%9F%E5%BA%A6"><span class="nav-text">区块生成速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E6%80%BB%E9%87%8F"><span class="nav-text">比特币总量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E5%AE%B9%E9%87%8F"><span class="nav-text">区块容量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E6%98%93"><span class="nav-text">交易</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merkle%E6%A0%91"><span class="nav-text">Merkle树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFmerkle%E6%A0%91"><span class="nav-text">什么是Merkle树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAmerkle%E6%A0%91"><span class="nav-text">构建Merkle树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%B3%E9%97%AE%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">想问的问题</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99"><span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98"><span class="nav-text">一、拜占庭将军问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">传统解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pbft"><span class="nav-text">PBFT</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">区块链解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%AF%94%E7%89%B9%E5%B8%81%E6%8A%80%E6%9C%AF"><span class="nav-text">二、比特币技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9"><span class="nav-text">节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E7%94%9F%E6%88%90%E9%80%9F%E5%BA%A6"><span class="nav-text">区块生成速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E6%80%BB%E9%87%8F"><span class="nav-text">比特币总量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E5%AE%B9%E9%87%8F"><span class="nav-text">区块容量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E6%98%93"><span class="nav-text">交易</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merkle%E6%A0%91"><span class="nav-text">Merkle树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFmerkle%E6%A0%91"><span class="nav-text">什么是Merkle树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAmerkle%E6%A0%91"><span class="nav-text">构建Merkle树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -191,9 +191,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-17 16:44:20 / Modified: 23:46:34" itemprop="dateCreated datePublished" datetime="2023-04-17T16:44:20+08:00">2023-04-17</time>
+      <time title="Created: 2023-04-17 16:44:20" itemprop="dateCreated datePublished" datetime="2023-04-17T16:44:20+08:00">2023-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-18 15:55:59" itemprop="dateModified" datetime="2023-04-18T15:55:59+08:00">2023-04-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -261,7 +267,7 @@ target="_blank" rel="noopener" href="https://charlesliuyx.github.io/2017/09/24/%
 <p>假设有ABCD四个交易，则Merkle根为Hash(Hash(Hash(A)+Hash(B))+Hash(Hash(C)+Hash(D)))，依次子节点为H(A+B)和H(C+D)，然后是四个叶节点H(A),
 H(B), H(C), H(D)。</p>
 <p>叶节点必为偶数个，若为奇数则复制最后一个节点。</p>
-<h2 id="想问的问题">想问的问题</h2>
+<h2 id="疑惑">疑惑</h2>
 <ol type="1">
 <li>由输入减去输出得到交易费，具体是怎么给的，另外算交易吗？</li>
 <li>新增的交易会不会影响当前区块的打包，开始计算Merkle树后会不会改变包含交易？</li>
@@ -292,6 +298,9 @@ H(B), H(C), H(D)。</p>
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/04/18/%E5%88%9D%E7%94%A8GO%E6%A1%86%E6%9E%B6-Gin/" rel="next" title="初用GO框架-Gin">
+                  初用GO框架-Gin <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

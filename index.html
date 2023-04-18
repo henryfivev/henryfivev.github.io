@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -149,6 +149,241 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/18/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%867-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%BA%A4%E6%98%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/18/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%867-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%BA%A4%E6%98%93/" class="post-title-link" itemprop="url">区块链相关知识7-以太坊交易</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-04-18 13:25:48 / Modified: 23:19:48" itemprop="dateCreated datePublished" datetime="2023-04-18T13:25:48+08:00">2023-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="区块链方向">区块链方向</h2>
+<p>链、智能合约、web3。。。</p>
+<h2 id="交易">交易</h2>
+<h3 id="参考书籍">参考书籍</h3>
+<p>《精通以太坊》第六章</p>
+<p>《精通区块链编程》</p>
+<h3 id="六以太坊交易">六、以太坊交易</h3>
+<p>交易是从外部账户发出的经过签名的消息，经传播后记录在区块链上。</p>
+<h4 id="交易结构">6.1 交易结构</h4>
+<p>以太坊客户端在收到交易后会把交易保存在内存中并使用应用内部的交易格式，其中添加了一些推导出的数据，不具有普适性，这里讨论的交易格式为以太坊网络上交易传输时的交易格式，包括以下内容：</p>
+<ul>
+<li>nonce：由构建交易的外部账户提供，防止重放攻击</li>
+<li>gas price：支付的gas</li>
+<li>gas limit：最大gas</li>
+<li>recipient：接收方以太坊地址</li>
+<li>value：以太币数量</li>
+<li>data：？</li>
+<li>v，r，s：椭圆曲线签名的三个部分</li>
+</ul>
+<p>使用RLP编码标准，其中不包含字段标识符，由长度偏移量表示每个字段的长度。</p>
+<p>应用添加的数据：外部地址、交易ID等等——为了节约空间，交易中并不包含外部用户的地址，vrs可计算出外部用户的公钥，由公钥可得出外部用户的地址，交易ID同理。</p>
+<h4 id="交易的随机数">6.2 交易的随机数</h4>
+<p>黄皮书中的定义：一个数值，等于这个地址发出的交易数量，当这个地址与合约关联时，是这个地址所创建的合约数量。</p>
+<p>nonce可以说是发送方地址的一个属性，用于确定发出的交易的顺序以及避免交易重复，不会显示保存而是由已确认的交易动态计算出的。</p>
+<p>交易待确认时getTransactionCount无法返回正确值，可用parity_nextNonce()计算下一个nonce。</p>
+<h4 id="交易的gas">6.3 交易的gas</h4>
+<p>独立的虚拟货币，和以太币有汇率关系。</p>
+<p>最低可到0，但存在交易无法确认的可能。</p>
+<p>由于合约所消耗的gas可能不同，所以需要设置gas limit</p>
+<h4 id="交易的接收方">6.4 交易的接收方</h4>
+<p>接收方在交易的to字段中指定，字段中包含了一个20字节的以太坊地址，该地址可以是外部账户，也可以是合约的地址。</p>
+<p>以太坊不会验证地址的正确性。</p>
+<h4 id="交易中的以太币和数据">6.5 交易中的以太币和数据</h4>
+<p>交易只有value无data：支付操作</p>
+<p>交易只有data无value：调用合约</p>
+<p>交易既没有value也没有data：没作用，但允许存在</p>
+<h5 id="目的地址">目的地址</h5>
+<p>如果目的地址为外部账户or未注册为合约的地址，以太坊会在目的账户余额中增加转入的以太币。</p>
+<p>如果目的地址为合约，EVM则会执行这个合约，并调用data中指定的函数；若data中为空，则执行合约的回退函数。此时data中有以下部分：函数选择器、函数参数</p>
+<h4 id="特殊交易合约创建">6.6 特殊交易：合约创建</h4>
+<p>合约创建交易的目的地址是一个特殊的地址——零地址，即to字段为0x0，该地址永远不能用来支付以太坊or触发交易。</p>
+<p>向合约创建地址发送只有value无data的交易相当于转账，也有专门销毁以太币的地址。</p>
+<p>合约创建交易中的data为代码编译后的字节码，value中可以包含以太币作为合约的初始余额。</p>
+<h3 id="奇思妙想">奇思妙想</h3>
+<ol type="1">
+<li>后面的nonce会被搁置，那可不可以先发后面的nonce来实现智能合约的操作？</li>
+</ol>
+<h3 id="疑惑">疑惑</h3>
+<ol type="1">
+<li>交易触发合约执行？</li>
+<li>交易中的data有什么用？</li>
+<li>交易中的随机数真的随机吗？</li>
+<li>为什么向没有私钥的地址发送以太币相当于销毁以太币？——没有已知的私钥，以致无法生成签名来使用。</li>
+<li>账户是否就等于地址？</li>
+<li>交易目的地址为合约时，该合约是新的，还是别人已经写好了的？——应该是已经写好了的。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/18/%E5%88%9D%E7%94%A8GO%E6%A1%86%E6%9E%B6-Gin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/18/%E5%88%9D%E7%94%A8GO%E6%A1%86%E6%9E%B6-Gin/" class="post-title-link" itemprop="url">初用GO框架-Gin</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-04-18 12:08:03 / Modified: 15:56:42" itemprop="dateCreated datePublished" datetime="2023-04-18T12:08:03+08:00">2023-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="资料">资料</h2>
+<p><a
+target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/how-to-build-a-web-app-with-go-gin-and-react-cffdc473576/">React结合gin使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/90122089">《Gin 文档》之路由篇
+- 知乎 (zhihu.com)</a></p>
+<h2 id="安装gin框架">安装gin框架</h2>
+<p>安装步骤：</p>
+<ol type="1">
+<li>先在go官网下载go并安装</li>
+<li>设置环境变量GOPATH、GOPROXY、GO111MOD</li>
+<li>用命令<code>go mod init 工作区名字</code>初始化工作区</li>
+<li><code>go get -u github.com/gin-gonic/gin</code>安装gin框架</li>
+</ol>
+<p>在代码中<code>import "github.com/gin-gonic/gin"</code>即可使用gin框架。</p>
+<h2 id="简单例子">简单例子</h2>
+<h3 id="代码">代码</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/gin-gonic/gin&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line">	r.GET(<span class="string">&quot;/ping&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;pong&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	r.GET(<span class="string">&quot;/ping1&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: <span class="string">&quot;pong1&quot;</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run() <span class="comment">// 监听并在 0.0.0.0:8080 上启动服务</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="结果">结果</h3>
+<p>浏览器打开<code>localhost:8080/ping</code>或<code>localhost:8080/ping1</code>即可看到message。</p>
+<h3 id="使用的函数">使用的函数</h3>
+<p>gin.default()：默认方式初始化路由对象</p>
+<p>r.Run()：启动监听</p>
+<p>r.GET(PATH, func(){})：请求处理器，针对以GET方式请求PATH的请求</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -186,9 +421,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-17 16:44:20 / Modified: 23:46:34" itemprop="dateCreated datePublished" datetime="2023-04-17T16:44:20+08:00">2023-04-17</time>
+      <time title="Created: 2023-04-17 16:44:20" itemprop="dateCreated datePublished" datetime="2023-04-17T16:44:20+08:00">2023-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-18 15:55:59" itemprop="dateModified" datetime="2023-04-18T15:55:59+08:00">2023-04-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -256,7 +497,7 @@ target="_blank" rel="noopener" href="https://charlesliuyx.github.io/2017/09/24/%
 <p>假设有ABCD四个交易，则Merkle根为Hash(Hash(Hash(A)+Hash(B))+Hash(Hash(C)+Hash(D)))，依次子节点为H(A+B)和H(C+D)，然后是四个叶节点H(A),
 H(B), H(C), H(D)。</p>
 <p>叶节点必为偶数个，若为奇数则复制最后一个节点。</p>
-<h2 id="想问的问题">想问的问题</h2>
+<h2 id="疑惑">疑惑</h2>
 <ol type="1">
 <li>由输入减去输出得到交易费，具体是怎么给的，另外算交易吗？</li>
 <li>新增的交易会不会影响当前区块的打包，开始计算Merkle树后会不会改变包含交易？</li>
@@ -320,9 +561,15 @@ H(B), H(C), H(D)。</p>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-17 15:25:53 / Modified: 16:42:49" itemprop="dateCreated datePublished" datetime="2023-04-17T15:25:53+08:00">2023-04-17</time>
+      <time title="Created: 2023-04-17 15:25:53" itemprop="dateCreated datePublished" datetime="2023-04-17T15:25:53+08:00">2023-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-18 14:31:16" itemprop="dateModified" datetime="2023-04-18T14:31:16+08:00">2023-04-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -349,8 +596,12 @@ H(B), H(C), H(D)。</p>
 <h3 id="定义">定义</h3>
 <h4 id="变量">变量</h4>
 <p>整型，字符串，数组，字典</p>
+<ol type="1">
+<li><code>var 变量名 变量类型[键类型]值类型&#123;初始化内容&#125;</code></li>
+<li><code>变量名 := make(变量类型[键类型]值类型)</code></li>
+</ol>
 <h4 id="函数">函数</h4>
-<p>none</p>
+<p>func (输入) 函数名 返回类型 {}</p>
 <h3 id="io">I/O</h3>
 <h4 id="输入">输入</h4>
 <p>scan，scanf，scanln</p>
@@ -428,9 +679,15 @@ H(B), H(C), H(D)。</p>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-17 10:13:30 / Modified: 11:23:35" itemprop="dateCreated datePublished" datetime="2023-04-17T10:13:30+08:00">2023-04-17</time>
+      <time title="Created: 2023-04-17 10:13:30" itemprop="dateCreated datePublished" datetime="2023-04-17T10:13:30+08:00">2023-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-18 14:32:31" itemprop="dateModified" datetime="2023-04-18T14:32:31+08:00">2023-04-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -456,6 +713,7 @@ H(B), H(C), H(D)。</p>
 <ol type="1">
 <li>时间管理上有问题，每天完成的任务很少</li>
 <li>课程推进慢，多门进度没跟上</li>
+<li>创新框架还是应用</li>
 </ol>
 <h2 id="纠正">纠正</h2>
 
@@ -1089,235 +1347,6 @@ target="_blank" rel="noopener" href="http://remix.ethereum.org/#lang=en&amp;opti
 <p>也可以连接自己的钱包，添加自己的地址</p>
 <h3 id="交互">交互</h3>
 <p>调用ABI接口</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/13/2023-04-2023-04-13-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%864/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/13/2023-04-2023-04-13-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%864/" class="post-title-link" itemprop="url">区块链相关知识4</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-13 10:26:29" itemprop="dateCreated datePublished" datetime="2023-04-13T10:26:29+08:00">2023-04-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-14 14:24:23" itemprop="dateModified" datetime="2023-04-14T14:24:23+08:00">2023-04-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="资料">资料</h2>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64338715">一个“区块链智能合约”如何诞生及运行？
-- 知乎 (zhihu.com)</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33978447">区块链技术：智能合约入门 -
-知乎 (zhihu.com)</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/383994640">史上最全以太坊“新手入门”攻略
-- 知乎.</a></p>
-<p><a target="_blank" rel="noopener" href="https://ethereum.org/zh/get-eth/">如何购买ETH |
-ethereum.org.</a></p>
-<h2 id="智能合约">智能合约</h2>
-<p>部署和调用本质都是交易。</p>
-<h3 id="前提">前提</h3>
-<p>在部署智能合约之前，需要理解以太坊机制，GAS和以太坊钱包。</p>
-<h3 id="部署">部署</h3>
-<p>将代码编译成字节码后，外部用户发起部署合约的交易，经矿工验证后打包进区块链中，该过程需要向打包的矿工支付费用（gas）。</p>
-<h3 id="调用">调用</h3>
-<p>合约部署在区块链上，任何人只要知道合约ID都可以调用。</p>
-<h2 id="以太币">以太币</h2>
-<p>以太币的获取方式有三种：直接购买、赠送、挖矿。</p>
-<h3 id="挖矿">挖矿</h3>
-<p>1650算力：13MH</p>
-<p>3090算力：115MH</p>
-<p>4090算力：1TH</p>
-<p>主流矿机：350MH</p>
-<h3 id="免费">免费</h3>
-<p>看广告。。。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/12/2023-04-2023-04-12-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/12/2023-04-2023-04-12-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-12 20:23:16" itemprop="dateCreated datePublished" datetime="2023-04-12T20:23:16+08:00">2023-04-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-13 14:56:27" itemprop="dateModified" datetime="2023-04-13T14:56:27+08:00">2023-04-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>课程作业：</p>
-<table>
-<thead>
-<tr class="header">
-<th>科目</th>
-<th>作业</th>
-<th>ddl</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>电子商务安全</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>人工神经网络</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>网络协议逆向</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>云计算技术</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>网络安全技术</td>
-<td>hw3(还有final exam)</td>
-<td>4.15</td>
-</tr>
-<tr class="even">
-<td>计算机视觉</td>
-<td>hw1</td>
-<td>4.30</td>
-</tr>
-<tr class="odd">
-<td>专业综合实践</td>
-<td>none</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>想做的事：</p>
-<p>雅思，普通话</p>
-<p>区块链</p>
 
       
     </div>
