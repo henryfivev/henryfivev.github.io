@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="《精通以太坊》第二章 二、以太坊基本概念 换钱包——发起交易把以太币转移到新地址 私钥，钱包（MetsMask） 助记词：在所有兼容的钱包上恢复钱包 EVM：全局性单体计算机，每个节点都运行着EVM的本地副本 账户 以太坊中有两种账户——外部账户和合约账户 外部账户：拥有私钥 合约账户：具有智能合约代码并受其控制，也拥有地址，可以收发以太币 合约账户没有私钥，所有只有外部账户才">
+    <meta name="description" content="《精通以太坊》第二章 二、以太坊基本概念换钱包——发起交易把以太币转移到新地址 私钥，钱包（MetsMask） 助记词：在所有兼容的钱包上恢复钱包 EVM：全局性单体计算机，每个节点都运行着EVM的本地副本 账户以太坊中有两种账户——外部账户和合约账户 外部账户：拥有私钥 合约账户：具有智能合约代码并受其控制，也拥有地址，可以收发以太币 合约账户没有私钥，所有只有外部账户才能启动交易 智能合约编写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="区块链相关知识8-以太坊基本概念">
 <meta property="og:url" content="http://example.com/2023/04/19/2023-04-offer-2023-04-19-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%868-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="《精通以太坊》第二章 二、以太坊基本概念 换钱包——发起交易把以太币转移到新地址 私钥，钱包（MetsMask） 助记词：在所有兼容的钱包上恢复钱包 EVM：全局性单体计算机，每个节点都运行着EVM的本地副本 账户 以太坊中有两种账户——外部账户和合约账户 外部账户：拥有私钥 合约账户：具有智能合约代码并受其控制，也拥有地址，可以收发以太币 合约账户没有私钥，所有只有外部账户才">
+<meta property="og:description" content="《精通以太坊》第二章 二、以太坊基本概念换钱包——发起交易把以太币转移到新地址 私钥，钱包（MetsMask） 助记词：在所有兼容的钱包上恢复钱包 EVM：全局性单体计算机，每个节点都运行着EVM的本地副本 账户以太坊中有两种账户——外部账户和合约账户 外部账户：拥有私钥 合约账户：具有智能合约代码并受其控制，也拥有地址，可以收发以太币 合约账户没有私钥，所有只有外部账户才能启动交易 智能合约编写">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-19T00:06:43.000Z">
-<meta property="article:modified_time" content="2023-04-19T08:49:03.927Z">
+<meta property="article:modified_time" content="2023-04-28T07:02:02.187Z">
 <meta property="article:author" content="henryfivev">
 <meta property="article:tag" content="offer">
 <meta name="twitter:card" content="summary">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">二、以太坊基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A6%E6%88%B7"><span class="nav-text">账户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6"><span class="nav-text">智能合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">二、以太坊基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A6%E6%88%B7"><span class="nav-text">账户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6"><span class="nav-text">智能合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -191,9 +191,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-19 08:06:43 / Modified: 16:49:03" itemprop="dateCreated datePublished" datetime="2023-04-19T08:06:43+08:00">2023-04-19</time>
+      <time title="Created: 2023-04-19 08:06:43" itemprop="dateCreated datePublished" datetime="2023-04-19T08:06:43+08:00">2023-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-28 15:02:02" itemprop="dateModified" datetime="2023-04-28T15:02:02+08:00">2023-04-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -202,6 +208,10 @@
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/offer/blockchain/" itemprop="url" rel="index"><span itemprop="name">blockchain</span></a>
         </span>
     </span>
 
@@ -216,24 +226,20 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>《精通以太坊》第二章</p>
-<h2 id="二以太坊基本概念">二、以太坊基本概念</h2>
-<p>换钱包——发起交易把以太币转移到新地址</p>
+<h2 id="二、以太坊基本概念"><a href="#二、以太坊基本概念" class="headerlink" title="二、以太坊基本概念"></a>二、以太坊基本概念</h2><p>换钱包——发起交易把以太币转移到新地址</p>
 <p>私钥，钱包（MetsMask）</p>
 <p>助记词：在所有兼容的钱包上恢复钱包</p>
 <p>EVM：全局性单体计算机，每个节点都运行着EVM的本地副本</p>
-<h3 id="账户">账户</h3>
-<p>以太坊中有两种账户——外部账户和合约账户</p>
+<h3 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h3><p>以太坊中有两种账户——外部账户和合约账户</p>
 <p>外部账户：拥有私钥</p>
 <p>合约账户：具有智能合约代码并受其控制，也拥有地址，可以收发以太币</p>
 <p>合约账户没有私钥，所有只有外部账户才能启动交易</p>
-<h3 id="智能合约">智能合约</h3>
-<p>编写，编译，部署，调用</p>
+<h3 id="智能合约"><a href="#智能合约" class="headerlink" title="智能合约"></a>智能合约</h3><p>编写，编译，部署，调用</p>
 <p>交易中的data指定调用的合约函数和传入的参数，若未指定则调用默认函数（默认函数无函数名）。</p>
 <p>public：可被调用</p>
 <p>payable：可接收以太币</p>
 <p>由合约发起的交易叫内部交易。</p>
-<h2 id="疑惑">疑惑</h2>
-<ol type="1">
+<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
 <li>怎么理解“可编程区块链的威力在于可以用去中心化的软件来控制资产！”？</li>
 <li>调用智能合约函数算不算一次交易？——算的。</li>
 </ol>
