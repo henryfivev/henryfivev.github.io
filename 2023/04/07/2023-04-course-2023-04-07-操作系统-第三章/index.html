@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="3.2 虚拟内存管理3.2.1 基本概念传统：一次性全部装入，一直驻留 局部性原理时间局部性：当前执行的指令不久后可能再次执行 空间局部性：当前访问的数据不久后可能访问其邻近的数据 虚拟存储器基于局部性原理，仅将少量页面存入内存 3.2.2 请求分页管理方式页表机制页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址 缺页中断机构产生缺页中断 地址变换机构从快表到页表再到外存 3.2.3">
+    <meta name="description" content="3.2 虚拟内存管理 3.2.1 基本概念 传统：一次性全部装入，一直驻留 局部性原理 时间局部性：当前执行的指令不久后可能再次执行 空间局部性：当前访问的数据不久后可能访问其邻近的数据 虚拟存储器 基于局部性原理，仅将少量页面存入内存 3.2.2 请求分页管理方式 页表机制 页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址 缺页中断机构 产生缺页中断 地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统-内存管理2">
 <meta property="og:url" content="http://example.com/2023/04/07/2023-04-course-2023-04-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="3.2 虚拟内存管理3.2.1 基本概念传统：一次性全部装入，一直驻留 局部性原理时间局部性：当前执行的指令不久后可能再次执行 空间局部性：当前访问的数据不久后可能访问其邻近的数据 虚拟存储器基于局部性原理，仅将少量页面存入内存 3.2.2 请求分页管理方式页表机制页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址 缺页中断机构产生缺页中断 地址变换机构从快表到页表再到外存 3.2.3">
+<meta property="og:description" content="3.2 虚拟内存管理 3.2.1 基本概念 传统：一次性全部装入，一直驻留 局部性原理 时间局部性：当前执行的指令不久后可能再次执行 空间局部性：当前访问的数据不久后可能访问其邻近的数据 虚拟存储器 基于局部性原理，仅将少量页面存入内存 3.2.2 请求分页管理方式 页表机制 页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址 缺页中断机构 产生缺页中断 地址">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-07T02:30:30.000Z">
 <meta property="article:modified_time" content="2023-04-28T07:06:08.325Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">3.2 虚拟内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">3.2.1 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-text">3.2.2 请求分页管理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6"><span class="nav-text">页表机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E6%9E%84"><span class="nav-text">缺页中断机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="nav-text">地址变换机构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E9%A1%B5%E6%A1%86%E5%88%86%E9%85%8D"><span class="nav-text">3.2.3 页框分配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A9%BB%E7%95%99%E9%9B%86%E5%A4%A7%E5%B0%8F"><span class="nav-text">驻留集大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-text">内存分配策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E8%B0%83%E5%85%A5%E7%AE%97%E6%B3%95"><span class="nav-text">物理块调入算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-text">调入页面的时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E4%BD%95%E5%A4%84%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-text">从何处调入页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-text">如何调入页面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">3.2.4 页面置换算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88OPT%EF%BC%89"><span class="nav-text">最佳置换算法（OPT）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88FIFO%EF%BC%89"><span class="nav-text">先进先出置换算法（FIFO）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88LRU%EF%BC%89"><span class="nav-text">最近最久未使用置换算法（LRU）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%92%9F%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">时钟置换算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-5-%E6%8A%96%E5%8A%A8%E5%92%8C%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="nav-text">3.2.5 抖动和工作集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8"><span class="nav-text">抖动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="nav-text">工作集</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-6-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6"><span class="nav-text">3.2.6 内存映射文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-7-%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E6%80%A7%E8%83%BD%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0"><span class="nav-text">3.2.7 虚拟存储器性能影响因素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%B0%8F"><span class="nav-text">页面大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E6%95%B0"><span class="nav-text">物理块数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">置换算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9B%9E"><span class="nav-text">写回</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-text">程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-8-%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91"><span class="nav-text">3.2.8 地址翻译</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-text">3.2 虚拟内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">3.2.1 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="nav-text">局部性原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-text">虚拟存储器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-text">3.2.2 请求分页管理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8%E6%9C%BA%E5%88%B6"><span class="nav-text">页表机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E9%A1%B5%E4%B8%AD%E6%96%AD%E6%9C%BA%E6%9E%84"><span class="nav-text">缺页中断机构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84"><span class="nav-text">地址变换机构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E6%A1%86%E5%88%86%E9%85%8D"><span class="nav-text">3.2.3 页框分配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A9%BB%E7%95%99%E9%9B%86%E5%A4%A7%E5%B0%8F"><span class="nav-text">驻留集大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-text">内存分配策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E8%B0%83%E5%85%A5%E7%AE%97%E6%B3%95"><span class="nav-text">物理块调入算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="nav-text">调入页面的时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E4%BD%95%E5%A4%84%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-text">从何处调入页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%B0%83%E5%85%A5%E9%A1%B5%E9%9D%A2"><span class="nav-text">如何调入页面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">3.2.4 页面置换算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95opt"><span class="nav-text">最佳置换算法（OPT）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95fifo"><span class="nav-text">先进先出置换算法（FIFO）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95lru"><span class="nav-text">最近最久未使用置换算法（LRU）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%92%9F%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">时钟置换算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8%E5%92%8C%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="nav-text">3.2.5 抖动和工作集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%96%E5%8A%A8"><span class="nav-text">抖动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="nav-text">工作集</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6"><span class="nav-text">3.2.6 内存映射文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E6%80%A7%E8%83%BD%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0"><span class="nav-text">3.2.7 虚拟存储器性能影响因素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%A4%A7%E5%B0%8F"><span class="nav-text">页面大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%9D%97%E6%95%B0"><span class="nav-text">物理块数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-text">置换算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9B%9E"><span class="nav-text">写回</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-text">程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E7%BF%BB%E8%AF%91"><span class="nav-text">3.2.8 地址翻译</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,47 +225,78 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="3-2-虚拟内存管理"><a href="#3-2-虚拟内存管理" class="headerlink" title="3.2 虚拟内存管理"></a>3.2 虚拟内存管理</h2><h3 id="3-2-1-基本概念"><a href="#3-2-1-基本概念" class="headerlink" title="3.2.1 基本概念"></a>3.2.1 基本概念</h3><p>传统：一次性全部装入，一直驻留</p>
-<h4 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h4><p>时间局部性：当前执行的指令不久后可能再次执行</p>
+        <h2 id="虚拟内存管理">3.2 虚拟内存管理</h2>
+<h3 id="基本概念">3.2.1 基本概念</h3>
+<p>传统：一次性全部装入，一直驻留</p>
+<h4 id="局部性原理">局部性原理</h4>
+<p>时间局部性：当前执行的指令不久后可能再次执行</p>
 <p>空间局部性：当前访问的数据不久后可能访问其邻近的数据</p>
-<h4 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h4><p>基于局部性原理，仅将少量页面存入内存</p>
-<h3 id="3-2-2-请求分页管理方式"><a href="#3-2-2-请求分页管理方式" class="headerlink" title="3.2.2 请求分页管理方式"></a>3.2.2 请求分页管理方式</h3><h4 id="页表机制"><a href="#页表机制" class="headerlink" title="页表机制"></a>页表机制</h4><p>页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址</p>
-<h4 id="缺页中断机构"><a href="#缺页中断机构" class="headerlink" title="缺页中断机构"></a>缺页中断机构</h4><p>产生缺页中断</p>
-<h4 id="地址变换机构"><a href="#地址变换机构" class="headerlink" title="地址变换机构"></a>地址变换机构</h4><p>从快表到页表再到外存</p>
-<h3 id="3-2-3-页框分配"><a href="#3-2-3-页框分配" class="headerlink" title="3.2.3 页框分配"></a>3.2.3 页框分配</h3><h4 id="驻留集大小"><a href="#驻留集大小" class="headerlink" title="驻留集大小"></a>驻留集大小</h4><p>太小缺页率高</p>
+<h4 id="虚拟存储器">虚拟存储器</h4>
+<p>基于局部性原理，仅将少量页面存入内存</p>
+<h3 id="请求分页管理方式">3.2.2 请求分页管理方式</h3>
+<h4 id="页表机制">页表机制</h4>
+<p>页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址</p>
+<h4 id="缺页中断机构">缺页中断机构</h4>
+<p>产生缺页中断</p>
+<h4 id="地址变换机构">地址变换机构</h4>
+<p>从快表到页表再到外存</p>
+<h3 id="页框分配">3.2.3 页框分配</h3>
+<h4 id="驻留集大小">驻留集大小</h4>
+<p>太小缺页率高</p>
 <p>太大没意义</p>
-<h4 id="内存分配策略"><a href="#内存分配策略" class="headerlink" title="内存分配策略"></a>内存分配策略</h4><p>固定分配局部置换：所有进程块数一样，自己换自己的</p>
+<h4 id="内存分配策略">内存分配策略</h4>
+<p>固定分配局部置换：所有进程块数一样，自己换自己的</p>
 <p>可变分配全局置换：</p>
 <p>可变分配局部置换：</p>
-<h4 id="物理块调入算法"><a href="#物理块调入算法" class="headerlink" title="物理块调入算法"></a>物理块调入算法</h4><p>固定分配时有以下几种物理块分配算法</p>
+<h4 id="物理块调入算法">物理块调入算法</h4>
+<p>固定分配时有以下几种物理块分配算法</p>
 <p>平均分配算法：</p>
 <p>按比例分配算法：</p>
 <p>优先权分配算法：</p>
-<h4 id="调入页面的时机"><a href="#调入页面的时机" class="headerlink" title="调入页面的时机"></a>调入页面的时机</h4><p>预调页策略</p>
+<h4 id="调入页面的时机">调入页面的时机</h4>
+<p>预调页策略</p>
 <p>请求调页策略</p>
-<h4 id="从何处调入页面"><a href="#从何处调入页面" class="headerlink" title="从何处调入页面"></a>从何处调入页面</h4><p>略</p>
-<h4 id="如何调入页面"><a href="#如何调入页面" class="headerlink" title="如何调入页面"></a>如何调入页面</h4><p>缺页中断</p>
-<h3 id="3-2-4-页面置换算法"><a href="#3-2-4-页面置换算法" class="headerlink" title="3.2.4 页面置换算法"></a>3.2.4 页面置换算法</h3><h4 id="最佳置换算法（OPT）"><a href="#最佳置换算法（OPT）" class="headerlink" title="最佳置换算法（OPT）"></a>最佳置换算法（OPT）</h4><p>最长时间不被访问</p>
-<h4 id="先进先出置换算法（FIFO）"><a href="#先进先出置换算法（FIFO）" class="headerlink" title="先进先出置换算法（FIFO）"></a>先进先出置换算法（FIFO）</h4><p>可能导致Belady异常（物理块增多，缺页数也增多）</p>
-<h4 id="最近最久未使用置换算法（LRU）"><a href="#最近最久未使用置换算法（LRU）" class="headerlink" title="最近最久未使用置换算法（LRU）"></a>最近最久未使用置换算法（LRU）</h4><h4 id="时钟置换算法"><a href="#时钟置换算法" class="headerlink" title="时钟置换算法"></a>时钟置换算法</h4><p>简单CLOCK</p>
+<h4 id="从何处调入页面">从何处调入页面</h4>
+<p>略</p>
+<h4 id="如何调入页面">如何调入页面</h4>
+<p>缺页中断</p>
+<h3 id="页面置换算法">3.2.4 页面置换算法</h3>
+<h4 id="最佳置换算法opt">最佳置换算法（OPT）</h4>
+<p>最长时间不被访问</p>
+<h4 id="先进先出置换算法fifo">先进先出置换算法（FIFO）</h4>
+<p>可能导致Belady异常（物理块增多，缺页数也增多）</p>
+<h4 id="最近最久未使用置换算法lru">最近最久未使用置换算法（LRU）</h4>
+<h4 id="时钟置换算法">时钟置换算法</h4>
+<p>简单CLOCK</p>
 <p>也叫最近未用算法（NRU）：新增访问位，被访问时访问位设置为1。缺页时若为1则置为0，若为0则置换。</p>
 <p>改进CLOCK</p>
 <p>新增修改位。优先换未访问且未修改的页，其次换未访问但修改过的页。</p>
-<h3 id="3-2-5-抖动和工作集"><a href="#3-2-5-抖动和工作集" class="headerlink" title="3.2.5 抖动和工作集"></a>3.2.5 抖动和工作集</h3><h4 id="抖动"><a href="#抖动" class="headerlink" title="抖动"></a>抖动</h4><p>抖动：频繁的页面调度行为，刚换入就要换出，刚换出就要换入。</p>
+<h3 id="抖动和工作集">3.2.5 抖动和工作集</h3>
+<h4 id="抖动">抖动</h4>
+<p>抖动：频繁的页面调度行为，刚换入就要换出，刚换出就要换入。</p>
 <p>抖动原因：进程太多，物理块太少</p>
-<h4 id="工作集"><a href="#工作集" class="headerlink" title="工作集"></a>工作集</h4><p>工作集：某段时间内，进程要访问的页面集合。</p>
-<h3 id="3-2-6-内存映射文件"><a href="#3-2-6-内存映射文件" class="headerlink" title="3.2.6 内存映射文件"></a>3.2.6 内存映射文件</h3><p>内存映射可用于共享文件or进程通信</p>
-<h3 id="3-2-7-虚拟存储器性能影响因素"><a href="#3-2-7-虚拟存储器性能影响因素" class="headerlink" title="3.2.7 虚拟存储器性能影响因素"></a>3.2.7 虚拟存储器性能影响因素</h3><p>缺页率——页面大小，物理块数，置换算法和程序本身</p>
-<h4 id="页面大小"><a href="#页面大小" class="headerlink" title="页面大小"></a>页面大小</h4><p>小</p>
+<h4 id="工作集">工作集</h4>
+<p>工作集：某段时间内，进程要访问的页面集合。</p>
+<h3 id="内存映射文件">3.2.6 内存映射文件</h3>
+<p>内存映射可用于共享文件or进程通信</p>
+<h3 id="虚拟存储器性能影响因素">3.2.7 虚拟存储器性能影响因素</h3>
+<p>缺页率——页面大小，物理块数，置换算法和程序本身</p>
+<h4 id="页面大小">页面大小</h4>
+<p>小</p>
 <p>优点：内存碎片少，内存利用率高</p>
 <p>缺点：缺页率高，页表长</p>
 <p>大</p>
 <p>优点：缺页率低，页表短</p>
 <p>缺点：内部碎片大</p>
-<h4 id="物理块数"><a href="#物理块数" class="headerlink" title="物理块数"></a>物理块数</h4><p>达到一定程度后增长不明显</p>
-<h4 id="置换算法"><a href="#置换算法" class="headerlink" title="置换算法"></a>置换算法</h4><h4 id="写回"><a href="#写回" class="headerlink" title="写回"></a>写回</h4><p>把脏块存在一个链表上，到一定数量后一起写回磁盘，其他进程可直接从链表上读取</p>
-<h4 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h4><p>局部化</p>
-<h3 id="3-2-8-地址翻译"><a href="#3-2-8-地址翻译" class="headerlink" title="3.2.8 地址翻译"></a>3.2.8 地址翻译</h3><p>略，从逻辑地址到物理地址的整个流程</p>
+<h4 id="物理块数">物理块数</h4>
+<p>达到一定程度后增长不明显</p>
+<h4 id="置换算法">置换算法</h4>
+<h4 id="写回">写回</h4>
+<p>把脏块存在一个链表上，到一定数量后一起写回磁盘，其他进程可直接从链表上读取</p>
+<h4 id="程序">程序</h4>
+<p>局部化</p>
+<h3 id="地址翻译">3.2.8 地址翻译</h3>
+<p>略，从逻辑地址到物理地址的整个流程</p>
 
     </div>
 

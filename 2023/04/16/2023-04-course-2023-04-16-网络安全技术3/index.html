@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="自顶向下第8章概览8.7 网络层安全性：IPsec和虚拟专用网许多机构使用IPsec创建了虚拟专用网（VPN）。 网络层安全性地毯式覆盖。 IPsec提供了机密性，源鉴别，数据完整性和重放攻击防护。 IPsec和虚拟专用网概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。 AH协议和ESP协议AH：鉴别首部，提供源鉴别和数据完整性服务 ESP：封装安全性载荷，提供源鉴别，数">
+    <meta name="description" content="自顶向下第8章概览 8.7 网络层安全性：IPsec和虚拟专用网 许多机构使用IPsec创建了虚拟专用网（VPN）。 网络层安全性地毯式覆盖。 IPsec提供了机密性，源鉴别，数据完整性和重放攻击防护。 IPsec和虚拟专用网 概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。 AH协议和ESP协议 AH：鉴别首部，提供源鉴别和数据完整性服务 ESP：封">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络安全技术3">
 <meta property="og:url" content="http://example.com/2023/04/16/2023-04-course-2023-04-16-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF3/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="自顶向下第8章概览8.7 网络层安全性：IPsec和虚拟专用网许多机构使用IPsec创建了虚拟专用网（VPN）。 网络层安全性地毯式覆盖。 IPsec提供了机密性，源鉴别，数据完整性和重放攻击防护。 IPsec和虚拟专用网概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。 AH协议和ESP协议AH：鉴别首部，提供源鉴别和数据完整性服务 ESP：封装安全性载荷，提供源鉴别，数">
+<meta property="og:description" content="自顶向下第8章概览 8.7 网络层安全性：IPsec和虚拟专用网 许多机构使用IPsec创建了虚拟专用网（VPN）。 网络层安全性地毯式覆盖。 IPsec提供了机密性，源鉴别，数据完整性和重放攻击防护。 IPsec和虚拟专用网 概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。 AH协议和ESP协议 AH：鉴别首部，提供源鉴别和数据完整性服务 ESP：封">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-16T13:25:30.000Z">
 <meta property="article:modified_time" content="2023-04-25T12:31:02.935Z">
@@ -112,7 +112,9 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC8%E7%AB%A0%E6%A6%82%E8%A7%88"><span class="nav-text">自顶向下第8章概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-%E7%BD%91%E7%BB%9C%E5%B1%82%E5%AE%89%E5%85%A8%E6%80%A7%EF%BC%9AIPsec%E5%92%8C%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91"><span class="nav-text">8.7 网络层安全性：IPsec和虚拟专用网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IPsec%E5%92%8C%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91"><span class="nav-text">IPsec和虚拟专用网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AH%E5%8D%8F%E8%AE%AE%E5%92%8CESP%E5%8D%8F%E8%AE%AE"><span class="nav-text">AH协议和ESP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%85%B3%E8%81%94"><span class="nav-text">安全关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPsec%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="nav-text">IPsec数据报</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IKE%EF%BC%9AIPsec%E4%B8%AD%E7%9A%84%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86"><span class="nav-text">IKE：IPsec中的密钥管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-%E4%BD%BF%E6%97%A0%E7%BA%BFLAN%E5%AE%89%E5%85%A8"><span class="nav-text">8.8 使无线LAN安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E7%BA%BF%E7%AD%89%E6%95%88%E4%BF%9D%E5%AF%86"><span class="nav-text">有线等效保密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IEEE-802-11i"><span class="nav-text">IEEE 802.11i</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-9-%E8%BF%90%E8%A1%8C%E5%AE%89%E5%85%A8%E6%80%A7%EF%BC%9A%E9%98%B2%E7%81%AB%E5%A2%99%E5%92%8C%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F"><span class="nav-text">8.9 运行安全性：防火墙和入侵检测系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-text">防火墙</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84%E5%88%86%E7%BB%84%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">传统的分组过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">状态过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BD%91%E5%85%B3"><span class="nav-text">应用程序网关</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F"><span class="nav-text">入侵检测系统</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC8%E7%AB%A0%E6%A6%82%E8%A7%88"><span class="nav-text">自顶向下第8章概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%AE%89%E5%85%A8%E6%80%A7ipsec%E5%92%8C%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91"><span class="nav-text">8.7
+网络层安全性：IPsec和虚拟专用网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ipsec%E5%92%8C%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91"><span class="nav-text">IPsec和虚拟专用网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ah%E5%8D%8F%E8%AE%AE%E5%92%8Cesp%E5%8D%8F%E8%AE%AE"><span class="nav-text">AH协议和ESP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%85%B3%E8%81%94"><span class="nav-text">安全关联</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ipsec%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="nav-text">IPsec数据报</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ikeipsec%E4%B8%AD%E7%9A%84%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86"><span class="nav-text">IKE：IPsec中的密钥管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E6%97%A0%E7%BA%BFlan%E5%AE%89%E5%85%A8"><span class="nav-text">8.8 使无线LAN安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E7%BA%BF%E7%AD%89%E6%95%88%E4%BF%9D%E5%AF%86"><span class="nav-text">有线等效保密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ieee-802.11i"><span class="nav-text">IEEE 802.11i</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%89%E5%85%A8%E6%80%A7%E9%98%B2%E7%81%AB%E5%A2%99%E5%92%8C%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F"><span class="nav-text">8.9
+运行安全性：防火墙和入侵检测系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-text">防火墙</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84%E5%88%86%E7%BB%84%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">传统的分组过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">状态过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BD%91%E5%85%B3"><span class="nav-text">应用程序网关</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F"><span class="nav-text">入侵检测系统</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,22 +227,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="自顶向下第8章概览"><a href="#自顶向下第8章概览" class="headerlink" title="自顶向下第8章概览"></a>自顶向下第8章概览</h2><h3 id="8-7-网络层安全性：IPsec和虚拟专用网"><a href="#8-7-网络层安全性：IPsec和虚拟专用网" class="headerlink" title="8.7 网络层安全性：IPsec和虚拟专用网"></a>8.7 网络层安全性：IPsec和虚拟专用网</h3><p>许多机构使用IPsec创建了虚拟专用网（VPN）。</p>
+        <h2 id="自顶向下第8章概览">自顶向下第8章概览</h2>
+<h3 id="网络层安全性ipsec和虚拟专用网">8.7
+网络层安全性：IPsec和虚拟专用网</h3>
+<p>许多机构使用IPsec创建了虚拟专用网（VPN）。</p>
 <p>网络层安全性地毯式覆盖。</p>
 <p>IPsec提供了机密性，源鉴别，数据完整性和重放攻击防护。</p>
-<h4 id="IPsec和虚拟专用网"><a href="#IPsec和虚拟专用网" class="headerlink" title="IPsec和虚拟专用网"></a>IPsec和虚拟专用网</h4><p>概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。</p>
-<h4 id="AH协议和ESP协议"><a href="#AH协议和ESP协议" class="headerlink" title="AH协议和ESP协议"></a>AH协议和ESP协议</h4><p>AH：鉴别首部，提供源鉴别和数据完整性服务</p>
+<h4 id="ipsec和虚拟专用网">IPsec和虚拟专用网</h4>
+<p>概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。</p>
+<h4 id="ah协议和esp协议">AH协议和ESP协议</h4>
+<p>AH：鉴别首部，提供源鉴别和数据完整性服务</p>
 <p>ESP：封装安全性载荷，提供源鉴别，数据完整性和机密性服务</p>
-<h4 id="安全关联"><a href="#安全关联" class="headerlink" title="安全关联"></a>安全关联</h4><p>在发送数据报前创建一个逻辑连接，称之为安全关联（SA），单工，由发送方路由器维护。</p>
+<h4 id="安全关联">安全关联</h4>
+<p>在发送数据报前创建一个逻辑连接，称之为安全关联（SA），单工，由发送方路由器维护。</p>
 <p>SAD：安全关联数据库</p>
 <p>SA identifier: SPI(security parameter index)</p>
-<h4 id="IPsec数据报"><a href="#IPsec数据报" class="headerlink" title="IPsec数据报"></a>IPsec数据报</h4><p>隧道模式or运输模式，以下关注隧道模式。</p>
+<h4 id="ipsec数据报">IPsec数据报</h4>
+<p>隧道模式or运输模式，以下关注隧道模式。</p>
 <p>IPsec数据报结构为：新IP首部+ESP首部+初始IP首部+初始IP数据报载荷+ESP尾部+ESP-MAC。</p>
 <p>其中先加密“初始IP首部+初始IP数据报载荷+ESP尾部”，再由“ESP首部+被加密的部分”生成MAC。</p>
 <p>ESP协议的IPsec数据报的协议号：50</p>
 <p>ESP首部以明文发送，其中由SPI和序号。</p>
 <p>目的路由器接收步骤：</p>
-<ol>
+<ol type="1">
 <li>查看IP地址</li>
 <li>判断协议号</li>
 <li>通过SPI确定SA</li>
@@ -251,32 +260,43 @@
 <li>转发进VPN</li>
 </ol>
 <p>SPD：安全策略库</p>
-<h4 id="IKE：IPsec中的密钥管理"><a href="#IKE：IPsec中的密钥管理" class="headerlink" title="IKE：IPsec中的密钥管理"></a>IKE：IPsec中的密钥管理</h4><p>IKE：因特网密钥交换，用于自动生成SA。</p>
+<h4 id="ikeipsec中的密钥管理">IKE：IPsec中的密钥管理</h4>
+<p>IKE：因特网密钥交换，用于自动生成SA。</p>
 <p>两个阶段：具体操作略</p>
-<h3 id="8-8-使无线LAN安全"><a href="#8-8-使无线LAN安全" class="headerlink" title="8.8 使无线LAN安全"></a>8.8 使无线LAN安全</h3><p>WEP：有线等效保密</p>
-<h4 id="有线等效保密"><a href="#有线等效保密" class="headerlink" title="有线等效保密"></a>有线等效保密</h4><p>鉴别方式：</p>
-<ol>
+<h3 id="使无线lan安全">8.8 使无线LAN安全</h3>
+<p>WEP：有线等效保密</p>
+<h4 id="有线等效保密">有线等效保密</h4>
+<p>鉴别方式：</p>
+<ol type="1">
 <li>无线主机通过接入点请求鉴别</li>
 <li>接入点以nonce响应鉴别</li>
 <li>无线主机用共享的密钥加密nonce</li>
 <li>接入点解密加密的nonce</li>
 </ol>
 <p>具体过程：略</p>
-<h4 id="IEEE-802-11i"><a href="#IEEE-802-11i" class="headerlink" title="IEEE 802.11i"></a>IEEE 802.11i</h4><p>略</p>
-<h3 id="8-9-运行安全性：防火墙和入侵检测系统"><a href="#8-9-运行安全性：防火墙和入侵检测系统" class="headerlink" title="8.9 运行安全性：防火墙和入侵检测系统"></a>8.9 运行安全性：防火墙和入侵检测系统</h3><p>对流量进行安全检查</p>
-<h4 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h4><p>目标：</p>
-<ol>
+<h4 id="ieee-802.11i">IEEE 802.11i</h4>
+<p>略</p>
+<h3 id="运行安全性防火墙和入侵检测系统">8.9
+运行安全性：防火墙和入侵检测系统</h3>
+<p>对流量进行安全检查</p>
+<h4 id="防火墙">防火墙</h4>
+<p>目标：</p>
+<ol type="1">
 <li>所有流量都通过防火墙</li>
 <li>仅授权流量允许通过</li>
 <li>自身免于渗透</li>
 </ol>
-<h5 id="传统的分组过滤器"><a href="#传统的分组过滤器" class="headerlink" title="传统的分组过滤器"></a>传统的分组过滤器</h5><p>根据规则决定是否丢弃</p>
+<h5 id="传统的分组过滤器">传统的分组过滤器</h5>
+<p>根据规则决定是否丢弃</p>
 <p>可根据ACK比特设置使得内部用户能够连接到外部服务器，而外部用户无法连接到内部服务器。有哄骗攻击。</p>
 <p>需要知道怎么生成连接表。</p>
-<h5 id="状态过滤器"><a href="#状态过滤器" class="headerlink" title="状态过滤器"></a>状态过滤器</h5><p>需要知道怎么生成访问控制列表。</p>
-<h5 id="应用程序网关"><a href="#应用程序网关" class="headerlink" title="应用程序网关"></a>应用程序网关</h5><p>根据应用程序控制访问。</p>
+<h5 id="状态过滤器">状态过滤器</h5>
+<p>需要知道怎么生成访问控制列表。</p>
+<h5 id="应用程序网关">应用程序网关</h5>
+<p>根据应用程序控制访问。</p>
 <p>邮箱服务器，web高速缓存等等都是应用程序网关。</p>
-<h4 id="入侵检测系统"><a href="#入侵检测系统" class="headerlink" title="入侵检测系统"></a>入侵检测系统</h4><p>IDS：入侵检测系统，告警</p>
+<h4 id="入侵检测系统">入侵检测系统</h4>
+<p>IDS：入侵检测系统，告警</p>
 <p>IPS：入侵防止系统，滤除</p>
 <p>基于特征or基于异常</p>
 <p>基于特征的缺点：需要先验知识；处理能力要求高</p>
