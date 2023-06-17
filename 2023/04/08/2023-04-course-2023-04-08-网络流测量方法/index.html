@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="网络流定义 流的定义 最简单的定义 通过TCP的SYN和FIN判断一条流的开始和结束 基于超时值的流定义 同一源地址与目的地址的数据包在时间上的间隔小于指定的超时值，则判断该流处于活动状态。 流的参数定义 方向性：单向or双向 单端点or双端点 端点粒度：app，终端，局域网，服务器 协议层：TCP，UDP，HTTP等等 单流的测度 根据流超时值划分为多个小流 组流：流聚">
+    <meta name="description" content="网络流定义流的定义最简单的定义通过TCP的SYN和FIN判断一条流的开始和结束 基于超时值的流定义同一源地址与目的地址的数据包在时间上的间隔小于指定的超时值，则判断该流处于活动状态。 流的参数定义方向性：单向or双向 单端点or双端点 端点粒度：app，终端，局域网，服务器 协议层：TCP，UDP，HTTP等等 单流的测度根据流超时值划分为多个小流 组流：流聚合，可根据端点粒度划分 不同流的特性存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络流测量方法-第三章">
 <meta property="og:url" content="http://example.com/2023/04/08/2023-04-course-2023-04-08-%E7%BD%91%E7%BB%9C%E6%B5%81%E6%B5%8B%E9%87%8F%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="网络流定义 流的定义 最简单的定义 通过TCP的SYN和FIN判断一条流的开始和结束 基于超时值的流定义 同一源地址与目的地址的数据包在时间上的间隔小于指定的超时值，则判断该流处于活动状态。 流的参数定义 方向性：单向or双向 单端点or双端点 端点粒度：app，终端，局域网，服务器 协议层：TCP，UDP，HTTP等等 单流的测度 根据流超时值划分为多个小流 组流：流聚">
+<meta property="og:description" content="网络流定义流的定义最简单的定义通过TCP的SYN和FIN判断一条流的开始和结束 基于超时值的流定义同一源地址与目的地址的数据包在时间上的间隔小于指定的超时值，则判断该流处于活动状态。 流的参数定义方向性：单向or双向 单端点or双端点 端点粒度：app，终端，局域网，服务器 协议层：TCP，UDP，HTTP等等 单流的测度根据流超时值划分为多个小流 组流：流聚合，可根据端点粒度划分 不同流的特性存">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-08T05:15:30.000Z">
 <meta property="article:modified_time" content="2023-04-17T04:48:01.206Z">
@@ -125,13 +125,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -225,36 +225,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="网络流定义">网络流定义</h2>
-<h3 id="流的定义">流的定义</h3>
-<h4 id="最简单的定义">最简单的定义</h4>
-<p>通过TCP的SYN和FIN判断一条流的开始和结束</p>
-<h4 id="基于超时值的流定义">基于超时值的流定义</h4>
-<p>同一源地址与目的地址的数据包在时间上的间隔小于指定的超时值，则判断该流处于活动状态。</p>
-<h3 id="流的参数定义">流的参数定义</h3>
-<p>方向性：单向or双向</p>
+        <h2 id="网络流定义"><a href="#网络流定义" class="headerlink" title="网络流定义"></a>网络流定义</h2><h3 id="流的定义"><a href="#流的定义" class="headerlink" title="流的定义"></a>流的定义</h3><h4 id="最简单的定义"><a href="#最简单的定义" class="headerlink" title="最简单的定义"></a>最简单的定义</h4><p>通过TCP的SYN和FIN判断一条流的开始和结束</p>
+<h4 id="基于超时值的流定义"><a href="#基于超时值的流定义" class="headerlink" title="基于超时值的流定义"></a>基于超时值的流定义</h4><p>同一源地址与目的地址的数据包在时间上的间隔小于指定的超时值，则判断该流处于活动状态。</p>
+<h3 id="流的参数定义"><a href="#流的参数定义" class="headerlink" title="流的参数定义"></a>流的参数定义</h3><p>方向性：单向or双向</p>
 <p>单端点or双端点</p>
 <p>端点粒度：app，终端，局域网，服务器</p>
 <p>协议层：TCP，UDP，HTTP等等</p>
-<h3 id="单流的测度">单流的测度</h3>
-<p>根据流超时值划分为多个小流</p>
+<h3 id="单流的测度"><a href="#单流的测度" class="headerlink" title="单流的测度"></a>单流的测度</h3><p>根据流超时值划分为多个小流</p>
 <p>组流：流聚合，可根据端点粒度划分</p>
 <p>不同流的特性存在差异</p>
-<h3 id="聚合流的定义">聚合流的定义</h3>
-<h3 id="流超时值的设置">流超时值的设置</h3>
-<h4 id="过低">过低</h4>
-<p>优点：频繁地创建和清除流的方式，需要的内存资源更少</p>
+<h3 id="聚合流的定义"><a href="#聚合流的定义" class="headerlink" title="聚合流的定义"></a>聚合流的定义</h3><h3 id="流超时值的设置"><a href="#流超时值的设置" class="headerlink" title="流超时值的设置"></a>流超时值的设置</h3><h4 id="过低"><a href="#过低" class="headerlink" title="过低"></a>过低</h4><p>优点：频繁地创建和清除流的方式，需要的内存资源更少</p>
 <p>缺点：需要更大的CPU功率和更多内存管理资源。即使观测的网络流尚未结束，流也可能判定为超时，从而产生重新建立该流导致的潜在处理延迟和处理成本。</p>
-<h4 id="过高">过高</h4>
-<p>优点：较低的CPU功率和较少内存管理资源，不易发生流分裂。</p>
+<h4 id="过高"><a href="#过高" class="headerlink" title="过高"></a>过高</h4><p>优点：较低的CPU功率和较少内存管理资源，不易发生流分裂。</p>
 <p>缺点：容易对内存造成负担，导致流记录溢出从而丢失应有的流条目。</p>
-<h3 id="对特定流的优化">对特定流的优化</h3>
-<p>满足一定条件时可优化传输该流的路由资源</p>
-<h3 id="按协议类型划分流量">按协议类型划分流量</h3>
-<h3 id="组流的一般方式">组流的一般方式</h3>
-<p>对头部进行解析，判断所属流</p>
-<h3 id="流记录输出判定">流记录输出判定</h3>
-
+<h3 id="对特定流的优化"><a href="#对特定流的优化" class="headerlink" title="对特定流的优化"></a>对特定流的优化</h3><p>满足一定条件时可优化传输该流的路由资源</p>
+<h3 id="按协议类型划分流量"><a href="#按协议类型划分流量" class="headerlink" title="按协议类型划分流量"></a>按协议类型划分流量</h3><h3 id="组流的一般方式"><a href="#组流的一般方式" class="headerlink" title="组流的一般方式"></a>组流的一般方式</h3><p>对头部进行解析，判断所属流</p>
+<h3 id="流记录输出判定"><a href="#流记录输出判定" class="headerlink" title="流记录输出判定"></a>流记录输出判定</h3>
     </div>
 
     

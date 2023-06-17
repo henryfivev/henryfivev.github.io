@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数">
+    <meta name="description" content="剑指offer 40——最小的k个数 快速排序。 部分快速排序，前k个排好就返回。 位图，vector\ arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数  一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。 有序队列，双指针指向最中间的两个数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer-Day17">
 <meta property="og:url" content="http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数">
+<meta property="og:description" content="剑指offer 40——最小的k个数 快速排序。 部分快速排序，前k个排好就返回。 位图，vector\ arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数  一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。 有序队列，双指针指向最中间的两个数。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/assets/image-20230403211629298.png">
 <meta property="article:published_time" content="2023-04-03T11:15:30.000Z">
@@ -114,8 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0"><span class="nav-text">剑指offer 40——最小的k个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-text">剑指offer
-41——数据流中的中位数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-40%E2%80%94%E2%80%94%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0"><span class="nav-text">剑指offer 40——最小的k个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-41%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-text">剑指offer 41——数据流中的中位数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -228,17 +227,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="剑指offer-40最小的k个数">剑指offer 40——最小的k个数</h2>
-<ol type="1">
+        <h2 id="剑指offer-40——最小的k个数"><a href="#剑指offer-40——最小的k个数" class="headerlink" title="剑指offer 40——最小的k个数"></a>剑指offer 40——最小的k个数</h2><ol>
 <li>快速排序。</li>
 <li>部分快速排序，前k个排好就返回。</li>
-<li>位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。</li>
+<li>位图，vector\<int\> arr，arr[i]表示数字 i 的个数。</li>
 </ol>
-<h2 id="剑指offer-41数据流中的中位数">剑指offer
-41——数据流中的中位数</h2>
-<p><img src="/assets/image-20230403211629298.png"
-alt="image-20230403211629298" style="zoom:25%;" /&gt;</p>
-<ol type="1">
+<h2 id="剑指offer-41——数据流中的中位数"><a href="#剑指offer-41——数据流中的中位数" class="headerlink" title="剑指offer 41——数据流中的中位数"></a>剑指offer 41——数据流中的中位数</h2><p><img src="/assets/image-20230403211629298.png" alt="image-20230403211629298" style="zoom:25%;" /></p>
+<ol>
 <li>一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。</li>
 <li>有序队列，双指针指向最中间的两个数。</li>
 </ol>

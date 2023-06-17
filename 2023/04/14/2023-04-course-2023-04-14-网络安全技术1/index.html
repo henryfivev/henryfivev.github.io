@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="先拿中文版的教材花两天过一遍。 自顶向下第8章概览 8.1 什么是网络安全 8.2 密码学原理 古典密码 流密码，块密码 对称密码 非对称密码（会话密钥） 8.3 报文完整性和数字签名 哈希函数 压缩函数 报文鉴别码 MAC 数字签名 数字签名拥有可鉴别和不可伪造的特点。 可用公钥密码直接进行数字签名但代价过大，所以一般先用哈希函数进行压缩，再用私钥进行签名（即加密）">
+    <meta name="description" content="先拿中文版的教材花两天过一遍。 自顶向下第8章概览8.1 什么是网络安全8.2 密码学原理古典密码 流密码，块密码 对称密码 非对称密码（会话密钥） 8.3 报文完整性和数字签名哈希函数压缩函数 报文鉴别码MAC 数字签名数字签名拥有可鉴别和不可伪造的特点。 可用公钥密码直接进行数字签名但代价过大，所以一般先用哈希函数进行压缩，再用私钥进行签名（即加密） 进行公钥认证需要PKI做支撑 CA（认证中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络安全技术1">
 <meta property="og:url" content="http://example.com/2023/04/14/2023-04-course-2023-04-14-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF1/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="先拿中文版的教材花两天过一遍。 自顶向下第8章概览 8.1 什么是网络安全 8.2 密码学原理 古典密码 流密码，块密码 对称密码 非对称密码（会话密钥） 8.3 报文完整性和数字签名 哈希函数 压缩函数 报文鉴别码 MAC 数字签名 数字签名拥有可鉴别和不可伪造的特点。 可用公钥密码直接进行数字签名但代价过大，所以一般先用哈希函数进行压缩，再用私钥进行签名（即加密）">
+<meta property="og:description" content="先拿中文版的教材花两天过一遍。 自顶向下第8章概览8.1 什么是网络安全8.2 密码学原理古典密码 流密码，块密码 对称密码 非对称密码（会话密钥） 8.3 报文完整性和数字签名哈希函数压缩函数 报文鉴别码MAC 数字签名数字签名拥有可鉴别和不可伪造的特点。 可用公钥密码直接进行数字签名但代价过大，所以一般先用哈希函数进行压缩，再用私钥进行签名（即加密） 进行公钥认证需要PKI做支撑 CA（认证中">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-14T06:25:30.000Z">
 <meta property="article:modified_time" content="2023-04-21T06:58:33.037Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC8%E7%AB%A0%E6%A6%82%E8%A7%88"><span class="nav-text">自顶向下第8章概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="nav-text">8.1 什么是网络安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="nav-text">8.2 密码学原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-text">8.3 报文完整性和数字签名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E9%89%B4%E5%88%AB%E7%A0%81"><span class="nav-text">报文鉴别码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-text">数字签名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E7%82%B9%E9%89%B4%E5%88%AB"><span class="nav-text">8.4 端点鉴别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ap1.0"><span class="nav-text">ap1.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap2.0"><span class="nav-text">ap2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap3.0"><span class="nav-text">ap3.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap3.1"><span class="nav-text">ap3.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap4.0"><span class="nav-text">ap4.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap5.0"><span class="nav-text">ap5.0</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC8%E7%AB%A0%E6%A6%82%E8%A7%88"><span class="nav-text">自顶向下第8章概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="nav-text">8.1 什么是网络安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="nav-text">8.2 密码学原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-%E6%8A%A5%E6%96%87%E5%AE%8C%E6%95%B4%E6%80%A7%E5%92%8C%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-text">8.3 报文完整性和数字签名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="nav-text">哈希函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E9%89%B4%E5%88%AB%E7%A0%81"><span class="nav-text">报文鉴别码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-text">数字签名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-%E7%AB%AF%E7%82%B9%E9%89%B4%E5%88%AB"><span class="nav-text">8.4 端点鉴别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ap1-0"><span class="nav-text">ap1.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap2-0"><span class="nav-text">ap2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap3-0"><span class="nav-text">ap3.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap3-1"><span class="nav-text">ap3.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap4-0"><span class="nav-text">ap4.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ap5-0"><span class="nav-text">ap5.0</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,13 +125,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -226,41 +226,27 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>先拿中文版的教材花两天过一遍。</p>
-<h2 id="自顶向下第8章概览">自顶向下第8章概览</h2>
-<h3 id="什么是网络安全">8.1 什么是网络安全</h3>
-<h3 id="密码学原理">8.2 密码学原理</h3>
-<p>古典密码</p>
+<h2 id="自顶向下第8章概览"><a href="#自顶向下第8章概览" class="headerlink" title="自顶向下第8章概览"></a>自顶向下第8章概览</h2><h3 id="8-1-什么是网络安全"><a href="#8-1-什么是网络安全" class="headerlink" title="8.1 什么是网络安全"></a>8.1 什么是网络安全</h3><h3 id="8-2-密码学原理"><a href="#8-2-密码学原理" class="headerlink" title="8.2 密码学原理"></a>8.2 密码学原理</h3><p>古典密码</p>
 <p>流密码，块密码</p>
 <p>对称密码</p>
 <p>非对称密码（会话密钥）</p>
-<h3 id="报文完整性和数字签名">8.3 报文完整性和数字签名</h3>
-<h4 id="哈希函数">哈希函数</h4>
-<p>压缩函数</p>
-<h4 id="报文鉴别码">报文鉴别码</h4>
-<p>MAC</p>
-<h4 id="数字签名">数字签名</h4>
-<p>数字签名拥有可鉴别和不可伪造的特点。</p>
+<h3 id="8-3-报文完整性和数字签名"><a href="#8-3-报文完整性和数字签名" class="headerlink" title="8.3 报文完整性和数字签名"></a>8.3 报文完整性和数字签名</h3><h4 id="哈希函数"><a href="#哈希函数" class="headerlink" title="哈希函数"></a>哈希函数</h4><p>压缩函数</p>
+<h4 id="报文鉴别码"><a href="#报文鉴别码" class="headerlink" title="报文鉴别码"></a>报文鉴别码</h4><p>MAC</p>
+<h4 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h4><p>数字签名拥有可鉴别和不可伪造的特点。</p>
 <p>可用公钥密码直接进行数字签名但代价过大，所以一般先用哈希函数进行压缩，再用私钥进行签名（即加密）</p>
 <p>进行公钥认证需要PKI做支撑</p>
 <p>CA（认证中心）：绑定公钥和特定实体，且验证之后会生成将公钥和实体绑定的证书</p>
-<h3 id="端点鉴别">8.4 端点鉴别</h3>
-<p>端点鉴别就是一个实体通过网络向另一个实体证明身份的过程，发生在其他协议之前。</p>
-<h4 id="ap1.0">ap1.0</h4>
-<p>Alice直接发送报文给Bob，说“我是Alice”。</p>
+<h3 id="8-4-端点鉴别"><a href="#8-4-端点鉴别" class="headerlink" title="8.4 端点鉴别"></a>8.4 端点鉴别</h3><p>端点鉴别就是一个实体通过网络向另一个实体证明身份的过程，发生在其他协议之前。</p>
+<h4 id="ap1-0"><a href="#ap1-0" class="headerlink" title="ap1.0"></a>ap1.0</h4><p>Alice直接发送报文给Bob，说“我是Alice”。</p>
 <p>缺陷：Bob无法判断发送的人就是Alice。</p>
-<h4 id="ap2.0">ap2.0</h4>
-<p>Alice有一个周知网络地址，Bob通过数据报的源地址是否与Alice的周知IP地址相匹配来判断。</p>
+<h4 id="ap2-0"><a href="#ap2-0" class="headerlink" title="ap2.0"></a>ap2.0</h4><p>Alice有一个周知网络地址，Bob通过数据报的源地址是否与Alice的周知IP地址相匹配来判断。</p>
 <p>缺陷：容易被假冒。</p>
-<h4 id="ap3.0">ap3.0</h4>
-<p>使用口令进行鉴别。</p>
+<h4 id="ap3-0"><a href="#ap3-0" class="headerlink" title="ap3.0"></a>ap3.0</h4><p>使用口令进行鉴别。</p>
 <p>缺陷：容易被窃听</p>
-<h4 id="ap3.1">ap3.1</h4>
-<p>Alice向Bob发送报文和加密后的口令，Bob解密口令进行鉴别。</p>
+<h4 id="ap3-1"><a href="#ap3-1" class="headerlink" title="ap3.1"></a>ap3.1</h4><p>Alice向Bob发送报文和加密后的口令，Bob解密口令进行鉴别。</p>
 <p>缺陷：回放攻击</p>
-<h4 id="ap4.0">ap4.0</h4>
-<p>Alice先向Bob发送报文，然后Bob发送一个nonce给Alice，Alice加密这个nonce并发回给Bob，最后Bob解密并接收报文。</p>
-<h4 id="ap5.0">ap5.0</h4>
-<p>相较ap4.0，ap5.0使用公钥加密。</p>
+<h4 id="ap4-0"><a href="#ap4-0" class="headerlink" title="ap4.0"></a>ap4.0</h4><p>Alice先向Bob发送报文，然后Bob发送一个nonce给Alice，Alice加密这个nonce并发回给Bob，最后Bob解密并接收报文。</p>
+<h4 id="ap5-0"><a href="#ap5-0" class="headerlink" title="ap5.0"></a>ap5.0</h4><p>相较ap4.0，ap5.0使用公钥加密。</p>
 <p>缺陷：中间人攻击</p>
 
     </div>
