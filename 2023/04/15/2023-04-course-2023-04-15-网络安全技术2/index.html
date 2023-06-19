@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="自顶向下第8章概览8.5 安全电子邮件为什么要在多层提供安全性功能：  用户级安全：一个商业网站不能依赖于IP层安全性 低层部署困难  安全电子邮件安全特性：  机密性：对称加密，非对称加密，会话密钥 发送方鉴别 报文完整性：数字签名，报文摘要 接收方鉴别  安全电子邮件系统：将会话密钥，数字签名和报文摘要结合使用。 PGP略 8.6 使TCP连接安全：SSLSSL ——&gt; TLS 宏观描述">
+    <meta name="description" content="自顶向下第8章概览 8.5 安全电子邮件 为什么要在多层提供安全性功能：  用户级安全：一个商业网站不能依赖于IP层安全性 低层部署困难  安全电子邮件 安全特性：  机密性：对称加密，非对称加密，会话密钥 发送方鉴别 报文完整性：数字签名，报文摘要 接收方鉴别  安全电子邮件系统：将会话密钥，数字签名和报文摘要结合使用。 PGP 略 8.6 使TCP连接安全：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络安全技术2">
 <meta property="og:url" content="http://example.com/2023/04/15/2023-04-course-2023-04-15-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF2/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="自顶向下第8章概览8.5 安全电子邮件为什么要在多层提供安全性功能：  用户级安全：一个商业网站不能依赖于IP层安全性 低层部署困难  安全电子邮件安全特性：  机密性：对称加密，非对称加密，会话密钥 发送方鉴别 报文完整性：数字签名，报文摘要 接收方鉴别  安全电子邮件系统：将会话密钥，数字签名和报文摘要结合使用。 PGP略 8.6 使TCP连接安全：SSLSSL ——&gt; TLS 宏观描述">
+<meta property="og:description" content="自顶向下第8章概览 8.5 安全电子邮件 为什么要在多层提供安全性功能：  用户级安全：一个商业网站不能依赖于IP层安全性 低层部署困难  安全电子邮件 安全特性：  机密性：对称加密，非对称加密，会话密钥 发送方鉴别 报文完整性：数字签名，报文摘要 接收方鉴别  安全电子邮件系统：将会话密钥，数字签名和报文摘要结合使用。 PGP 略 8.6 使TCP连接安全：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-15T06:25:30.000Z">
 <meta property="article:modified_time" content="2023-04-23T09:07:54.182Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC8%E7%AB%A0%E6%A6%82%E8%A7%88"><span class="nav-text">自顶向下第8章概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-%E5%AE%89%E5%85%A8%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="nav-text">8.5 安全电子邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="nav-text">安全电子邮件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PGP"><span class="nav-text">PGP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-%E4%BD%BFTCP%E8%BF%9E%E6%8E%A5%E5%AE%89%E5%85%A8%EF%BC%9ASSL"><span class="nav-text">8.6 使TCP连接安全：SSL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%8F%E8%A7%82%E6%8F%8F%E8%BF%B0"><span class="nav-text">宏观描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E5%AE%8C%E6%95%B4%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-text">更完整的描述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SSL%E6%8F%A1%E6%89%8B"><span class="nav-text">SSL握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5"><span class="nav-text">关闭连接</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%AC%AC8%E7%AB%A0%E6%A6%82%E8%A7%88"><span class="nav-text">自顶向下第8章概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="nav-text">8.5 安全电子邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6-1"><span class="nav-text">安全电子邮件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pgp"><span class="nav-text">PGP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BFtcp%E8%BF%9E%E6%8E%A5%E5%AE%89%E5%85%A8ssl"><span class="nav-text">8.6 使TCP连接安全：SSL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%8F%E8%A7%82%E6%8F%8F%E8%BF%B0"><span class="nav-text">宏观描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E5%AE%8C%E6%95%B4%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-text">更完整的描述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ssl%E6%8F%A1%E6%89%8B"><span class="nav-text">SSL握手</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5"><span class="nav-text">关闭连接</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -225,41 +225,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="自顶向下第8章概览"><a href="#自顶向下第8章概览" class="headerlink" title="自顶向下第8章概览"></a>自顶向下第8章概览</h2><h3 id="8-5-安全电子邮件"><a href="#8-5-安全电子邮件" class="headerlink" title="8.5 安全电子邮件"></a>8.5 安全电子邮件</h3><p>为什么要在多层提供安全性功能：</p>
-<ol>
+        <h2 id="自顶向下第8章概览">自顶向下第8章概览</h2>
+<h3 id="安全电子邮件">8.5 安全电子邮件</h3>
+<p>为什么要在多层提供安全性功能：</p>
+<ol type="1">
 <li>用户级安全：一个商业网站不能依赖于IP层安全性</li>
 <li>低层部署困难</li>
 </ol>
-<h4 id="安全电子邮件"><a href="#安全电子邮件" class="headerlink" title="安全电子邮件"></a>安全电子邮件</h4><p>安全特性：</p>
-<ol>
+<h4 id="安全电子邮件-1">安全电子邮件</h4>
+<p>安全特性：</p>
+<ol type="1">
 <li>机密性：对称加密，非对称加密，会话密钥</li>
 <li>发送方鉴别</li>
 <li>报文完整性：数字签名，报文摘要</li>
 <li>接收方鉴别</li>
 </ol>
 <p>安全电子邮件系统：将会话密钥，数字签名和报文摘要结合使用。</p>
-<h4 id="PGP"><a href="#PGP" class="headerlink" title="PGP"></a>PGP</h4><p>略</p>
-<h3 id="8-6-使TCP连接安全：SSL"><a href="#8-6-使TCP连接安全：SSL" class="headerlink" title="8.6 使TCP连接安全：SSL"></a>8.6 使TCP连接安全：SSL</h3><p>SSL ——&gt; TLS</p>
-<h4 id="宏观描述"><a href="#宏观描述" class="headerlink" title="宏观描述"></a>宏观描述</h4><p>SSL有三个阶段：握手，密钥导出和数据传输</p>
-<ol>
+<h4 id="pgp">PGP</h4>
+<p>略</p>
+<h3 id="使tcp连接安全ssl">8.6 使TCP连接安全：SSL</h3>
+<p>SSL ——&gt; TLS</p>
+<h4 id="宏观描述">宏观描述</h4>
+<p>SSL有三个阶段：握手，密钥导出和数据传输</p>
+<ol type="1">
 <li>握手：创建TCP连接，验证身份，发送主密钥(MS)</li>
 <li>密钥导出：使用MS生成4个密钥（两个会话加密密钥，两个会话MAC密钥）</li>
-<li>数据传输：SSL将数据分割成记录，对每个记录附加一个MAC(=H(数据, MAC密钥))用于完整性检查，然后用会话加密密钥加密”记录+MAC”</li>
+<li>数据传输：SSL将数据分割成记录，对每个记录附加一个MAC(=H(数据,
+MAC密钥))用于完整性检查，然后用会话加密密钥加密"记录+MAC"</li>
 </ol>
 <p>这种数据传输方式存在“报文顺序不对但完整性检查正确”的情况。</p>
-<p>记录格式：记录头（1字节content type+2字节SSL版本+3字节长度）+加密后的数据和MAC</p>
-<h4 id="更完整的描述"><a href="#更完整的描述" class="headerlink" title="更完整的描述"></a>更完整的描述</h4><h5 id="SSL握手"><a href="#SSL握手" class="headerlink" title="SSL握手"></a>SSL握手</h5><ol>
+<p>记录格式：记录头（1字节content
+type+2字节SSL版本+3字节长度）+加密后的数据和MAC</p>
+<h4 id="更完整的描述">更完整的描述</h4>
+<h5 id="ssl握手">SSL握手</h5>
+<ol type="1">
 <li>客户发送支持的算法列表，以及一个nonce</li>
 <li>服务器选择一个对称算法，一个非对称算法和一个MAC算法。返回算法，证书和一个nonce</li>
 <li>客户验证证书并提取公钥，生成一个前主密钥（PMS），发送用服务器公钥加密过的PMS</li>
 <li>客户和服务器分别从PMS和不重数中计算出主密钥（MS），然后将该MS切片以生成4个密钥</li>
 </ol>
 <p>CBC模式有幺蛾子。</p>
-<ol>
+<ol start="5" type="1">
 <li>客户发送所有握手报文的一个MAC</li>
 <li>服务器发送所有握手报文的一个MAC</li>
 </ol>
-<h5 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h5><p>在记录的类型字段中指出该记录是否用于终止SSL。</p>
+<h5 id="关闭连接">关闭连接</h5>
+<p>在记录的类型字段中指出该记录是否用于终止SSL。</p>
 
     </div>
 
