@@ -121,13 +121,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -158,7 +158,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/20/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E6%B5%81%E6%96%B9%E6%B3%95-%E7%AC%AC%E4%BA%94%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-MapReduce%E7%BC%96%E7%A8%8B%E6%A0%B7%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,7 +176,307 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/20/%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E6%B5%81%E6%96%B9%E6%B3%95-%E7%AC%AC%E4%BA%94%E7%AB%A0/" class="post-title-link" itemprop="url">网络数据流方法-第五章</a>
+          <a href="/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-MapReduce%E7%BC%96%E7%A8%8B%E6%A0%B7%E4%BE%8B/" class="post-title-link" itemprop="url">云计算技术-MapReduce编程样例</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-03 00:22:37" itemprop="dateCreated datePublished" datetime="2023-07-03T00:22:37+08:00">2023-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/course/%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">云计算技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WordCount</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">doMapper</span> <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;Object, Text, Text, IntWritable&gt;&#123;  </span><br><span class="line"><span class="comment">//第一个Object表示输入key的类型；第二个Text表示输入value的类型</span></span><br><span class="line"><span class="comment">//第三个Text表示表示输出键的类型；第四个IntWritable表示输出值的类型  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(Object key, Text value, Context context)</span> <span class="keyword">throws</span> IOException,InterruptedException  </span><br><span class="line">    <span class="comment">//抛出异常  </span></span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="type">StringTokenizer</span> <span class="variable">tokenizer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString(),<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        <span class="comment">//StringTokenizer是Java工具包中的一个类，用于将字符串进行拆分</span></span><br><span class="line">        word.set(tokenizer.nextToken());</span><br><span class="line">        <span class="comment">//返回当前位置到下一个分隔符之间的字符串</span></span><br><span class="line">        context.write(word, one);</span><br><span class="line">        <span class="comment">//将word存到容器中，记一个数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">doReducer</span> <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text, IntWritable, Text, IntWritable&gt;&#123;  </span><br><span class="line"><span class="comment">//参数同Map一样，依次表示是输入键类型，输入值类型，输出键类型，输出值类型  </span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span>  <span class="keyword">throws</span> IOException, InterruptedException &#123;  </span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span> (IntWritable value : values) &#123;  </span><br><span class="line">            sum += value.get();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//for循环遍历，将得到的values值累加  </span></span><br><span class="line">        result.set(sum);  </span><br><span class="line">        context.write(key, result);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>样卷例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.util.GenericOptionsParser;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment"> 	* MapReduceBase类:实现Mapper和Reducer接口的基类    </span></span><br><span class="line"><span class="comment"> 	* Mapper接口： </span></span><br><span class="line"><span class="comment"> 	* WritableComparable接口：实现WritableComparable的类可以相互比较。所有被用作key的类要实现此接口。    </span></span><br><span class="line"><span class="comment"> 	*/</span>  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">TokenizerMapper</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;Object, Text, Text, IntWritable&gt;&#123;</span><br><span class="line"> 	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	*LongWritable,IntWritable,Text是Hadoop中实现的用于封装Java数据类型的类，这些类实现了WritableComparable接口，</span></span><br><span class="line"><span class="comment">	*都能够被串行化，便于在分布式环境中进行数据交换，可以视为long,int,String数据类型的替代。</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();<span class="comment">//Text实现了BinaryComparable类，可以作为key值</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	* Mapper接口中的map方法： </span></span><br><span class="line"><span class="comment">	* void map(K1 key, V1 value, OutputCollector&lt;K2,V2&gt; output, Reporter reporter)</span></span><br><span class="line"><span class="comment">	* 映射一个单个的输入&lt;K1,V1&gt;对到一个中间输出&lt;K2,V2&gt;对 </span></span><br><span class="line"><span class="comment">	* 中间输出对不需要和输入对是相同的类型，输入对可以映射到0个或多个输出对。 	</span></span><br><span class="line"><span class="comment">	* OutputCollector接口：收集Mapper和Reducer输出的&lt;K,V&gt;对。 </span></span><br><span class="line"><span class="comment">	* OutputCollector接口的collect(k, v)方法:增加一个(k,v)对到output </span></span><br><span class="line"><span class="comment">	* Reporter 用于报告整个应用的运行进度</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(Object key, Text value, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">        <span class="comment">//每一行包括课程号、课程名称、学号、学生姓名、成绩（百分制），数据项由空格隔开。</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">string</span> <span class="operator">=</span> value.toString();</span><br><span class="line">        <span class="comment">//按行分割</span></span><br><span class="line">        String[] strings = string.split(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; strings.length; i++) &#123;</span><br><span class="line">            <span class="comment">//以空格分割</span></span><br><span class="line">            String[] data = strings[i].split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="comment">//数组第5个元素是成绩</span></span><br><span class="line">            <span class="type">double</span> <span class="variable">score</span> <span class="operator">=</span> Double.parseDouble(data[<span class="number">4</span>]);</span><br><span class="line">            <span class="comment">//以成绩进行分割</span></span><br><span class="line">            <span class="keyword">if</span> (score &lt; <span class="number">60</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">60</span> &amp;&amp; score &lt; <span class="number">70</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;一般&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">70</span> &amp;&amp; score &lt; <span class="number">80</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;中等&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">80</span> &amp;&amp; score &lt; <span class="number">90</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">90</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//生成key value键值对</span></span><br><span class="line">            context.write(k, v);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntSumReducer</span> <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line"></span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * reduce过程是对输入键值对洗牌（Shuffing）形成&lt;K2,list(V2)&gt;格式数据（仅以test1.txt为例)：</span></span><br><span class="line"><span class="comment">	 * (优秀[1,1,1,1...])</span></span><br><span class="line"><span class="comment">	 * 作为reduce的输入</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//遍历values</span></span><br><span class="line">        <span class="keyword">for</span> (IntWritable v : values) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> v.get();</span><br><span class="line">            count += value;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//汇总每个分数段的人数（求和）</span></span><br><span class="line">        context.write(key, <span class="keyword">new</span> <span class="title class_">IntWritable</span>(count));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123; </span><br><span class="line">	   <span class="comment">// 1 获取配置信息以及封装任务</span></span><br><span class="line">       <span class="type">Configuration</span> <span class="variable">configuration</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">       <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> Job.getInstance(configuration);</span><br><span class="line">       <span class="comment">// 2 设置jar加载路径</span></span><br><span class="line">       job.setJarByClass(RatingDemo.class);</span><br><span class="line">       <span class="comment">// 3 设置map和reduce类</span></span><br><span class="line">       job.setMapperClass(MyMap.class);</span><br><span class="line">       job.setReducerClass(MyReduce.class);</span><br><span class="line">       <span class="comment">// 4 设置map输出</span></span><br><span class="line">       job.setMapOutputKeyClass(Text.class);</span><br><span class="line">       job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line">       <span class="comment">// 5 设置最终输出kv类型</span></span><br><span class="line">       job.setOutputKeyClass(Text.class);</span><br><span class="line">       job.setOutputValueClass(IntWritable.class);</span><br><span class="line">       <span class="comment">// 6 设置输入和输出路径</span></span><br><span class="line">       <span class="type">Path</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/input/report.txt&quot;</span>);</span><br><span class="line">       FileInputFormat.addInputPath(job, input);</span><br><span class="line">       <span class="type">Path</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/output/result&quot;</span>);</span><br><span class="line">       <span class="comment">//判断output文件夹是否存在，如果存在则删除</span></span><br><span class="line">       <span class="keyword">if</span> (output.getFileSystem(configuration).exists(output)) &#123;</span><br><span class="line">           output.getFileSystem(configuration).delete(output);</span><br><span class="line">       &#125;</span><br><span class="line">       FileOutputFormat.setOutputPath(job, output);</span><br><span class="line">       <span class="comment">//等待计算完成</span></span><br><span class="line">       <span class="type">boolean</span> <span class="variable">completion</span> <span class="operator">=</span> job.waitForCompletion(<span class="literal">true</span>);</span><br><span class="line">       <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;计算成功！&quot;</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;计算失败！&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/476784524">利用MapReduce的一些特性可以实现排序、去重、求和等等操作</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/30/2023-06-2023-06-30-%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8-%E4%BC%A0%E7%BB%9F%E6%94%AF%E4%BB%98%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/30/2023-06-2023-06-30-%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8-%E4%BC%A0%E7%BB%9F%E6%94%AF%E4%BB%98%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">电子商务安全-传统支付技术</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-30 16:41:02 / Modified: 16:43:40" itemprop="dateCreated datePublished" datetime="2023-06-30T16:41:02+08:00">2023-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/course/%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">电子商务安全</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="传统支付技术-知识点">传统支付技术-知识点</h2>
+<h3 id="信任构建">信任构建</h3>
+<p>PKI概念</p>
+<p>PKI解决的问题</p>
+<p>PKI和数字签名的区别</p>
+<p>数字证书</p>
+<p>CA，RA概念</p>
+<p>使用PKI认证的流程</p>
+<p>CRL证书吊销</p>
+<p>CA之间的认证</p>
+<p>层级证书下的信任传递</p>
+<p>交叉证书概念</p>
+<h3 id="支付技术">支付技术</h3>
+<p>卡支付的过程</p>
+<p>无卡支付概念</p>
+<p>SET概念</p>
+<p>信封模式、双签名</p>
+<p>SET的交易过程</p>
+<p>SET怎么处理隐私保护和双花问题</p>
+<p>盲签名</p>
+<p>RSA盲签名</p>
+<p>部分RSA盲签名</p>
+<p>电子现金交易步骤</p>
+<p>ECC盲签名</p>
+<p>NetCash现金格式，流通方式</p>
+<p>电子支票概念</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/30/2023-06-2023-06-30-%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E6%94%AF%E4%BB%98%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/30/2023-06-2023-06-30-%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8-%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E6%94%AF%E4%BB%98%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">电子商务安全-去中心化支付技术</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-06-30 16:40:52 / Modified: 16:42:48" itemprop="dateCreated datePublished" datetime="2023-06-30T16:40:52+08:00">2023-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/course/%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">电子商务安全</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="去中心化支付技术-知识点">去中心化支付技术-知识点</h2>
+<h3 id="比特币">比特币</h3>
+<p>POW共识</p>
+<p>数字钱包</p>
+<p>bip0039：助记词</p>
+<p>bip0032：分层确定性</p>
+<p>比特币交易格式</p>
+<p>比特币中验证交易，怎么处理双花问题</p>
+<p>7种输出脚本类型含义</p>
+<p>公平承诺协议</p>
+<p>txid可改性：多个签名</p>
+<p>比特币存款协议</p>
+<p>支付通道</p>
+<p>闪电网络概念</p>
+<h3 id="区块链">区块链</h3>
+<p>区块链的定义</p>
+<p>区块链的安全性：致性、活性（CG、CQ、CP）</p>
+<h3 id="以太坊">以太坊</h3>
+<p>以太坊概念</p>
+<p>状态是什么、如何存储</p>
+<p>以太坊交易格式</p>
+<p>以太坊共识：耗内存，计算资源</p>
+<p>区块头部字段</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/20/2023-06-2023-06-20-%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E6%B5%81%E6%96%B9%E6%B3%95-%E7%AC%AC%E4%BA%94%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/20/2023-06-2023-06-20-%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E6%B5%81%E6%96%B9%E6%B3%95-%E7%AC%AC%E4%BA%94%E7%AB%A0/" class="post-title-link" itemprop="url">网络数据流方法-第五章</a>
         </h2>
 
         <div class="post-meta-container">
@@ -284,7 +584,7 @@ n后每行对应位置加1</p>
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/20/whoarephishers%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/20/2023-06-2023-06-20-whoarephishers%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -302,7 +602,7 @@ n后每行对应位置加1</p>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/20/whoarephishers%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">whoarephishers读书笔记</a>
+          <a href="/2023/06/20/2023-06-2023-06-20-whoarephishers%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">whoarephishers读书笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -382,7 +682,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/18/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/18/2023-06-2023-06-18-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -400,7 +700,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/18/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
+          <a href="/2023/06/18/2023-06-2023-06-18-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
         </h2>
 
         <div class="post-meta-container">
@@ -504,7 +804,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/2023-05-2023-05-31-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -522,7 +822,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/31/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
+          <a href="/2023/05/31/2023-05-2023-05-31-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
         </h2>
 
         <div class="post-meta-container">
@@ -632,7 +932,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/28/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/28/2023-05-2023-05-28-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -650,7 +950,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/28/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
+          <a href="/2023/05/28/2023-05-2023-05-28-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
         </h2>
 
         <div class="post-meta-container">
@@ -753,7 +1053,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/22/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/22/2023-05-2023-05-22-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -771,7 +1071,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/22/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
+          <a href="/2023/05/22/2023-05-2023-05-22-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
         </h2>
 
         <div class="post-meta-container">
@@ -875,7 +1175,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/18/peaq%E7%9B%B8%E5%85%B3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/18/2023-05-2023-05-18-peaq%E7%9B%B8%E5%85%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -893,7 +1193,7 @@ Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下�
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/18/peaq%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">peaq相关</a>
+          <a href="/2023/05/18/2023-05-2023-05-18-peaq%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">peaq相关</a>
         </h2>
 
         <div class="post-meta-container">
@@ -975,492 +1275,8 @@ target="_blank" rel="noopener" href="https://docs.substrate.io/install/windows/"
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/16/Docker%E5%AE%9E%E8%AE%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/16/Docker%E5%AE%9E%E8%AE%AD/" class="post-title-link" itemprop="url">Docker实训</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-05-16 22:36:31" itemprop="dateCreated datePublished" datetime="2023-05-16T22:36:31+08:00">2023-05-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">云计算技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="docker入门">Docker入门</h2>
-<p>镜像和容器</p>
-<p>使用步骤：</p>
-<ol type="1">
-<li>拉取镜像</li>
-<li>用镜像创建容器</li>
-<li>进入容器</li>
-</ol>
-<h3 id="拉取镜像">拉取镜像</h3>
-<p><code>docker pull imageName:version</code></p>
-<p>可设置镜像加速器</p>
-<h3 id="启动容器">启动容器</h3>
-<p>新建容器并启动：<code>docker run imageName:version</code>，<code>-i</code>保持io流对容器开放，<code>-t</code>分配终端，<code>--name</code>设置容器名</p>
-<p>启动已有容器：<code>docker start containerName</code></p>
-<p>查看容器信息：<code>docker ps -a</code></p>
-<h3 id="停止容器">停止容器</h3>
-<p>停止正在运行的容器：<code>docker stop containerName</code>，<code>-t</code>指定等待时间</p>
-<p>Docker容器以sh为主进程，执行完启动命令，主进程将停止，容器也将自动终止。</p>
-<p>容器启动后不立即停止：</p>
-<ol type="1">
-<li>启动命令设置为死循环</li>
-<li>启动命令设置为某个一直运行的子进程</li>
-</ol>
-<h3 id="进入容器">进入容器</h3>
-<p><code>docker run</code>中<code>-d</code>可以使容器在后台运行</p>
-<p>进入一个docker容器的几种方法：</p>
-<ol type="1">
-<li>使用<code>ssh</code>登陆进容器；</li>
-<li>使用<code>nsenter、nsinit</code>等第三方工具；</li>
-<li>使用<code>docker</code>本身提供的工具：<code>exec</code>和<code>attach</code></li>
-</ol>
-<p>先<code>docker run</code>创建容器并让它在后台执行，在用<code>docker attach</code>进入容器内部，其实就是进入容器启动命令的终端</p>
-<p><code>docker exec</code>则可以在容器内部执行一条命令</p>
-<h3 id="删除容器">删除容器</h3>
-<p>删除终止状态的容器：<code>docker rm containerName</code></p>
-<p>删除运行状态的容器：</p>
-<ol type="1">
-<li>先<code>docker stop</code>，再<code>docker rm</code></li>
-<li>强制删除<code>docker rm -f</code></li>
-</ol>
-<p>查看所有容器ID：<code>docker ps –a –q</code></p>
-<h2 id="docker镜像管理">Docker镜像管理</h2>
-<h3 id="commit制作镜像">Commit制作镜像</h3>
-<p><code>docker run -p 80:80</code>将主机的80端口映射到容器的80端口</p>
-<p><code>docker commit containerName imageName</code>将容器保存成镜像</p>
-<h3 id="保存和加载镜像">保存和加载镜像</h3>
-<p>保存镜像：<code>docker save imageName1:version imageName2:version &gt; tarName.tar</code></p>
-<p>加载镜像：<code>docker load &lt; tarName.tar</code></p>
-<h3 id="导入导出容器">导入导出容器</h3>
-<p>把容器的文件系统保存为tar包：<code>docker export containerName -o tarName.tar</code></p>
-<p>从tar包导入镜像：<code>docker import tarName.tar imageName:version</code></p>
-<h3 id="删除镜像">删除镜像</h3>
-<p><code>docker rmi image</code>，<code>-f</code>表示强制删除</p>
-<h3 id="构建私有仓库">构建私有仓库</h3>
-<p>创建私人仓库：<code>docker run -d -p 5000:5000 --restart=always --name registry registry:2</code>，<code>-v</code>可以指定仓库位置</p>
-<p>镜像加标签：<code>docker tag imageName:version tagName</code></p>
-<p>推送镜像到仓库：<code>docker push tagName</code>，如果tagName正好是主机名:端口号则推送到私人仓库</p>
-<p>从私人仓库拉取镜像：<code>docker pull tagName</code></p>
-<p>删除私人仓库：<code>docker rm repoName</code>，<code>-f</code>表示强制，<code>-v</code>表示删除仓库的同时删除其中镜像</p>
-<h2 id="dockerfile">Dockerfile</h2>
-<p>用于构建镜像</p>
-<h3 id="from和run">FROM和RUN</h3>
-<p><code>FROM imgaeName:version</code>指定构建镜像的基础镜像</p>
-<p><code>RUN 命令</code>创建容器并执行命令，命令结束后提交容器为新镜像</p>
-<h3 id="buildcopy和add">build，COPY和ADD</h3>
-<p>构建镜像：<code>docker build -t foo .</code>，<code>-t</code>指定名字，<code>-f</code>指定Dockerfile</p>
-<p><code>COPY 源路径 目标路径</code>将源路径复制到目标路径，源路径必须为绝对路径</p>
-<p><code>ADD 源路径 目标路径</code>COPY的加强版，可自动解压tar包，自动下载文件等等操作</p>
-<h3 id="cmd和entrypoint">CMD和ENTRYPOINT</h3>
-<p><code>CMD [命令，参数1，参数2]</code>设置容器启动时的默认命令，可被覆盖，可作为ENTRYPOINT的参数</p>
-<p><code>ENTRYPOINT [命令，参数1，参数2]</code>设置容器启动时的默认命令，不可被覆盖</p>
-<h3 id="envexposeworkdir和arg">ENV，EXPOSE，WORKDIR和ARG</h3>
-<p><code>WORKDIR 路径</code>设置工作目录</p>
-<p><code>ENV key value</code>设置环境变量</p>
-<p><code>ARG argName</code>设置参数，可被之后指令及<code>docker build</code>使用</p>
-<p><code>EXPOSE port1</code>暴露端口，只是一个声明，仍需要在<code>docker run</code>中用<code>-p</code>指定端口</p>
-<h3 id="onbuild和volume">ONBUILD和VOLUME</h3>
-<p><code>ONBUILD 其他指令</code>其他指令为RUN，COPY等等指令，当前镜像中不会使用，仅用于下一级镜像构建，不会被继承</p>
-<p><code>VOLUME 路径</code>定义数据卷</p>
-<h3 id="缓存">缓存</h3>
-<p>none</p>
-<h2 id="docker数据卷">Docker数据卷</h2>
-<h3 id="创建数据卷">创建数据卷</h3>
-<p><code>docker volume create --name volName</code>创建数据卷</p>
-<p><code>docker run -v /data</code>创建一个随机名字的数据卷，并挂载到容器的/data</p>
-<p><code>docker run -v volName:/data</code>创建volName数据卷，并挂载到容器的/data</p>
-<h3 id="挂载和共享数据卷">挂载和共享数据卷</h3>
-<p><code>docker run --name containerName -v /host/dir:/container/dir</code>将主机的/host/dir挂载到/container/dir</p>
-<p><code>docker run --name volName2 --volumes-from volName1</code>创建volName2并与volName1共享数据卷</p>
-<h3 id="查看数据卷信息">查看数据卷信息</h3>
-<p><code>docker inspect</code>可查看镜像，容器，数据卷等的具体信息</p>
-<h3 id="删除数据卷">删除数据卷</h3>
-<p><code>docker volume rm volName</code>若数据卷仍被使用则无法删除</p>
-<p><code>docekr rm -v containerName</code>删除容器时同时删除数据卷，若数据卷仍被使用则无法删除</p>
-<p>删除正在使用的数据卷：</p>
-<ol type="1">
-<li><code>docker rm -v containerName</code>解除数据卷和容器的关系</li>
-<li><code>docker volume rm volName</code>删除数据卷</li>
-</ol>
-<h3 id="备份和恢复数据卷">备份和恢复数据卷</h3>
-<p>$(pwd)表示当前目录</p>
-<p><code>docker run --volumes-from CONTAINER_NAME -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /path/to/data</code>将CONTAINER_NAME的/path/to/data备份到主机的当前目录</p>
-<p><code>docker run --volumes-from dbcontainer2 -v $(pwd):/backup busybox tar -xvf /backup/backup.tar -C /dbdata</code></p>
-<p>新容器，旧容器和主机一起实现的数据卷备份和恢复，新容器和旧容器共享，主机数据卷挂载到新主机。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/14/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/14/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-05-14 13:40:31" itemprop="dateCreated datePublished" datetime="2023-05-14T13:40:31+08:00">2023-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-05-15 00:51:32" itemprop="dateModified" datetime="2023-05-15T00:51:32+08:00">2023-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/agenda/" itemprop="url" rel="index"><span itemprop="name">agenda</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>课程作业：</p>
-<table>
-<thead>
-<tr class="header">
-<th>科目</th>
-<th>作业</th>
-<th>ddl</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>电子商务安全</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>人工神经网络</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>网络协议逆向</td>
-<td>hw5</td>
-<td>wait</td>
-</tr>
-<tr class="even">
-<td>云计算技术</td>
-<td>lab2 &amp; lab1</td>
-<td>5.24 &amp; 6.7</td>
-</tr>
-<tr class="odd">
-<td>计算机视觉</td>
-<td>none</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>专业综合实践</td>
-<td>none</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/14/peaq%E5%92%8Crust/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/14/peaq%E5%92%8Crust/" class="post-title-link" itemprop="url">peaq和rust</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-05-14 13:34:46" itemprop="dateCreated datePublished" datetime="2023-05-14T13:34:46+08:00">2023-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/blockchain/" itemprop="url" rel="index"><span itemprop="name">blockchain</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="什么是peaq">什么是peaq</h2>
-<p>区块链网络，类似物联网中的以太坊</p>
-<h2 id="rust">Rust</h2>
-<h3 id="环境安装">环境安装</h3>
-<p>cargo是rust的包管理器</p>
-<ol type="1">
-<li>下载rustup</li>
-<li>安装MSVC或MingGW</li>
-<li>运行rustup，安装rustc和cargo</li>
-</ol>
-<h3 id="io">I/O</h3>
-<p>宏规则</p>
-<p><code>println!()</code>和<code>print!()</code>：前面的换行</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print!</span>(<span class="string">&quot;x = &#123;0&#125;&quot;</span>, x)</span><br></pre></td></tr></table></figure>
-<h3 id="数据类型">数据类型</h3>
-<p>整型：i32有符号32位，u64无符号64位</p>
-<p>浮点数：默认64位精度</p>
-<p>布尔型</p>
-<p>字符：一个char有4个字节，用utf-8表示</p>
-<p>元组：()</p>
-<p>数组：[]</p>
-<h3 id="函数">函数</h3>
-<p>传入参数时需指定类型</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">foo</span>(x:<span class="type">i32</span>, y:<span class="type">u64</span>)&#123;</span><br><span class="line">    <span class="built_in">print!</span>(x, y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数体表达式：块中最后为一个没有;的表达式，用来返回值</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">foo</span>(x:<span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">    x+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="条件语句">条件语句</h3>
-<p>条件表达式必须为布尔型，不适用c++中的“非0即真”</p>
-<p>可用if-else结构和函数体表达式实现a?b:c的效果</p>
-<h3 id="循环语句">循环语句</h3>
-<p>无<code>for(int i=0; i&lt;10; i++)&#123;&#125;</code>的用法，用<code>while i&lt;10 &#123;i=i+1&#125;</code>代替</p>
-<p>可以<code>for x in array.iter()&#123;&#125;</code>或<code>for x in 0..5 &#123;&#125;</code></p>
-<p>无限循环：<code>loop&#123;break ret;&#125;</code>，ret为返回值</p>
-<h3 id="重影">重影</h3>
-<p>重影：指变量的名称可以被重新使用的机制</p>
-<p>不可变变量：<code>let a = 123;</code></p>
-<p>可变变量：<code>let mut a = 123;</code></p>
-<p>常量：<code>const a = 123;</code></p>
-<p>重影与可变变量：重影可改变变量的类型，可变属性和值，而可变变量仅可改变值</p>
-<h3 id="所有者">所有者</h3>
-<p>为了让 Rust
-在编译阶段更有效地分析内存资源的有用性以实现内存管理而诞生的概念</p>
-<p>所有权有以下三条规则：</p>
-<ul>
-<li>Rust 中的每个值都有一个变量，称为其所有者。</li>
-<li>一次只能有一个所有者。</li>
-<li>当所有者不在程序运行范围时，该值将被删除。</li>
-</ul>
-<p>变量范围：从声明变量开始有效直到变量所在域结束</p>
-<h4 id="移动">移动</h4>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">a</span> = xxx;</span><br><span class="line"><span class="keyword">let</span> <span class="variable">b</span> = a;</span><br></pre></td></tr></table></figure>
-<p>对以上情况有：</p>
-<ol type="1">
-<li>栈中：基本数据，直接复制成两份数据，比如整型，浮点数等等</li>
-<li>堆中：不定长数据，将释放前一变量，比如string等等</li>
-</ol>
-<h4 id="克隆">克隆</h4>
-<p>对于上面堆中数据确实需要复制成两份的情况，可以这样做：</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">a</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;helloRust&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">b</span> = a.<span class="title function_ invoke__">clone</span>();</span><br></pre></td></tr></table></figure>
-<h4 id="传参">传参</h4>
-<p>同移动，基本数据传完后依旧可以使用，不定长数据传完即被移动</p>
-<h4 id="引用">引用</h4>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s2</span> = &amp;s1;</span><br></pre></td></tr></table></figure>
-<p>这里s1并不会被释放，s2指向s1，s1再指向堆中的数据。</p>
-<p>引用仅<strong>租借</strong>所有权，如果所有权移动了则需要重新租借。</p>
-<p>可变引用可以<strong>修改</strong>原变量的值<code>let b = &amp;mut a;</code></p>
-<p>可变引用不允许<strong>多重</strong>引用，但不可变引用可以。</p>
-<h4 id="垂直引用">垂直引用</h4>
-<p>指针指向NULL或者被释放的变量。</p>
-<p>Rust中不允许垂直指针存在。</p>
-<h3 id="切片">切片</h3>
-<p><code>let part = &amp;str[0..5];</code></p>
-<p>切片结果必须是引用类型。</p>
-<p><code>..y</code>，<code>x..</code>，<code>..</code>都是符合语法的。</p>
-<p>被切片的变量禁止修改值。</p>
-<p>String和str：不一样的类型，切片结果都是&amp;str类型</p>
-<p>可以通过<code>&amp;string[..]</code>将String转换成str</p>
-<h3 id="结构体">结构体</h3>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Foo</span>&#123;</span><br><span class="line">    name: <span class="type">String</span>,</span><br><span class="line">    Age: <span class="type">u32</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义Foo</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">a</span> = Foo&#123;</span><br><span class="line">    name: <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;henry&quot;</span>),</span><br><span class="line">    Age: <span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//实例化Foo</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结构体更新</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">b</span> = Foo2&#123;</span><br><span class="line">	name: <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;five&quot;</span>),</span><br><span class="line">	..a</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//b的Age和a不同，其他字段相同</span></span><br><span class="line"><span class="comment">//能不能完全复制，直接..a</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//元组结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Color</span>(<span class="type">u8</span>, <span class="type">u8</span>, <span class="type">u8</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">black</span> = <span class="title function_ invoke__">Color</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">//通过下标访问</span></span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, black.<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出结构体</span></span><br><span class="line"><span class="meta">#[derive(Debug)]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">    width: <span class="type">u32</span>,</span><br><span class="line">    height: <span class="type">u32</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;&#123;:?&#125;&quot;</span>, Rectangle);</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;&#123;:#?&#125;&quot;</span>, Rectangle);</span><br></pre></td></tr></table></figure>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结构体方法</span></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">area</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">u32</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.width * <span class="keyword">self</span>.height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//结构体关联函数，不依赖实例</span></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Rectangle1</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">create</span>(width: <span class="type">u32</span>, height: <span class="type">u32</span>) <span class="punctuation">-&gt;</span> Rectangle &#123;</span><br><span class="line">        Rectangle&#123;width, height&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">rect1</span> = Rectangle &#123; width: <span class="number">30</span>, height: <span class="number">50</span> &#125;;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;rect1&#x27;s area is &#123;&#125;&quot;</span>, rect1.<span class="title function_ invoke__">area</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="生命周期">生命周期</h3>
-<p><strong>重要</strong>，但没细看qaq</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生命周期注释</span></span><br><span class="line">&amp;<span class="type">i32</span>        <span class="comment">// 常规引用</span></span><br><span class="line">&amp;<span class="symbol">&#x27;a</span> <span class="type">i32</span>     <span class="comment">// 含有生命周期注释的引用</span></span><br><span class="line">&amp;<span class="symbol">&#x27;a</span> <span class="keyword">mut</span> <span class="type">i32</span> <span class="comment">// 可变型含有生命周期注释的引用</span></span><br></pre></td></tr></table></figure>
-<p>静态生态周期：'static，生命周期为程序运行期间</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型+特性+生命周期</span></span><br><span class="line"><span class="keyword">use</span> std::fmt::Display;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">longest_with_an_announcement</span>&lt;<span class="symbol">&#x27;a</span>, T&gt;(x: &amp;<span class="symbol">&#x27;a</span> <span class="type">str</span>, y: &amp;<span class="symbol">&#x27;a</span> <span class="type">str</span>, ann: T) <span class="punctuation">-&gt;</span> &amp;<span class="symbol">&#x27;a</span> <span class="type">str</span></span><br><span class="line">    <span class="keyword">where</span> T: Display</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Announcement! &#123;&#125;&quot;</span>, ann);</span><br><span class="line">    <span class="keyword">if</span> x.<span class="title function_ invoke__">len</span>() &gt; y.<span class="title function_ invoke__">len</span>() &#123;</span><br><span class="line">        x</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="泛型与特性">泛型与特性</h3>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数中泛型</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">max</span>&lt;T&gt;(array: &amp;[T]) <span class="punctuation">-&gt;</span> T &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">max_index</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> i &lt; array.<span class="title function_ invoke__">len</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> array[i] &gt; array[max_index] &#123;</span><br><span class="line">            max_index = i;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    array[max_index]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//&lt;T&gt;</span></span><br><span class="line"><span class="comment">//可以用&lt;T1, T2&gt;表示不同数据类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//结构体，枚举类和方法中泛型</span></span><br><span class="line"><span class="comment">//struct Foo&lt;T&gt;&#123;&#125;</span></span><br><span class="line"><span class="comment">//impl&lt;T&gt; Foo&lt;T&gt;&#123;&#125;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//特性</span></span><br><span class="line"><span class="keyword">trait</span> <span class="title class_">Descriptive</span> &#123;</span><br><span class="line">	<span class="keyword">fn</span> <span class="title function_">decribe</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span> &#123;</span><br><span class="line">        <span class="comment">//默认特性</span></span><br><span class="line">    	<span class="type">String</span>:: <span class="title function_ invoke__">from</span>(<span class="string">&quot;[Object]&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line">    name: <span class="type">String</span>,</span><br><span class="line">    age: <span class="type">u8</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Descriptive</span> <span class="keyword">for</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">describe</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span>&#123;</span><br><span class="line">        <span class="comment">//重新定义特性</span></span><br><span class="line">        <span class="built_in">format!</span>(<span class="string">&quot;&#123;&#125; &#123;&#125;&quot;</span>, <span class="keyword">self</span>.name, <span class="keyword">self</span>.age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//特性作为函数参数，这样在函数内可调用该特性规范的方法</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">output</span>&lt;T: Descriptive&gt;(object: T) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, object.<span class="title function_ invoke__">describe</span>());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">output_two</span>&lt;T: Descriptive&gt;(arg1: T, arg2: T) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, arg1.<span class="title function_ invoke__">describe</span>());</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, arg2.<span class="title function_ invoke__">describe</span>());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//多个特性</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">notify</span>(item: <span class="keyword">impl</span> <span class="title class_">Summary</span> + Display)</span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">notify</span>&lt;T: Summary + Display&gt;(item: T)</span><br><span class="line"><span class="comment">//可以简化</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">some_function</span>&lt;T, U&gt;(t: T, u: U) <span class="punctuation">-&gt;</span> <span class="type">i32</span></span><br><span class="line">    <span class="keyword">where</span> T: Display + <span class="built_in">Clone</span>,</span><br><span class="line">          U: <span class="built_in">Clone</span> + <span class="built_in">Debug</span></span><br><span class="line"><span class="comment">//特性做返回值，</span></span><br><span class="line"><span class="comment">//特性做返回值只接受实现了该特性的对象做返回值</span></span><br><span class="line"><span class="comment">//且在同一个函数中所有可能的返回值类型必须完全一样</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">person</span>() <span class="punctuation">-&gt;</span> <span class="keyword">impl</span> <span class="title class_">Descriptive</span> &#123;</span><br><span class="line">    Person &#123;</span><br><span class="line">        name: <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;Cali&quot;</span>),</span><br><span class="line">        age: <span class="number">24</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型+特性例子</span></span><br><span class="line"><span class="keyword">trait</span> <span class="title class_">Comparable</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">compare</span>(&amp;<span class="keyword">self</span>, object: &amp;<span class="keyword">Self</span>) <span class="punctuation">-&gt;</span> <span class="type">i8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">max</span>&lt;T: Comparable&gt;(array: &amp;[T]) <span class="punctuation">-&gt;</span> &amp;T &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">max_index</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> i &lt; array.<span class="title function_ invoke__">len</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> array[i].<span class="title function_ invoke__">compare</span>(&amp;array[max_index]) &gt; <span class="number">0</span> &#123;</span><br><span class="line">            max_index = i;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;array[max_index]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Comparable</span> <span class="keyword">for</span> <span class="title class_">f64</span> &#123;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">compare</span>(&amp;<span class="keyword">self</span>, object: &amp;<span class="type">f64</span>) <span class="punctuation">-&gt;</span> <span class="type">i8</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> &amp;<span class="keyword">self</span> &gt; &amp;object &#123; <span class="number">1</span> &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> &amp;<span class="keyword">self</span> == &amp;object &#123; <span class="number">0</span> &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; -<span class="number">1</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">arr</span> = [<span class="number">1.0</span>, <span class="number">3.0</span>, <span class="number">5.0</span>, <span class="number">4.0</span>, <span class="number">2.0</span>];</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;maximum of arr is &#123;&#125;&quot;</span>, <span class="title function_ invoke__">max</span>(&amp;arr));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
