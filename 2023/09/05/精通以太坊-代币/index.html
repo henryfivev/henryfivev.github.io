@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="十、代币 代币和可替代性 严格意义上说，如果一个代币的交易历史是公开的，那么它就不完全是一个可互相替代的代币。根据代币交易历史的追踪，可由此设定对应的黑名单或白名单，这会降低甚至消除这个代币的可替代性。 对手方风险 对手方风险是指交易的另一方没有履行他们的承诺或义务。 代币和内在性 有些代币所代表的资产是区块链内在的。这些资产是由共识规则所控制的，就如同代币本身。 区块链内在资产的代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="精通以太坊-代币">
+<meta property="og:url" content="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A3%E5%B8%81/index.html">
+<meta property="og:site_name" content="望尘可及的秘密基地">
+<meta property="og:description" content="十、代币 代币和可替代性 严格意义上说，如果一个代币的交易历史是公开的，那么它就不完全是一个可互相替代的代币。根据代币交易历史的追踪，可由此设定对应的黑名单或白名单，这会降低甚至消除这个代币的可替代性。 对手方风险 对手方风险是指交易的另一方没有履行他们的承诺或义务。 代币和内在性 有些代币所代表的资产是区块链内在的。这些资产是由共识规则所控制的，就如同代币本身。 区块链内在资产的代">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-05T07:50:46.000Z">
+<meta property="article:modified_time" content="2023-09-05T07:50:46.633Z">
+<meta property="article:author" content="henryfivev">
+<meta property="article:tag" content="精通以太坊">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A3%E5%B8%81/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A3%E5%B8%81/","path":"2023/09/05/精通以太坊-代币/","title":"精通以太坊-代币"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>精通以太坊-代币 | 望尘可及的秘密基地</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">望尘可及的秘密基地</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BB%A3%E5%B8%81"><span class="nav-text">十、代币</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%B8%81%E5%92%8C%E5%8F%AF%E6%9B%BF%E4%BB%A3%E6%80%A7"><span class="nav-text">代币和可替代性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%89%8B%E6%96%B9%E9%A3%8E%E9%99%A9"><span class="nav-text">对手方风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%B8%81%E5%92%8C%E5%86%85%E5%9C%A8%E6%80%A7"><span class="nav-text">代币和内在性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E5%B8%81%E5%B7%A5%E5%85%B7%E5%9E%8B%E4%BB%A3%E5%B8%81%E8%BF%98%E6%98%AF%E6%9D%83%E7%9B%8A%E5%9E%8B%E4%BB%A3%E5%B8%81"><span class="nav-text">使用代币：工具型代币还是权益型代币？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E4%BB%A3%E5%B8%81"><span class="nav-text">以太坊的代币</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%B8%81%E6%A0%87%E5%87%86"><span class="nav-text">代币标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%B8%81%E6%8E%A5%E5%8F%A3%E6%A0%87%E5%87%86%E7%9A%84%E6%89%A9%E5%B1%95"><span class="nav-text">代币接口标准的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E5%B8%81%E5%92%8Cico"><span class="nav-text">代币和ICO</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">henryfivev</p>
+  <div class="site-description" itemprop="description">简单地记录一下</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A3%E5%B8%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="精通以太坊-代币 | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          精通以太坊-代币
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-09-05 15:50:46" itemprop="dateCreated datePublished" datetime="2023-09-05T15:50:46+08:00">2023-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="十代币">十、代币</h2>
+<h3 id="代币和可替代性">代币和可替代性</h3>
+<p>严格意义上说，如果一个代币的交易历史是公开的，那么它就不完全是一个可互相替代的代币。根据代币交易历史的追踪，可由此设定对应的黑名单或白名单，这会降低甚至消除这个代币的可替代性。</p>
+<h3 id="对手方风险">对手方风险</h3>
+<p>对手方风险是指交易的另一方没有履行他们的承诺或义务。</p>
+<h3 id="代币和内在性">代币和内在性</h3>
+<p>有些代币所代表的资产是区块链内在的。这些资产是由共识规则所控制的，就如同代币本身。</p>
+<p>区块链内在资产的代币不会有额外的对手方风险。</p>
+<p>一个非常重要的未来，就是用区块链内的资产替代区块链外的资产，因此可以消除对手方风险。</p>
+<h3
+id="使用代币工具型代币还是权益型代币">使用代币：工具型代币还是权益型代币？</h3>
+<p>工具型代币是指用来支付某个服务、应用或资源的代币。</p>
+<p>权益型代币可以被设定为没有投票权的，用来分红和分配利润的代币，也可以承载一个去中心化自治组织的投票权，这类组织的管理由持有代币的所有人共同投票决定。</p>
+<p>对于一个初创公司，每次创新都增加了失败的风险。</p>
+<p>有限的流动性、有限的应用范围和较高的沟通交易成本降低了代币的价值。</p>
+<p>如果你在进行创业并且面临的是一个全新的市场，发行工具型代币并不会为你带来优势。</p>
+<p>只有在你的应用必须使用工具型代币的时候，才考虑发行。使用代币来解决你所面临的市场准入或其他门槛问题。不要因为更快融资的原因而发行那些看上去不是公开募资的工具型代币。</p>
+<h3 id="以太坊的代币">以太坊的代币</h3>
+<p>以太坊账户的以太币余额在协议级别处理，而以太坊账户的代币余额在智能合约级别处理。</p>
+<p>要在以太坊上创建新代币，你必须创建一个新的智能合约。</p>
+<p>ERC20代币标准是代币的第一个标准。</p>
+<p>ERC20标准定义了通过合约实现代币的通用接口，兼容此标准的所有代币都可以采用相同的方式被访问和使用。这个接口包含了一组必须实现的函数，及若干可选的函数和属性，可供开发者根据需要添加。</p>
+<p>ERC20支持两种转账。第一种是单一式转账，直接使用transfer函数。</p>
+<p>第二种方式是使用了approve和transferFrom的两步式交易。这个流程允许代币的持有人授权其他地址操纵他们的代币。这通常用于授权给某一个合约地址，进行代币的分发，但也可以用于交易所的场景。</p>
+<p>ICO是一种众筹机制，公司和组织通过销售代币来筹集资金。</p>
+<p>文中有创建和发行代币的例子，使用Truffle框架和Ganache测试链。</p>
+<p>在把合约部署到具体的以太坊测试网络之前，先启动一个本地区块链环境来做一遍测试。</p>
+<p>以太币是使用带有目标接受人地址的交易进行转账的，而代币的转账是通过代币合约内相关的状态转换进行的，使用合约作为地址，而不是接收方的地址。</p>
+<p>一个发送以太币的合约会改变目标地址的状态。一个发送代币的合约只会改变合约内部的状态，而不是接收方地址的状态。即代币仅存在合约内部，出了合约则不存在代币。</p>
+<p>如果你有一个长期使用的活跃以太币地址，特别是这个地址是在以太坊平台众筹前后创建的，那么你会发现这个地址充满了不知道来自何方的各种垃圾代币的余额。</p>
+<p>你不能使用代币来支付一笔交易所需要的gas，代币合约也不会替你支付这笔gas。即需要L1层的代币来支付gas，有种用假币换真币的感觉。</p>
+<p>ERC223方案试图解决不慎把代币转入不支持代币的合约这个问题，通过检测目标地址是否为合约的方式来完成。另一个针对代币合约的改进行方案是ERC777。</p>
+<p>ERC721方案是针对不可替代物代币的标准，也称为契约代币。</p>
+<p>ERC20将所有者作为映射的主键，跟踪每个所有者的余额；而ERC721将契约ID作为映射的主键，跟踪每个契约ID及其所有者。</p>
+<h3 id="代币标准">代币标准</h3>
+<p>代币标准是实现的最小化标准。</p>
+<p>现存的实现，比如说OpenZeppin，是“经过实战检验的”。</p>
+<h3 id="代币接口标准的扩展">代币接口标准的扩展</h3>
+<p>很多项目在此基础上创建了扩展的实现，用于支持它们应用中所需要的功能。这些扩展包括：销毁、铸币、众筹、硬顶等等。</p>
+<h3 id="代币和ico">代币和ICO</h3>
+<p>在代币世界中生存的诀窍是将这种技术的长期愿景和影响与可能是巨大的短期ICO泡沫分离开来，这种泡沫充斥着欺诈行为。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" rel="tag"># 精通以太坊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%AE%A2%E6%88%B7%E7%AB%AF/" rel="prev" title="精通以太坊-以太坊客户端">
+                  <i class="fa fa-chevron-left"></i> 精通以太坊-以太坊客户端
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E9%A2%84%E8%A8%80%E6%9C%BA/" rel="next" title="精通以太坊-预言机">
+                  精通以太坊-预言机 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">henryfivev</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

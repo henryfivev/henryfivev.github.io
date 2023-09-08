@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,541 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/04/2023-04-course-2023-04-04-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/04/2023-04-course-2023-04-04-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="post-title-link" itemprop="url">操作系统-进程与线程2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-04 14:15:30" itemprop="dateCreated datePublished" datetime="2023-04-04T14:15:30+08:00">2023-04-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:56:12" itemprop="dateModified" datetime="2023-09-04T15:56:12+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">操作系统原理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="同步与互斥">2.3 同步与互斥</h2>
+<h3 id="基本概念">基本概念</h3>
+<p>临界资源，同步，互斥</p>
+<h3 id="实现互斥">实现互斥</h3>
+<p>略，软件方式和硬件方式</p>
+<h3 id="互斥锁信号量">互斥锁&amp;信号量</h3>
+<p>互斥锁：原子操作acquire(), release()；需要忙等待</p>
+<p>信号量类型：整型信号量，记录型信号量</p>
+<p>整型信号量：wait(),
+signal()；wait当信号量大于0后信号量减一，signal信号量加一</p>
+<p>记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为block，signal信号量加一，当信号量大于0后从等待队列释放一个进程并唤醒该进程。</p>
+<p>信号量实现同步与互斥</p>
+<h3 id="管程">管程</h3>
+<p>略</p>
+<h3 id="经典同步问题">经典同步问题</h3>
+<h4 id="生产者-消费者问题">1. 生产者-消费者问题</h4>
+<p>要求：生产者和消费者共享一个缓存区，生产者在没满时生成，消费者在没空时消费</p>
+<p>三个信号量：mutex，full，empty</p>
+<p>先P(empty)或P(full)，再P(mutex)——可能死锁</p>
+<h4 id="读者-写者问题">2. 读者-写者问题</h4>
+<p>要求：读可以同时；只能一个写；写操作未完成前不能读或写；执行写操作前无正在执行的读或写</p>
+<p>（感觉就一句，除读读外，其他操作互斥）</p>
+<h4 id="哲学家就餐问题">3. 哲学家就餐问题</h4>
+<p>解决办法：同时拿两根筷子；动作规定</p>
+<h4 id="吸烟者问题">4. 吸烟者问题</h4>
+<p>问题描述：三个吸烟者和一个供应者。造烟需要三种材料，三个吸烟者各有一种。供应者每次拿出两种使得一个吸烟者能够吸烟。当其吸完了，供应者再拿出两种材料。</p>
+<p>分析：供应者和吸烟者同步，吸烟者之间互斥</p>
+<h2 id="死锁">2.4 死锁</h2>
+<h3 id="基本概念-1">基本概念</h3>
+<p>死锁原因：资源竞争+顺序不当</p>
+<p>产生条件：互斥+不可剥夺+请求且持有资源+循环等待</p>
+<p>处理策略：预防or避免or检测并解除</p>
+<h3 id="死锁预防">死锁预防</h3>
+<p>破坏条件即可</p>
+<h4 id="不互斥">1. 不互斥</h4>
+<p>对共享资源可行，对临界资源不可行</p>
+<h4 id="可剥夺">2. 可剥夺</h4>
+<p>有的资源可行，有的不可行（打印机）</p>
+<h4 id="获得所有资源才执行">3. 获得所有资源才执行</h4>
+<p>可能导致饿死</p>
+<h4 id="向后申请资源">4. 向后申请资源</h4>
+<p>给资源编号，只能申请编号更大的资源。</p>
+<p>麻烦</p>
+<h3 id="死锁避免">死锁避免</h3>
+<h4 id="判断安全状态">1. 判断安全状态</h4>
+<p>系统判断分配该资源后是否会导致死锁</p>
+<h4 id="银行家算法">2. 银行家算法</h4>
+<p>进程事先向系统声明所需最大资源数</p>
+<p>最大需求矩阵，分配矩阵，需求矩阵</p>
+<p>具体执行步骤略</p>
+<h3 id="死锁检测和解除">死锁检测和解除</h3>
+<p>资源分配图：进程，资源，请求边，分配边</p>
+<p>简化资源分配图后可检测系统是否死锁：略</p>
+<p>解除：剥夺资源，撤销进程和进程回退（这俩有啥区别？）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/03/2023-04-course-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/03/2023-04-course-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="post-title-link" itemprop="url">操作系统-进程与线程1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-03 20:15:30" itemprop="dateCreated datePublished" datetime="2023-04-03T20:15:30+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:56:02" itemprop="dateModified" datetime="2023-09-04T15:56:02+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">操作系统原理</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="进程与线程">2.1 进程与线程</h2>
+<h3 id="基本概念">基本概念</h3>
+<p>1.进程是什么？多种定义</p>
+<p>比如进程是程序的一次执行过程，是系统进行资源分配和调度的一个独立单位</p>
+<p>2.程序段，数据段和PCB构成了<em>进程实体</em></p>
+<p>3.PCB是进程的唯一标识</p>
+<p>4.进程特征：动态性，并发性，独立性和异步性</p>
+<h3 id="进程的状态">进程的状态</h3>
+<p>运行态，就绪态，阻塞态，创建态和终止态</p>
+<h3 id="进程的组成">进程的组成</h3>
+<p>程序段，数据段和PCB</p>
+<p>PCB有进程标识符(PID)，状态，优先级，上下文等等，链接成队列或者放在索引表中</p>
+<h3 id="进程控制">进程控制</h3>
+<p>创建：分配PID，申请PCB------&gt;分配资源------&gt;初始化PCB------&gt;插入就绪队列</p>
+<p>终止：查找PCB------&gt;终止子孙进程------&gt;归还资源------&gt;从所在队列中删除</p>
+<p>阻塞：查找PCB------&gt;保护现场，设置状态------&gt;插入相应队列</p>
+<p>唤醒：查找PCB------&gt;移出队列，设置状态------&gt;插入就绪队列</p>
+<h3 id="进程间通信">进程间通信</h3>
+<p>共享存储：数据结构，存储区</p>
+<p>消息传递：signal()和slot()</p>
+<p>管程：生产者消费者方式，单向</p>
+<h3 id="线程">线程</h3>
+<h4 id="基本概念-1">基本概念</h4>
+<p>基本的CPU执行单元，只拥有必不可少的资源，调度代价小</p>
+<p>可以创建和撤销另一个进程</p>
+<h4 id="状态">状态</h4>
+<p>执行，就绪和阻塞</p>
+<h4 id="组成与控制">组成与控制</h4>
+<p>TCB线程控制块：线程标识符，寄存器，状态，优先级，堆栈等等。</p>
+<p>同一进程中所有线程共享地址空间和全局变量，即各线程可读写其他线程的堆栈。</p>
+<p>线程被终止后不立即释放资源，仍可被其他线程调用，以使被终止线程重新恢复运行</p>
+<h4 id="用户级线程">用户级线程</h4>
+<p>内核不知道线程的存在</p>
+<p>线程切换不用转换到内核空间</p>
+<p>进程间调度算法不同</p>
+<p>一个阻塞所有阻塞（我感觉是一内核对多用户模型的问题）</p>
+<h4 id="内核级线程">内核级线程</h4>
+<p>阻塞可调度</p>
+<p>调度代价小</p>
+<p>但线程切换需转换到内核空间</p>
+<h4 id="多线程模型">多线程模型</h4>
+<p>一内核对多用户模型</p>
+<p>一对一模型</p>
+<p>多内核对多用户模型</p>
+<p>（线程阻塞后能不能及时调度到底是看什么？）</p>
+<h2 id="处理机调度">2.2 处理机调度</h2>
+<h3 id="基本概念-2">基本概念</h3>
+<p>调度就是对CPU进行分配，从队列中选择一个进程执行，以实现并发</p>
+<p>高级调度（创建进程），中级调度（内存调度，暂时挂起），低级调度（进程调度，上下CPU）</p>
+<p>or长程调度，短程调度</p>
+<h3 id="调度的目标">调度的目标</h3>
+<p>CPU利用率，系统吞吐量，周转时间（完成时间-提交时间），等待时间，响应时间</p>
+<h3 id="调度的实现">调度的实现</h3>
+<p>进程是怎么调度的？</p>
+<p>不能调度的情况：中断；临界区；原子操作</p>
+<p>调度方式：非抢占式调度（进程不可“中断”），抢占式调度</p>
+<p>无就绪进程，则执行闲逛进程（仅有CPU资源）</p>
+<h3 id="调度算法">调度算法</h3>
+<p>先来先服务调度算法（FCFS）：适合CPU繁忙型</p>
+<p>短作业优先调度算法（SJF）：可能饿死；未考虑优先级；平均等待时间和平均周转时间最少</p>
+<p>优先级调度算法：非抢占型or抢占型，静态优先级or动态优先级</p>
+<p>高响应比优先调度算法：<span
+class="math inline">\({响应比=\frac{等待时间+要求服务时间}{要求服务时间}}\)</span></p>
+<p>时间片轮转调度算法（RR）</p>
+<p>多级队列调度算法：不同队列不同调度算法</p>
+<p>多级反馈队列调度算法：多个就绪队列，除最后一级为RR外都使用FCFS，若若未完成则降级</p>
+<h3 id="进程切换">进程切换</h3>
+<p>上下文切换（计算密集型）（内核态中发生）：</p>
+<p>挂起进程，保存上下文------&gt;更新PCB------&gt;将PCB移入相应队列------&gt;</p>
+<p>选择一个进程，更新其PCB------&gt;恢复上下文------&gt;执行</p>
+<p>上下文切换和模式切换</p>
+<p>什么调度算法适合分时系统和实时系统？</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/" class="post-title-link" itemprop="url">剑指offer-Day17</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-03 19:15:30" itemprop="dateCreated datePublished" datetime="2023-04-03T19:15:30+08:00">2023-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:58:23" itemprop="dateModified" datetime="2023-09-04T15:58:23+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/LeetCode/%E5%89%91%E6%8C%87offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="剑指offer-40最小的k个数">剑指offer 40——最小的k个数</h2>
+<ol type="1">
+<li>快速排序。</li>
+<li>部分快速排序，前k个排好就返回。</li>
+<li>位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。</li>
+</ol>
+<h2 id="剑指offer-41数据流中的中位数">剑指offer
+41——数据流中的中位数</h2>
+<p><img src="/assets/image-20230403211629298.png"
+alt="image-20230403211629298" style="zoom:25%;" /&gt;</p>
+<ol type="1">
+<li>一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。</li>
+<li>有序队列，双指针指向最中间的两个数。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/01/2023-04-agenda-2023-04-01-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/01/2023-04-agenda-2023-04-01-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">待办事项-2023.4.4</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-01 17:15:30" itemprop="dateCreated datePublished" datetime="2023-04-01T17:15:30+08:00">2023-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:55:02" itemprop="dateModified" datetime="2023-09-04T15:55:02+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Agenda/" itemprop="url" rel="index"><span itemprop="name">Agenda</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>课程作业：</p>
+<table>
+<thead>
+<tr class="header">
+<th>科目</th>
+<th>作业</th>
+<th>ddl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>电子商务安全</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>人工神经网络</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>网络协议逆向</td>
+<td>第三章</td>
+<td>far away</td>
+</tr>
+<tr class="even">
+<td>云计算技术</td>
+<td>none</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>网络安全技术</td>
+<td>none(final exam)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>计算机视觉</td>
+<td>hw1</td>
+<td>4.30</td>
+</tr>
+<tr class="odd">
+<td>专业综合实践</td>
+<td>html8</td>
+<td>4.8</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -194,7 +729,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-09 10:06:52" itemprop="dateModified" datetime="2023-04-09T10:06:52+08:00">2023-04-09</time>
+      <time title="Modified: 2023-09-04 15:54:24" itemprop="dateModified" datetime="2023-09-04T15:54:24+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/Jekyll/" itemprop="url" rel="index"><span itemprop="name">Jekyll</span></a>
+        </span>
     </span>
 
   
@@ -270,7 +818,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-07 22:34:32" itemprop="dateModified" datetime="2023-04-07T22:34:32+08:00">2023-04-07</time>
+      <time title="Modified: 2023-09-04 15:52:56" itemprop="dateModified" datetime="2023-09-04T15:52:56+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/Jekyll/" itemprop="url" rel="index"><span itemprop="name">Jekyll</span></a>
+        </span>
     </span>
 
   

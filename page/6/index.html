@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,496 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/12/2023-04-course-2023-04-12-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-%E7%9B%B4%E7%BA%BF%E6%A3%80%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/12/2023-04-course-2023-04-12-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-%E7%9B%B4%E7%BA%BF%E6%A3%80%E6%B5%8B/" class="post-title-link" itemprop="url">计算机视觉-直线检测</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-12 07:57:02" itemprop="dateCreated datePublished" datetime="2023-04-12T07:57:02+08:00">2023-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:57:27" itemprop="dateModified" datetime="2023-09-04T15:57:27+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="计算机视觉-直线检测">计算机视觉-直线检测</h2>
+<p>复习一下hw1所需知识。</p>
+<h2 id="四特征检测">四、特征检测</h2>
+<h3 id="直线检测">1、直线检测</h3>
+<h4 id="hough变换">Hough变换</h4>
+<p>不仅限于直线和圆，许多形状都能检测。</p>
+<h5 id="原理">原理</h5>
+<p>变换到参数空间。</p>
+<p>例如图像中的直线y=ax+b，y和x是变量，参数空间中a和b是变量。直线上的各个点对应的a和b是相同的，在参数空间中表现为多条直线的交点。</p>
+<h4 id="ransac">RANSAC</h4>
+<h5 id="步骤">步骤</h5>
+<ol type="1">
+<li>选取一组点（直线2个点）</li>
+<li>计算模型</li>
+<li>计算局内点</li>
+<li>根据局内点重新计算</li>
+</ol>
+<h5 id="图像拼接中的作用">图像拼接中的作用</h5>
+<p>https://zhuanlan.zhihu.com/p/338654260</p>
+<p>https://blog.csdn.net/ak47fourier/article/details/80343372</p>
+<p>假设img1和img2上都找到了n个关键点，并且一一对应。那么在sift描述子上选取一组点，计算出一个变换矩阵（模型）。如果img1中的关键点n1能够变换为img2中的n2关键点，则将该描述子纳入局内点。</p>
+<h4 id="不变性">不变性</h4>
+<h5 id="动机">动机</h5>
+<p>图像匹配</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/11/2023-04-offer-2023-04-11-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%862/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/11/2023-04-offer-2023-04-11-%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%862/" class="post-title-link" itemprop="url">区块链相关知识2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-11 14:26:29" itemprop="dateCreated datePublished" datetime="2023-04-11T14:26:29+08:00">2023-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:58:56" itemprop="dateModified" datetime="2023-09-04T15:58:56+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="资料">资料</h2>
+<p>https://zhuanlan.zhihu.com/p/208239730</p>
+<p>https://zhuanlan.zhihu.com/p/143003200</p>
+<p>https://zhuanlan.zhihu.com/p/96027288</p>
+<h2 id="区块链术语解释">区块链术语解释</h2>
+<p>仅针对比特币而言</p>
+<p>节点不停地收到交易，验证其合法性后，将其纳入区块的计算中</p>
+<p>挖矿：计算符合条件的sha256哈希值</p>
+<p>区块：算出来的符合条件的哈希值，其中包含了上一区块以及许多交易</p>
+<p>记账权——奖励</p>
+<p>挖矿成功——铸币</p>
+<p>区块结构：上一区块，版本，默克尔树，难度，随机数</p>
+<p>铸币交易字段：略</p>
+<p>哈希指针和普通指针的区别在于，哈希指针的值是通过数据计算出来的且指向数据所在位置，所以哈希指针可以告诉我们数据存储位置及数据的哈希值。而普通指针只能告诉你数据存储的位置。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/11/2023-04-course-2023-04-11-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E5%AD%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/11/2023-04-course-2023-04-11-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E5%AD%90/" class="post-title-link" itemprop="url">计算机视觉-特征描述子</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-11 10:26:29" itemprop="dateCreated datePublished" datetime="2023-04-11T10:26:29+08:00">2023-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:57:22" itemprop="dateModified" datetime="2023-09-04T15:57:22+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="计算机视觉-特征描述子">计算机视觉-特征描述子</h2>
+<p>复习一下hw1所需知识。</p>
+<h2 id="五特征描述子">五、特征描述子</h2>
+<h3 id="sift描述子">SIFT描述子</h3>
+<p><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/pacino12134/p/11368558.html">特征提取算法（3）——SIFT特征提取算子
+- keepgoing18 - 博客园 (cnblogs.com)</a></p>
+<h4 id="步骤">步骤</h4>
+<ol type="1">
+<li>找到关键点</li>
+<li>将关键点图像划分为4x4的小块，再将小块划分为4x4的小小块</li>
+<li>对于每个小小块，计算其内部的梯度幅值和梯度方向，然后将梯度方向分成8个方向，每个方向覆盖45度，并将该方向上的梯度幅值累加起来，每个小块拥有8个方向的方向向量。</li>
+<li>把每个小块的方向向量组成一个8维向量</li>
+<li>所有8维向量拼接起来得到一个128维向量，这就是sift描述子</li>
+</ol>
+<h3 id="hog描述子">HOG描述子</h3>
+<p><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/urglyfish/articles/12417343.html">HOG特征提取原理及实现
+- 无趣的鱼 - 博客园 (cnblogs.com)</a></p>
+<h4 id="步骤-1">步骤</h4>
+<ol type="1">
+<li>预处理：灰度化，gamma矫正</li>
+<li>将图像划分为窗口(window)，窗口划分为块(block)，块划分为细胞(cell)</li>
+<li>归一化</li>
+<li>计算梯度：像素点计算梯度，判断所属方向区间（9个方向）</li>
+<li>细胞内构建梯度直方图：像素点梯度加权统计</li>
+<li>块内梯度直方图归一化：假设一个块有4个细胞，每个细胞9维向量，共4个9维向量</li>
+<li>拼接生成HOG特征向量</li>
+</ol>
+<p>窗口特征向量维度：窗口64x128，块8x8，细胞4x4，那么一个窗口有7x15个块，一个块有4个细胞，那么一个块就有4个9维向量，一个窗口就有7x15x4x9=3780维度的向量。</p>
+<p>梯度只算180度，即将180度划分为9个方向，而不是360度，因为完全相反的梯度被认为是同一个梯度方向。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/10/2023-04-course-2023-04-10-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/10/2023-04-course-2023-04-10-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">计算机视觉-harris算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-10 13:28:19" itemprop="dateCreated datePublished" datetime="2023-04-10T13:28:19+08:00">2023-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:57:14" itemprop="dateModified" datetime="2023-09-04T15:57:14+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="计算机视觉-harris算法">计算机视觉-harris算法</h2>
+<p>复习一下hw1所需知识。</p>
+<h2 id="四特征检测">四、特征检测</h2>
+<h3 id="角点检测">2、角点检测</h3>
+<h4 id="moravec">Moravec</h4>
+<p>略</p>
+<h4 id="harris角点检测器">Harris角点检测器</h4>
+<h5 id="原理">原理</h5>
+<p>窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。</p>
+<p>窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为</p>
+<p><span class="math display">\[
+E(u,v) = \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}
+\]</span> <span
+class="math inline">\({w(x,y)}\)</span>是窗口函数，二维的滤波器。</p>
+<p><span class="math inline">\({I(x+u,y+v)}\)</span>和<span
+class="math inline">\({I(x,y)}\)</span>分别是平移前和平移后的窗口灰度图。</p>
+<p>再用泰勒公式<span class="math inline">\({f(x+u,y+v) =
+f(x,y)+uf_x(x,y)+vf_y(x,y)}\)</span> 简化为</p>
+<p><span class="math display">\[
+E(x,y)=[u,v]M{ \left[
+\begin{matrix}
+   u\\v
+  \end{matrix}
+  \right]}
+\]</span> <span class="math display">\[
+M=\sum_{x,y}w(x,y){ \left[
+\begin{matrix}
+   I_x^2&amp;I_xI_y\\
+   I_xI_y&amp;I_y^2
+  \end{matrix}
+  \right]}
+\]</span></p>
+<p><span class="math inline">\({I_x}\)</span>和<span
+class="math inline">\({I_y}\)</span>为x和y方向的梯度值，可以用Sobel进行计算。</p>
+<p>接着<span
+class="math inline">\({M}\)</span>可以用实对称矩阵对角化进一步化简：</p>
+<p><span class="math display">\[
+M=R^{-1}
+{\left[
+\begin{matrix}
+   \lambda_1&amp;0\\
+   0&amp;\lambda_2
+  \end{matrix}
+  \right] }
+  R
+\]</span> 最后根据<span
+class="math inline">\({\lambda_1}\)</span>和<span
+class="math inline">\({\lambda_2}\)</span>计算角点响应函数R：</p>
+<p><span class="math display">\[
+R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2
+\]</span> k为经验常数，一般取0.04-0.06。</p>
+<p>当R很小且小于threshold时，认为是平坦区域；</p>
+<p>当R&lt;0且R&lt;threshold时，认为是边缘；</p>
+<p>当R&gt;0且R&gt;threshold时，认为是角点。</p>
+<h5 id="步骤">步骤</h5>
+<ol type="1">
+<li>计算<span class="math inline">\({I_x}\)</span>和<span
+class="math inline">\({I_y}\)</span></li>
+<li>计算<span class="math inline">\({I_xI_y}\)</span></li>
+<li>把<span
+class="math inline">\({w(x,y)}\)</span>，一般是高斯滤波器，应用到<span
+class="math inline">\({I_x}\)</span>、<span
+class="math inline">\({I_y}\)</span>和<span
+class="math inline">\({I_xI_y}\)</span>上，计算<span
+class="math inline">\(M\)</span>矩阵</li>
+<li>计算响应值R</li>
+</ol>
+<h5 id="特性">特性</h5>
+<p>平移不变性</p>
+<p>旋转不变性</p>
+<p>不满足尺度不变性</p>
+<h4 id="高斯差分滤波器dog">高斯差分滤波器（DoG）</h4>
+<p>尺度不变性</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -194,7 +684,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-28 15:01:28" itemprop="dateModified" datetime="2023-04-28T15:01:28+08:00">2023-04-28</time>
+      <time title="Modified: 2023-09-04 15:58:51" itemprop="dateModified" datetime="2023-09-04T15:58:51+08:00">2023-09-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -202,11 +692,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/blockchain/" itemprop="url" rel="index"><span itemprop="name">blockchain</span></a>
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
         </span>
     </span>
 
@@ -313,7 +799,7 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-17 12:47:48" itemprop="dateModified" datetime="2023-04-17T12:47:48+08:00">2023-04-17</time>
+      <time title="Modified: 2023-09-04 15:57:05" itemprop="dateModified" datetime="2023-09-04T15:57:05+08:00">2023-09-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,11 +807,11 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/%E4%B8%93%E4%B8%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">专业综合实践</span></a>
+          <a href="/categories/Course/%E4%B8%93%E4%B8%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">专业综合实践</span></a>
         </span>
     </span>
 
@@ -406,7 +892,7 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-17 12:48:01" itemprop="dateModified" datetime="2023-04-17T12:48:01+08:00">2023-04-17</time>
+      <time title="Modified: 2023-09-04 15:56:50" itemprop="dateModified" datetime="2023-09-04T15:56:50+08:00">2023-09-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -414,11 +900,11 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%80%86%E5%90%91/" itemprop="url" rel="index"><span itemprop="name">网络协议逆向</span></a>
+          <a href="/categories/Course/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E9%80%86%E5%90%91/" itemprop="url" rel="index"><span itemprop="name">网络协议逆向</span></a>
         </span>
     </span>
 
@@ -515,9 +1001,28 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-07 22:41:46 / Modified: 23:19:12" itemprop="dateCreated datePublished" datetime="2023-04-07T22:41:46+08:00">2023-04-07</time>
+      <time title="Created: 2023-04-07 22:41:46" itemprop="dateCreated datePublished" datetime="2023-04-07T22:41:46+08:00">2023-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:53:45" itemprop="dateModified" datetime="2023-09-04T15:53:45+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
     </span>
 
   
@@ -589,9 +1094,28 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-07 21:15:30 / Modified: 21:15:02" itemprop="dateCreated datePublished" datetime="2023-04-07T21:15:30+08:00">2023-04-07</time>
+      <time title="Created: 2023-04-07 21:15:30" itemprop="dateCreated datePublished" datetime="2023-04-07T21:15:30+08:00">2023-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:53:14" itemprop="dateModified" datetime="2023-09-04T15:53:14+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
     </span>
 
   
@@ -689,7 +1213,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-28 15:03:08" itemprop="dateModified" datetime="2023-04-28T15:03:08+08:00">2023-04-28</time>
+      <time title="Modified: 2023-09-04 15:58:42" itemprop="dateModified" datetime="2023-09-04T15:58:42+08:00">2023-09-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -697,11 +1221,11 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
+          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/%E5%89%91%E6%8C%87offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a>
+          <a href="/categories/LeetCode/%E5%89%91%E6%8C%87offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a>
         </span>
     </span>
 
@@ -723,505 +1247,6 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 <h2 id="剑指offer-65不用加减乘除做加法">剑指offer
 65——不用加减乘除做加法</h2>
 <p>位运算</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/07/2023-04-course-2023-04-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/07/2023-04-course-2023-04-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="post-title-link" itemprop="url">操作系统-内存管理2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-07 10:30:30" itemprop="dateCreated datePublished" datetime="2023-04-07T10:30:30+08:00">2023-04-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-28 15:06:08" itemprop="dateModified" datetime="2023-04-28T15:06:08+08:00">2023-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/408%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">408操作系统</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="虚拟内存管理">3.2 虚拟内存管理</h2>
-<h3 id="基本概念">3.2.1 基本概念</h3>
-<p>传统：一次性全部装入，一直驻留</p>
-<h4 id="局部性原理">局部性原理</h4>
-<p>时间局部性：当前执行的指令不久后可能再次执行</p>
-<p>空间局部性：当前访问的数据不久后可能访问其邻近的数据</p>
-<h4 id="虚拟存储器">虚拟存储器</h4>
-<p>基于局部性原理，仅将少量页面存入内存</p>
-<h3 id="请求分页管理方式">3.2.2 请求分页管理方式</h3>
-<h4 id="页表机制">页表机制</h4>
-<p>页表项结构：页号，物理块号，状态位，访问字段，修改位，外存地址</p>
-<h4 id="缺页中断机构">缺页中断机构</h4>
-<p>产生缺页中断</p>
-<h4 id="地址变换机构">地址变换机构</h4>
-<p>从快表到页表再到外存</p>
-<h3 id="页框分配">3.2.3 页框分配</h3>
-<h4 id="驻留集大小">驻留集大小</h4>
-<p>太小缺页率高</p>
-<p>太大没意义</p>
-<h4 id="内存分配策略">内存分配策略</h4>
-<p>固定分配局部置换：所有进程块数一样，自己换自己的</p>
-<p>可变分配全局置换：</p>
-<p>可变分配局部置换：</p>
-<h4 id="物理块调入算法">物理块调入算法</h4>
-<p>固定分配时有以下几种物理块分配算法</p>
-<p>平均分配算法：</p>
-<p>按比例分配算法：</p>
-<p>优先权分配算法：</p>
-<h4 id="调入页面的时机">调入页面的时机</h4>
-<p>预调页策略</p>
-<p>请求调页策略</p>
-<h4 id="从何处调入页面">从何处调入页面</h4>
-<p>略</p>
-<h4 id="如何调入页面">如何调入页面</h4>
-<p>缺页中断</p>
-<h3 id="页面置换算法">3.2.4 页面置换算法</h3>
-<h4 id="最佳置换算法opt">最佳置换算法（OPT）</h4>
-<p>最长时间不被访问</p>
-<h4 id="先进先出置换算法fifo">先进先出置换算法（FIFO）</h4>
-<p>可能导致Belady异常（物理块增多，缺页数也增多）</p>
-<h4 id="最近最久未使用置换算法lru">最近最久未使用置换算法（LRU）</h4>
-<h4 id="时钟置换算法">时钟置换算法</h4>
-<p>简单CLOCK</p>
-<p>也叫最近未用算法（NRU）：新增访问位，被访问时访问位设置为1。缺页时若为1则置为0，若为0则置换。</p>
-<p>改进CLOCK</p>
-<p>新增修改位。优先换未访问且未修改的页，其次换未访问但修改过的页。</p>
-<h3 id="抖动和工作集">3.2.5 抖动和工作集</h3>
-<h4 id="抖动">抖动</h4>
-<p>抖动：频繁的页面调度行为，刚换入就要换出，刚换出就要换入。</p>
-<p>抖动原因：进程太多，物理块太少</p>
-<h4 id="工作集">工作集</h4>
-<p>工作集：某段时间内，进程要访问的页面集合。</p>
-<h3 id="内存映射文件">3.2.6 内存映射文件</h3>
-<p>内存映射可用于共享文件or进程通信</p>
-<h3 id="虚拟存储器性能影响因素">3.2.7 虚拟存储器性能影响因素</h3>
-<p>缺页率——页面大小，物理块数，置换算法和程序本身</p>
-<h4 id="页面大小">页面大小</h4>
-<p>小</p>
-<p>优点：内存碎片少，内存利用率高</p>
-<p>缺点：缺页率高，页表长</p>
-<p>大</p>
-<p>优点：缺页率低，页表短</p>
-<p>缺点：内部碎片大</p>
-<h4 id="物理块数">物理块数</h4>
-<p>达到一定程度后增长不明显</p>
-<h4 id="置换算法">置换算法</h4>
-<h4 id="写回">写回</h4>
-<p>把脏块存在一个链表上，到一定数量后一起写回磁盘，其他进程可直接从链表上读取</p>
-<h4 id="程序">程序</h4>
-<p>局部化</p>
-<h3 id="地址翻译">3.2.8 地址翻译</h3>
-<p>略，从逻辑地址到物理地址的整个流程</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/06/2023-04-offer-2023-04-06-%E5%89%91%E6%8C%87offer-Day20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/06/2023-04-offer-2023-04-06-%E5%89%91%E6%8C%87offer-Day20/" class="post-title-link" itemprop="url">剑指offer-Day20</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-06 22:10:30" itemprop="dateCreated datePublished" datetime="2023-04-06T22:10:30+08:00">2023-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-28 15:03:14" itemprop="dateModified" datetime="2023-04-28T15:03:14+08:00">2023-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/" itemprop="url" rel="index"><span itemprop="name">offer</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/offer/%E5%89%91%E6%8C%87offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="剑指offer-7重建二叉树">剑指offer 7——重建二叉树</h2>
-<p>题目：给定前序遍历和中序遍历，要求重建出该树</p>
-<p>思路：根据前序遍历可以找出当前根节点，接着可以以此在中序遍历中找出左右子树，最后在前序遍历中找到左右子树的根节点，迭代下去即可。</p>
-<h2 id="剑指offer-16数值的整数次方">剑指offer 16——数值的整数次方</h2>
-<p>快速幂</p>
-<h2 id="剑指offer-33二叉搜索树的后序遍历序列">剑指offer
-33——二叉搜索树的后序遍历序列</h2>
-<p>题目：给出一个后序遍历，要求判断是否是二叉搜索树</p>
-<p>思路1：</p>
-<p>后序遍历序列顺序为左子树，右子树，根节点</p>
-<p>先检查左子树和右子树是否分别小于和大于根节点，接着递归判断左子树和右子树。</p>
-<p>思路2：</p>
-<p>单调栈（没看明白）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/06/2023-04-course-2023-04-06-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/06/2023-04-course-2023-04-06-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="post-title-link" itemprop="url">操作系统-内存管理1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-06 13:30:30" itemprop="dateCreated datePublished" datetime="2023-04-06T13:30:30+08:00">2023-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-28 15:06:04" itemprop="dateModified" datetime="2023-04-28T15:06:04+08:00">2023-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/course/408%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">408操作系统</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="内存管理概念">3.1 内存管理概念</h2>
-<h3 id="基本原理与要求">3.1.1 基本原理与要求</h3>
-<p>主要功能：</p>
-<p>分配与回收，地址转换（逻辑地址物理地址），扩充（虚拟技术），共享，存储保护（互不干扰）</p>
-<h4 id="创建进程">创建进程</h4>
-<p>步骤：编译，链接与载入</p>
-<p>链接：</p>
-<p>静态链接，载入时链接，运行时链接</p>
-<p>载入：</p>
-<p>绝对载入（单道程序，绝对地址），</p>
-<p>可重定位载入（载入前程序中为相对地址，载入时一次性重写为绝对地址），</p>
-<p>动态运行时载入（在重定位寄存器中保存基地址，真正执行时转换为绝对地址）</p>
-<h4 id="地址">地址</h4>
-<p>逻辑地址：相对地址，虚拟地址</p>
-<p>物理地址：实际地址，通过MMU转换（页表中的结构，这操作叫地址重定位）</p>
-<h4 id="内存映像">内存映像</h4>
-<p>代码段，数据段，PCB，</p>
-<p>堆（存动态分配的变量，向高地址增长），栈（实现函数调用，向低地址增长）</p>
-<h4 id="内存保护">内存保护</h4>
-<p>互不干扰</p>
-<ol type="1">
-<li>上下限寄存器</li>
-<li>重定位寄存器（基地址）和界地址寄存器：先和界地址比较，，再映射物理地址；（要进内核空间）</li>
-</ol>
-<h3 id="覆盖与交换">3.1.2 覆盖与交换</h3>
-<p>覆盖（已成为历史）：部分常驻于内存，部分则可替换；当需要调用时替换掉原有的段</p>
-<p>交换：将等待队列中的程序暂时移出内存（中级调度）</p>
-<h3 id="连续分配管理">3.1.3 连续分配管理</h3>
-<h4 id="固定分区">固定分区</h4>
-<p>问题：</p>
-<ol type="1">
-<li>程序可能过大</li>
-<li>程序过小导致内部碎片</li>
-</ol>
-<h4 id="动态分区">动态分区</h4>
-<p>可能导致外部碎片——紧凑技术可处理</p>
-<p>分配策略：</p>
-<p>首次适应：从头开始顺序查找，第一个大小合适的空闲分区（效果最好）</p>
-<p>邻近适应：从上次查找结束的位置开始，第一个大小合适的空闲分区</p>
-<p>最佳适应：大小最合适的空闲分区（外部碎片多）</p>
-<p>最差适应：从最大的分区中分一部分（无大分区）</p>
-<h3 id="基本分页存储管理">3.1.4 基本分页存储管理</h3>
-<p>页：大小相等且固定</p>
-<p>页，帧和块</p>
-<p>页表项和地址结构第一部分都是页号，页表项的第二部分是块号（物理内存），地址中的第二部分是页内偏移。</p>
-<p>用逻辑地址计算物理地址：略（一套流程，感觉他没说明白）</p>
-<p>注意有的以字节为编址单位</p>
-<p>？P168和P169没细看</p>
-<p>快表TLB：有的可以同时查快表和页表</p>
-<p>二级页表的优劣点</p>
-<h3 id="基本分段存储管理">3.1.5 基本分段存储管理</h3>
-<p>按照自然段划分逻辑空间</p>
-<p>段表：段号+段长</p>
-<p>也有从逻辑地址到物理地址的一套操作，略</p>
-<h3 id="段页式管理">3.1.6 段页式管理</h3>
-<p>分页提高内存利用率，分段反映逻辑结构而且有利于段的共享和保护</p>
-<p>先分段，段中再分页</p>
-<p>逻辑地址：段号，页号和页内偏移量</p>
-<p>一个进程中只有一个段表，可能有多个页表</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/05/2023-04-2023-04-05-%E5%8F%8D%E9%A6%88%E4%B8%8E%E7%BA%A0%E6%AD%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/05/2023-04-2023-04-05-%E5%8F%8D%E9%A6%88%E4%B8%8E%E7%BA%A0%E6%AD%A3/" class="post-title-link" itemprop="url">反馈与纠正</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-05 23:43:30" itemprop="dateCreated datePublished" datetime="2023-04-05T23:43:30+08:00">2023-04-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-28 15:04:11" itemprop="dateModified" datetime="2023-04-28T15:04:11+08:00">2023-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/think/" itemprop="url" rel="index"><span itemprop="name">think</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="反馈">反馈</h2>
-<p>工作量太低了，不是时间没给够，</p>
-<p>是专注不下来，效率太低了，一天就整理了os的一节和leetcode的5道题。</p>
-<h2 id="纠正">纠正</h2>
-<p>得想个办法</p>
-<p>未完</p>
-<p>得想办法量化每天任务</p>
 
       
     </div>
@@ -1292,7 +1317,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
