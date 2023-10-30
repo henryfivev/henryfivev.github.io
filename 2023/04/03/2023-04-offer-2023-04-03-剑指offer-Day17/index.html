@@ -19,16 +19,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数">
+    <meta name="description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数   一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。 有序队列，双指针指向最中间的两个数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer-Day17">
 <meta property="og:url" content="http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数">
+<meta property="og:description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数   一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。 有序队列，双指针指向最中间的两个数。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/assets/image-20230403211629298.png">
 <meta property="article:published_time" content="2023-04-03T11:15:30.000Z">
-<meta property="article:modified_time" content="2023-09-04T07:58:23.975Z">
+<meta property="article:modified_time" content="2023-10-30T03:18:33.973Z">
 <meta property="article:author" content="henryfivev">
 <meta property="article:tag" content="剑指offer">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 15:58:23" itemprop="dateModified" datetime="2023-09-04T15:58:23+08:00">2023-09-04</time>
+      <time title="Modified: 2023-10-30 11:18:33" itemprop="dateModified" datetime="2023-10-30T11:18:33+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,8 +236,7 @@
 </ol>
 <h2 id="剑指offer-41数据流中的中位数">剑指offer
 41——数据流中的中位数</h2>
-<p><img src="/assets/image-20230403211629298.png"
-alt="image-20230403211629298" style="zoom:25%;" /&gt;</p>
+<p><img src="/assets/image-20230403211629298.png" alt="image-20230403211629298" style="zoom:25%;" /></p>
 <ol type="1">
 <li>一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。</li>
 <li>有序队列，双指针指向最中间的两个数。</li>
