@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -149,6 +149,140 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/15/2023-04-course-2023-04-15-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/15/2023-04-course-2023-04-15-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF2/" class="post-title-link" itemprop="url">网络安全技术2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-15 14:25:30" itemprop="dateCreated datePublished" datetime="2023-04-15T14:25:30+08:00">2023-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:57:54" itemprop="dateModified" datetime="2023-09-04T15:57:54+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">网络安全技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="自顶向下第8章概览">自顶向下第8章概览</h2>
+<h3 id="安全电子邮件">8.5 安全电子邮件</h3>
+<p>为什么要在多层提供安全性功能：</p>
+<ol type="1">
+<li>用户级安全：一个商业网站不能依赖于IP层安全性</li>
+<li>低层部署困难</li>
+</ol>
+<h4 id="安全电子邮件-1">安全电子邮件</h4>
+<p>安全特性：</p>
+<ol type="1">
+<li>机密性：对称加密，非对称加密，会话密钥</li>
+<li>发送方鉴别</li>
+<li>报文完整性：数字签名，报文摘要</li>
+<li>接收方鉴别</li>
+</ol>
+<p>安全电子邮件系统：将会话密钥，数字签名和报文摘要结合使用。</p>
+<h4 id="pgp">PGP</h4>
+<p>略</p>
+<h3 id="使tcp连接安全ssl">8.6 使TCP连接安全：SSL</h3>
+<p>SSL ——&gt; TLS</p>
+<h4 id="宏观描述">宏观描述</h4>
+<p>SSL有三个阶段：握手，密钥导出和数据传输</p>
+<ol type="1">
+<li>握手：创建TCP连接，验证身份，发送主密钥(MS)</li>
+<li>密钥导出：使用MS生成4个密钥（两个会话加密密钥，两个会话MAC密钥）</li>
+<li>数据传输：SSL将数据分割成记录，对每个记录附加一个MAC(=H(数据,
+MAC密钥))用于完整性检查，然后用会话加密密钥加密"记录+MAC"</li>
+</ol>
+<p>这种数据传输方式存在“报文顺序不对但完整性检查正确”的情况。</p>
+<p>记录格式：记录头（1字节content
+type+2字节SSL版本+3字节长度）+加密后的数据和MAC</p>
+<h4 id="更完整的描述">更完整的描述</h4>
+<h5 id="ssl握手">SSL握手</h5>
+<ol type="1">
+<li>客户发送支持的算法列表，以及一个nonce</li>
+<li>服务器选择一个对称算法，一个非对称算法和一个MAC算法。返回算法，证书和一个nonce</li>
+<li>客户验证证书并提取公钥，生成一个前主密钥（PMS），发送用服务器公钥加密过的PMS</li>
+<li>客户和服务器分别从PMS和不重数中计算出主密钥（MS），然后将该MS切片以生成4个密钥</li>
+</ol>
+<p>CBC模式有幺蛾子。</p>
+<ol start="5" type="1">
+<li>客户发送所有握手报文的一个MAC</li>
+<li>服务器发送所有握手报文的一个MAC</li>
+</ol>
+<h5 id="关闭连接">关闭连接</h5>
+<p>在记录的类型字段中指出该记录是否用于终止SSL。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1213,167 +1347,6 @@ target="_blank" rel="noopener" href="https://www.cnblogs.com/urglyfish/articles/
 </ol>
 <p>窗口特征向量维度：窗口64x128，块8x8，细胞4x4，那么一个窗口有7x15个块，一个块有4个细胞，那么一个块就有4个9维向量，一个窗口就有7x15x4x9=3780维度的向量。</p>
 <p>梯度只算180度，即将180度划分为9个方向，而不是360度，因为完全相反的梯度被认为是同一个梯度方向。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/10/2023-04-course-2023-04-10-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/10/2023-04-course-2023-04-10-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">计算机视觉-harris算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-10 13:28:19" itemprop="dateCreated datePublished" datetime="2023-04-10T13:28:19+08:00">2023-04-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 15:57:14" itemprop="dateModified" datetime="2023-09-04T15:57:14+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="计算机视觉-harris算法">计算机视觉-harris算法</h2>
-<p>复习一下hw1所需知识。</p>
-<h2 id="四特征检测">四、特征检测</h2>
-<h3 id="角点检测">2、角点检测</h3>
-<h4 id="moravec">Moravec</h4>
-<p>略</p>
-<h4 id="harris角点检测器">Harris角点检测器</h4>
-<h5 id="原理">原理</h5>
-<p>窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。</p>
-<p>窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为</p>
-<p><span class="math display">\[
-E(u,v) = \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}
-\]</span> <span
-class="math inline">\({w(x,y)}\)</span>是窗口函数，二维的滤波器。</p>
-<p><span class="math inline">\({I(x+u,y+v)}\)</span>和<span
-class="math inline">\({I(x,y)}\)</span>分别是平移前和平移后的窗口灰度图。</p>
-<p>再用泰勒公式<span class="math inline">\({f(x+u,y+v) =
-f(x,y)+uf_x(x,y)+vf_y(x,y)}\)</span> 简化为</p>
-<p><span class="math display">\[
-E(x,y)=[u,v]M{ \left[
-\begin{matrix}
-   u\\v
-  \end{matrix}
-  \right]}
-\]</span> <span class="math display">\[
-M=\sum_{x,y}w(x,y){ \left[
-\begin{matrix}
-   I_x^2&amp;I_xI_y\\
-   I_xI_y&amp;I_y^2
-  \end{matrix}
-  \right]}
-\]</span></p>
-<p><span class="math inline">\({I_x}\)</span>和<span
-class="math inline">\({I_y}\)</span>为x和y方向的梯度值，可以用Sobel进行计算。</p>
-<p>接着<span
-class="math inline">\({M}\)</span>可以用实对称矩阵对角化进一步化简：</p>
-<p><span class="math display">\[
-M=R^{-1}
-{\left[
-\begin{matrix}
-   \lambda_1&amp;0\\
-   0&amp;\lambda_2
-  \end{matrix}
-  \right] }
-  R
-\]</span> 最后根据<span
-class="math inline">\({\lambda_1}\)</span>和<span
-class="math inline">\({\lambda_2}\)</span>计算角点响应函数R：</p>
-<p><span class="math display">\[
-R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2
-\]</span> k为经验常数，一般取0.04-0.06。</p>
-<p>当R很小且小于threshold时，认为是平坦区域；</p>
-<p>当R&lt;0且R&lt;threshold时，认为是边缘；</p>
-<p>当R&gt;0且R&gt;threshold时，认为是角点。</p>
-<h5 id="步骤">步骤</h5>
-<ol type="1">
-<li>计算<span class="math inline">\({I_x}\)</span>和<span
-class="math inline">\({I_y}\)</span></li>
-<li>计算<span class="math inline">\({I_xI_y}\)</span></li>
-<li>把<span
-class="math inline">\({w(x,y)}\)</span>，一般是高斯滤波器，应用到<span
-class="math inline">\({I_x}\)</span>、<span
-class="math inline">\({I_y}\)</span>和<span
-class="math inline">\({I_xI_y}\)</span>上，计算<span
-class="math inline">\(M\)</span>矩阵</li>
-<li>计算响应值R</li>
-</ol>
-<h5 id="特性">特性</h5>
-<p>平移不变性</p>
-<p>旋转不变性</p>
-<p>不满足尺度不变性</p>
-<h4 id="高斯差分滤波器dog">高斯差分滤波器（DoG）</h4>
-<p>尺度不变性</p>
 
       
     </div>
