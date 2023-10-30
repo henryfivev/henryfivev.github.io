@@ -19,30 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数   一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。 有序队列，双指针指向最中间的两个数。">
+    <meta name="description" content="数据集：https:&#x2F;&#x2F;xblock.pro&#x2F;#&#x2F;dataset&#x2F;25 传统庞氏合约 目前将庞氏合约根据合约分配资金的模式分成4类：树形合约、链式合约、瀑布式合约和交接合约。 树形合约 用户之间的关系为树形结构。每当用户加入这个合约时，他必须将另一个用户指示为邀请者（父节点）。 新用户的钱在她的邀请者或邀请者的邀请者等等(即树形结构下的“祖先”)之间分配，逻辑是距离她越近邀请者获得的份额">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer-Day17">
-<meta property="og:url" content="http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/index.html">
+<meta property="og:title" content="庞氏合约数据集情况">
+<meta property="og:url" content="http://example.com/2023/10/30/%E5%BA%9E%E6%B0%8F%E5%90%88%E7%BA%A6%E6%95%B0%E6%8D%AE%E9%9B%86%E6%83%85%E5%86%B5/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="剑指offer 40——最小的k个数  快速排序。 部分快速排序，前k个排好就返回。 位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。  剑指offer 41——数据流中的中位数   一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。 有序队列，双指针指向最中间的两个数。">
+<meta property="og:description" content="数据集：https:&#x2F;&#x2F;xblock.pro&#x2F;#&#x2F;dataset&#x2F;25 传统庞氏合约 目前将庞氏合约根据合约分配资金的模式分成4类：树形合约、链式合约、瀑布式合约和交接合约。 树形合约 用户之间的关系为树形结构。每当用户加入这个合约时，他必须将另一个用户指示为邀请者（父节点）。 新用户的钱在她的邀请者或邀请者的邀请者等等(即树形结构下的“祖先”)之间分配，逻辑是距离她越近邀请者获得的份额">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/assets/image-20230403211629298.png">
-<meta property="article:published_time" content="2023-04-03T11:15:30.000Z">
-<meta property="article:modified_time" content="2023-10-30T03:18:33.973Z">
+<meta property="article:published_time" content="2023-10-30T06:49:35.000Z">
+<meta property="article:modified_time" content="2023-10-30T06:49:35.048Z">
 <meta property="article:author" content="henryfivev">
-<meta property="article:tag" content="剑指offer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets/image-20230403211629298.png">
 
 
-<link rel="canonical" href="http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/">
+<link rel="canonical" href="http://example.com/2023/10/30/%E5%BA%9E%E6%B0%8F%E5%90%88%E7%BA%A6%E6%95%B0%E6%8D%AE%E9%9B%86%E6%83%85%E5%86%B5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/","path":"2023/04/03/2023-04-offer-2023-04-03-剑指offer-Day17/","title":"剑指offer-Day17"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/10/30/%E5%BA%9E%E6%B0%8F%E5%90%88%E7%BA%A6%E6%95%B0%E6%8D%AE%E9%9B%86%E6%83%85%E5%86%B5/","path":"2023/10/30/庞氏合约数据集情况/","title":"庞氏合约数据集情况"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>剑指offer-Day17 | 望尘可及的秘密基地</title>
+<title>庞氏合约数据集情况 | 望尘可及的秘密基地</title>
   
 
 
@@ -114,8 +111,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-40%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0"><span class="nav-text">剑指offer 40——最小的k个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-41%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-text">剑指offer
-41——数据流中的中位数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%BA%9E%E6%B0%8F%E5%90%88%E7%BA%A6"><span class="nav-text">传统庞氏合约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E5%BD%A2%E5%90%88%E7%BA%A6"><span class="nav-text">树形合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E5%90%88%E7%BA%A6"><span class="nav-text">链式合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%80%91%E5%B8%83%E5%BC%8F%E5%90%88%E7%BA%A6"><span class="nav-text">瀑布式合约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E6%8E%A5%E5%90%88%E7%BA%A6"><span class="nav-text">交接合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%8F%91%E7%8E%B0"><span class="nav-text">新发现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%8D%E8%B6%B3"><span class="nav-text">数据集不足</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,7 +162,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/03/2023-04-offer-2023-04-03-%E5%89%91%E6%8C%87offer-Day17/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/30/%E5%BA%9E%E6%B0%8F%E5%90%88%E7%BA%A6%E6%95%B0%E6%8D%AE%E9%9B%86%E6%83%85%E5%86%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,12 +175,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="剑指offer-Day17 | 望尘可及的秘密基地">
+      <meta itemprop="name" content="庞氏合约数据集情况 | 望尘可及的秘密基地">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          剑指offer-Day17
+          庞氏合约数据集情况
         </h1>
 
         <div class="post-meta-container">
@@ -195,27 +191,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-04-03 19:15:30" itemprop="dateCreated datePublished" datetime="2023-04-03T19:15:30+08:00">2023-04-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-30 11:18:33" itemprop="dateModified" datetime="2023-10-30T11:18:33+08:00">2023-10-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/%E5%89%91%E6%8C%87offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a>
-        </span>
+      <time title="Created: 2023-10-30 14:49:35" itemprop="dateCreated datePublished" datetime="2023-10-30T14:49:35+08:00">2023-10-30</time>
     </span>
 
   
@@ -228,19 +204,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="剑指offer-40最小的k个数">剑指offer 40——最小的k个数</h2>
-<ol type="1">
-<li>快速排序。</li>
-<li>部分快速排序，前k个排好就返回。</li>
-<li>位图，vector&lt;int&gt; arr，arr[i]表示数字 i 的个数。</li>
-</ol>
-<h2 id="剑指offer-41数据流中的中位数">剑指offer
-41——数据流中的中位数</h2>
-<p><img src="/assets/image-20230403211629298.png" alt="image-20230403211629298" style="zoom:25%;" /></p>
-<ol type="1">
-<li>一个大顶堆和一个小顶堆正好表示出最中间的两个数，我们可以用优先队列（priority_queue）实现堆。</li>
-<li>有序队列，双指针指向最中间的两个数。</li>
-</ol>
+        <p>数据集：https://xblock.pro/#/dataset/25</p>
+<h2 id="传统庞氏合约">传统庞氏合约</h2>
+<p>目前将庞氏合约根据合约分配资金的模式分成4类：树形合约、链式合约、瀑布式合约和交接合约。</p>
+<h3 id="树形合约">树形合约</h3>
+<p>用户之间的关系为树形结构。每当用户加入这个合约时，他必须将另一个用户指示为邀请者（父节点）。</p>
+<p>新用户的钱在她的邀请者或邀请者的邀请者等等(即树形结构下的“祖先”)之间分配，逻辑是距离她越近邀请者获得的份额越大。</p>
+<p>例子：Etheramid和DynamicPyramid</p>
+<h3 id="链式合约">链式合约</h3>
+<p>用户之间的关系是线性的，每个节点都只有一个子节点。通常承诺一个常数因子（收益金额/投资金额），这个常数因子对所有用户都是相等的。合约按顺序一次性全额支付用户的收益。</p>
+<p>所有新的投资都被收集起来，直到获得到期的金额。</p>
+<p>例子：Doubler、dianaem和ZeroPonzi</p>
+<h3 id="瀑布式合约">瀑布式合约</h3>
+<p>类似于链式合约，但分配逻辑不同。分发总是从链的头部开始，按顺序支付用户的收益，直到余额耗尽。</p>
+<p>每次分钱会跳着分。</p>
+<p>例子：TreasureChest和PiggyBank</p>
+<h3 id="交接合约">交接合约</h3>
+<p>类似于链式合约，用户投资金额由合约决定，每次有新的用户加入，合约就会提高投资金额。合约将新用户的资金直接支付给前一个用户，前一个用户立即获得了利润。</p>
+<p>例子：KingOfTheEtherThrone</p>
+<h2 id="新发现">新发现</h2>
+<p>在数据集中发现有很多被标记为庞氏的合约是建立在自己实现的token上的，不一定符合ERC20标准。这类合约接收到新投资后，一般会增加老投资者的分红变量，而不是直接向老投资者转账。</p>
+<h2 id="数据集不足">数据集不足</h2>
+<p>现在数据集有点旧，仅截止到2019年1月生成的区块7136486。</p>
+<p>得更新一下数据集，从中找一个新模式的庞氏合约（或者我们自己想一个hhhh有没有可能整个跨链庞氏）</p>
 
     </div>
 
@@ -249,22 +235,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag"># 剑指offer</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/04/01/2023-04-agenda-2023-04-01-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9/" rel="prev" title="待办事项-2023.4.4">
-                  <i class="fa fa-chevron-left"></i> 待办事项-2023.4.4
+                <a href="/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" rel="prev" title="Hexo插入图片">
+                  <i class="fa fa-chevron-left"></i> Hexo插入图片
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/04/03/2023-04-course-2023-04-03-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/" rel="next" title="操作系统-进程与线程1">
-                  操作系统-进程与线程1 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
