@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -149,6 +149,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">Hexo插入图片</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-10-30 11:23:53 / Modified: 11:27:34" itemprop="dateCreated datePublished" datetime="2023-10-30T11:23:53+08:00">2023-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>亲测https://blog.csdn.net/Miracle_ps/article/details/114791335中的第二个办法可行，这里mark一下。</p>
+<p>方法一：</p>
+<ol type="1">
+<li>找到Hexo下的_config.yml里的post_asset_folder，把这个选项从false改成true</li>
+<li>在Hexo目录下打开Git Brsh，执行一个下载上传图片插件的命令npm install
+hexo-asset-image --save。</li>
+<li>继续在Git Brsh下利用hexo n
+"xxxx"来生成md的文件（""里的内容填自己的文件名），这时就会在同级的目录下生成一个同名的文件夹。</li>
+<li>在.md的文件中要插入图片时，先要把所要插入的图片放在生成的同名文件夹下。</li>
+</ol>
+<p>方法二：</p>
+<p>在source路径下新建一个文件夹，然后用md语法正常插入即可。</p>
+<p>如新建路径source/assets，则插入<code>![imgname](/assets/xxx.png)</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -188,7 +283,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-10-30 10:50:43 / Modified: 10:59:12" itemprop="dateCreated datePublished" datetime="2023-10-30T10:50:43+08:00">2023-10-30</time>
+      <time title="Created: 2023-10-30 10:50:43 / Modified: 11:26:09" itemprop="dateCreated datePublished" datetime="2023-10-30T10:50:43+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,8 +365,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-10-30 00:32:26" itemprop="dateCreated datePublished" datetime="2023-10-30T00:32:26+08:00">2023-10-30</time>
+      <time title="Created: 2023-10-30 00:32:26 / Modified: 11:26:09" itemprop="dateCreated datePublished" datetime="2023-10-30T00:32:26+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -412,8 +508,9 @@ gcn：先用一个MLP计算边的隐藏特征，然后将节点特征和隐藏�
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-10-30 00:32:08" itemprop="dateCreated datePublished" datetime="2023-10-30T00:32:08+08:00">2023-10-30</time>
+      <time title="Created: 2023-10-30 00:32:08 / Modified: 11:26:09" itemprop="dateCreated datePublished" datetime="2023-10-30T00:32:08+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -559,6 +656,13 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149894944">【
       <span class="post-meta-item-text">Posted on</span>
 
       <time title="Created: 2023-10-17 17:49:12" itemprop="dateCreated datePublished" datetime="2023-10-17T17:49:12+08:00">2023-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-30 11:26:09" itemprop="dateModified" datetime="2023-10-30T11:26:09+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1339,103 +1443,6 @@ id="使用代币工具型代币还是权益型代币">使用代币：工具型�
 <p>很多项目在此基础上创建了扩展的实现，用于支持它们应用中所需要的功能。这些扩展包括：销毁、铸币、众筹、硬顶等等。</p>
 <h3 id="代币和ico">代币和ICO</h3>
 <p>在代币世界中生存的诀窍是将这种技术的长期愿景和影响与可能是巨大的短期ICO泡沫分离开来，这种泡沫充斥着欺诈行为。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%AE%A2%E6%88%B7%E7%AB%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%AE%A2%E6%88%B7%E7%AB%AF/" class="post-title-link" itemprop="url">精通以太坊-以太坊客户端</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-09-05 14:33:46" itemprop="dateCreated datePublished" datetime="2023-09-05T14:33:46+08:00">2023-09-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-17 17:47:41" itemprop="dateModified" datetime="2023-10-17T17:47:41+08:00">2023-10-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="三以太坊客户端">三、以太坊客户端</h2>
-<p>不同客户端之间遵从相同协议和规范，所以在同一个网络中可以交互。</p>
-<p>存在多个以太坊网络，比如以太坊、以太坊经典、Polygon、BSC等等。</p>
-<p>每一个全功能节点可以帮助其他新加入网络的节点获取开始运行所需要的区块数据，全功能节点的另一个重要任务是为用户提供独立和权威的交易及合约验证。</p>
-<p>运行一个全功能节点需要消耗大量的硬件资源和网络带宽。</p>
-<p>也可以运行一个仅从远程调用以太坊的客户端，就是说，不在本地保存区块链数据，也不参与区块和交易验证。</p>
-<p>轻客户端类似于比特币网络中的简单支付验证，也就是SPV节点。</p>
-<p>全功能节点、远程客户端、轻节点之间的区别。</p>
-<p>以太坊主网、公共测试网、本地测试网之间的区别。</p>
 
       
     </div>

@@ -19,28 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="剑指offer 7——重建二叉树 题目：给定前序遍历和中序遍历，要求重建出该树 思路：根据前序遍历可以找出当前根节点，接着可以以此在中序遍历中找出左右子树，最后在前序遍历中找到左右子树的根节点，迭代下去即可。 剑指offer 16——数值的整数次方 快速幂 剑指offer 33——二叉搜索树的后序遍历序列 题目：给出一个后序遍历，要求判断是否是二叉搜索树 思路1： 后序遍历序列顺">
+    <meta name="description" content="亲测https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miracle_ps&#x2F;article&#x2F;details&#x2F;114791335中的第二个办法可行，这里mark一下。 方法一：  找到Hexo下的_config.yml里的post_asset_folder，把这个选项从false改成true 在Hexo目录下打开Git Brsh，执行一个下载上传图片插件的命令npm install hexo-a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer-Day20">
-<meta property="og:url" content="http://example.com/2023/04/06/2023-04-offer-2023-04-06-%E5%89%91%E6%8C%87offer-Day20/index.html">
+<meta property="og:title" content="Hexo插入图片">
+<meta property="og:url" content="http://example.com/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="剑指offer 7——重建二叉树 题目：给定前序遍历和中序遍历，要求重建出该树 思路：根据前序遍历可以找出当前根节点，接着可以以此在中序遍历中找出左右子树，最后在前序遍历中找到左右子树的根节点，迭代下去即可。 剑指offer 16——数值的整数次方 快速幂 剑指offer 33——二叉搜索树的后序遍历序列 题目：给出一个后序遍历，要求判断是否是二叉搜索树 思路1： 后序遍历序列顺">
+<meta property="og:description" content="亲测https:&#x2F;&#x2F;blog.csdn.net&#x2F;Miracle_ps&#x2F;article&#x2F;details&#x2F;114791335中的第二个办法可行，这里mark一下。 方法一：  找到Hexo下的_config.yml里的post_asset_folder，把这个选项从false改成true 在Hexo目录下打开Git Brsh，执行一个下载上传图片插件的命令npm install hexo-a">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-06T14:10:30.000Z">
-<meta property="article:modified_time" content="2023-09-04T07:58:38.452Z">
+<meta property="article:published_time" content="2023-10-30T03:23:53.000Z">
+<meta property="article:modified_time" content="2023-10-30T03:27:34.567Z">
 <meta property="article:author" content="henryfivev">
-<meta property="article:tag" content="剑指offer">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2023/04/06/2023-04-offer-2023-04-06-%E5%89%91%E6%8C%87offer-Day20/">
+<link rel="canonical" href="http://example.com/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/04/06/2023-04-offer-2023-04-06-%E5%89%91%E6%8C%87offer-Day20/","path":"2023/04/06/2023-04-offer-2023-04-06-剑指offer-Day20/","title":"剑指offer-Day20"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/","path":"2023/10/30/Hexo插入图片/","title":"Hexo插入图片"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>剑指offer-Day20 | 望尘可及的秘密基地</title>
+<title>Hexo插入图片 | 望尘可及的秘密基地</title>
   
 
 
@@ -99,7 +99,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -112,8 +112,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-7%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">剑指offer 7——重建二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-16%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="nav-text">剑指offer 16——数值的整数次方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-33%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97"><span class="nav-text">剑指offer
-33——二叉搜索树的后序遍历序列</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +162,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/06/2023-04-offer-2023-04-06-%E5%89%91%E6%8C%87offer-Day20/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/30/Hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,12 +175,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="剑指offer-Day20 | 望尘可及的秘密基地">
+      <meta itemprop="name" content="Hexo插入图片 | 望尘可及的秘密基地">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          剑指offer-Day20
+          Hexo插入图片
         </h1>
 
         <div class="post-meta-container">
@@ -192,15 +190,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-04-06 22:10:30" itemprop="dateCreated datePublished" datetime="2023-04-06T22:10:30+08:00">2023-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 15:58:38" itemprop="dateModified" datetime="2023-09-04T15:58:38+08:00">2023-09-04</time>
+      <time title="Created: 2023-10-30 11:23:53 / Modified: 11:27:34" itemprop="dateCreated datePublished" datetime="2023-10-30T11:23:53+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -208,11 +200,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/LeetCode/%E5%89%91%E6%8C%87offer/" itemprop="url" rel="index"><span itemprop="name">剑指offer</span></a>
+          <a href="/categories/Blog/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
         </span>
     </span>
 
@@ -226,19 +218,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="剑指offer-7重建二叉树">剑指offer 7——重建二叉树</h2>
-<p>题目：给定前序遍历和中序遍历，要求重建出该树</p>
-<p>思路：根据前序遍历可以找出当前根节点，接着可以以此在中序遍历中找出左右子树，最后在前序遍历中找到左右子树的根节点，迭代下去即可。</p>
-<h2 id="剑指offer-16数值的整数次方">剑指offer 16——数值的整数次方</h2>
-<p>快速幂</p>
-<h2 id="剑指offer-33二叉搜索树的后序遍历序列">剑指offer
-33——二叉搜索树的后序遍历序列</h2>
-<p>题目：给出一个后序遍历，要求判断是否是二叉搜索树</p>
-<p>思路1：</p>
-<p>后序遍历序列顺序为左子树，右子树，根节点</p>
-<p>先检查左子树和右子树是否分别小于和大于根节点，接着递归判断左子树和右子树。</p>
-<p>思路2：</p>
-<p>单调栈（没看明白）</p>
+        <p>亲测https://blog.csdn.net/Miracle_ps/article/details/114791335中的第二个办法可行，这里mark一下。</p>
+<p>方法一：</p>
+<ol type="1">
+<li>找到Hexo下的_config.yml里的post_asset_folder，把这个选项从false改成true</li>
+<li>在Hexo目录下打开Git Brsh，执行一个下载上传图片插件的命令npm install
+hexo-asset-image --save。</li>
+<li>继续在Git Brsh下利用hexo n
+"xxxx"来生成md的文件（""里的内容填自己的文件名），这时就会在同级的目录下生成一个同名的文件夹。</li>
+<li>在.md的文件中要插入图片时，先要把所要插入的图片放在生成的同名文件夹下。</li>
+</ol>
+<p>方法二：</p>
+<p>在source路径下新建一个文件夹，然后用md语法正常插入即可。</p>
+<p>如新建路径source/assets，则插入<code>![imgname](/assets/xxx.png)</code></p>
 
     </div>
 
@@ -248,21 +240,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag"># 剑指offer</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/04/06/2023-04-course-2023-04-06-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/" rel="prev" title="操作系统-内存管理1">
-                  <i class="fa fa-chevron-left"></i> 操作系统-内存管理1
+                <a href="/2023/10/30/Hexo%E7%9A%84Bug%E8%AE%B0%E5%BD%95/" rel="prev" title="Hexo的Bug记录">
+                  <i class="fa fa-chevron-left"></i> Hexo的Bug记录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/04/07/2023-04-course-2023-04-07-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%89%E7%AB%A0/" rel="next" title="操作系统-内存管理2">
-                  操作系统-内存管理2 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
