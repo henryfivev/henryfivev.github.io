@@ -188,7 +188,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-10-30 10:50:43 / Modified: 10:54:12" itemprop="dateCreated datePublished" datetime="2023-10-30T10:50:43+08:00">2023-10-30</time>
+      <time title="Created: 2023-10-30 10:50:43 / Modified: 10:59:12" itemprop="dateCreated datePublished" datetime="2023-10-30T10:50:43+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -215,7 +215,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Bug描述：hexo的categories和tags不对大小写进行区分，假如改变某个tag的大小写并同步到github上后将导致404。</p>
-<p>解决方法：将.deploy_git中的categories或者tags路径删除即可。</p>
+<p>解决方法：将.deploy_git中的categories或者tags路径删除，是不管用滴。要将.deploy_git/config中的ignorcase改为false才行。</p>
 
       
     </div>

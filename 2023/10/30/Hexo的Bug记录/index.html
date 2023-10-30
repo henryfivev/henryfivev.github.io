@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Bug描述：hexo的categories和tags不对大小写进行区分，假如改变某个tag的大小写并同步到github上后将导致404。 解决方法：将.deploy_git中的categories或者tags路径删除即可。">
+    <meta name="description" content="Bug描述：hexo的categories和tags不对大小写进行区分，假如改变某个tag的大小写并同步到github上后将导致404。 解决方法：将.deploy_git中的categories或者tags路径删除，是不管用滴。要将.deploy_git&#x2F;config中的ignorcase改为false才行。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo的Bug记录">
 <meta property="og:url" content="http://example.com/2023/10/30/Hexo%E7%9A%84Bug%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="Bug描述：hexo的categories和tags不对大小写进行区分，假如改变某个tag的大小写并同步到github上后将导致404。 解决方法：将.deploy_git中的categories或者tags路径删除即可。">
+<meta property="og:description" content="Bug描述：hexo的categories和tags不对大小写进行区分，假如改变某个tag的大小写并同步到github上后将导致404。 解决方法：将.deploy_git中的categories或者tags路径删除，是不管用滴。要将.deploy_git&#x2F;config中的ignorcase改为false才行。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-30T02:50:43.000Z">
-<meta property="article:modified_time" content="2023-10-30T02:54:12.071Z">
+<meta property="article:modified_time" content="2023-10-30T02:59:12.744Z">
 <meta property="article:author" content="henryfivev">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-10-30 10:50:43 / Modified: 10:54:12" itemprop="dateCreated datePublished" datetime="2023-10-30T10:50:43+08:00">2023-10-30</time>
+      <time title="Created: 2023-10-30 10:50:43 / Modified: 10:59:12" itemprop="dateCreated datePublished" datetime="2023-10-30T10:50:43+08:00">2023-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -219,7 +219,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>Bug描述：hexo的categories和tags不对大小写进行区分，假如改变某个tag的大小写并同步到github上后将导致404。</p>
-<p>解决方法：将.deploy_git中的categories或者tags路径删除即可。</p>
+<p>解决方法：将.deploy_git中的categories或者tags路径删除，是不管用滴。要将.deploy_git/config中的ignorcase改为false才行。</p>
 
     </div>
 
