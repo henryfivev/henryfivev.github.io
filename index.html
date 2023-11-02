@@ -613,9 +613,15 @@ gcn：先用一个MLP计算边的隐藏特征，然后将节点特征和隐藏�
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-10-30 00:32:08 / Modified: 11:26:09" itemprop="dateCreated datePublished" datetime="2023-10-30T00:32:08+08:00">2023-10-30</time>
+      <time title="Created: 2023-10-30 00:32:08" itemprop="dateCreated datePublished" datetime="2023-10-30T00:32:08+08:00">2023-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-02 15:38:46" itemprop="dateModified" datetime="2023-11-02T15:38:46+08:00">2023-11-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -694,8 +700,8 @@ gcn：先用一个MLP计算边的隐藏特征，然后将节点特征和隐藏�
 <p>先构建程序依赖图pdg，再应用图可达性算法</p>
 <p>前向后向区别：</p>
 <ul>
-<li>后向：程序中影响V中变量在兴趣点n的值的所有语句和控制谓词</li>
-<li>前向：程序中所有受到兴趣点n的V中变量值影响的语句和控制谓词</li>
+<li>后向：是指以漏洞关注点为终点，能够到达该节点的所有路径上的所有节点</li>
+<li>前向：是指从关注点节点出发，能够达到达到的所有路径上的节点</li>
 </ul>
 <h3 id="过程间切片">过程间切片</h3>
 <p>一样的逻辑，构建系统依赖图，然后应用图可达性算法</p>
