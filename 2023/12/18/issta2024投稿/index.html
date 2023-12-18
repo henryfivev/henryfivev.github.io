@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="四、issta投稿4.1 写作思路回顾这次的投稿文章有7个章节，abstract，introduction，background and motivation，overview，detail，evaluation，related work和conclusion。 内容较泛部分可以一句话概括，然后用gpt进行扩写。 适用内容较泛部分，比如abstract第一段，introduction前几段，ba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="issta2024投稿">
+<meta property="og:url" content="http://example.com/2023/12/18/issta2024%E6%8A%95%E7%A8%BF/index.html">
+<meta property="og:site_name" content="望尘可及的秘密基地">
+<meta property="og:description" content="四、issta投稿4.1 写作思路回顾这次的投稿文章有7个章节，abstract，introduction，background and motivation，overview，detail，evaluation，related work和conclusion。 内容较泛部分可以一句话概括，然后用gpt进行扩写。 适用内容较泛部分，比如abstract第一段，introduction前几段，ba">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-18T07:17:45.000Z">
+<meta property="article:modified_time" content="2023-12-18T07:21:38.745Z">
+<meta property="article:author" content="henryfivev">
+<meta property="article:tag" content="Paper">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/12/18/issta2024%E6%8A%95%E7%A8%BF/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/12/18/issta2024%E6%8A%95%E7%A8%BF/","path":"2023/12/18/issta2024投稿/","title":"issta2024投稿"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>issta2024投稿 | 望尘可及的秘密基地</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">望尘可及的秘密基地</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81issta%E6%8A%95%E7%A8%BF"><span class="nav-text">四、issta投稿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%86%99%E4%BD%9C%E6%80%9D%E8%B7%AF%E5%9B%9E%E9%A1%BE"><span class="nav-text">4.1 写作思路回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E8%BE%83%E6%B3%9B%E9%83%A8%E5%88%86"><span class="nav-text">内容较泛部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%84%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9"><span class="nav-text">各部分内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%A0%87%E8%AE%B0%E8%A7%84%E8%8C%83"><span class="nav-text">4.2 标记规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="nav-text">4.3 碎碎念</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">henryfivev</p>
+  <div class="site-description" itemprop="description">简单地记录一下</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/18/issta2024%E6%8A%95%E7%A8%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="issta2024投稿 | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          issta2024投稿
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-12-18 15:17:45 / Modified: 15:21:38" itemprop="dateCreated datePublished" datetime="2023-12-18T15:17:45+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Paper/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">杂谈</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <!-- 参考的两篇分别是泽钦师兄的SmartState和SmartDagger
+
+## 一、SmartState
+
+漏洞检测，SRV
+
+### Abstract
+
+平台。机制。出现的问题。挑战概述。模型简介。评估方法与结果。
+
+### 1. introduction
+
+111
+
+### 2. background and motivation
+
+2.1
+
+智能合约，合约状态，以及状态回退机制
+
+理解【smartstate处理的问题】所需的概念
+
+2.2
+
+机制中的漏洞
+
+漏洞例子
+
+先前研究及limitation
+
+2.3
+
+我们工作的优势，作用域111
+
+### 暂略
+
+3. overview
+
+111
+
+4. detail
+
+111
+
+### 5. evaluation
+
+In this section, 
+
+we first present our experimental setup and the two datasets for evaluation (the manual-labeled SRV dataset and the large-scale smart contracts dataset). 
+
+Then, we show the evaluation results of SmartState in terms of false positives and false negatives over the manual-labeled SRV dataset. 
+
+Lastly, we discuss the results of our large-scale analysis and identified new SRVs in the wild.
+
+5.1
+
+实验环境：ubuntu。。。
+
+数据集：xblock
+
+评价指标：precision、recall、f1
+
+列举RQ1， RQ2， RQ3
+
+5.2
+
+对比实验
+
+5.3
+
+ASD和TSD的影响
+
+消融实验
+
+我们测试了smartstate中的独立组件。正如前文所述，asd和tsd是smartstate中重要的两个部分，保证了漏洞检测的soundness。例如，smartstate可以利用asd和tsd执行更多的漏洞追踪，和这些sota的方法相反。因此，asd和tsd的作用反应在recall得分。
+
+描述一下，解释一下。
+
+5.4
+
+漏洞预警的表现
+
+5.5
+
+套话思路：
+
+
+
+case study思路：
+
+摆地址，介绍一下case情况
+然后说有漏洞，漏洞在哪个函数，怎么导致的漏洞（漏洞具体原因）
+因此该函数可以被黑客用来干嘛干嘛（体现漏洞的影响）
+对此smartstate可以利用什么什么机制来检测漏洞（即模型检测漏洞的逻辑）
+
+5.6
+
+smartstate的limitation
+
+### 6. related work
+
+合约漏洞检测的先前工作：
+
+现在很多程序分析工具支持智能合约漏洞检测。类似传统程序分析，这些工具分为静态分析和动态分析。静态分析工具有XXX，XXX，XXX。XXX，XXX，XXX是基于动态分析的工具。
+
+然而这些工具都在SRV漏洞检测上的表现都差强人意，因为它们都没考虑细粒度的状态依赖。最近有两个工作是关注跨合约漏洞的，但它们基于源码，泛用性不行。
+
+具体漏洞检测工作的介绍：
+
+### 7. conclusion
+
+这篇文章提出了smartstate，一个XXX框架。Smartstate可以分成两部分。首先，smartstate提取依赖关系并合成了一张细粒度状态依赖图。然后smartstate利用污点分析进行漏洞检测。我们在一个XXX的数据集和一个XXX的数据集上评估了smartstate。最后三句都是关于评估结果的。
+
+## 二、SmartDagger
+
+漏洞检测
+
+### Abstract
+
+研究的问题。现有方法的不足。不足导致的结果。模型简介。评估方法与结果。
+
+### 1. introduction
+
+111
+
+### 2. background and motivation
+
+2.1
+
+智能合约，合约漏洞
+
+2.2
+
+跨合约漏洞
+
+例子
+
+2.3
+
+先前工作及limitations
+
+### 暂略
+
+3. overview
+
+111
+
+4. detail
+
+111
+
+### 5. evaluation
+
+In this section, 
+
+we first introduce our implementation and evaluation setup. 
+
+Then, we evaluate the effectiveness of SmartDagger by reporting its overall detection results, and compared SmartDagger with other state-of-the-art tools. 
+
+We also evaluate the effectiveness and efficiency of SmartDagger’s individual components. 
+
+Finally, we show how SmartDagger identifies cross-contract vulnerabilities in real world with two case studies.
+
+5.1
+
+实验环境
+
+数据集
+
+性能指标
+
+列举RQ
+
+5.2
+
+对比实验：为了回答RQ1，我们测试了SmartDagger的precision和recall。同时也和其他优秀方法进行了对比。我们在同一个实验环境和数据集上获得的结果，并手动检查了结果。例如每个智能合约都有限定的运行时间。所有结果都是在ground-truth数据上测得的。注意我们不和基于源码的方法对比，因为他们的应用环境和我们不同。正如前文所述，源码分析将优于字节码分析因为源码包含更多的属性信息。
+
+表2记录了smartdagger和其他工具的precision。如我们所见，和其他工具相比，smartdagger的precision更优。他们假阳是因为他们忽略了合约语义信息。表3记录了smartdagger和其他工具的recall。其他工具假阴是因为他们缺少巴拉巴拉。至此，我们说smartdagger表现好。
+
+两段分别解释一下漏报和误报的情况。受限于反编译器。静态分析的局限性。
+
+5.3
+
+语义恢复和图构建的影响
+
+正如前文所述，smartdagger的一个优势为它从反编译结果中恢复了合约属性信息，这是十分重要。我们通过检测重入漏洞来评估smartdagger和其他工具的表现。从图中可见，smartdagger的precision高多了。为搞清楚为什么precision高，我们人工检查了所有其他工具的假阳结果。我们发现其中一部分可以被恢复语义来避免。
+
+另一个优势是smartdagger利用过程间分析构建了复杂的xCFG和xDFG图。这些图帮助smartdagger进行污点追踪，巴拉巴拉。构建xCFG和xDFG的有效性体现在recall得分上。由于sota缺少足够的过程间分析，随着深度加深，他们的recall下降严重。然而smartdagger依旧表现良好。我们人工检查了所有其他工具的假阴结果，分析表示大部分的假阴可以通过构建端到端的XXX分析来避免。分析了一个case
+
+5.4
+
+相较于其他工作的性能表现
+
+5.5
+
+case study
+
+5.6
+
+limitations
+
+### 6. related work
+
+合约漏洞检测的工作：
+
+最近很多程序分析支持检测solidity漏洞。相同的，可以分成静态和动态工具。例如，XXX，XXX，XXX是基于静态分析的，它们这些工具怎么怎么样。其他工具，比如说XXX，XXX，是基于动态分析的。
+
+然而这些工具都在跨合约分析上的表现都差强人意，因为它们都没考虑XXX。最近有两个工作XXX和XXX是关注跨合约漏洞的，但它们基于源码，泛用性不行。
+
+程序分析：
+
+语义恢复是一种重要的程序分析技术，用于在分析中推断所需的上下文信息。在传统语言中，语义恢复已被广泛应用，以实现XXX，XXX，XXX程序。在智能合约中包含更丰富的语义信息，比如巴拉巴拉，这些信息未充分利用于漏洞检测。
+
+过程间分析对于定位漏洞代码十分重要。然而执行wpa会导致大量性能开销。在传统语言中，组合分析是解决wpa低效率的一个方法。它按需分析部分程序以提高效率，在传统程序中效果良好。smartdagger采用了这一思想，以提高效率。
+
+### 7. conclusion
+
+这篇文章，我们提出了SmartDagger，一个XXX框架。为了解决已有方法误报漏报的情况，smartdagger先恢复了合约属性信息。然后执行过程间分析。为了提高效率，实施了两种优化策略。两句话分别描述了一下两种策略。评估结果表示smartdagger是目前最好的。
+
+## 三、PonziHunter
+
+庞氏合约检测
+
+### Abstract
+
+近年来，区块链技术发展迅速，受到广泛关注。 然而，其去中心化和匿名性也吸引了许多犯罪活动。 其中，庞氏骗局这种经典的金融诈骗形式，也将其真面目隐藏在智能合约中，给区块链用户造成巨大损失。 
+
+尽管已经提出了许多方法来检测庞氏合约，但这些方法未充分利用对数据流信息，无法准确提取庞氏逻辑，在泛用性和特征提取方面仍然存在局限性。 为了解决这个问题，我们对目前最大的智能合约区块链平台以太坊进行研究，提出了一种新颖的基于对比学习的智能庞氏骗局检测方法，名为PonziHunter。 
+
+我们先将字节码反编译成中间表示，然后在中间表示上构建跨函数的控制流图并建立过程内和过程间的状态变量依赖，接着我们利用程序切片技术定位庞氏逻辑基本块，最后利用对比学习来进行庞氏检测。
+
+真实世界数据的实验结果表明，PonziHunter明显优于以太坊庞氏骗局检测的最新技术。
+
+### 1. introduction
+
+111
+
+### 2. background and motivation
+
+理解我们motivation所需的相关概念
+
+2.1
+
+智能合约，合约异常检测，transferAPI
+
+2.2
+
+庞氏合约
+
+例子
+
+2.3
+
+先前工作及limitations
+
+我们工作的优势，like基于操作码，适用合约多
+
+### 3. overview
+
+概述：在本节中，我们首先介绍检测检测庞氏合约的挑战，以及 PonziHunter 中提出的解决方案。 然后，我们介绍一下PonziHunter的工作流程。
+
+In this section, we first discuss the challenges encounted detecting Ponzi contracts and the solutions proposed within PonziHunter. Subsequently, we present an overview of the workflow of PonziHunter.
+
+#### 3.1 Challenges and Solutions
+
+##### 开头
+
+开头：PonziHunter旨在在字节码层面进行庞氏合约检测，下面我们详细阐述PonziHunter面临的主要挑战以及相应的解决方案。
+
+PonziHunter is designed to detecting Ponzi contracts at the bytecode level. In the following, We will now delve into a detailed exposition of the major challenges faced by PonziHunter and the respective solutions it applies.
+
+##### C1: Extracting Ponzi Logic from Bytecodes
+
+C1：在源码层面，我们可以很轻易地通过理解代码逻辑，观察变量名称等操作来提取代码语义信息，以此对合约进行庞氏检测。但正如前文所述，区块链上大多数智能合约不是开源。因此我们考虑从字节码层面进行庞氏语义提取。然而在字节码层面同样存在挑战，由于合约被编译成字节码，合约丢失了大量的语义信息，无法直观地提取代码语义。
+
+At the source code level, we can easily extract semantic information about the code by understanding the code logic, observing variable names, and other operations as a way to perform Ponzi detection on the contract. However, as previously mentioned, the majority of smart contracts on the blockchain are not open-sourced. Therefore, we consider extracting Ponzi semantics from the bytecode level. However, at the bytecode level, since the contract is compiled into bytecode, the contract loses a lot of semantic information and it is hard to extract the code semantics intuitively.
+
+C1solution：为解决这一挑战，我们考虑采用以下解决方案：将智能合约的字节码反编译为三地址码，这是一种中间语言表示（IR）。这种转换的主要优点是，与原始的底层字节码相比，三地址码提供了更清晰、更接近高级语言的代码形式。这种中间语言的结构和语义更加明确，便于进行分析。通过这种方式，我们可以更容易地识别和解析合约中的关键逻辑和潜在的庞氏特征。三地址码中的每个语句大致对应于源码中的一条简单指令，这使得从字节码中提取逻辑结构和意图变得更加可行。此外，使用中间语言还有助于应对不同的区块链平台和字节码格式，因为一旦将字节码转换为标准化的IR，相同的分析技术就可以跨多个平台使用。这种方法为从封闭源智能合约中提取庞氏逻辑提供了一种有效的技术手段。
+
+To address this challenge, we consider the following solution: decompile the bytecode of smart contracts into triple-address code, which is an intermediate representation. The main advantage of this decompilation is that three-address code provides a clearer and closer form of code to a high-level language than the original underlying bytecode. The structure and semantics of this intermediate representation are much clearer and easier to analyze. In this way, we can more easily identify and parse the key logic and potential Ponzi features in a contract. Each statement in the three-address code roughly corresponds to a simple instruction in the source code, which makes it more feasible to extract the logical structure and intent from the bytecode. In addition, the use of an intermediate representation helps to cope with different blockchain platforms and bytecode formats, as the same analytics can be used across multiple platforms once the bytecode has been converted to the same type of IR. This approach provides an effective technical means for extracting Ponzi logic from closed-source smart contracts.
+
+##### C2: Handling the Difficulties of Scarce Positive Samples
+
+C2：在现有的公开数据集中，用于训练和测试庞氏合约检测模型的庞氏样本数量相对较少。与此同时，非诈骗性质的合约的数量占据了绝大多数。这种样本不平衡的现象对于基于机器学习的检测方法构成了显著的挑战，因为机器学习模型的效果很大程度上依赖于均衡和充分的训练数据。
+
+In the currently available public datasets, the number of Ponzi samples used to train and test Ponzi contract detection models is relatively small. Meanwhile, the majority of contracts are non-fraudulent. This sample imbalance poses a significant challenge for machine learning-based detection methods, as the effectiveness of these models heavily relies on balanced and adequate training data.
+
+C2solution：为了解决这个问题，我们提出了一种创新的解决方案：将三地址码建模为跨函数的控制流图，再应用图对比学习技术。控制流图是一种强大的工具，它能够将程序的逻辑结构以图形的形式呈现出来，使得程序的执行流程和分支决策更加直观。通过将三地址码转化为CFG，我们可以更清晰地捕捉到智能合约中的控制流结构和潜在的逻辑模式。在构建好控制流图的基础上，我们利用图对比学习技术来解决正样本稀少的问题。图对比学习是一种强大的机器学习方法，它通过比较和对照不同图形结构之间的差异来学习和识别模式。在我们的场景中，通过比较庞氏合约的控制流图与非诈骗合约的控制流图，我们可以有效地识别出那些与庞氏合约相关的独特模式和特征，即使在正样本非常稀少的情况下也是如此。这种方法不仅提高了庞氏合约的检测率，而且还有助于减少误报率，因为它能够更精确地区分庞氏合约和正常合约之间的微妙差别。
+
+To solve this problem, we propose an innovative solution: modeling three-address code as a cross-functional control flow graph, and then applying graph contrastive learning techniques. A control flow graph is a powerful tool that presents the logical structure of a program in graphical form, making the execution flow and branching decisions more intuitive. By converting the three-address code into CFG, we can more clearly capture the control flow structure and potential logical patterns in smart contracts. On the basis of constructing an accurate control flow graph, we utilize graph contrastive learning techniques to address the scarcity of positive samples. Graph contrastive learning is a powerful machine learning method that learns and recognizes patterns by comparing and contrasting the differences between various graph structures. In our scenario, by comparing the control-flow graph of Ponzi contracts with that of non-fraudulent contracts, we can efficiently identify those unique patterns and features associated with Ponzi contracts, even in the context of very sparse positive samples. This method not only improves the detection rate of Ponzi contracts but also helps reduce the false positive rate by more accurately distinguishing the subtle differences between Ponzi and normal contracts.
+
+##### C3: Locating the key Ponzi logic
+
+面临的挑战：现有的庞氏合约逻辑复杂，如何定位关键庞氏逻辑代码？
+解决办法：在控制流图上构建状态变量依赖边，在此基础上进行程序切片，将切片结果应用在对比学习策略中。
+
+C3：在检测和防止基于智能合约的庞氏骗局时，我们面临着一个显著的挑战：这些合约往往具有复杂的逻辑结构，其中关键的庞氏逻辑代码可能隐藏在多层函数调用和复杂的交互逻辑中。这种复杂性不仅使得直接的代码审查变得困难，而且也为自动化的欺诈检测算法带来了挑战。关键问题在于，如何有效地定位那些实现庞氏逻辑的关键代码段，特别是在智能合约代码量大且结构复杂的情况下。
+
+In detecting and preventing smart contract-based Ponzi schemes, we face a notable challenge: these contracts often have complex logical structures, where critical Ponzi logic code may be hidden in multiple layers of function calls and complex interaction logic. This complexity not only makes direct code review difficult, but also creates challenges for automated fraud detection algorithms. The key question is how to effectively locate those critical code segments that implement Ponzi logic, especially in the case of smart contracts with large and complex code.
+
+C3solution：为了解决这个问题，我们提出了一种创新的方法：首先，在控制流图（CFG）上构建状态变量依赖边，再在新构建的图上进行程序切片，最后将切片结果应用在对比学习策略中。在控制流图上添加状态变量依赖边意味着我们不仅考虑了合约中的控制流，还考虑了状态变量之间的依赖关系。状态变量在智能合约中扮演着核心角色，它们存储了合约的关键信息，如用户余额、合约资产等。通过识别这些变量之间的依赖关系，我们可以更准确地捕捉到合约中的关键逻辑。接下来，基于构建的控制流图和状态变量依赖边，我们进行程序切片。程序切片是一种分析技术，它通过从程序中提取与特定操作或变量相关的所有语句来创建一个“切片”。这些切片有效地隔离了与特定功能或逻辑相关的代码部分，使得分析更加集中和高效。最后，我们将这些切片结果应用在对比学习策略中。在执行对比学习数据增强策略时，将切片结果作为特征，尽可能地保留体现庞氏逻辑的基本块。这种方法的优势在于它能够集中关注那些对于庞氏逻辑至关重要的代码段，从而提高了检测的精度和效率。
+
+To solve this problem, we propose an innovative approach: first, constructing state-variable dependency edges on control flow graphs, then performing program slicing on the newly constructed graphs, and finally applying the slicing results in the contrastive learning strategy. Adding state-variable dependency edges to the control flow graph implies that we consider not only the contract's control flow but also the dependencies between state variables. State variables are crucial in smart contracts, storing key information such as user balances and contract assets. By identifying the dependencies between these variables, we can more accurately capture the key logic in the contract. Next, we conduct program slicing based on the control flow graph and state variable dependency edges. Program slicing is an analytical technique that isolates code segments relevant to a specific operation or variable, creating a 'slice' by extracting all related statements from the program. This method effectively isolates code parts pertinent to specific functions or logic, facilitating more focused and efficient analysis. Lastly, we apply these slices in the contrastive learning strategy. When performing the contrastive learning data augmentation strategy, we use the slicing results as additional features to preserve as much as possible the basic blocks that embody the Ponzi logic.The advantage of this method lies in its concentrated attention on code segments critical to Ponzi logic, thereby enhancing the detection's accuracy and efficiency.
+
+#### 3.2 Framework of PonziHunter
+
+111
+
+### 4. detail
+
+111
+
+### 5. evaluation
+
+#### 概述
+
+这一节中我们先介绍了我们的实验环境和用于评估的数据集。然后我们在数据集上评估了PonziHunter的有效性，并将其与其他优秀方法进行比较。接着我们评估了PonziHunter各部分的有效性。除此之外我们还评估了参数对PonziHunter的影响。最后我们在两个具体例子上演示了PonziHunter是如何进行检测的。
+
+In this section, we first introduce our experimental setup and the dataset utilized for evaluation. Subsequently, we assess the efficacy of PonziHunter on this dataset and compare it with other exemplary methods. Following this, we evaluate the effectiveness of the various components of PonziHunter. In addition, we also examine the impact of parameters on PonziHunter's performance. Finally, we demonstrate how PonziHunter conducts detection through two specific examples.
+
+#### 5.1 setup
+
+##### 实验环境
+
+编程语言，行数，实验环境
+
+PonziHunter is implemented in Python with around 1000 LOC. And all the experiments are conducted on a server running Ubuntu 20.04 with an Intel Core i9 CPU and 128 GB Memory.
+
+##### 数据集
+
+参考：我们研究中使用的数据集来自XBlock（https://xblock.pro/），这是一个在先前相关研究中广泛使用的区块链数据平台。 直接从 XBlock 获取的数据集共有 6,498 条合约记录，其中包括 314 条手动标记的庞氏合约。 然而，该数据集在我们实际使用之前经过了预处理。 我们删除了重复的合约，并消除了未能转换为控制流图的合约子集。 因此，我们研究中使用的数据集包含 6,371 份合同记录，其中包括 305 份庞氏合同。 此外，在数据增强之后，我们获得了这些智能合约的 295,521 个字节码变体。 为了进行综合评估，我们将智能合约集合随机分为三种方式，如表2所示。在庞氏骗局检测任务中，我们将庞氏骗局合约视为正样本，将正常合约视为负样本。 对于每次分割，所有训练集、验证集和测试集中都保持正样本和负样本的比例。 我们采用广泛使用的指标，包括召回率、精度和 F1
+
+ours：我们研究中使用的数据集来自一个在先前相关研究中广泛使用的区块链数据平台XBlock（https://xblock.pro/）。 XBlock 的数据集共有 6,498 条合约记录，其中包括 314 条手动标记的庞氏合约。 该数据集在我们实际使用之前经过了预处理，我们删除了重复的合约，并消除了未能转换为控制流图的合约子集。 因此，我们研究中使用的数据集包含 6,371 份合同记录，其中包括 305 份庞氏合同。 为了进行综合评估，我们将智能合约集合随机分为三种方式，如表2所示。在庞氏骗局检测任务中，我们将庞氏骗局合约视为正样本，将正常合约视为负样本。 对于每次分割，所有训练集、验证集和测试集中都保持正样本和负样本的比例。 
+
+In our study, the dataset was derived from XBlock (https://xblock.pro/), a blockchain data platform that has been extensively utilized in previous research. Initially comprising 6,498 contract records, which included 314 Ponzi contracts identified manually, the dataset underwent preprocessing before we employed it. This preprocessing involved the removal of duplicate contracts and the exclusion of contracts that were not amenable to conversion into control flow graphs. As a result, the dataset used in our research consisted of 6,371 contract records, with 305 of these being Ponzi contracts. For a comprehensive assessment, the smart contract set was randomly divided into three categories, as indicated in Table 2. Within the scope of detecting Ponzi schemes, contracts involved in Ponzi schemes were designated as positive samples, and normal contracts were categorized as negative samples. We ensured that the proportion of positive and negative samples remained constant across all the training, validation, and test sets for each division.
+
+##### baseline
+
+We select three categories of smart Ponzi contract detection methods as baseline methods, including opcode-based methods, transaction-based methods, and static program analysis method.
+
+In opcode-based methods, we select Rideg-NC, SVM-NC, XGBoost-TF-IDF and MulCas. Ridge-NC is a linear classifier that incorporates L2 regularization to mitigate overfitting which is trained with the N-gram count feature of opcode sequences. SVM-NC is a machine learning model that finds optimal hyperplanes for effective binary classification which is also trained with the N-gram count feature of opcode sequences. XGBoost-TF-IDF is an ensemble gradient boosting algorithm that is trained with the TF-IDF feature of opcode sequences. MulCas is a Multi-view Cascade Ensemble method for detecting smart Ponzi schemes.
+
+In transaction-based methods, we select XGBoost-Txn and LSTM-Txn. XGBoost-Txn is a method that utilizing hand-crafted transaction features to train the XGBoost classifier. LSTM-Txn is a recurrent neural network architecture designed to capture long-range dependencies in sequential data. We construct the transaction sequence features as the one we use in XGBoost-Txn.
+
+In static program analysis methods, we select SADPonzi, which is a semantic-aware system for detecting smart Ponzi schemes using symbolic execution technology.
+
+In Split1, the data is divided into 70% training set, 10% validation set and 20% test set while Split2 used 50% of the training set, 20% of the validation set and 30% of the test set. And Split3 was configured with 30% training set, 30% validation set and 40% test set.
+
+##### 列举RQ
+
+我们按照下面四个RQ来评估PonziHunter的表现。
+
+RQ1. 和其它优秀的已有方法相比，PonziHunter在庞氏合约检测上的表现如何？
+RQ2. PonziHunter中各部分是如何影响模型表现的？
+RQ3. PonziHunter中参数对模型表现的影响？
+RQ4. PonziHunter能否检测出现实世界中的庞氏合约？
+
+We assess the performance of PonziHunter in accordance with the following four research questions (RQs).
+
+RQ1. How does PonziHunter perform in detecting Ponzi contracts compared to other existing, well-regarded methods?
+
+RQ2. How do the various components of PonziHunter impact the model's performance?
+
+RQ3. What is the impact of parameters in PonziHunter on the model's performance?
+
+RQ4. Is PonziHunter capable of detecting Ponzi contracts in real-world scenarios?
+
+#### 5.2 Effectiveness of PonziHunter
+
+##### 对比实验
+
+参考aibc逻辑：基于opcode：XXX表现最好，XXX次优，所以推断更高级序列特征的有效性。基于交易：表现好，但仍不能和基于高级序列特征的模型相比。静态分析：f1不错但整体不行。出现这种差异可能是因为我们对sadponzi的限制。ContraPonzi：整体表现好其中f1尤其突出。和baseline对比，ContraPonzi利用了控制流信息和对比学习。
+
+参考语义论文逻辑：表1记录了巴拉巴拉。我们的方法precision达到多少多少，比别人高多少，同recall和f1。我们注意到opcode的recall低，可能是因为他们学习的是统计特征，无法学到语义信息。因此这些方法对代码布局敏感而不是语义。不影响语义的代码布局改动将影响检测结果。
+
+对比实验：为了回答RQ1，我们评估了PonziHunter和各个SOTA工具在三个数据集划分上的precision，recall和f1score。结果如表1所示，可以看到PonziHunter在f1score上较其他方法表现优异，同时整体表现也得分较高。
+
+To answer RQ1, we evaluated the precision, recall, and f1score of PonziHunter and each SOTA tools on the three dataset splits.The results are shown in Table 1, where it can be seen that PonziHunter outperforms the other methods on the f1score, as well as scoring high on the overall performance.
+
+对于基于操作码的方法来说，MulCas和XGBoost-TF-IDF的整体表现要优于基于Ngram的方法但低于PonziHunter。其中我们特别注意到了他们的recall得分和PonziHunter差距较大。这可能是因为这些基于字节码的方法只考虑了操作码频率分布特征，而忽略了控制流和数据流信息，因此产生较多误报，导致recall较低。
+
+For the opcode-based methods, the overall performance of MulCas and XGBoost-TF-IDF is better than that of the Ngram-based methods but lower than that of PonziHunter. Specially, we notice a significant gap between their recall scores and that of PonziHunter. This may be due to the fact that these bytecode-based methods only consider the opcode frequency distribution feature and ignore the control flow and data flow information, thus generating more false positives and resulting in lower recall.
+
+对于基于交易的方法来说，XGBoost-Txn的在三个数据集划分上的整体表现略优于只考虑了操作码频率分布特征的XGBoost-TF-IDF。但同时我们注意到随着训练集比例的减少，XGBoost-Txn的表现逐渐接近甚至略低于XGBoost-TF-IDF。我们认为这是因为随着交易数据减少，过少的交易数据导致模型出现更多的误报和漏报，从而获得更低的precision和recall。
+
+For transaction-based methods, the overall performance of XGBoost-Txn across three dataset splits is marginally superior to XGBoost-TF-IDF, which only considers opcode frequency distribution features. However, we observe that as the proportion of the training set decreases, the performance of XGBoost-Txn gradually approaches, or even slightly inferior to, XGBoost-TF-IDF. "We believe this is because with the decrease in transaction data, the scarcity of transaction data results in the model generating more false positives and false negatives, thereby leading to lower precision and recall."
+
+对于基于静态分析的方法来说，SADPonzi表现十分稳定，f1score持平MulCas但整体表现略低。这可能是因为SADPonzi执行速度较慢，大量例子执行时间过长而失败。也有可能是因为SADPonzi中的模式是手工定义的。
+
+For static program analysis methods, SADPonzi performs very stably, with f1score equal to MulCas but overall performance slightly lower. This may be because SADPonzi executes slowly and a large number of examples take too long to execute and fail. It could also be because the patterns in SADPonzi are defined manually.
+
+PonziHunter在f1得分上超过了其他所有SOTA工具且整体表现优秀。不过在我们看来，PonziHunter还存在不小的提升空间。经过我们调查发现，反编译器gigahorse在反编译结果中会多出一些用于返回状态变量值的函数。这些函数影响了状态变量依赖的准确性，导致PonziHunter出现了更多的误报。因此我们认为假如以后应用更加先进的反编译器将进一步减少误报。至于漏报，是因为我们仅在控制流图上构建了状态变量依赖，利用的控制流和数据流信息过少。因此我们认为假如能构建更多的依赖关系，利用更多达到控制流和数据流信息，能够进一步减少漏报，提高recall。
+
+PonziHunter outperforms all other SOTA tools in terms of f1 score and overall performance. However, in our opinion, PonziHunter still has a lot of room for improvement. After our investigation, we found that the decompiler gigahorse has some extra functions in the decompiled result that are used to return state variable values. These functions affect the accuracy of state variable dependencies, leading to more false positives in PonziHunter. Therefore, we believe that if a more advanced decompiler is applied in the future, it will further reduce the false positives. As for the false negatives, it is because we only constructed the state variable dependencies on the control flow graph, which utilises too little control flow and data flow information. Therefore, we believe that if we can construct more dependencies and utilise more control flow and data flow information, we can further reduce false positives.
+
+PonziHunter在f1得分上超过了其他所有SOTA工具且整体表现优秀。我们后续分析发现，我们的高recall得分得益于我们精确的控制流和数据流分析。精确的控制流和数据流分析提取出了较为齐全的合约语义，减少了漏报的情况。同时我们的高precision得分得益于我们的代码切片手段。我们定义的代码切片规则精准地提取出了合约中的庞氏语义，减少了误报的情况。
+
+PonziHunter在f1得分上超过了其他所有SOTA工具且整体表现优秀。在一方面，PonziHunter可以更好地利用控制流和数据流信息，挖掘智能合约交易逻辑的关键基本块，并利用图挖掘技术学习代码结构特征，减少了误报的情况。在另一方面，PonziHunter采用了对比学习技术，其可以很好地处理标签稀缺的问题，并通过保留语义的数据扩充，增加样本的泛化能力，减少了漏报的情况。
+
+##### 表格
+
+略
+
+#### 5.3 Effectiveness of XXX
+
+状态依赖边的影响，程序切片
+
+为了回答RQ2，我们评估了PonziHunter中代码切片部分的有效性。正如我们在章节4.3中提到，代码切片是PonziHunter中减少误报和漏报的重要手段。
+
+#### 5.4 Effectiveness of 参数
+
+除模型本身、消融实验外的、某方面的表现
+
+We investigate the performance of ContraPonzi under different settings of temperature parameter τ in the task of Ethereum Ponzi contract detection, by varying τ from 0.05 to 100. As depicted in Figure 4, the optimal performance is achieved when τ is around 10, suggesting that this parameter setting can yield better classification performance
+
+我们通过改变两个主要参数来评估PonziHunter的有效性：温度参数τ（范围在0.05到100之间）和学习率λ（调整范围在0.001到0.1之间）。如图4所示，当τ接近10和λ约为0.01时，性能达到峰值。
+
+To answer RQ3, we evaluate the effectiveness of PonziHunter by altering two principal parameters: the temperature parameter τ, ranging from 0.05 to 100, and the learning rate λ, adjusted between 0.001 and 0.1. As illustrated in Figure 4, the peak performance is achieved with τ near 10 and λ approximately at 0.01.
+
+#### 5.5 Case Study
+
+##### 概述
+
+概述：为了凸显PonziHunter相较于现有方法的有效性，我们具体分析了以下两个案例。这两个案例分别指出现有基于操作码的方法和现有基于交易数据的方法的不足，并说明PonziHunter是如何解决的。
+
+概述v2：为说明PonziHunter有效性，我们提供了两个真实世界中的庞氏合约案例，这两个案例被 PonziHunter 检测到而未被其他模型检测到的例子。
+
+To demonstrate the effectiveness of PonziHunter, we present two cases of real-world Ponzi contracts that were detected by PonziHunter but overlooked by other models.
+
+##### case1
+
+case1：在0xF835B307bc5348194ae01Ed729170c84217Ba688，这个是一个典型的链式庞氏合约。在XX函数中体现了具体的庞氏逻辑，该函数先判断投资金额是否符合要求，然后将新投资者加进投资者名单中，最后对一批老投资者发放奖金。然而，对于这个显然的庞氏合约，基于交易数据的检测方法却束手无策。出现这种情况是因为这种方法十分依赖于交易数据，在交易量少的合约表现不佳。但对于PonziHunter来说这不是困难，我们可以通过构建数据流依赖并对代码进行切片，来准确定位有关庞氏逻辑的代码。
+
+At 0xF835B307bc5348194ae01Ed729170c84217Ba688, the smart contract represents a quintessential example of a chain-based Ponzi scheme. In the \textit{enter()}, the specific Ponzi logic is manifested. This function initially assesses whether the investment amount meets the set criteria, subsequently adds new investors to the list of investors, and finally distributes bonuses to a batch of existing investors. However, this apparent Ponzi scheme poses a challenge to detection methods based on transaction data. This limitation arises due to the heavy reliance of such methods on transaction data, which results in suboptimal performance for contracts with low transaction volumes. Nonetheless, this is not an obstacle for PonziHunter. We can accurately pinpoint the code related to Ponzi logic by constructing data flow dependencies and slicing the code.
+
+case1v2：在0x177FA14AaFde5Ed17ab6C514FeC4715Adeb95BF0和0xfd2487cc0e5dce97f08be1bc8ef1dce8d5988b4d中，分别是两个代码类似的交接庞氏合约。它们先判断投资金额是否符合要求，然后将新投资者加进投资者名单中，最后对下一位老投资者发放奖金。然而，对于这两个庞氏合约，基于交易数据的检测方法却有着不一样的检测结果。出现这种情况是因为两个合约的交易量差距较大，其中一个合约只有6个交易，而另一个有474个交易。基于交易数据的检测方法十分依赖于交易数据，当合约交易量较少时表现不佳。但对于PonziHunter来说这不是困难，我们可以通过构建数据流依赖并对代码进行切片，来准确定位有关庞氏逻辑的代码。
+
+At 0x177FA14AaFde5Ed17ab6C514FeC4715Adeb95BF0 and 0xfd2487cc0e5dce97f08be1bc8ef1dce8d5988b4d, the smart contracts are two relay Ponzi schemes with similar code structures. These contracts first verify if the investment amount meets the specified criteria, then add new investors to their list, and subsequently award bonuses to the next existing investor. However, for these two Ponzi contracts, methods based on transaction data yield different detection results. This discrepancy arises due to the significant difference in transaction volumes between the two contracts, where one has only six transactions, while the other boasts 474 transactions. Detection methods based on transaction data heavily rely on the volume of transactions and tend to perform poorly with contracts having fewer transactions. Nevertheless, this does not pose a challenge for PonziHunter. We can accurately locate the code related to Ponzi logic by constructing data flow dependencies and slicing the code.
+
+##### case2
+
+case2：在0x398bf07971475a020831d9c5e2ac24ff393b9862，这个智能合约是一个有推荐人机制的树形庞氏合约。主要庞氏逻辑体现在buyin()中，简单来说当有新投资者加入并指定一位推荐人时，合约将增加推荐人的奖金。对于基于操作码的方法来说，该合约并不容易进行检测，因为该合约的庞氏逻辑较其他庞氏合约复杂，玩法模式多样化。但这对PonziHunter影响不大。我们先构建状态变量依赖边，建立起状态变量之间的读写关系，再对CALL指令相关的基本块进行切片，以此来保留transferAPI相关的基本块，以定位庞氏逻辑。
+
+At 0x398bf07971475a020831d9c5e2ac24ff393b9862, the smart contract is a tree-shaped Ponzi scheme with a referral mechanism. The primary Ponzi logic is embodied within \textit{buyin()}. In short, when a new investor joins and designates a referrer, the contract increments the bonus for the referrer. For methods based on opcode, this contract poses a challenge for detection due to its more complex Ponzi logic and diverse operational modes, compared to other Ponzi contracts. However, this is minimally impactful for PonziHunter. We start by constructing edges for state variable dependencies to establish read-write relationships between state variables. Then, we perform slicing on basic blocks related to the CALL instruction, thereby retaining the basic blocks associated with the transferAPI to locate the Ponzi logic.
+
+case2v2：在0x398bf07971475a020831d9c5e2ac24ff393b9862，这个智能合约是一个机制较为复杂的树形庞氏合约，主要庞氏逻辑体现在buyin()中。该合约除了会对被指定为推荐人的投资者发放奖励外，当投资者再次投资时会根据距离上次投资的时间对投资者进行奖励。除此之外，合约还引入了轮数的机制。当当前合约余额不足以支付某个投资者奖金时，合约将把余额转账给合约所有者，并清空投资者名单，进入下一轮游戏。除了机制复杂外，合约代码也比较复杂，不仅存在多个函数间调用，还提供了多个信息查询接口。对于基于操作码的方法来说，该合约并不容易进行检测，因为该合约的庞氏逻辑较其他庞氏合约复杂。但这对PonziHunter影响不大。我们先构建状态变量依赖边，建立起状态变量之间的读写关系，再对CALL指令相关的基本块进行切片，以此来保留transferAPI相关的基本块，以定位庞氏逻辑。
+
+At 0x398bf07971475a020831d9c5e2ac24ff393b9862, the smart contract represents a tree-shaped Ponzi scheme with a notably complex mechanism. The primary Ponzi logic is implemented in the \textit{buyin()}. In addition to rewarding investors designated as referrers, this contract also provides rewards to investors based on the time elapsed since their last investment when they reinvest. Furthermore, the contract incorporates a mechanism based on rounds. When the current contract balance is insufficient to pay a particular investor's bonus, the contract transfers the remaining balance to the contract owner, clears the list of investors, and commences a new round of the game. Beyond its intricate mechanism, the contract's code is also complex, featuring multiple inter-function calls as well as providing several interfaces for information queries. For methods based on opcode analysis, this contract presents a challenge for detection due to the intricacy of its Ponzi logic compared to other Ponzi contracts. However, this complexity has minimal impact on PonziHunter. We initially construct edges for state variable dependencies to establish read-write relationships between state variables. Subsequently, we perform slicing on basic blocks related to the CALL instruction, thereby retaining the basic blocks associated with the transferAPI, to pinpoint the Ponzi logic.
+
+#### 5.6 limitations
+
+我们工作的limitations
+
+### 6. related work
+
+#### 庞氏合约检测：
+
+由于涉及金额庞大，出现了许多关于庞氏合约检测的工作。现有的庞氏合约检测主要分为基于交易数据分析和基于程序分析的方法。Hu et al. 将智能合约的交易序列数据划分为多个时间片，为每个时间片提取特征输入到LSTM中。Chen et al. 通过对旁氏骗局的行为进行分析和刻画，人工提取特征。但是，这些基于交易数据分析的方法无法实现在有受害者上当前的事前预警。由于以太坊上的智能合约大多没有源码，许多工作基于字节码分析进行旁氏骗局检测，例如MulCas，XGBoost-TF-IDF。但由于这些工作仅考虑了较为简单的操作码序列信息，没有考虑控制流、数据流等信息，在捕捉合约语义上存在不足。Cai et al. 提出了一种基于源码进行检测的方法，但泛用性不足，仅适用于开源合约。
+
+Due to the involvement of large amounts of money, there has been considerable work on the detection of Ponzi schemes in contracts. Existing methods for detecting Ponzi contracts are primarily divided into those based on transaction data analysis and those based on program analysis. Hu et al. divided the transaction sequence data of smart contracts into multiple time slices, extracting features for each time slice to feed into an LSTM. Chen et al. manually extracted features by analyzing and characterizing the behavior of Ponzi schemes. However, these methods based on transaction data analysis fail to provide an early warning before the occurrence of victims. As most smart contracts on Ethereum do not have source code, many studies have resorted to bytecode analysis for Ponzi scheme detection, such as MulCas, XGBoost-TF-IDF. However, these studies only consider relatively simple opcode sequence information and neglect aspects like control flow and data flow, leading to inadequacies in capturing contract semantics. Cai et al. proposed a method based on source code analysis, but it lacks general applicability and is only suitable for open-source contracts.
+
+#### 程序分析：
+
+数据流分析是一种非常重要的程序分析技术，用于收集在程序执行过程中各种点上变量的信息。在传统语言中，数据流分析已被广泛应用，已实现编译优化、错误检测以及程序理解等等功能。在智能合约中包含更丰富的数据流信息，比如说状态变量，这些信息未充分利用于庞氏合约检测。
+
+切片也是一种程序分析技术，用于定位关键代码。在传统语言中，一般基于系统依赖图来进行过程间切片，但系统依赖图十分复杂，这将导致大量性能开销。因此我们考虑在控制流图上构建变量依赖边，以降低图复杂度并提高效率。
+
+#### 智能合约程序分析：
+
+由于区块链上的智能合约与金融交易相关，且部署后不能更改，智能合约程序分析has gained a lot of interest[slither][Oyente][Securify][Sailfish][Ethainter][Mythril][sFuzz]。
+
+目前的智能合约分析方法可归类为基于传统程序分析的方法和基于人工智能的方法。基于传统程序分析的方法包括数据流分析[def-use]、符号执行[KingJC]等静态分析方法[A survey of static program analysis techniques][]和动态测试方法[A systematic survey of program comprehension through dynamic analysis][]。SmartDagger反编译字节码并进行语义恢复后构建合约的控制流图，然后使用数据流分析技术来进行程序分析。SmartState分别从字节码和交易信息中提取出状态变量依赖和时序状态依赖，在此基础上构建出状态依赖图以进行程序分析。但是，传统程序分析方法依赖专家提取的规则。
+
+而基于人工智能的方法由于不依赖预定的专家规则，近年来也开始被应用到区块链智能合约分析上。Zhuang et al. 首次将智能合约函数的syntactic and semantic structures信息建模为图，通过图神经网络学习进行漏洞检测。Su et al. 将人工智能技术与模糊测试技术相结合，用以生成易受攻击的交易序列以更好地检测智能合约的漏洞。在我们的工作中也考虑采用人工智能技术以实现以太坊旁氏合约的智能检测。
+
+reference：
+
+传统程序分析
+
+King J C. Symbolic execution and program testing[J]. Communications of the ACM, 1976, 19(7): 385-394.
+
+人工智能
+
+Zhuang et al. [] （Smart Contract Vulnerability Detection Using Graph Neural Networks）
+
+Su et al. [] （Effectively Generating Vulnerable Transaction Sequences in Smart Contracts with Reinforcement Learning-guided Fuzzing）
+
+As smart contracts on the blockchain are related to financial transactions and cannot be altered after deployment, the analysis of smart contract programs has gained a lot of interest[slither] [Oyente] [Securify] [Sailfish] [Ethainter] [Mythril] [sFuzz]. Current methods for smart contract analysis can be categorized into those based on traditional program analysis and those based on artificial intelligence. Traditional program analysis methods include static analysis methods[A survey of static program analysis techniques][] such as data flow analysis[def-use] and symbolic execution[KingJC], as well as dynamic testing methods[A systematic survey of program comprehension through dynamic analysis][]. SmartDagger[smartdagger] decompiles bytecode and performs semantic recovery to construct a control flow graph of the contract, then uses data flow analysis techniques for program analysis. SmartState[smartstate] extracts state variable dependencies and temporal state dependencies from both bytecode and transaction information, building on this to construct a state dependency graph for program analysis. However, traditional program analysis methods rely on expert-extracted rules. On the other hand, AI-based methods, not reliant on predefined expert rules, have also begun to be applied to blockchain smart contract analysis in recent years. Zhuang et al. [Smart Contract Vulnerability Detection Using Graph Neural Networks][]first modeled the syntactic and semantic structures of smart contract functions as graphs, using graph neural networks to learn and perform vulnerability detection. Su et al. [Effectively Generating Vulnerable Transaction Sequences in Smart Contracts with Reinforcement Learning-guided Fuzzing][]combined AI technology with fuzz testing techniques to generate transactions sequences that are vulnerable to attacks, better detecting vulnerabilities in smart contracts. In our work, we also consider adopting AI technology to achieve intelligent detection of Ethereum Ponzi contracts.
+
+### 7. conclusion
+
+参考aibc：这篇文章中，我们提出了一个基于XXX进行庞氏检测的方法，XXX。这个方法主要解决了现有方法的XXX问题。我们先XXX，然后用XXX进行XXX。基于此，我们的方法除了利用XXX信息，还利用了XXX信息。同时，（机制中其他部分的作用）。评估表现。limitations。一句套话。 -->
+<h2 id="四、issta投稿"><a href="#四、issta投稿" class="headerlink" title="四、issta投稿"></a>四、issta投稿</h2><h3 id="4-1-写作思路回顾"><a href="#4-1-写作思路回顾" class="headerlink" title="4.1 写作思路回顾"></a>4.1 写作思路回顾</h3><p>这次的投稿文章有7个章节，abstract，introduction，background and motivation，overview，detail，evaluation，related work和conclusion。</p>
+<h4 id="内容较泛部分"><a href="#内容较泛部分" class="headerlink" title="内容较泛部分"></a>内容较泛部分</h4><p>可以一句话概括，然后用gpt进行扩写。</p>
+<p>适用内容较泛部分，比如abstract第一段，introduction前几段，background和related work，甚至overview中解释solution的时候也可以小用一下doge。</p>
+<h4 id="各部分内容"><a href="#各部分内容" class="headerlink" title="各部分内容"></a>各部分内容</h4><p>abstract简要介绍背景，motivation，提出的方法思路，表现。</p>
+<p>introduction介绍背景，现有工作不足，然后引出我们的方法，介绍我们的方法思路，最后讲评估表现。</p>
+<p>background and motivation要先介绍研究内容的基座，然后着重介绍我们设计方法的考量，用一个motivation example来说明我们发现了什么什么情况，基于这种情况我们这样设计模型。</p>
+<p>overview先摆我们遇到的挑战以及我们的解决方案，尽可能涉及我们用的所有部分，然后分部分说方法的整体框架。</p>
+<p>detail无他，就是详细介绍各个部分的细节。</p>
+<p>evaluation先介绍setup，其中包括实验环境，数据集，性能指标，RQ，参数等等。然后对应RQ开始评估，一般有对比实验，消融实验，参数实验，摆几个case study，最后可以来个limitations。表现能解释解释，不能解释就直接描述结果。case不用过于详尽，但要体现我们选他的理由。</p>
+<p>related work略。</p>
+<p>conclusion就是abstract- background and motivation。</p>
+<h3 id="4-2-标记规范"><a href="#4-2-标记规范" class="headerlink" title="4.2 标记规范"></a>4.2 标记规范</h3><p>自己瞎定的。</p>
+<ol>
+<li>用ffoo，XXX作为占位符</li>
+<li>完成情况标记：1210todo表示1210做，doing表示正在做，todo？表示不一定做，done表示完成</li>
+<li>原文注释规范：第X章开头：ffoo、第X节开头：ffoo</li>
+</ol>
+<h3 id="4-3-碎碎念"><a href="#4-3-碎碎念" class="headerlink" title="4.3 碎碎念"></a>4.3 碎碎念</h3><p>应该用钉钉的思维导图（okr那个），可以指派任务，完成后转移指派。</p>
+<p>写论文真得开个gpt4，神中神，写废话和写代码利器。</p>
+<p>chatgpt翻译 &lt; deepl翻译，gpt喜欢拽高级表述，很奇怪，会影响原文的重点，不过deepl有时候也是一坨。</p>
+<p><a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/#">画latex表格网址</a></p>
+<p>excel画折线图，ppt画示意图，还可以用matlabplot画3d图和热力矩阵。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Paper/" rel="tag"># Paper</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/03/%E9%A6%99%E6%B8%AF%E8%AD%A6%E5%8A%A1%E5%A4%84%E7%9D%A3%E5%AF%9F%E8%81%8C%E4%BD%8D%E5%BA%94%E8%81%98/" rel="prev" title="香港警务处督察职位应聘">
+                  <i class="fa fa-chevron-left"></i> 香港警务处督察职位应聘
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">henryfivev</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
