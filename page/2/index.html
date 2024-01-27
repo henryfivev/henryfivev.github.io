@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -149,6 +149,161 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E8%B7%A8%E9%93%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/17/%E8%B7%A8%E9%93%BE/" class="post-title-link" itemprop="url">跨链</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-17 11:07:15" itemprop="dateCreated datePublished" datetime="2023-10-17T11:07:15+08:00">2023-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-18 10:41:14" itemprop="dateModified" datetime="2023-10-18T10:41:14+08:00">2023-10-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E8%B7%A8%E9%93%BE/" itemprop="url" rel="index"><span itemprop="name">跨链</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="跨链是如何实现的">跨链是如何实现的</h2>
+<p>由于区块链可扩展性未解决</p>
+<p>链之间的交互，数据、资产和功能的互通</p>
+<h3 id="一跨链通信">一、跨链通信</h3>
+<p>主要有两类跨链通信：</p>
+<ol type="1">
+<li>最小化信任跨链通信：集群内部，rollups</li>
+<li>可信任跨链通信：集群之间</li>
+</ol>
+<h4 id="常见可信任跨链通信协议">常见可信任跨链通信协议</h4>
+<h5 id="ibc">1. IBC</h5>
+<p>cosmos中的核心部分，为一种标准（链间标准ICS），由TAO层和Application层组成。</p>
+<p>点对点连接</p>
+<p>链之间不是直接通信，用专用通道发送信息，通道中包含一个轻客户端</p>
+<h5 id="zk">2. ZK</h5>
+<p>用zkp代替原数据</p>
+<p>步骤：</p>
+<ol type="1">
+<li>决定要传递的数据</li>
+<li>获取证明数据存在EVM中的存储证明</li>
+<li>由存储证明生成ZK证明，以默克尔树的形式</li>
+<li>传递zkp</li>
+<li>展开zkp</li>
+<li>读取跨链信息</li>
+</ol>
+<h5 id="layerzero">3. LayerZero</h5>
+<p>传输层协议，架构由端点、中继点和预言机组成</p>
+<p>步骤：</p>
+<ol type="1">
+<li>向communicator发送交易信息</li>
+<li>communicator将交易信息以某种形式发送给validator</li>
+<li>未完，有点复杂</li>
+</ol>
+<h5 id="axelar">4. axelar</h5>
+<p>验证者网络+网关智能合约+开发者工具</p>
+<p>非点对点，链只需要接入一次即可跨多条链</p>
+<h5 id="wormhole">5. wormhole</h5>
+<p>POA共识机制，核心合约+守护者网络。</p>
+<p>守护者网络有19名守护者，负责交易验证</p>
+<h3 id="二跨链技术">二、跨链技术</h3>
+<h4 id="公证人机制">1. 公证人机制</h4>
+<p>引入第三方来验证信息</p>
+<p>有点像交易所</p>
+<h4 id="哈希锁定">2. 哈希锁定</h4>
+<p>借助哈希的单向性实现跨链交易</p>
+<h4 id="侧链">3. 侧链</h4>
+<p>two-way peg，在主链锁定货币后在侧链中释放等价货币</p>
+<p>SPV模式：simplified payment
+verification，通过将交易发给本链的一个特殊地址，由此会自动创建一个SPV证明给侧链上并发起一个交易在侧链上解锁对应的资产。</p>
+<h4 id="中继机制">4. 中继机制</h4>
+<p>跨链信息通过中继链的验证者验证后发布到中继链上</p>
+<h4 id="分布式私钥控制">5. 分布式私钥控制</h4>
+<p>lock-in，lock-out，分片密钥</p>
+<h3 id="三跨链的未来展望">三、跨链的未来展望</h3>
+<ul>
+<li>跨链桥</li>
+<li>OmniChain NFT</li>
+<li>layerzero的新应用</li>
+<li>chainlink作为预言机</li>
+<li>整合ICS标准</li>
+</ul>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
+<li>跨链通信中的集群是什么意思？——同一生态，比如说polkadot中的平行链和中继链。</li>
+<li>跨链通信协议和跨链技术的区别？——跨链通信协议是一种标准化的规则和协议，用于确保区块链之间的通信。跨链技术是一组具体的技术和方法，用于实际实现区块链之间的互操作性。跨链技术依赖跨链通信协议来建立通信，以实现跨链交互。这两者共同协助解决了区块链互操作性的挑战。</li>
+<li>跨链桥是什么？——有点类似侧链</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1419,165 +1574,6 @@ ufixed）:ufixed32x2表示该变量有32bit，小数点后有2位</li>
 <li>怎么理解添加已存在的实例？</li>
 <li>使用Solidity进行编程这节需要重读</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/16/2023-08-2023-08-16-Lua%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/08/16/2023-08-2023-08-16-Lua%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Lua入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-16 21:07:38" itemprop="dateCreated datePublished" datetime="2023-08-16T21:07:38+08:00">2023-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 16:02:08" itemprop="dateModified" datetime="2023-09-04T16:02:08+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="基本类型">基本类型</h2>
-<h3 id="nil">nil</h3>
-<p>type(val) == "nil"</p>
-<h3 id="布尔值">布尔值</h3>
-<p>false和nil为false</p>
-<p>0为true</p>
-<h3 id="number">number</h3>
-<p>双精度，表示所有数字</p>
-<h3 id="string">string</h3>
-<p>'和"都可以表示字符串</p>
-<p>[[]]可以表示一块字符串</p>
-<p>+表示数学上的操作</p>
-<p>..表示字符串上的操作</p>
-<p>#表示字符串长度</p>
-<h3 id="table">table</h3>
-<p>可以是数组，也可以是字典</p>
-<p>索引从1开始</p>
-<h3 id="function">function</h3>
-<p>可存在变量中</p>
-<p>匿名函数</p>
-<h3 id="thread">thread</h3>
-<p>线程和协程</p>
-<h3 id="userdata">userdata</h3>
-<p>自定义类型</p>
-<p>struct和指针</p>
-<h2 id="变量">变量</h2>
-<p>全局变量无需声明</p>
-<p>变量全是全局变量，除非local声明为局部变量</p>
-<p>局部变量作用域</p>
-<p>同时赋值时，左右个数不匹配时会忽略or用nil补足</p>
-<p>当table的索引为字符串时可用.操作符访问</p>
-<p>多值赋值时仅值传递，不会变量传递</p>
-<p>回收全局变量</p>
-<h2 id="循环">循环</h2>
-<p>while ... do ... end</p>
-<p>for i=begin, end, step do ... end</p>
-<p>begin, end, step一次性求值</p>
-<p>pairs和ipairs：ipairs遇到nil则返回，ipairs从1开始遍历</p>
-<p>未完</p>
-<h2 id="流程控制">流程控制</h2>
-<p>if ... then ... end</p>
-<p>if ... then ... else ... end</p>
-<h2 id="函数">函数</h2>
-<p>可有多个返回值</p>
-<p>...表示可变参数</p>
-<p>select("#",...) 来获取可变参数的数量</p>
-<p>select(3,...) 表示从3开始到结束的所有参数列表</p>
-<p>固定参数在变长参数前</p>
-<h2 id="运算符">运算符</h2>
-<p>//和/：//表示整除，lua5.3后才有</p>
-<p>..表示字符串拼接</p>
-<p>#表示长度</p>
-<p>运算符优先级</p>
-<h2 id="字符串">字符串</h2>
-<p>string.len</p>
-<p>有中文用utf8.len</p>
-<p>upper(), lower(), find(), reverse()</p>
-<p>sub()</p>
-<p>未完</p>
-<h2 id="数组">数组</h2>
-<p>索引可为负数</p>
-<h2 id="迭代器">迭代器</h2>
-<p>未完</p>
-<h2 id="table-1">table</h2>
-<p>当我们为 table a 并设置元素，然后将 a 赋值给 b，则 a 与 b
-都指向同一个内存。如果 a 设置为 nil ，则 b 同样能访问 table 的元素。</p>
-<p>table的操作</p>
-<p>不能直接获得table的长度</p>
-<h2 id="模块和包">模块和包</h2>
-<p>table创建模块</p>
-<p>require调用模块</p>
 
       
     </div>
