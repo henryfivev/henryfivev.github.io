@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,386 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BA%A4%E6%98%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BA%A4%E6%98%93/" class="post-title-link" itemprop="url">精通以太坊-交易</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-17 20:30:18" itemprop="dateCreated datePublished" datetime="2023-08-17T20:30:18+08:00">2023-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 16:03:49" itemprop="dateModified" datetime="2023-09-04T16:03:49+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="六以太坊交易">六、以太坊交易</h2>
+<p>交易是从外部账户发出的经过签名的消息，经传播后记录在区块链上。</p>
+<h3 id="交易结构">6.1 交易结构</h3>
+<p>以太坊客户端在收到交易后会把交易保存在内存中并使用应用内部的交易格式，其中添加了一些推导出的数据，不具有普适性，这里讨论的交易格式为以太坊网络上交易传输时的交易格式，包括以下内容：</p>
+<ul>
+<li>nonce：由构建交易的外部账户提供，防止重放攻击</li>
+<li>gas price：支付的gas</li>
+<li>gas limit：最大gas</li>
+<li>recipient：接收方以太坊地址</li>
+<li>value：以太币数量</li>
+<li>data：见下文</li>
+<li>v，r，s：椭圆曲线签名的三个部分</li>
+</ul>
+<p>使用RLP编码标准，其中不包含字段标识符，由长度偏移量表示每个字段的长度。</p>
+<p>应用添加的数据：外部地址、交易ID等等——为了节约空间，交易中并不包含外部用户的地址，vrs可计算出外部用户的公钥，由公钥可得出外部用户的地址，交易ID同理。</p>
+<h3 id="交易的随机数">6.2 交易的随机数</h3>
+<p>黄皮书中的定义：一个数值，等于这个地址发出的交易数量，当这个地址与合约关联时，是这个地址所创建的合约数量。</p>
+<p>nonce可以说是发送方地址的一个属性，用于确定发出的交易的顺序以及避免交易重复，不会显示保存而是由已确认的交易动态计算出的。</p>
+<p>交易待确认时getTransactionCount无法返回正确值，可用parity_nextNonce()计算下一个nonce。</p>
+<h3 id="交易的gas">6.3 交易的gas</h3>
+<p>独立的虚拟货币，和以太币有汇率关系。</p>
+<p>最低可到0，但存在交易无法确认的可能。</p>
+<p>由于合约所消耗的gas可能不同，所以需要设置gas limit</p>
+<h3 id="交易的接收方">6.4 交易的接收方</h3>
+<p>接收方在交易的to字段中指定，字段中包含了一个20字节的以太坊地址，该地址可以是外部账户，也可以是合约的地址。</p>
+<p>以太坊不会验证地址的正确性。</p>
+<h3 id="交易中的以太币和数据">6.5 交易中的以太币和数据</h3>
+<p>交易只有value无data：支付操作</p>
+<p>交易只有data无value：调用合约</p>
+<p>交易既没有value也没有data：没作用，但允许存在</p>
+<h4 id="目的地址">目的地址</h4>
+<p>如果目的地址为外部账户or未注册为合约的地址，以太坊会在目的账户余额中增加转入的以太币。</p>
+<p>如果目的地址为合约，EVM则会执行这个合约，并调用data中指定的函数；若data中为空，则执行合约的回退函数。此时data中有以下部分：函数选择器、函数参数</p>
+<h3 id="特殊交易合约创建">6.6 特殊交易：合约创建</h3>
+<p>合约创建交易的目的地址是一个特殊的地址——零地址，即to字段为0x0，该地址永远不能用来支付以太坊or触发交易。</p>
+<p>向合约创建地址发送只有value无data的交易相当于转账，也有专门销毁以太币的地址。</p>
+<p>合约创建交易中的data为代码编译后的字节码，value中可以包含以太币作为合约的初始余额。</p>
+<h2 id="奇思妙想">奇思妙想</h2>
+<ol type="1">
+<li>后面的nonce会被搁置，那可不可以先发后面的nonce来实现智能合约的操作？</li>
+</ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
+<li>交易触发合约执行？</li>
+<li>交易中的data有什么用？——普通交易中data经常为空，调用智能合约函数的交易中data为函数名和参数。</li>
+<li>交易中的随机数真的随机吗？</li>
+<li>为什么向没有私钥的地址发送以太币相当于销毁以太币？——没有已知的私钥，以致无法生成签名来使用。</li>
+<li>账户是否就等于地址？——账户由私钥和公钥定义，外部账户的地址为公钥哈希值的后20位字节，合约账户的地址则为该合约在区块链中的位置。账户通过地址表示。</li>
+<li>交易目的地址为合约时，该合约是新的，还是别人已经写好了的？——应该是已经写好了的。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%92%8CSolidity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%92%8CSolidity/" class="post-title-link" itemprop="url">精通以太坊-智能合约和Solidity</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-17 20:29:45" itemprop="dateCreated datePublished" datetime="2023-08-17T20:29:45+08:00">2023-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 16:03:49" itemprop="dateModified" datetime="2023-09-04T16:03:49+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="七智能合约和solidity">七、智能合约和Solidity</h2>
+<h3 id="什么是智能合约">7.1 什么是智能合约</h3>
+<p>数字化的承诺，运行在EVM中。</p>
+<p>特点：</p>
+<ul>
+<li>不可改变</li>
+<li>有确定性：每次输出是相同的</li>
+</ul>
+<h3 id="智能合约的生命周期">7.2 智能合约的生命周期</h3>
+<p>合约的地址由合约的创建交易在创建账户和随机数时生成。</p>
+<p>智能合约并没有对应的私钥。</p>
+<p>智能合约仅在被其他交易调用时执行。</p>
+<p>不存在并发执行——EVM可认为是一台单线程计算机。</p>
+<p>交易是原子的，若程序出错，则回滚之前所有操作，依旧会扣除gas。</p>
+<p>合约不能更改，但可以通过执行SELFDESTRUCT的EVM字节码来删除，删除会提供gas退款。</p>
+<p>SELFDESTRUCT需要开发者编写，否则无法删除。</p>
+<h3 id="以太坊高级编程语言">7.3 以太坊高级编程语言</h3>
+<p>EVM高度隔离且极其简单。</p>
+<p>智能合约的编程语言应极力避免任何可能的副作用。</p>
+<p>Solidity为指令式编程语言。</p>
+<h3 id="使用solidity编写智能合约">7.4 使用Solidity编写智能合约</h3>
+<p>Solidity项目主要产出为Solidity编译器和ABI接口标准</p>
+<h3 id="以太坊合约的应用程序二进制接口">7.5
+以太坊合约的应用程序二进制接口</h3>
+<p>ABI是向机器指令层面编码和解码并传送数据的主要方式。</p>
+<p>用JSON格式表示，包含描述函数和事件的数组。</p>
+<p>应用与合约的交互完全依赖于ABI和应用实例部署的以太坊地址。</p>
+<h3 id="使用solidity进行编程">7.6 使用Solidity进行编程</h3>
+<h4 id="预定义的全局变量和函数">预定义的全局变量和函数</h4>
+<p>Solidity基本数据类型：</p>
+<ol type="1">
+<li>布尔型（bool）</li>
+<li>整数型（int, uint）</li>
+<li>固定浮点数（fixed,
+ufixed）:ufixed32x2表示该变量有32bit，小数点后有2位</li>
+<li>地址address，有成员函数balance, transfer...</li>
+<li>字节数组，从bytes1到bytes32，有固定和动态的区别</li>
+<li>枚举，enum name{}</li>
+<li>数组</li>
+<li>结构体，struct name{}</li>
+<li>映射，mapping(key_type=&gt;value_type)</li>
+<li>时间单位</li>
+<li>以太币单位</li>
+</ol>
+<p>触发合约执行的交易(msg)的属性：</p>
+<ol type="1">
+<li>msg.sender：发起合约调用的地址</li>
+<li>msg.value：以太币数量</li>
+<li>msg.gas：当前可用gas数量</li>
+<li>msg.data：调用时传入的数据</li>
+<li>msg.sig：函数选择器</li>
+</ol>
+<p>交易(tx)的属性：</p>
+<ol type="1">
+<li>tx.gasprice：调用交易的gas价格</li>
+<li>tx.origin：发起交易的外部账户的地址</li>
+</ol>
+<p>block的属性：</p>
+<ol type="1">
+<li>block.blockhash(blockNumber)：指定区块的哈希值，仅限于当前区块之前不超过256个区块</li>
+<li>block.coinbase：当前区块的矿工地址</li>
+<li>block.difficulty：POW的难度</li>
+<li>block.gaslimit：最大gas数量</li>
+<li>block.number：当前区块编号</li>
+<li>block.timestamp：当前区块的时间戳</li>
+</ol>
+<p>address的属性：</p>
+<ol type="1">
+<li>address.balance：地址余额</li>
+<li>address.transfer(amount)：转出一定以太币</li>
+<li>address.send(amount)：类似transfer</li>
+<li>address.call(payload)</li>
+<li>address.callcode(payload)</li>
+<li>address.delegatecall()</li>
+</ol>
+<p>内建函数：</p>
+<ol type="1">
+<li>addmod(), mulmod()</li>
+<li>sha256(), sha3()等等hash函数</li>
+<li>ecrecover，获得签名地址</li>
+<li>selfdestruct(recipient)，删除合约并将剩余以太币转到recipient</li>
+<li>this，当前账户以太坊地址</li>
+</ol>
+<h4 id="合约定义">合约定义</h4>
+<p>其他对象：</p>
+<ol type="1">
+<li>interface</li>
+<li>library：只被部署一次</li>
+</ol>
+<p>函数调用范围：</p>
+<ol type="1">
+<li>public：可被交易，其他合约和合约内部调用</li>
+<li>external：类似public，不能内部调用除非指明this</li>
+<li>internal：只能被当前合约及其子合约内部调用</li>
+<li>private：只能被当前合约调用</li>
+</ol>
+<p>函数都是可见的。</p>
+<p>函数的行为：</p>
+<ol type="1">
+<li>constant和view：不修改任何状态</li>
+<li>pure：不会在区块链中读取or写入任何数据</li>
+<li>payable：接收外部支付</li>
+</ol>
+<p>构造函数constructor和自毁函数selfdestruct</p>
+<p>函数修饰符modifier：_的地方会被修饰符的代码代替</p>
+<p>继承is：contract 子合约 is 父合约1，父合约2 {}</p>
+<h4 id="错误处理">错误处理</h4>
+<p>如果条件不满足则触发错误并且中止合约的执行：</p>
+<ol type="1">
+<li>assert用于判断输出条件为真的情况</li>
+<li>require用来判断输入</li>
+</ol>
+<p>立即中止合约执行并把状态回滚：</p>
+<ol type="1">
+<li>revert</li>
+<li>throw已被淘汰</li>
+</ol>
+<h4 id="事件">事件</h4>
+<p>当交易完成后，无论成功与否，都会生成一个交易收据，收据中包含由事件生成的日志。</p>
+<p>关键字：</p>
+<ol type="1">
+<li>indexed</li>
+<li>emit：将数据写入日志</li>
+</ol>
+<h4 id="调用其他合约">调用其他合约</h4>
+<p>import引入合约文件</p>
+<p>new实例化合约</p>
+<p>可以添加已存在的实例，但很危险</p>
+<p>call和delegatecall</p>
+<p>这里给了调用合约的例子，值得看一下。</p>
+<h4 id="与gas有关的注意事项">与gas有关的注意事项</h4>
+<p>如果gas耗尽，将触发以下事件：</p>
+<ol type="1">
+<li>抛出“out of gas”异常</li>
+<li>恢复状态</li>
+<li>消耗gas</li>
+</ol>
+<p>避免消耗过多gas：</p>
+<ol type="1">
+<li>避免动态大小的数组</li>
+<li>避免调用其他合约</li>
+<li>使用estimateGas估计gas开销</li>
+</ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
+<li>合约没有私钥，那要怎么使用其地址上的以太币？</li>
+<li>msg.sig是什么，有什么用？</li>
+<li>address.call是什么，有什么用？</li>
+<li>假如我以简单的难度快速的算出了多个区块，别人算出了一个高难度的区块，那这时候主链怎么选择？</li>
+<li>interface例子？</li>
+<li>事件indexed有什么用？</li>
+<li>怎么理解添加已存在的实例？</li>
+<li>使用Solidity进行编程这节需要重读</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1303,216 +1683,8 @@ above.</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-MapReduce%E7%BC%96%E7%A8%8B%E6%A0%B7%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-MapReduce%E7%BC%96%E7%A8%8B%E6%A0%B7%E4%BE%8B/" class="post-title-link" itemprop="url">云计算技术-MapReduce编程样例</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-03 00:22:37" itemprop="dateCreated datePublished" datetime="2023-07-03T00:22:37+08:00">2023-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 16:01:25" itemprop="dateModified" datetime="2023-09-04T16:01:25+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">云计算技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>WordCount</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">doMapper</span> <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;Object, Text, Text, IntWritable&gt;&#123;  </span><br><span class="line"><span class="comment">//第一个Object表示输入key的类型；第二个Text表示输入value的类型</span></span><br><span class="line"><span class="comment">//第三个Text表示表示输出键的类型；第四个IntWritable表示输出值的类型  </span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(Object key, Text value, Context context)</span> <span class="keyword">throws</span> IOException,InterruptedException  </span><br><span class="line">    <span class="comment">//抛出异常  </span></span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="type">StringTokenizer</span> <span class="variable">tokenizer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString(),<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        <span class="comment">//StringTokenizer是Java工具包中的一个类，用于将字符串进行拆分</span></span><br><span class="line">        word.set(tokenizer.nextToken());</span><br><span class="line">        <span class="comment">//返回当前位置到下一个分隔符之间的字符串</span></span><br><span class="line">        context.write(word, one);</span><br><span class="line">        <span class="comment">//将word存到容器中，记一个数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">doReducer</span> <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text, IntWritable, Text, IntWritable&gt;&#123;  </span><br><span class="line"><span class="comment">//参数同Map一样，依次表示是输入键类型，输入值类型，输出键类型，输出值类型  </span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();  </span><br><span class="line">    <span class="meta">@Override</span>  </span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span>  <span class="keyword">throws</span> IOException, InterruptedException &#123;  </span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span> (IntWritable value : values) &#123;  </span><br><span class="line">            sum += value.get();  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//for循环遍历，将得到的values值累加  </span></span><br><span class="line">        result.set(sum);  </span><br><span class="line">        context.write(key, result);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>样卷例子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.util.GenericOptionsParser;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment"> 	* MapReduceBase类:实现Mapper和Reducer接口的基类    </span></span><br><span class="line"><span class="comment"> 	* Mapper接口： </span></span><br><span class="line"><span class="comment"> 	* WritableComparable接口：实现WritableComparable的类可以相互比较。所有被用作key的类要实现此接口。    </span></span><br><span class="line"><span class="comment"> 	*/</span>  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">TokenizerMapper</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;Object, Text, Text, IntWritable&gt;&#123;</span><br><span class="line"> 	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	*LongWritable,IntWritable,Text是Hadoop中实现的用于封装Java数据类型的类，这些类实现了WritableComparable接口，</span></span><br><span class="line"><span class="comment">	*都能够被串行化，便于在分布式环境中进行数据交换，可以视为long,int,String数据类型的替代。</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();<span class="comment">//Text实现了BinaryComparable类，可以作为key值</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	* Mapper接口中的map方法： </span></span><br><span class="line"><span class="comment">	* void map(K1 key, V1 value, OutputCollector&lt;K2,V2&gt; output, Reporter reporter)</span></span><br><span class="line"><span class="comment">	* 映射一个单个的输入&lt;K1,V1&gt;对到一个中间输出&lt;K2,V2&gt;对 </span></span><br><span class="line"><span class="comment">	* 中间输出对不需要和输入对是相同的类型，输入对可以映射到0个或多个输出对。 	</span></span><br><span class="line"><span class="comment">	* OutputCollector接口：收集Mapper和Reducer输出的&lt;K,V&gt;对。 </span></span><br><span class="line"><span class="comment">	* OutputCollector接口的collect(k, v)方法:增加一个(k,v)对到output </span></span><br><span class="line"><span class="comment">	* Reporter 用于报告整个应用的运行进度</span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(Object key, Text value, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">        <span class="comment">//每一行包括课程号、课程名称、学号、学生姓名、成绩（百分制），数据项由空格隔开。</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">string</span> <span class="operator">=</span> value.toString();</span><br><span class="line">        <span class="comment">//按行分割</span></span><br><span class="line">        String[] strings = string.split(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; strings.length; i++) &#123;</span><br><span class="line">            <span class="comment">//以空格分割</span></span><br><span class="line">            String[] data = strings[i].split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="comment">//数组第5个元素是成绩</span></span><br><span class="line">            <span class="type">double</span> <span class="variable">score</span> <span class="operator">=</span> Double.parseDouble(data[<span class="number">4</span>]);</span><br><span class="line">            <span class="comment">//以成绩进行分割</span></span><br><span class="line">            <span class="keyword">if</span> (score &lt; <span class="number">60</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;不及格&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">60</span> &amp;&amp; score &lt; <span class="number">70</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;一般&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">70</span> &amp;&amp; score &lt; <span class="number">80</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;中等&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">80</span> &amp;&amp; score &lt; <span class="number">90</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;良好&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &gt;= <span class="number">90</span>) &#123;</span><br><span class="line">                k.set(<span class="string">&quot;优秀&quot;</span>);</span><br><span class="line">                v.set(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//生成key value键值对</span></span><br><span class="line">            context.write(k, v);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntSumReducer</span> <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line"></span><br><span class="line">	 <span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * reduce过程是对输入键值对洗牌（Shuffing）形成&lt;K2,list(V2)&gt;格式数据（仅以test1.txt为例)：</span></span><br><span class="line"><span class="comment">	 * (优秀[1,1,1,1...])</span></span><br><span class="line"><span class="comment">	 * 作为reduce的输入</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//遍历values</span></span><br><span class="line">        <span class="keyword">for</span> (IntWritable v : values) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> v.get();</span><br><span class="line">            count += value;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//汇总每个分数段的人数（求和）</span></span><br><span class="line">        context.write(key, <span class="keyword">new</span> <span class="title class_">IntWritable</span>(count));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123; </span><br><span class="line">	   <span class="comment">// 1 获取配置信息以及封装任务</span></span><br><span class="line">       <span class="type">Configuration</span> <span class="variable">configuration</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">       <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> Job.getInstance(configuration);</span><br><span class="line">       <span class="comment">// 2 设置jar加载路径</span></span><br><span class="line">       job.setJarByClass(RatingDemo.class);</span><br><span class="line">       <span class="comment">// 3 设置map和reduce类</span></span><br><span class="line">       job.setMapperClass(MyMap.class);</span><br><span class="line">       job.setReducerClass(MyReduce.class);</span><br><span class="line">       <span class="comment">// 4 设置map输出</span></span><br><span class="line">       job.setMapOutputKeyClass(Text.class);</span><br><span class="line">       job.setMapOutputValueClass(IntWritable.class);</span><br><span class="line">       <span class="comment">// 5 设置最终输出kv类型</span></span><br><span class="line">       job.setOutputKeyClass(Text.class);</span><br><span class="line">       job.setOutputValueClass(IntWritable.class);</span><br><span class="line">       <span class="comment">// 6 设置输入和输出路径</span></span><br><span class="line">       <span class="type">Path</span> <span class="variable">input</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/input/report.txt&quot;</span>);</span><br><span class="line">       FileInputFormat.addInputPath(job, input);</span><br><span class="line">       <span class="type">Path</span> <span class="variable">output</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/output/result&quot;</span>);</span><br><span class="line">       <span class="comment">//判断output文件夹是否存在，如果存在则删除</span></span><br><span class="line">       <span class="keyword">if</span> (output.getFileSystem(configuration).exists(output)) &#123;</span><br><span class="line">           output.getFileSystem(configuration).delete(output);</span><br><span class="line">       &#125;</span><br><span class="line">       FileOutputFormat.setOutputPath(job, output);</span><br><span class="line">       <span class="comment">//等待计算完成</span></span><br><span class="line">       <span class="type">boolean</span> <span class="variable">completion</span> <span class="operator">=</span> job.waitForCompletion(<span class="literal">true</span>);</span><br><span class="line">       <span class="keyword">if</span> (completion) &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;计算成功！&quot;</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           System.out.println(<span class="string">&quot;计算失败！&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/476784524">利用MapReduce的一些特性可以实现排序、去重、求和等等操作</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/30/2023-06-2023-06-30-%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8-%E4%BC%A0%E7%BB%9F%E6%94%AF%E4%BB%98%E6%8A%80%E6%9C%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/30/2023-06-2023-06-30-%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8-%E4%BC%A0%E7%BB%9F%E6%94%AF%E4%BB%98%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">电子商务安全-传统支付技术</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-06-30 16:41:02" itemprop="dateCreated datePublished" datetime="2023-06-30T16:41:02+08:00">2023-06-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 16:00:51" itemprop="dateModified" datetime="2023-09-04T16:00:51+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">电子商务安全</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="传统支付技术-知识点">传统支付技术-知识点</h2>
-<h3 id="信任构建">信任构建</h3>
-<p>PKI概念</p>
-<p>PKI解决的问题</p>
-<p>PKI和数字签名的区别</p>
-<p>数字证书</p>
-<p>CA，RA概念</p>
-<p>使用PKI认证的流程</p>
-<p>CRL证书吊销</p>
-<p>CA之间的认证</p>
-<p>层级证书下的信任传递</p>
-<p>交叉证书概念</p>
-<h3 id="支付技术">支付技术</h3>
-<p>卡支付的过程</p>
-<p>无卡支付概念</p>
-<p>SET概念</p>
-<p>信封模式、双签名</p>
-<p>SET的交易过程</p>
-<p>SET怎么处理隐私保护和双花问题</p>
-<p>盲签名</p>
-<p>RSA盲签名</p>
-<p>部分RSA盲签名</p>
-<p>电子现金交易步骤</p>
-<p>ECC盲签名</p>
-<p>NetCash现金格式，流通方式</p>
-<p>电子支票概念</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
