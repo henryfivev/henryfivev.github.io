@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">97</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,109 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/20/2023-06-2023-06-20-whoarephishers%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/20/2023-06-2023-06-20-whoarephishers%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">whoarephishers读书笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-06-20 14:22:15" itemprop="dateCreated datePublished" datetime="2023-06-20T14:22:15+08:00">2023-06-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 16:02:22" itemprop="dateModified" datetime="2023-09-04T16:02:22+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Paper/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="论文读书笔记"><a href="#论文读书笔记" class="headerlink" title="论文读书笔记"></a>论文读书笔记</h2><p>TSMC上的《Who Are the Phishers? Phishing Scam Detection on Ethereum via Network Embedding》这篇论文提出了一个以太坊上的钓鱼检测技术，下面是这篇论文的概述：</p>
+<p>​随着区块链的发展，各种诈骗行为愈演愈烈，其中钓鱼诈骗占到了50%以上。但由于传统的钓鱼诈骗和以太坊上的钓鱼诈骗在通用货币，交易透明度，钓鱼方式等方面大相径庭，我们不能直接应用传统的钓鱼检测技术，因此我们提出了一种针对以太坊的钓鱼检测技术。</p>
+<p>我们先从以太坊客户端中获得所有交易记录，以此构建一个交易图，节点表示以太坊账户，边表示账户之间的交易。接着我们从权威网站上获得被标记为钓鱼账户的信息。为了同时学习到图结构和交易信息的特征，我们提出了一种新的图嵌入算法trans2vec来进行特征提取。trans2vec算法由在交易金额和交易时间上有偏的随机游走来生成节点序列，再由skip-gram模型获得图嵌入特征。由于钓鱼账户占比过小，我们使用一类SVM来进行无监督异常检测，将前面学习到的特征作为一类SVM的输入进行钓鱼检测。</p>
+<p>最后我们从不同采样偏差，不同图嵌入算法，不同的分类器，不同的参数和算法可扩展性等方面进行评估。</p>
+<p>从这篇论文中我学习到了不少东西，比如说图嵌入和一类支持向量机。图嵌入将图结构映射到低维向量空间，将节点表示为向量形式，学习节点之间的关系，以便更好地捕捉节点之间的相似性和差异性。文中提到的deepwalk和node2vec就是两种常用的图嵌入算法。deepwalk通过随机游走生成节点序列，用这些节点序列来学习节点的向量形式，即节点嵌入。node2vec和deepwalk类似，在随机游走上略有不同，node2vec通过在dfs和bfs上有偏的随机游走来生成节点序列。一类SVM则是一种单分类器，通过学习正常样本的分布特征，来检测新样本是否属于正常类别。图嵌入算法为我们如何处理图的数据提供了一种思路，它可以将图中提取出具有结构信息和边点信息的特征；一类SVM则为我们如何处理有标签数据占比小的数据集提供了一种思路。</p>
+<p>虽然学到了不少东西，但由于临近期末时间紧迫，还是有些东西没学明白的，比如skip-gram模型是怎么从序列中学习出词或者节点的嵌入的，一类SVM具体是怎么分类的等等。</p>
+<p>至于论文的改进方案或后续的工作方向，其实文中在conclusion部分已经提到了，这里我再补一点我的想法：</p>
+<ol>
+<li><p>会不会有更好的交易特征：设想现在有一个网站的交易金额和交易时间的数据，我们能判断该网站是否有钓鱼诈骗行为吗？以太坊上的钓鱼诈骗是和传统钓鱼诈骗有不同，但我感觉仅从交易金额和交易时间来进行钓鱼诈骗识别的话，只能识别出ICOs期间的钓鱼诈骗，总金额大，时间集中。要是未来以太坊上出现类似传统钓鱼网站的钓鱼诈骗，金额和时间散布大的，trans2vec是否还能提取出有效的特征？</p>
+</li>
+<li><p>钓鱼账户所有的交易都是关于钓鱼的吗：这个不是对论文内容的问题，这个是对数据集的问题。我在想这些被标记为钓鱼诈骗的账户有没有可能进行过正当交易，这些交易会不会影响提取出来的特征，比如说这些账户一开始就是普通账户，进行过许多正常交易，后来突然开始钓鱼诈骗，被权威网站标记为钓鱼账户等等。</p>
+</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/398545335">随机游走</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27234078">skip-gram模型</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1328,122 +1431,6 @@
 </tbody>
 </table>
 </div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/04/2023-05-2023-05-04-%E5%9F%B9%E5%85%BB%E6%96%B9%E6%A1%88%E6%A2%B3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/04/2023-05-2023-05-04-%E5%9F%B9%E5%85%BB%E6%96%B9%E6%A1%88%E6%A2%B3%E7%90%86/" class="post-title-link" itemprop="url">培养方案梳理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-05-04 13:16:23" itemprop="dateCreated datePublished" datetime="2023-05-04T13:16:23+08:00">2023-05-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 16:05:20" itemprop="dateModified" datetime="2023-09-04T16:05:20+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Think/" itemprop="url" rel="index"><span itemprop="name">Think</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="培养方案"><a href="#培养方案" class="headerlink" title="培养方案"></a>培养方案</h2><p>准备按着培养方案整理一下</p>
-<h3 id="数学课程"><a href="#数学课程" class="headerlink" title="数学课程"></a>数学课程</h3><p>数学分析</p>
-<p>高等代数</p>
-<p>离散数学</p>
-<p>概率论</p>
-<p>信息安全数学基础（数论+抽象代数）</p>
-<p>信号与系统</p>
-<p>信息论</p>
-<p>现代密码学</p>
-<p>图论</p>
-<h3 id="专业课程"><a href="#专业课程" class="headerlink" title="专业课程"></a>专业课程</h3><p>C/C++</p>
-<p>计算机组成原理</p>
-<p>数据结构与算法</p>
-<p>操作系统原理</p>
-<p>计算机网络</p>
-<p>人工智能原理</p>
-<p>移动互联网</p>
-<p>数据库系统</p>
-<p>计算机体系结构</p>
-<p>分布式系统</p>
-<p>模式识别与计算机视觉</p>
-<p>人工神经网络</p>
-<p>云计算技术</p>
-<p>专业综合实践</p>
-<p>网络安全技术</p>
-<p>电子商务安全</p>
-<p>网络协议逆向分析</p>
-<h3 id="屁用没有"><a href="#屁用没有" class="headerlink" title="屁用没有"></a>屁用没有</h3><p>PS. 个人感觉</p>
-<p>讲座</p>
-<p>数字电路</p>
-<p>大学物理</p>
-<p>工程训练</p>
 
       
     </div>
