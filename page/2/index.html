@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,112 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/02/node%E9%99%8D%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/02/node%E9%99%8D%E7%BA%A7/" class="post-title-link" itemprop="url">node降级</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-02 23:31:12" itemprop="dateCreated datePublished" datetime="2024-01-02T23:31:12+08:00">2024-01-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-15 10:58:54" itemprop="dateModified" datetime="2024-01-15T10:58:54+08:00">2024-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">环境配置</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/Node/" itemprop="url" rel="index"><span itemprop="name">Node</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>现node版本为20.10.0，想降为18.19.0，无法直接安装对应版本node，有以下两个工具可以进行node版本管理：</p>
+<ol>
+<li>从npm安装的nvmw</li>
+<li>从github安装的nvm</li>
+</ol>
+<p>我采用的是nvmw，有诸多不便，以后尝试nvm。</p>
+<p>安装nvmw命令：<code>npm install -g nvmw</code></p>
+<p>有安装node的命令<code>nvmw install version_you_want</code>，但是我下载不了，会卡住，可能得换源qaq。</p>
+<p>这里我的办法是手动下载node到user/nvmw/nodejs中，需要修改文件名为版本号。</p>
+<p>安装node后可以使用<code>nvmw ls</code>查看现有node版本。</p>
+<p>有两个命令来切换node版本：</p>
+<ol>
+<li>临时切换：<code>nvmw use version_you_want</code></li>
+<li>永久切换：<code>nvmw switch version_you_want</code></li>
+</ol>
+<p>however我不能用use命令来切换版本，只能switch后重启来切换cmd中的node版本，powershell中版本不受影响。</p>
+<p>—-2024.1.15更新—-</p>
+<p>装nvm，不用卸载原有node。装好后，安装对应版本的npm<code>npm install npm@version_you_want</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1640,166 +1746,6 @@ As smart contracts on the blockchain are related to financial transactions and c
 <li>跨链通信中的集群是什么意思？——同一生态，比如说polkadot中的平行链和中继链。</li>
 <li>跨链通信协议和跨链技术的区别？——跨链通信协议是一种标准化的规则和协议，用于确保区块链之间的通信。跨链技术是一组具体的技术和方法，用于实际实现区块链之间的互操作性。跨链技术依赖跨链通信协议来建立通信，以实现跨链交互。这两者共同协助解决了区块链互操作性的挑战。</li>
 <li>跨链桥是什么？——有点类似侧链</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/" class="post-title-link" itemprop="url">精通以太坊-智能合约安全</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-10-17 09:59:12 / Modified: 17:47:42" itemprop="dateCreated datePublished" datetime="2023-10-17T09:59:12+08:00">2023-10-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="九、智能合约安全"><a href="#九、智能合约安全" class="headerlink" title="九、智能合约安全"></a>九、智能合约安全</h2><h3 id="9-3-重入"><a href="#9-3-重入" class="headerlink" title="9.3 重入"></a>9.3 重入</h3><p>原理：调用外部fallback函数来进行转账，导致合约可重入</p>
-<p>防范技术：</p>
-<ol>
-<li>用transfer()进行转账，虽然会带来额外gas</li>
-<li>使用“检查-生效-交互”模式</li>
-<li>使用互斥锁</li>
-</ol>
-<p>案例：DAO攻击</p>
-<h3 id="9-4-算术溢出"><a href="#9-4-算术溢出" class="headerlink" title="9.4 算术溢出"></a>9.4 算术溢出</h3><p>原理：Solidity中整数存在上下限</p>
-<p>防范技术：</p>
-<ol>
-<li>使用SafeMath库合约</li>
-</ol>
-<p>案例：PoWHC</p>
-<h3 id="9-5-意外的以太币"><a href="#9-5-意外的以太币" class="headerlink" title="9.5 意外的以太币"></a>9.5 意外的以太币</h3><p>原理：强制发送以太币导致合约无法执行，self-destruct或预先发送都可以实现</p>
-<p>防范技术：</p>
-<ol>
-<li>少用this.balance，使用状态变量保存余额</li>
-</ol>
-<h3 id="9-6-delegatecall"><a href="#9-6-delegatecall" class="headerlink" title="9.6 delegatecall"></a>9.6 delegatecall</h3><p>原理：delegatecall保持上下文，状态或存储变量（可以在独立的交易之间保持其数值的变量）会按照它们被引入合约的顺序放置在存储槽中，这时我们改变的变量可能不是我们期望改变的。</p>
-<p>防范技术：</p>
-<ol>
-<li>使用library关键字可以保证库合约是无状态和不会自我销毁的</li>
-</ol>
-<p>案例：Parity多重签名钱包的第二次攻击</p>
-<h3 id="9-7-默认的可见性"><a href="#9-7-默认的可见性" class="headerlink" title="9.7 默认的可见性"></a>9.7 默认的可见性</h3><p>原理：Solidity函数可见性默认为public，可能出现纰漏</p>
-<p>防范技术：为每个函数都指定可见性</p>
-<p>案例：Parity多重签名钱包的首次攻击</p>
-<h3 id="9-8-无序错觉"><a href="#9-8-无序错觉" class="headerlink" title="9.8 无序错觉"></a>9.8 无序错觉</h3><p>原理：为了在以太坊中引入无序性（即随机性），使用哈希值、区块号等可被操控的区块变量作为随机值</p>
-<p>防范技术：无序性必须来自区块链外部</p>
-<p>案例：PRNG合约</p>
-<h3 id="9-9-外部合约引用"><a href="#9-9-外部合约引用" class="headerlink" title="9.9 外部合约引用"></a>9.9 外部合约引用</h3><p>原理：可以故意将地址指向错误的合约，假如引用的合约不包含要调用的函数，将执行回退函数。如果用户可以修改合约引用的合约库，那么基本上他们就可以使其他用户在不知情的情况下运行任意代码。</p>
-<p>防范技术：</p>
-<ol>
-<li>new一个要引用的合约</li>
-<li>对外部合约进行硬编码</li>
-</ol>
-<p>一般建议将合约地址设置为public以方便用户检查引用的合约</p>
-<p>案例：<a target="_blank" rel="noopener" href="https://www.reddit.com/r/ethdev/comments/7x5rwr/tricked_by_a_honeypot_contract_or_beaten_by/">可重入的蜜罐</a></p>
-<h3 id="9-10-短地址攻击"><a href="#9-10-短地址攻击" class="headerlink" title="9.10 短地址攻击"></a>9.10 短地址攻击</h3><p>原理：当实际发送的数据长度小于标准编码长度时，EVM将在数据末尾补0，这种操作可能影响末尾参数</p>
-<p>防范技术：对参数进行校验</p>
-<h3 id="9-11-未检查的调用返回值"><a href="#9-11-未检查的调用返回值" class="headerlink" title="9.11 未检查的调用返回值"></a>9.11 未检查的调用返回值</h3><p>原理：send和call外部调用失败仅返回false，不revert</p>
-<p>防范技术：</p>
-<ol>
-<li>检查返回值</li>
-<li>使用withdraw模式</li>
-</ol>
-<h3 id="9-12-预先交易"><a href="#9-12-预先交易" class="headerlink" title="9.12 预先交易"></a>9.12 预先交易</h3><p>原理：gas高的优先被打包</p>
-<p>防范技术：</p>
-<ol>
-<li>设置gas上限</li>
-<li>使用commit-reveal模式</li>
-<li>submarine sends</li>
-</ol>
-<p>案例：erc20的approve函数</p>
-<h3 id="9-13-拒绝服务"><a href="#9-13-拒绝服务" class="headerlink" title="9.13 拒绝服务"></a>9.13 拒绝服务</h3><p>原理：各种原因使合约不可用，比如说事先向合约转账使合约无法通过某些限制条件</p>
-<p>防范技术：各个情况方法不同</p>
-<h3 id="9-14-区块时间戳操纵"><a href="#9-14-区块时间戳操纵" class="headerlink" title="9.14 区块时间戳操纵"></a>9.14 区块时间戳操纵</h3><p>原理：区块时间戳可被矿工指定。</p>
-<p>防范技术：不应使用区块时间戳作为随机数。</p>
-<p>案例：GovernMental</p>
-<h3 id="9-15-小心使用构造函数"><a href="#9-15-小心使用构造函数" class="headerlink" title="9.15 小心使用构造函数"></a>9.15 小心使用构造函数</h3><p>原理：solidity0.4.22前，构造函数和合约同名；若合约名称和构造函数名称不同，构造函数将变成一个普通函数。</p>
-<p>防范技术：使用constructor关键字。</p>
-<p>案例：Rubixi</p>
-<h3 id="9-16-未初始化的存储指针"><a href="#9-16-未初始化的存储指针" class="headerlink" title="9.16 未初始化的存储指针"></a>9.16 未初始化的存储指针</h3><p>原理：状态变量和复杂类型的局部变量都存储在storage中；状态变量按照顺序保存在storage中（存储槽），未初始化的局部变量可能指向已有的状态变量。</p>
-<p>防范技术：用storage和memory关键字明确指定变量的存储位置。</p>
-<p>案例：OpenAddressLottery</p>
-<h3 id="9-17-浮点数和精度"><a href="#9-17-浮点数和精度" class="headerlink" title="9.17 浮点数和精度"></a>9.17 浮点数和精度</h3><p>原理：solidity的除法会舍去小于除数的所有精度。</p>
-<p>防范技术：先执行加法和乘法，再执行减法和除法。</p>
-<p>案例：Ethstick</p>
-<h3 id="9-18-Tx-Origin验证"><a href="#9-18-Tx-Origin验证" class="headerlink" title="9.18 Tx.Origin验证"></a>9.18 Tx.Origin验证</h3><p>原理：全局变量tx.origin表示最初发起交易的账户地址；若使用tx.origin作为判定条件，合约易受到钓鱼攻击。</p>
-<p>防范技术：少用tx.origin作为判定条件。</p>
-<p>可用require(tx.origin == msg.sender)来拒绝外部合约调用。</p>
-<h3 id="9-19-合约程序库"><a href="#9-19-合约程序库" class="headerlink" title="9.19 合约程序库"></a>9.19 合约程序库</h3><p>OpenZepplin包含丰富的库合约。</p>
-<p>ZeppelinOS使开发者更简单地发布DApp。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
-<li>谁可以调用合约的self-destruct</li>
-<li>外部合约引用的防范技术没看懂</li>
 </ol>
 
       
