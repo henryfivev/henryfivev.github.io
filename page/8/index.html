@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,150 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/16/2023-04-course-2023-04-16-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/16/2023-04-course-2023-04-16-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF3/" class="post-title-link" itemprop="url">网络安全技术3</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-16 21:25:30" itemprop="dateCreated datePublished" datetime="2023-04-16T21:25:30+08:00">2023-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-04 15:58:00" itemprop="dateModified" datetime="2023-09-04T15:58:00+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Course/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">网络安全技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="自顶向下第8章概览"><a href="#自顶向下第8章概览" class="headerlink" title="自顶向下第8章概览"></a>自顶向下第8章概览</h2><h3 id="8-7-网络层安全性：IPsec和虚拟专用网"><a href="#8-7-网络层安全性：IPsec和虚拟专用网" class="headerlink" title="8.7 网络层安全性：IPsec和虚拟专用网"></a>8.7 网络层安全性：IPsec和虚拟专用网</h3><p>许多机构使用IPsec创建了虚拟专用网（VPN）。</p>
+<p>网络层安全性地毯式覆盖。</p>
+<p>IPsec提供了机密性，源鉴别，数据完整性和重放攻击防护。</p>
+<h4 id="IPsec和虚拟专用网"><a href="#IPsec和虚拟专用网" class="headerlink" title="IPsec和虚拟专用网"></a>IPsec和虚拟专用网</h4><p>概述VPN过程：内对内不加密；内到外先加密，按正常包传输，最后接收方解密。</p>
+<h4 id="AH协议和ESP协议"><a href="#AH协议和ESP协议" class="headerlink" title="AH协议和ESP协议"></a>AH协议和ESP协议</h4><p>AH：鉴别首部，提供源鉴别和数据完整性服务</p>
+<p>ESP：封装安全性载荷，提供源鉴别，数据完整性和机密性服务</p>
+<h4 id="安全关联"><a href="#安全关联" class="headerlink" title="安全关联"></a>安全关联</h4><p>在发送数据报前创建一个逻辑连接，称之为安全关联（SA），单工，由发送方路由器维护。</p>
+<p>SAD：安全关联数据库</p>
+<p>SA identifier: SPI(security parameter index)</p>
+<h4 id="IPsec数据报"><a href="#IPsec数据报" class="headerlink" title="IPsec数据报"></a>IPsec数据报</h4><p>隧道模式or运输模式，以下关注隧道模式。</p>
+<p>IPsec数据报结构为：新IP首部+ESP首部+初始IP首部+初始IP数据报载荷+ESP尾部+ESP-MAC。</p>
+<p>其中先加密“初始IP首部+初始IP数据报载荷+ESP尾部”，再由“ESP首部+被加密的部分”生成MAC。</p>
+<p>ESP协议的IPsec数据报的协议号：50</p>
+<p>ESP首部以明文发送，其中由SPI和序号。</p>
+<p>目的路由器接收步骤：</p>
+<ol>
+<li>查看IP地址</li>
+<li>判断协议号</li>
+<li>通过SPI确定SA</li>
+<li>使用MAC密钥计算MAC值</li>
+<li>检查序号</li>
+<li>解密</li>
+<li>删除填充并抽取初始IP报文</li>
+<li>转发进VPN</li>
+</ol>
+<p>SPD：安全策略库</p>
+<h4 id="IKE：IPsec中的密钥管理"><a href="#IKE：IPsec中的密钥管理" class="headerlink" title="IKE：IPsec中的密钥管理"></a>IKE：IPsec中的密钥管理</h4><p>IKE：因特网密钥交换，用于自动生成SA。</p>
+<p>两个阶段：具体操作略</p>
+<h3 id="8-8-使无线LAN安全"><a href="#8-8-使无线LAN安全" class="headerlink" title="8.8 使无线LAN安全"></a>8.8 使无线LAN安全</h3><p>WEP：有线等效保密</p>
+<h4 id="有线等效保密"><a href="#有线等效保密" class="headerlink" title="有线等效保密"></a>有线等效保密</h4><p>鉴别方式：</p>
+<ol>
+<li>无线主机通过接入点请求鉴别</li>
+<li>接入点以nonce响应鉴别</li>
+<li>无线主机用共享的密钥加密nonce</li>
+<li>接入点解密加密的nonce</li>
+</ol>
+<p>具体过程：略</p>
+<h4 id="IEEE-802-11i"><a href="#IEEE-802-11i" class="headerlink" title="IEEE 802.11i"></a>IEEE 802.11i</h4><p>略</p>
+<h3 id="8-9-运行安全性：防火墙和入侵检测系统"><a href="#8-9-运行安全性：防火墙和入侵检测系统" class="headerlink" title="8.9 运行安全性：防火墙和入侵检测系统"></a>8.9 运行安全性：防火墙和入侵检测系统</h3><p>对流量进行安全检查</p>
+<h4 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h4><p>目标：</p>
+<ol>
+<li>所有流量都通过防火墙</li>
+<li>仅授权流量允许通过</li>
+<li>自身免于渗透</li>
+</ol>
+<h5 id="传统的分组过滤器"><a href="#传统的分组过滤器" class="headerlink" title="传统的分组过滤器"></a>传统的分组过滤器</h5><p>根据规则决定是否丢弃</p>
+<p>可根据ACK比特设置使得内部用户能够连接到外部服务器，而外部用户无法连接到内部服务器。有哄骗攻击。</p>
+<p>需要知道怎么生成连接表。</p>
+<h5 id="状态过滤器"><a href="#状态过滤器" class="headerlink" title="状态过滤器"></a>状态过滤器</h5><p>需要知道怎么生成访问控制列表。</p>
+<h5 id="应用程序网关"><a href="#应用程序网关" class="headerlink" title="应用程序网关"></a>应用程序网关</h5><p>根据应用程序控制访问。</p>
+<p>邮箱服务器，web高速缓存等等都是应用程序网关。</p>
+<h4 id="入侵检测系统"><a href="#入侵检测系统" class="headerlink" title="入侵检测系统"></a>入侵检测系统</h4><p>IDS：入侵检测系统，告警</p>
+<p>IPS：入侵防止系统，滤除</p>
+<p>基于特征or基于异常</p>
+<p>基于特征的缺点：需要先验知识；处理能力要求高</p>
+<p>基于异常的挑战：怎么区分正常流量和异常流量</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1153,115 +1297,6 @@
 <p>区块结构：上一区块，版本，默克尔树，难度，随机数</p>
 <p>铸币交易字段：略</p>
 <p>哈希指针和普通指针的区别在于，哈希指针的值是通过数据计算出来的且指向数据所在位置，所以哈希指针可以告诉我们数据存储位置及数据的哈希值。而普通指针只能告诉你数据存储的位置。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/11/2023-04-course-2023-04-11-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E5%AD%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/11/2023-04-course-2023-04-11-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-%E7%89%B9%E5%BE%81%E6%8F%8F%E8%BF%B0%E5%AD%90/" class="post-title-link" itemprop="url">计算机视觉-特征描述子</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-04-11 10:26:29" itemprop="dateCreated datePublished" datetime="2023-04-11T10:26:29+08:00">2023-04-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 15:57:24" itemprop="dateModified" datetime="2023-09-04T15:57:24+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="计算机视觉-特征描述子"><a href="#计算机视觉-特征描述子" class="headerlink" title="计算机视觉-特征描述子"></a>计算机视觉-特征描述子</h2><p>复习一下hw1所需知识。</p>
-<h2 id="五、特征描述子"><a href="#五、特征描述子" class="headerlink" title="五、特征描述子"></a>五、特征描述子</h2><h3 id="SIFT描述子"><a href="#SIFT描述子" class="headerlink" title="SIFT描述子"></a>SIFT描述子</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pacino12134/p/11368558.html">特征提取算法（3）——SIFT特征提取算子 - keepgoing18 - 博客园 (cnblogs.com)</a></p>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>找到关键点</li>
-<li>将关键点图像划分为4x4的小块，再将小块划分为4x4的小小块</li>
-<li>对于每个小小块，计算其内部的梯度幅值和梯度方向，然后将梯度方向分成8个方向，每个方向覆盖45度，并将该方向上的梯度幅值累加起来，每个小块拥有8个方向的方向向量。</li>
-<li>把每个小块的方向向量组成一个8维向量</li>
-<li>所有8维向量拼接起来得到一个128维向量，这就是sift描述子</li>
-</ol>
-<h3 id="HOG描述子"><a href="#HOG描述子" class="headerlink" title="HOG描述子"></a>HOG描述子</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/urglyfish/articles/12417343.html">HOG特征提取原理及实现 - 无趣的鱼 - 博客园 (cnblogs.com)</a></p>
-<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><ol>
-<li>预处理：灰度化，gamma矫正</li>
-<li>将图像划分为窗口(window)，窗口划分为块(block)，块划分为细胞(cell)</li>
-<li>归一化</li>
-<li>计算梯度：像素点计算梯度，判断所属方向区间（9个方向）</li>
-<li>细胞内构建梯度直方图：像素点梯度加权统计</li>
-<li>块内梯度直方图归一化：假设一个块有4个细胞，每个细胞9维向量，共4个9维向量</li>
-<li>拼接生成HOG特征向量</li>
-</ol>
-<p>窗口特征向量维度：窗口64x128，块8x8，细胞4x4，那么一个窗口有7x15个块，一个块有4个细胞，那么一个块就有4个9维向量，一个窗口就有7x15x4x9=3780维度的向量。</p>
-<p>梯度只算180度，即将180度划分为9个方向，而不是360度，因为完全相反的梯度被认为是同一个梯度方向。</p>
 
       
     </div>
