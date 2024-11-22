@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,238 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E9%A2%84%E8%A8%80%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E9%A2%84%E8%A8%80%E6%9C%BA/" class="post-title-link" itemprop="url">精通以太坊-预言机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-09-05 21:37:27" itemprop="dateCreated datePublished" datetime="2023-09-05T21:37:27+08:00">2023-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-17 17:47:42" itemprop="dateModified" datetime="2023-10-17T17:47:42+08:00">2023-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="十一、预言机"><a href="#十一、预言机" class="headerlink" title="十一、预言机"></a>十一、预言机</h2><h3 id="为什么需要预言机？"><a href="#为什么需要预言机？" class="headerlink" title="为什么需要预言机？"></a>为什么需要预言机？</h3><p>为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。</p>
+<p>假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。</p>
+<p>引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。</p>
+<h3 id="预言机的应用场景和示例"><a href="#预言机的应用场景和示例" class="headerlink" title="预言机的应用场景和示例"></a>预言机的应用场景和示例</h3><p>理想情况下，预言机提供了一种无信任（或至少近乎无信任）的方式来获取外在的（即“真实世界”或“链外”）信息。</p>
+<p>可以将预言机视为弥合链外世界与智能合约之间差距的机制。</p>
+<p>“证言”将成为未来区块链平台成功的重要组成部分，特别是在验证身份或声誉的相关问题方面，因此探索区块链平台如何为其提供服务非常重要。</p>
+<h3 id="预言机的设计模式"><a href="#预言机的设计模式" class="headerlink" title="预言机的设计模式"></a>预言机的设计模式</h3><p>一旦数据在智能合约的存储中可用，其他智能合约就可以通过调用预言机智能合约的“检索”功能来访问它；它也可以通过“查看”预言机的存储直接由以太坊节点或支持网络的客户端访问。</p>
+<p>设置预言机的三种主要方式可以分为请求与响应、发布与订阅和立即读取。</p>
+<ol>
+<li>立即读取：那些希望查询此类数据的人倾向于在“即时”的基础上这样做；查找是在需要信息时完成的，可能永远不会再次查找。</li>
+<li>发布与订阅：要对预期改变的数据（可能是定期和频繁地）提供有效的广播服务，预言机要么由链上的智能合约轮询，要么由链外守护进程监视和更新。</li>
+<li>请求/响应：这是数据空间太大而无法存储在智能合约中的情况，并且用户每次只需要整个数据集的一小部分。</li>
+</ol>
+<h3 id="数据认证"><a href="#数据认证" class="headerlink" title="数据认证"></a>数据认证</h3><p>两种常见的数据认证方法是真实性证明（authenticity proof）以及可信执行环境（Trusted Execution Environment，TEE）。</p>
+<p>真实性证明是用密码学证据证明数据没有被篡改过。</p>
+<p>Town Crier（ <a target="_blank" rel="noopener" href="http://www.town-crier.org/">http://www.town-crier.org/</a> ）是一个基于可信执行环境的验证数据馈送预言机系统</p>
+<h3 id="计算性的预言机"><a href="#计算性的预言机" class="headerlink" title="计算性的预言机"></a>计算性的预言机</h3><p>预言机也可以用来执行任意计算，尤其是当给定gas上限和计算成本较贵时。</p>
+<p>计算预言机也可以用来执行带有一组输入的相关计算并返回计算结果，而这种计算可能无法在链上进行。</p>
+<h3 id="去中心化预言机"><a href="#去中心化预言机" class="headerlink" title="去中心化预言机"></a>去中心化预言机</h3><p>去中心化预言机可以用于保证数据可得性，还可搭配链上数据汇总系统创建独立数据提供者网络。</p>
+<p>谢林币协议：多个参与者记录数值，这些数值的中位数会被当成“正确”答案。记录者必须先质押保证金，这些保证金会根据它与中位数的接近程度重新分配，由此可以激励人们记录与其他人提供的值相近的值。这样共同的数值，也就是所谓的“谢林点”，预计会接近真实值，因为真实数值是响应者协作中所围绕的自然而明显的目标。</p>
+<h3 id="Solidity中的预言机客户端接口"><a href="#Solidity中的预言机客户端接口" class="headerlink" title="Solidity中的预言机客户端接口"></a>Solidity中的预言机客户端接口</h3><p>使用Oraclize库。</p>
+<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<li>没太明白这章，具体预言机是怎么实现的？</li>
+<li>需要多读几遍</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A3%E5%B8%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A3%E5%B8%81/" class="post-title-link" itemprop="url">精通以太坊-代币</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-09-05 15:50:46" itemprop="dateCreated datePublished" datetime="2023-09-05T15:50:46+08:00">2023-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-17 17:47:42" itemprop="dateModified" datetime="2023-10-17T17:47:42+08:00">2023-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="十、代币"><a href="#十、代币" class="headerlink" title="十、代币"></a>十、代币</h2><h3 id="代币和可替代性"><a href="#代币和可替代性" class="headerlink" title="代币和可替代性"></a>代币和可替代性</h3><p>严格意义上说，如果一个代币的交易历史是公开的，那么它就不完全是一个可互相替代的代币。根据代币交易历史的追踪，可由此设定对应的黑名单或白名单，这会降低甚至消除这个代币的可替代性。</p>
+<h3 id="对手方风险"><a href="#对手方风险" class="headerlink" title="对手方风险"></a>对手方风险</h3><p>对手方风险是指交易的另一方没有履行他们的承诺或义务。</p>
+<h3 id="代币和内在性"><a href="#代币和内在性" class="headerlink" title="代币和内在性"></a>代币和内在性</h3><p>有些代币所代表的资产是区块链内在的。这些资产是由共识规则所控制的，就如同代币本身。</p>
+<p>区块链内在资产的代币不会有额外的对手方风险。</p>
+<p>一个非常重要的未来，就是用区块链内的资产替代区块链外的资产，因此可以消除对手方风险。</p>
+<h3 id="使用代币：工具型代币还是权益型代币？"><a href="#使用代币：工具型代币还是权益型代币？" class="headerlink" title="使用代币：工具型代币还是权益型代币？"></a>使用代币：工具型代币还是权益型代币？</h3><p>工具型代币是指用来支付某个服务、应用或资源的代币。</p>
+<p>权益型代币可以被设定为没有投票权的，用来分红和分配利润的代币，也可以承载一个去中心化自治组织的投票权，这类组织的管理由持有代币的所有人共同投票决定。</p>
+<p>对于一个初创公司，每次创新都增加了失败的风险。</p>
+<p>有限的流动性、有限的应用范围和较高的沟通交易成本降低了代币的价值。</p>
+<p>如果你在进行创业并且面临的是一个全新的市场，发行工具型代币并不会为你带来优势。</p>
+<p>只有在你的应用必须使用工具型代币的时候，才考虑发行。使用代币来解决你所面临的市场准入或其他门槛问题。不要因为更快融资的原因而发行那些看上去不是公开募资的工具型代币。</p>
+<h3 id="以太坊的代币"><a href="#以太坊的代币" class="headerlink" title="以太坊的代币"></a>以太坊的代币</h3><p>以太坊账户的以太币余额在协议级别处理，而以太坊账户的代币余额在智能合约级别处理。</p>
+<p>要在以太坊上创建新代币，你必须创建一个新的智能合约。</p>
+<p>ERC20代币标准是代币的第一个标准。</p>
+<p>ERC20标准定义了通过合约实现代币的通用接口，兼容此标准的所有代币都可以采用相同的方式被访问和使用。这个接口包含了一组必须实现的函数，及若干可选的函数和属性，可供开发者根据需要添加。</p>
+<p>ERC20支持两种转账。第一种是单一式转账，直接使用transfer函数。</p>
+<p>第二种方式是使用了approve和transferFrom的两步式交易。这个流程允许代币的持有人授权其他地址操纵他们的代币。这通常用于授权给某一个合约地址，进行代币的分发，但也可以用于交易所的场景。</p>
+<p>ICO是一种众筹机制，公司和组织通过销售代币来筹集资金。</p>
+<p>文中有创建和发行代币的例子，使用Truffle框架和Ganache测试链。</p>
+<p>在把合约部署到具体的以太坊测试网络之前，先启动一个本地区块链环境来做一遍测试。</p>
+<p>以太币是使用带有目标接受人地址的交易进行转账的，而代币的转账是通过代币合约内相关的状态转换进行的，使用合约作为地址，而不是接收方的地址。</p>
+<p>一个发送以太币的合约会改变目标地址的状态。一个发送代币的合约只会改变合约内部的状态，而不是接收方地址的状态。即代币仅存在合约内部，出了合约则不存在代币。</p>
+<p>如果你有一个长期使用的活跃以太币地址，特别是这个地址是在以太坊平台众筹前后创建的，那么你会发现这个地址充满了不知道来自何方的各种垃圾代币的余额。</p>
+<p>你不能使用代币来支付一笔交易所需要的gas，代币合约也不会替你支付这笔gas。即需要L1层的代币来支付gas，有种用假币换真币的感觉。</p>
+<p>ERC223方案试图解决不慎把代币转入不支持代币的合约这个问题，通过检测目标地址是否为合约的方式来完成。另一个针对代币合约的改进行方案是ERC777。</p>
+<p>ERC721方案是针对不可替代物代币的标准，也称为契约代币。</p>
+<p>ERC20将所有者作为映射的主键，跟踪每个所有者的余额；而ERC721将契约ID作为映射的主键，跟踪每个契约ID及其所有者。</p>
+<h3 id="代币标准"><a href="#代币标准" class="headerlink" title="代币标准"></a>代币标准</h3><p>代币标准是实现的最小化标准。</p>
+<p>现存的实现，比如说OpenZeppin，是“经过实战检验的”。</p>
+<h3 id="代币接口标准的扩展"><a href="#代币接口标准的扩展" class="headerlink" title="代币接口标准的扩展"></a>代币接口标准的扩展</h3><p>很多项目在此基础上创建了扩展的实现，用于支持它们应用中所需要的功能。这些扩展包括：销毁、铸币、众筹、硬顶等等。</p>
+<h3 id="代币和ICO"><a href="#代币和ICO" class="headerlink" title="代币和ICO"></a>代币和ICO</h3><p>在代币世界中生存的诀窍是将这种技术的长期愿景和影响与可能是巨大的短期ICO泡沫分离开来，这种泡沫充斥着欺诈行为。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1162,223 +1394,6 @@
 <p>区块链都有哪些组件？以太坊的各个组件定义</p>
 <p>共识规则、共识算法和激励规则之间的关系？</p>
 <p>以太坊解决的问题：为了将区块链应用到更广泛的领域</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/07/2023-07-2023-07-07-%E5%92%8CChatGPT%E4%B8%80%E8%B5%B7%E5%86%99%E7%BB%BC%E8%BF%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/07/07/2023-07-2023-07-07-%E5%92%8CChatGPT%E4%B8%80%E8%B5%B7%E5%86%99%E7%BB%BC%E8%BF%B0/" class="post-title-link" itemprop="url">和ChatGPT一起写综述</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-07 23:24:43" itemprop="dateCreated datePublished" datetime="2023-07-07T23:24:43+08:00">2023-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-18 15:16:42" itemprop="dateModified" datetime="2023-12-18T15:16:42+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Paper/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">杂谈</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="什么是综述"><a href="#什么是综述" class="headerlink" title="什么是综述"></a>什么是综述</h2><p>综述型论文主要是研究者针对某一研究问题或专题，通过搜集大量相关文献资料，在仔细阅读并深入理解和消化实质内容的基础上，去粗取精，把能代表该研究（学术）领域前言水平的观点、论据及其研究成果等进行系统的汇总、整理，在此基础上进行系统的分析、论证和推论，最终得出自己的判断或结论，并对研究现状作出评论，发现问题，提出未来趋势等。</p>
-<p>综述性论文不同于文献综述，两者有很大的区别的。综述型论文是一种论文文体，而文献综述只是论文中的一个部分而已，往往是开题报告、研究设计、研究方案或一些实证研究类论文的组成部分之一，并非一种文体，也非论文的全部，而综述型论文则是独立成篇的。</p>
-<h2 id="综述的目的"><a href="#综述的目的" class="headerlink" title="综述的目的"></a>综述的目的</h2><p>综述型论文至少可达到的基本目的有：让读者熟悉现有研究主题领域中有关研究的进展与困境；提供后续研究者的思考：未来研究是否可以找出更有意义与更显著的结果；对各种理论的立场说明，可以提出不同的概念架构；作为新假设提出与研究理念的基础，对某现象和行为进行可能的解释；识别概念间的前提假设，理解并学习他人如何界定与衡量关键概念；改进与批判现有研究的不足，推出另类研究，发掘新的研究方法与途径，验证其他相关研究。</p>
-<h2 id="对话样例"><a href="#对话样例" class="headerlink" title="对话样例"></a>对话样例</h2><h3 id="对话约束"><a href="#对话约束" class="headerlink" title="对话约束"></a>对话约束</h3><p>我想问你一些关于xxx方向的问题。从现在开始，如果你的回答里出现专业术语，请在后面括号内添加英语缩写；如果你的回答中包含其他文章的句子，请在括号内加上文章名称和作者。</p>
-<p>now, i want to ask you something about xxx. And from now on, if you have a technical word in your answer, abbreviate it in parentheses; if your answer includes sentences taken from another article, please include the article name and author in square brackets.   </p>
-<h3 id="论文背景"><a href="#论文背景" class="headerlink" title="论文背景"></a>论文背景</h3><p>请简要/详细告诉我xxx方向的起源/发展/应用/优势，并推荐至少x篇相关论文；</p>
-<p>please tell me about the origin/development/application/advantage of xxx in brief/detail, and recommend some related article to me.</p>
-<h3 id="论文正文"><a href="#论文正文" class="headerlink" title="论文正文"></a>论文正文</h3><p>请简要/详细告诉我xxx方向的主要技术，并推荐至少x篇相关论文；</p>
-<p>please tell me something about xxx, and recommend some related article to me.</p>
-<h3 id="论文正文内容细化"><a href="#论文正文内容细化" class="headerlink" title="论文正文内容细化"></a>论文正文内容细化</h3><p>请简要/详细告诉我xxx方向中”xx技术”的研究情况，并推荐至少x篇相关论文；</p>
-<p>请简要/详细告诉我xxx方向中”不同的xx技术”的优势与劣势，并推荐至少x篇相关论文；</p>
-<p>please tell me something about xxx in aspect of “xx”, and recommend some related article to me.</p>
-<h3 id="论文收尾"><a href="#论文收尾" class="headerlink" title="论文收尾"></a>论文收尾</h3><p>请告诉我xxx方向的前景/瓶颈/不足…以及原因</p>
-<p>please tell me something about the future of edge detection in detail, in the style of a paragraph of an article of ieee</p>
-<p>please tell me something about the shortcomings of Existing Edge Detection Methods in detail, in the style of a paragraph of an article of ieee</p>
-<h3 id="总结和摘要"><a href="#总结和摘要" class="headerlink" title="总结和摘要"></a>总结和摘要</h3><p>please write a/an conclusion/abstract about everything we talk above.</p>
-<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><p>引用文献可能不存在，解决办法：请告诉我x篇关于xxx方向xx技术的相关论文</p>
-<p>biblatex引用格式问题，解决办法：给gpt引用的文献，让它生成biblatex的格式</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/403971496">https://zhuanlan.zhihu.com/p/403971496</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-%E4%BD%BF%E7%94%A8%E4%BA%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-%E4%BD%BF%E7%94%A8%E4%BA%91/" class="post-title-link" itemprop="url">云计算技术-使用云</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-03 00:23:15" itemprop="dateCreated datePublished" datetime="2023-07-03T00:23:15+08:00">2023-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 16:01:04" itemprop="dateModified" datetime="2023-09-04T16:01:04+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/" itemprop="url" rel="index"><span itemprop="name">Course</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Course/%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">云计算技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="使用云"><a href="#使用云" class="headerlink" title="使用云"></a>使用云</h2><h3 id="十四、云交付模型考量"><a href="#十四、云交付模型考量" class="headerlink" title="十四、云交付模型考量"></a>十四、云交付模型考量</h3><h4 id="14-1-云提供者角度"><a href="#14-1-云提供者角度" class="headerlink" title="14.1 云提供者角度"></a>14.1 云提供者角度</h4><p>构建IaaS基本资源：虚拟服务器、云存储设备</p>
-<p>虚拟服务器快照、自定义虚拟服务器镜像</p>
-<p>PaaS：配备一组选择出来的应用开发和部署平台，以容纳不同的编程模型、语言和框架</p>
-<p>SaaS：云服务通常是基于多租户环境的</p>
-<p>SaaS依赖的一些架构：</p>
-<h4 id="14-2-云用户角度"><a href="#14-2-云用户角度" class="headerlink" title="14.2 云用户角度"></a>14.2 云用户角度</h4><p>访问IaaS服务：远程终端应用</p>
-<p>一个典型的PaaS的IDE可以提供范围广泛的工具和编程资源</p>
-<p>基于SaaS的云服务一般都提供通用的API</p>
-<h3 id="十五、成本指标与定价模型"><a href="#十五、成本指标与定价模型" class="headerlink" title="十五、成本指标与定价模型"></a>十五、成本指标与定价模型</h3><h4 id="15-1-商业成本指标"><a href="#15-1-商业成本指标" class="headerlink" title="15.1 商业成本指标"></a>15.1 商业成本指标</h4><p>前期成本：获得与部署it资源的开销</p>
-<p>持续成本：运行与保持it资源的开销</p>
-<p>附加成本：资金成本、已支付成本（已有it资源）、集成成本（没搞懂）、锁定成本（服务可移植性）</p>
-<h4 id="15-2-云使用成本指标"><a href="#15-2-云使用成本指标" class="headerlink" title="15.2 云使用成本指标"></a>15.2 云使用成本指标</h4><p>网络使用</p>
-<p>服务器使用</p>
-<p>云存储设备使用</p>
-<p>云服务使用：应用订购、用户数量、用户事务</p>
-<h4 id="15-3-成本管理考量"><a href="#15-3-成本管理考量" class="headerlink" title="15.3 成本管理考量"></a>15.3 成本管理考量</h4><p>云服务生命周期</p>
-<p>定义模型</p>
-<h3 id="十六、服务质量指标与SLA"><a href="#十六、服务质量指标与SLA" class="headerlink" title="十六、服务质量指标与SLA"></a>十六、服务质量指标与SLA</h3><p>服务可用性指标：运行时间百分比</p>
-<p>服务可靠性指标：故障间隔时间</p>
-<p>服务性能指标：执行功能的能力，完成操作的时间</p>
-<p>服务可扩展性指标：为响应工作负载的增加而允许的it资源容量的改变</p>
-<p>服务弹性指标：从灾难中恢复能力</p>
 
       
     </div>
