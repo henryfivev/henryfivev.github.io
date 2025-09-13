@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="十一、预言机为什么需要预言机？为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。 假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。 引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。 预言机的应用场">
+    <meta name="description" content="十一、预言机 为什么需要预言机？ 为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。 假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。 引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。 预言机的应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="精通以太坊-预言机">
 <meta property="og:url" content="http://example.com/2023/09/05/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E9%A2%84%E8%A8%80%E6%9C%BA/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="十一、预言机为什么需要预言机？为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。 假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。 引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。 预言机的应用场">
+<meta property="og:description" content="十一、预言机 为什么需要预言机？ 为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。 假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。 引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。 预言机的应">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-05T13:37:27.000Z">
 <meta property="article:modified_time" content="2023-10-17T09:47:42.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">十一、预言机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%A2%84%E8%A8%80%E6%9C%BA%EF%BC%9F"><span class="nav-text">为什么需要预言机？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%A8%80%E6%9C%BA%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%92%8C%E7%A4%BA%E4%BE%8B"><span class="nav-text">预言机的应用场景和示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%A8%80%E6%9C%BA%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">预言机的设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%A4%E8%AF%81"><span class="nav-text">数据认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%80%A7%E7%9A%84%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">计算性的预言机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">去中心化预言机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solidity%E4%B8%AD%E7%9A%84%E9%A2%84%E8%A8%80%E6%9C%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3"><span class="nav-text">Solidity中的预言机客户端接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">十一、预言机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">为什么需要预言机？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%A8%80%E6%9C%BA%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E5%92%8C%E7%A4%BA%E4%BE%8B"><span class="nav-text">预言机的应用场景和示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%A8%80%E6%9C%BA%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">预言机的设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%A4%E8%AF%81"><span class="nav-text">数据认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%80%A7%E7%9A%84%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">计算性的预言机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E9%A2%84%E8%A8%80%E6%9C%BA"><span class="nav-text">去中心化预言机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solidity%E4%B8%AD%E7%9A%84%E9%A2%84%E8%A8%80%E6%9C%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3"><span class="nav-text">Solidity中的预言机客户端接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,28 +225,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="十一、预言机"><a href="#十一、预言机" class="headerlink" title="十一、预言机"></a>十一、预言机</h2><h3 id="为什么需要预言机？"><a href="#为什么需要预言机？" class="headerlink" title="为什么需要预言机？"></a>为什么需要预言机？</h3><p>为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。</p>
+        <h2 id="十一预言机">十一、预言机</h2>
+<h3 id="为什么需要预言机">为什么需要预言机？</h3>
+<p>为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。</p>
 <p>假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。</p>
 <p>引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。</p>
-<h3 id="预言机的应用场景和示例"><a href="#预言机的应用场景和示例" class="headerlink" title="预言机的应用场景和示例"></a>预言机的应用场景和示例</h3><p>理想情况下，预言机提供了一种无信任（或至少近乎无信任）的方式来获取外在的（即“真实世界”或“链外”）信息。</p>
+<h3 id="预言机的应用场景和示例">预言机的应用场景和示例</h3>
+<p>理想情况下，预言机提供了一种无信任（或至少近乎无信任）的方式来获取外在的（即“真实世界”或“链外”）信息。</p>
 <p>可以将预言机视为弥合链外世界与智能合约之间差距的机制。</p>
 <p>“证言”将成为未来区块链平台成功的重要组成部分，特别是在验证身份或声誉的相关问题方面，因此探索区块链平台如何为其提供服务非常重要。</p>
-<h3 id="预言机的设计模式"><a href="#预言机的设计模式" class="headerlink" title="预言机的设计模式"></a>预言机的设计模式</h3><p>一旦数据在智能合约的存储中可用，其他智能合约就可以通过调用预言机智能合约的“检索”功能来访问它；它也可以通过“查看”预言机的存储直接由以太坊节点或支持网络的客户端访问。</p>
+<h3 id="预言机的设计模式">预言机的设计模式</h3>
+<p>一旦数据在智能合约的存储中可用，其他智能合约就可以通过调用预言机智能合约的“检索”功能来访问它；它也可以通过“查看”预言机的存储直接由以太坊节点或支持网络的客户端访问。</p>
 <p>设置预言机的三种主要方式可以分为请求与响应、发布与订阅和立即读取。</p>
-<ol>
+<ol type="1">
 <li>立即读取：那些希望查询此类数据的人倾向于在“即时”的基础上这样做；查找是在需要信息时完成的，可能永远不会再次查找。</li>
 <li>发布与订阅：要对预期改变的数据（可能是定期和频繁地）提供有效的广播服务，预言机要么由链上的智能合约轮询，要么由链外守护进程监视和更新。</li>
 <li>请求/响应：这是数据空间太大而无法存储在智能合约中的情况，并且用户每次只需要整个数据集的一小部分。</li>
 </ol>
-<h3 id="数据认证"><a href="#数据认证" class="headerlink" title="数据认证"></a>数据认证</h3><p>两种常见的数据认证方法是真实性证明（authenticity proof）以及可信执行环境（Trusted Execution Environment，TEE）。</p>
+<h3 id="数据认证">数据认证</h3>
+<p>两种常见的数据认证方法是真实性证明（authenticity
+proof）以及可信执行环境（Trusted Execution Environment，TEE）。</p>
 <p>真实性证明是用密码学证据证明数据没有被篡改过。</p>
-<p>Town Crier（ <a target="_blank" rel="noopener" href="http://www.town-crier.org/">http://www.town-crier.org/</a> ）是一个基于可信执行环境的验证数据馈送预言机系统</p>
-<h3 id="计算性的预言机"><a href="#计算性的预言机" class="headerlink" title="计算性的预言机"></a>计算性的预言机</h3><p>预言机也可以用来执行任意计算，尤其是当给定gas上限和计算成本较贵时。</p>
+<p>Town Crier（ http://www.town-crier.org/
+）是一个基于可信执行环境的验证数据馈送预言机系统</p>
+<h3 id="计算性的预言机">计算性的预言机</h3>
+<p>预言机也可以用来执行任意计算，尤其是当给定gas上限和计算成本较贵时。</p>
 <p>计算预言机也可以用来执行带有一组输入的相关计算并返回计算结果，而这种计算可能无法在链上进行。</p>
-<h3 id="去中心化预言机"><a href="#去中心化预言机" class="headerlink" title="去中心化预言机"></a>去中心化预言机</h3><p>去中心化预言机可以用于保证数据可得性，还可搭配链上数据汇总系统创建独立数据提供者网络。</p>
+<h3 id="去中心化预言机">去中心化预言机</h3>
+<p>去中心化预言机可以用于保证数据可得性，还可搭配链上数据汇总系统创建独立数据提供者网络。</p>
 <p>谢林币协议：多个参与者记录数值，这些数值的中位数会被当成“正确”答案。记录者必须先质押保证金，这些保证金会根据它与中位数的接近程度重新分配，由此可以激励人们记录与其他人提供的值相近的值。这样共同的数值，也就是所谓的“谢林点”，预计会接近真实值，因为真实数值是响应者协作中所围绕的自然而明显的目标。</p>
-<h3 id="Solidity中的预言机客户端接口"><a href="#Solidity中的预言机客户端接口" class="headerlink" title="Solidity中的预言机客户端接口"></a>Solidity中的预言机客户端接口</h3><p>使用Oraclize库。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h3 id="solidity中的预言机客户端接口">Solidity中的预言机客户端接口</h3>
+<p>使用Oraclize库。</p>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>没太明白这章，具体预言机是怎么实现的？</li>
 <li>需要多读几遍</li>
 </ol>
@@ -294,7 +305,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

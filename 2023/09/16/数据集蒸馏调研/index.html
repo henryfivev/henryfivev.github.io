@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="数据集蒸馏-调研梳理一、动机大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。 二、基本思想数据集蒸馏的过程可以分为以下几个基本步骤：  初始化：先初始化一些合成数据和模型参数。 训练模型：然后我们使用这些合成数据来训练模型，得到模型结果。 优化合成数据：我们希望在">
+    <meta name="description" content="数据集蒸馏-调研梳理 一、动机 大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。 二、基本思想 数据集蒸馏的过程可以分为以下几个基本步骤：  初始化：先初始化一些合成数据和模型参数。 训练模型：然后我们使用这些合成数据来训练模型，得到模型结果。 优化合成数据：我们">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据集蒸馏调研">
 <meta property="og:url" content="http://example.com/2023/09/16/%E6%95%B0%E6%8D%AE%E9%9B%86%E8%92%B8%E9%A6%8F%E8%B0%83%E7%A0%94/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="数据集蒸馏-调研梳理一、动机大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。 二、基本思想数据集蒸馏的过程可以分为以下几个基本步骤：  初始化：先初始化一些合成数据和模型参数。 训练模型：然后我们使用这些合成数据来训练模型，得到模型结果。 优化合成数据：我们希望在">
+<meta property="og:description" content="数据集蒸馏-调研梳理 一、动机 大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。 二、基本思想 数据集蒸馏的过程可以分为以下几个基本步骤：  初始化：先初始化一些合成数据和模型参数。 训练模型：然后我们使用这些合成数据来训练模型，得到模型结果。 优化合成数据：我们">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-16T03:44:52.000Z">
 <meta property="article:modified_time" content="2023-10-17T09:47:42.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E8%92%B8%E9%A6%8F-%E8%B0%83%E7%A0%94%E6%A2%B3%E7%90%86"><span class="nav-text">数据集蒸馏-调研梳理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8A%A8%E6%9C%BA"><span class="nav-text">一、动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-text">二、基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">三、局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">四、参考资料</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E8%92%B8%E9%A6%8F-%E8%B0%83%E7%A0%94%E6%A2%B3%E7%90%86"><span class="nav-text">数据集蒸馏-调研梳理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8A%A8%E6%9C%BA"><span class="nav-text">一、动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-text">二、基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">三、局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">四、参考资料</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,26 +225,40 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="数据集蒸馏-调研梳理"><a href="#数据集蒸馏-调研梳理" class="headerlink" title="数据集蒸馏-调研梳理"></a>数据集蒸馏-调研梳理</h2><h3 id="一、动机"><a href="#一、动机" class="headerlink" title="一、动机"></a>一、动机</h3><p>大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。</p>
-<h3 id="二、基本思想"><a href="#二、基本思想" class="headerlink" title="二、基本思想"></a>二、基本思想</h3><p>数据集蒸馏的过程可以分为以下几个基本步骤：</p>
-<ol>
+        <h2 id="数据集蒸馏-调研梳理">数据集蒸馏-调研梳理</h2>
+<h3 id="一动机">一、动机</h3>
+<p>大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。</p>
+<h3 id="二基本思想">二、基本思想</h3>
+<p>数据集蒸馏的过程可以分为以下几个基本步骤：</p>
+<ol type="1">
 <li><strong>初始化</strong>：先初始化一些合成数据和模型参数。</li>
 <li><strong>训练模型</strong>：然后我们使用这些合成数据来训练模型，得到模型结果。</li>
 <li><strong>优化合成数据</strong>：我们希望在当前模型参数下，模型在合成数据上的结果尽可能的接近原数据集的结果，所以每次训练我们将模型结果作为优化目标，更新合成数据。</li>
 </ol>
 <p>不同数据集蒸馏算法的主要不同在于优化目标不同，优化目标除了预测值外，还有模型参数更新的梯度、数据分布、优化轨迹等等。</p>
 <p>新提出了数据集蒸馏算法，基于因子分解。</p>
-<h3 id="三、局限性"><a href="#三、局限性" class="headerlink" title="三、局限性"></a>三、局限性</h3><p>数据集蒸馏还存在以下几个局限性：</p>
-<ol>
+<h3 id="三局限性">三、局限性</h3>
+<p>数据集蒸馏还存在以下几个局限性：</p>
+<ol type="1">
 <li><strong>可移植性</strong>：在不同的网络架构上的泛化能力较差。</li>
 <li><strong>计算量大</strong>：在训练时间和内存消耗方面存在一些限制。</li>
 <li><strong>性能下降</strong>：在处理具有更多类别和更少图像的数据集时表现不佳。</li>
 </ol>
-<h3 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.04272">Data Distillation: A Survey</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460485729">【知识蒸馏论文解读】Dataset Distillation 创新性十足的数据集蒸馏 - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358246160">浓缩的数据可以训练出一个好网络吗? - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43219992/article/details/129304244?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235^v38^pc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235^v38^pc_relevant_default_base3&amp;utm_relevant_index=7">DATASET CONDENSATION WITH GRADIENT MATCHING-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51653288/article/details/129555000">Dataset Condensation with Distribution Matching论文笔记-CSDN博客</a></p>
+<h3 id="四参考资料">四、参考资料</h3>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.04272">Data Distillation: A
+Survey</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460485729">【知识蒸馏论文解读】Dataset
+Distillation 创新性十足的数据集蒸馏 - 知乎 (zhihu.com)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358246160">浓缩的数据可以训练出一个好网络吗?
+- 知乎 (zhihu.com)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43219992/article/details/129304244?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235%5Ev38%5Epc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235%5Ev38%5Epc_relevant_default_base3&amp;utm_relevant_index=7">DATASET
+CONDENSATION WITH GRADIENT MATCHING-CSDN博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51653288/article/details/129555000">Dataset
+Condensation with Distribution Matching论文笔记-CSDN博客</a></p>
 
     </div>
 
@@ -289,7 +303,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

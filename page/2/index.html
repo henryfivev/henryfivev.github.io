@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,116 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/13/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/13/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">大模型开发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-07-13 10:17:54" itemprop="dateCreated datePublished" datetime="2024-07-13T10:17:54+08:00">2024-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-09-13 10:18:15" itemprop="dateModified" datetime="2025-09-13T10:18:15+08:00">2025-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">大模型</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="一大模型开发指南">一、大模型开发指南</h2>
+<p>参考资料：https://datawhalechina.github.io/llm-universe/#/</p>
+<p>现有大模型： 1. 闭源： 1. GPT 2. Gemini 3. 文心一言 4. 讯飞星火 2.
+开源 1. LLaMa 2. 通义千问</p>
+<p>RAG和微调是两种提升模型效果的手段。</p>
+<p>LangChain为主流的大模型应用开发框架。</p>
+<p>通过提示工程、数据工程、业务逻辑分解等手段来充分发挥大模型能力。</p>
+<p>高效Prompt的两个关键原则：编写清晰、具体的指令和给予模型充足思考时间。给予模型充足思考时间的大意是说让模型逐步推理，而不要求模型一口气吃成大胖子。</p>
+<p>将单个文档按长度或者按固定的规则分割成若干个chunk，然后将每个chunk转化为词向量。</p>
+<p>向量检索主要考虑余弦相似度和MMR。</p>
+<p>提示模版</p>
+<p>js-openaiAPI文档：https://platform.openai.com/docs/api-reference/authentication</p>
+<h2 id="二提示工程">二、提示工程</h2>
+<p>参考资料：https://www.promptingguide.ai/zh</p>
+<h3 id="提示技术">提示技术</h3>
+<p>零样本提示。</p>
+<p>利用上下文学习：少样本提示。</p>
+<p>CoT、零样本CoT、Auto-CoT</p>
+<p>自我一致性：给予多个QA进行训练，最后输出多个回答，采取最一致的回答作为答案。</p>
+<p>生成知识提示：先提示生成知识，再提问题要答案。</p>
+<p>链式提示：将任务分解成子任务。</p>
+<p>思维树：将生成、评估以及搜索算法相结合，以便验证与回溯。</p>
+<p>RAG：处理知识密集型任务，这里的微调是什么意思？用专业知识喂出一个适合垂直领域的ai</p>
+<h2 id="三llmbook">三、LLMBook</h2>
+<h3 id="九部署与编码">九、部署与编码</h3>
+<p>解码：针对输入内容逐个单词生成输出内容的文本。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -213,38 +323,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h2><p>区块链浏览器：<a target="_blank" rel="noopener" href="https://explorer.solana.com/">https://explorer.solana.com/</a></p>
-<p>测试网水龙头：<a target="_blank" rel="noopener" href="https://solfaucet.com/">https://solfaucet.com/</a></p>
-<h2 id="Action-amp-Blink"><a href="#Action-amp-Blink" class="headerlink" title="Action&amp;Blink"></a>Action&amp;Blink</h2><p>Action示例：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://solana-actions.vercel.app/">https://solana-actions.vercel.app/</a></li>
-<li><a target="_blank" rel="noopener" href="https://x.com/MetaHub_DAO/status/1807821940541083659">https://x.com/MetaHub_DAO/status/1807821940541083659</a></li>
-<li><a target="_blank" rel="noopener" href="https://x.com/telagacharity/status/1806779884364325067">https://x.com/telagacharity/status/1806779884364325067</a></li>
-</ol>
-<p>Action相关文档：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://solana-developers.github.io/solana-actions/">https://solana-developers.github.io/solana-actions/</a></li>
-<li><a target="_blank" rel="noopener" href="https://solana.com/docs/advanced/actions">https://solana.com/docs/advanced/actions</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.dialect.to/documentation/actions/guide-build-your-first-action">https://docs.dialect.to/documentation/actions/guide-build-your-first-action</a></li>
-</ol>
-<p>Action注册表：<a target="_blank" rel="noopener" href="https://actions-registry.dialect.to/all">https://actions-registry.dialect.to/all</a></p>
-<p>样例视频：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://x.com/0xnze/status/1806343080758448218">https://x.com/0xnze/status/1806343080758448218</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=m_feBl0ROik">https://www.youtube.com/watch?v=m_feBl0ROik</a></li>
-</ol>
-<p>Action代码库：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/Stargazer10101/solana-actions-examples">https://github.com/Stargazer10101/solana-actions-examples</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/dialectlabs/actions">https://github.com/dialectlabs/actions</a></li>
-</ol>
-<p>Action2Blink：<a target="_blank" rel="noopener" href="https://dial.to/">https://dial.to/</a></p>
-<p>Blink样式：<a target="_blank" rel="noopener" href="https://github.com/dialectlabs/blinks">https://github.com/dialectlabs/blinks</a></p>
-<p>分析文章：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://ytm.app/2024/06/30/solana%e4%b8%a4%e4%b8%aa%e6%9c%80%e6%96%b0%e8%a7%84%e8%8c%83action%e5%92%8cblink%e4%bb%8b%e7%bb%8d%e5%8f%8a%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af/">https://ytm.app/2024/06/30/solana%e4%b8%a4%e4%b8%aa%e6%9c%80%e6%96%b0%e8%a7%84%e8%8c%83action%e5%92%8cblink%e4%bb%8b%e7%bb%8d%e5%8f%8a%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af/</a></li>
-<li><a target="_blank" rel="noopener" href="https://news.cnyes.com/news/id/5623872">https://news.cnyes.com/news/id/5623872</a></li>
-</ol>
+          <h2 id="基础信息">基础信息</h2>
+<p>区块链浏览器：https://explorer.solana.com/</p>
+<p>测试网水龙头：https://solfaucet.com/</p>
+<h2 id="actionblink">Action&amp;Blink</h2>
+<p>Action示例： 1. https://solana-actions.vercel.app/ 2.
+https://x.com/MetaHub_DAO/status/1807821940541083659 3.
+https://x.com/telagacharity/status/1806779884364325067</p>
+<p>Action相关文档： 1.
+https://solana-developers.github.io/solana-actions/ 2.
+https://solana.com/docs/advanced/actions 3.
+https://docs.dialect.to/documentation/actions/guide-build-your-first-action</p>
+<p>Action注册表：https://actions-registry.dialect.to/all</p>
+<p>样例视频： 1. https://x.com/0xnze/status/1806343080758448218 2.
+https://www.youtube.com/watch?v=m_feBl0ROik</p>
+<p>Action代码库： 1.
+https://github.com/Stargazer10101/solana-actions-examples 2.
+https://github.com/dialectlabs/actions</p>
+<p>Action2Blink：https://dial.to/</p>
+<p>Blink样式：https://github.com/dialectlabs/blinks</p>
+<p>分析文章： 1.
+https://ytm.app/2024/06/30/solana%e4%b8%a4%e4%b8%aa%e6%9c%80%e6%96%b0%e8%a7%84%e8%8c%83action%e5%92%8cblink%e4%bb%8b%e7%bb%8d%e5%8f%8a%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af/
+2. https://news.cnyes.com/news/id/5623872</p>
 
       
     </div>
@@ -333,13 +433,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><p>目的是为了解决回调地狱</p>
+          <h2 id="promise">promise</h2>
+<p>目的是为了解决回调地狱</p>
 <p>then(): 当promise状态为fulfilled时调用;</p>
 <p>catch(): 当promise状态为rejected时调用;</p>
 <p>finally(): 无论promise状态都会调用;</p>
-<h2 id="async和await"><a href="#async和await" class="headerlink" title="async和await"></a>async和await</h2><p>async: 将函数的返回值包装成promise;</p>
+<h2 id="async和await">async和await</h2>
+<p>async: 将函数的返回值包装成promise;</p>
 <p>await: 等待当前异步操作, 完成后才执行后续异步操作;</p>
-<h2 id="promise操作"><a href="#promise操作" class="headerlink" title="promise操作"></a>promise操作</h2><ul>
+<h2 id="promise操作">promise操作</h2>
+<ul>
 <li>promise.all(): 当所有promise状态都为fulfilled了才执行;</li>
 <li>promise.race(): 当任意promise有结果了就执行;</li>
 <li>promise.allSettled: 当所有promise都有结果了才执行;</li>
@@ -435,41 +538,41 @@
     <div class="post-body" itemprop="articleBody">
           <ul>
 <li>display: grid;</li>
-<li>grid-column-start:<ul>
+<li>grid-column-start:
+<ul>
 <li>值为n, 表示从第n个格子开始;</li>
 <li>span n, 表示从end的位置往前推n格;</li>
 <li>grid-row-start同理;</li>
-</ul>
-</li>
-<li>grid-column-end:<ul>
+</ul></li>
+<li>grid-column-end:
+<ul>
 <li>值为n, 表示到第n个格子结束;</li>
 <li>span n, 表示从start的位置开始持续n格;</li>
 <li>grid-row-end同理;</li>
-</ul>
-</li>
-<li>grid-column:<ul>
+</ul></li>
+<li>grid-column:
+<ul>
 <li>n/m, 表示从第n格开始到第m格结束;</li>
 <li>grid-row同理;</li>
-</ul>
-</li>
-<li>grid-area:<ul>
+</ul></li>
+<li>grid-area:
+<ul>
 <li>打包grid-row和grid-column;</li>
-</ul>
-</li>
-<li>order:<ul>
+</ul></li>
+<li>order:
+<ul>
 <li>子元素上调整位置;</li>
-</ul>
-</li>
-<li>grid-template-columns:<ul>
+</ul></li>
+<li>grid-template-columns:
+<ul>
 <li>值为各个格子的横向大小;</li>
 <li>repeat(n, m), 表示有n格, 各格为m的大小;</li>
 <li>grid-template-rows同理;</li>
-</ul>
-</li>
-<li>grid-template:<ul>
+</ul></li>
+<li>grid-template:
+<ul>
 <li>打包grid-template-rows和grid-template-columns;</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -561,48 +664,50 @@
     <div class="post-body" itemprop="articleBody">
           <ul>
 <li>display: flex;</li>
-<li>justify-content:<ul>
+<li>justify-content:
+<ul>
 <li>flex-start, flex-end;</li>
 <li>center;</li>
 <li>space-between, space-around;</li>
-</ul>
-</li>
-<li>align-items:<ul>
+</ul></li>
+<li>align-items:
+<ul>
 <li>flex-start, flex-end;</li>
 <li>center;</li>
 <li>baseline, stretch;</li>
-</ul>
-</li>
-<li>flex-direction:<ul>
+</ul></li>
+<li>flex-direction:
+<ul>
 <li>row, row-reverse;</li>
 <li>column, column-reverse;</li>
-</ul>
-</li>
-<li>order:<ul>
+</ul></li>
+<li>order:
+<ul>
 <li>子元素上调整单个元素的位置, 以原位置为0进行调整;</li>
-</ul>
-</li>
-<li>align-self:<ul>
+</ul></li>
+<li>align-self:
+<ul>
 <li>子元素上调整单个元素的正交位置, 值同align-items;</li>
-</ul>
-</li>
-<li>flex-wrap:<ul>
+</ul></li>
+<li>flex-wrap:
+<ul>
 <li>wrap, wrap-reverse;</li>
 <li>nowrap;</li>
-</ul>
-</li>
-<li>flex-flow:<ul>
+</ul></li>
+<li>flex-flow:
+<ul>
 <li>打包flex-direction和flex-wrap;</li>
-</ul>
-</li>
-<li>align-content:<ul>
-<li>和align-items的不同: align-content determines the spacing between lines, while align-items determines how the items as a whole are aligned within the container.</li>
+</ul></li>
+<li>align-content:
+<ul>
+<li>和align-items的不同: align-content determines the spacing between
+lines, while align-items determines how the items as a whole are aligned
+within the container.</li>
 <li>flex-start, flex-end;</li>
 <li>center;</li>
 <li>space-between, space-around;</li>
 <li>stretch;</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
       
@@ -692,7 +797,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ol>
+          <ol type="1">
 <li>将博客项目中除node_modules外的所有文件拷贝到新电脑；</li>
 <li>安装hexo工具<code>npm install hexo-cli -g</code>；</li>
 <li>进入项目路径并执行<code>npm install</code>；</li>
@@ -782,7 +887,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>重拾落灰已久的香橙派，mark一下连接步骤：</p>
-<ol>
+<ol type="1">
 <li><code>arp -a</code>查看目前网络情况</li>
 <li>wlan设置打开共享，共享给“以太网”</li>
 <li>用网线连接香橙派</li>
@@ -872,16 +977,16 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>现有开源钱包案例参考：</p>
-<ol>
-<li>波卡钱包插件：<a target="_blank" rel="noopener" href="https://github.com/polkadot-js/extension">https://github.com/polkadot-js/extension</a></li>
-<li>talisman钱包：<a target="_blank" rel="noopener" href="https://github.com/talismansociety">https://github.com/talismansociety</a></li>
-<li>subwallet：<a target="_blank" rel="noopener" href="https://github.com/Koniverse/SubWallet-Mobile">https://github.com/Koniverse/SubWallet-Mobile</a></li>
-<li>powerpod：<a target="_blank" rel="noopener" href="https://github.com/PowerPod">https://github.com/PowerPod</a> </li>
+<ol type="1">
+<li>波卡钱包插件：https://github.com/polkadot-js/extension</li>
+<li>talisman钱包：https://github.com/talismansociety</li>
+<li>subwallet：https://github.com/Koniverse/SubWallet-Mobile</li>
+<li>powerpod：https://github.com/PowerPod</li>
 </ol>
 <p>文档：</p>
-<ol>
-<li>Polkadot开发者文档：<a target="_blank" rel="noopener" href="https://polkadot.js.org/docs/util-crypto/examples/">https://polkadot.js.org/docs/util-crypto/examples/</a></li>
-<li>Subwallet用户文档：<a target="_blank" rel="noopener" href="https://docs.subwallet.app/main/">https://docs.subwallet.app/main/</a></li>
+<ol type="1">
+<li>Polkadot开发者文档：https://polkadot.js.org/docs/util-crypto/examples/</li>
+<li>Subwallet用户文档：https://docs.subwallet.app/main/</li>
 </ol>
 
       
@@ -965,52 +1070,89 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="一、了解PEAQ"><a href="#一、了解PEAQ" class="headerlink" title="一、了解PEAQ"></a>一、了解PEAQ</h3><p>介绍peaq网络的博客：<a target="_blank" rel="noopener" href="https://cryptowesearch.com/blog/all/dive-into-DePin-Layer-one-peaq-network">首條 DePIN 聚合公鏈 Peaq Network ！AI+RWA 打造最大機器物聯網 - 每日幣研</a></p>
+          <h3 id="一了解peaq">一、了解PEAQ</h3>
+<p>介绍peaq网络的博客：<a
+target="_blank" rel="noopener" href="https://cryptowesearch.com/blog/all/dive-into-DePin-Layer-one-peaq-network">首條
+DePIN 聚合公鏈 Peaq Network ！AI+RWA 打造最大機器物聯網 -
+每日幣研</a></p>
 <p>peaq，krest，agung之间的关系为主网，金丝雀网络和测试网。目前只上线了krest和agung网络，peaq网络预计24Q1末上线。</p>
-<p>金丝雀网络，即canary network，有限代币供应的主网，类似于“实验网”，类比kusama网络。</p>
-<h3 id="二、相关文档搜集"><a href="#二、相关文档搜集" class="headerlink" title="二、相关文档搜集"></a>二、相关文档搜集</h3><p>peaq项目网址：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.peaq.network/">https://www.peaq.network/</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.peaq.network/">https://docs.peaq.network/</a></li>
+<p>金丝雀网络，即canary
+network，有限代币供应的主网，类似于“实验网”，类比kusama网络。</p>
+<h3 id="二相关文档搜集">二、相关文档搜集</h3>
+<p>peaq项目网址：</p>
+<ol type="1">
+<li>https://www.peaq.network/</li>
+<li>https://docs.peaq.network/</li>
 </ol>
 <p>krest浏览器网址：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/?rpc=wss://wss-krest.peaq.network#/explorer">Polkadot/Substrate Portal</a></li>
-<li><a target="_blank" rel="noopener" href="https://krest.subscan.io/">Subscan | Aggregate Substrate ecological network high-precision Web3 explorer</a></li>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/?rpc=wss://wss-krest.peaq.network#/explorer">Polkadot/Substrate
+Portal</a></li>
+<li><a target="_blank" rel="noopener" href="https://krest.subscan.io/">Subscan | Aggregate Substrate
+ecological network high-precision Web3 explorer</a></li>
 </ol>
 <p>agung浏览器网址：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/?rpc=wss://wsspc1-qa.agung.peaq.network#/explorer">Polkadot/Substrate Portal</a> </li>
-<li><a target="_blank" rel="noopener" href="https://agung-testnet.subscan.io/">Subscan | Aggregate Substrate ecological network high-precision Web3 explorer</a></li>
-<li><a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/?rpc=wss://wss.agung.peaq.network#/accounts">Polkadot/Substrate Portal</a></li>
-<li><a target="_blank" rel="noopener" href="https://scout.agung.peaq.network/">PEAQ ETH Chain POA Explorer</a></li>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/?rpc=wss://wsspc1-qa.agung.peaq.network#/explorer">Polkadot/Substrate
+Portal</a></li>
+<li><a target="_blank" rel="noopener" href="https://agung-testnet.subscan.io/">Subscan | Aggregate
+Substrate ecological network high-precision Web3 explorer</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/?rpc=wss://wss.agung.peaq.network#/accounts">Polkadot/Substrate
+Portal</a></li>
+<li><a target="_blank" rel="noopener" href="https://scout.agung.peaq.network/">PEAQ ETH Chain POA
+Explorer</a></li>
 </ol>
-<h3 id="三、PEAQ发币可行性"><a href="#三、PEAQ发币可行性" class="headerlink" title="三、PEAQ发币可行性"></a>三、PEAQ发币可行性</h3><p><a target="_blank" rel="noopener" href="https://www.peaq.network/blog/peaq-now-supports-ink-and-ethereum-virtual-machine-evm">官方博客-在peaq网络上部署智能合约</a></p>
-<h3 id="四、获得-KREST和-AGUNG方式"><a href="#四、获得-KREST和-AGUNG方式" class="headerlink" title="四、获得$KREST和$AGUNG方式"></a>四、获得$KREST和$AGUNG方式</h3><p>目前只能在MEXC和XT.com上获得krest代币。</p>
-<p><a target="_blank" rel="noopener" href="https://docs.peaq.network/docs/learn/token-and-token-utility/agung-token-faucet/#getting-agung">官方教程-领agung代币</a></p>
-<h3 id="五、部署合约"><a href="#五、部署合约" class="headerlink" title="五、部署合约"></a>五、部署合约</h3><h4 id="AGUNG部署合约"><a href="#AGUNG部署合约" class="headerlink" title="AGUNG部署合约"></a>AGUNG部署合约</h4><p><a target="_blank" rel="noopener" href="https://docs.peaq.network/docs/build/developer_tools/smart-contracts/evm/did/">官方博客-在agung网络上部署智能合约</a></p>
-<h4 id="KREST部署合约"><a href="#KREST部署合约" class="headerlink" title="KREST部署合约"></a>KREST部署合约</h4><p>类似AGUNG网络部署合约</p>
-<ol>
+<h3 id="三peaq发币可行性">三、PEAQ发币可行性</h3>
+<p><a
+target="_blank" rel="noopener" href="https://www.peaq.network/blog/peaq-now-supports-ink-and-ethereum-virtual-machine-evm">官方博客-在peaq网络上部署智能合约</a></p>
+<h3 id="四获得krest和agung方式">四、获得$KREST和$AGUNG方式</h3>
+<p>目前只能在MEXC和XT.com上获得krest代币。</p>
+<p><a
+target="_blank" rel="noopener" href="https://docs.peaq.network/docs/learn/token-and-token-utility/agung-token-faucet/#getting-agung">官方教程-领agung代币</a></p>
+<h3 id="五部署合约">五、部署合约</h3>
+<h4 id="agung部署合约">AGUNG部署合约</h4>
+<p><a
+target="_blank" rel="noopener" href="https://docs.peaq.network/docs/build/developer_tools/smart-contracts/evm/did/">官方博客-在agung网络上部署智能合约</a></p>
+<h4 id="krest部署合约">KREST部署合约</h4>
+<p>类似AGUNG网络部署合约</p>
+<ol type="1">
 <li>在交易所购买krest代币后提现到波卡钱包。</li>
 <li>在krest浏览器中将波卡钱包中的krest代币转账到小狐狸钱包中，需要将小狐狸钱包地址转成波卡钱包地址。</li>
 <li>用小狐狸钱包账户在remix上选择krest网络并部署合约，部署后在krest的subscan浏览器合约栏中可以看见部署的合约。</li>
 </ol>
-<h3 id="六、参考资料"><a href="#六、参考资料" class="headerlink" title="六、参考资料"></a>六、参考资料</h3><h4 id="钱包网络参数设置"><a href="#钱包网络参数设置" class="headerlink" title="钱包网络参数设置"></a>钱包网络参数设置</h4><p>metamask中krest和agung网络参数设置：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://docs.peaq.network/docs/build/getting-started/quick-start/#networks">Quickstart | peaq</a> </li>
+<h3 id="六参考资料">六、参考资料</h3>
+<h4 id="钱包网络参数设置">钱包网络参数设置</h4>
+<p>metamask中krest和agung网络参数设置：</p>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://docs.peaq.network/docs/build/getting-started/quick-start/#networks">Quickstart
+| peaq</a></li>
 <li>chainlist上开启测试网选项后可搜到</li>
 </ol>
-<h4 id="代币跨钱包"><a href="#代币跨钱包" class="headerlink" title="代币跨钱包"></a>代币跨钱包</h4><p>krest和agung代币跨钱包教程：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://github.com/kj89/testnet_manuals/blob/main/peaq/token_transfer.md">https://github.com/kj89/testnet_manuals/blob/main/peaq/token_transfer.md</a>  </li>
-<li><a target="_blank" rel="noopener" href="https://docs.peaq.network/docs/learn/wallets/metamask-wallet/#how-to-send-krest-to-metamask-wallet">Metamask | peaq</a></li>
+<h4 id="代币跨钱包">代币跨钱包</h4>
+<p>krest和agung代币跨钱包教程：</p>
+<ol type="1">
+<li>https://github.com/kj89/testnet_manuals/blob/main/peaq/token_transfer.md<br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://docs.peaq.network/docs/learn/wallets/metamask-wallet/#how-to-send-krest-to-metamask-wallet">Metamask
+| peaq</a></li>
 </ol>
 <p>注意metamask中添加的网络和进行转账的网络要一致</p>
-<h4 id="地址转换工具"><a href="#地址转换工具" class="headerlink" title="地址转换工具"></a>地址转换工具</h4><p>substrate和eth地址转换工具：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://hoonsubin.github.io/evm-substrate-address-converter/index.html">Substrate EVM Address Converter</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.shawntabrizi.com/substrate-js-utilities/">Substrate JS Utilities</a></li>
-<li><a target="_blank" rel="noopener" href="https://snow-address-converter.web.app/">SNOW Address Converter</a></li>
+<h4 id="地址转换工具">地址转换工具</h4>
+<p>substrate和eth地址转换工具：</p>
+<ol type="1">
+<li><a
+target="_blank" rel="noopener" href="https://hoonsubin.github.io/evm-substrate-address-converter/index.html">Substrate
+EVM Address Converter</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.shawntabrizi.com/substrate-js-utilities/">Substrate JS
+Utilities</a></li>
+<li><a target="_blank" rel="noopener" href="https://snow-address-converter.web.app/">SNOW Address
+Converter</a></li>
 </ol>
 
       
@@ -1091,143 +1233,63 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>最近事有点多，捋一下。</p>
-<h2 id="O1：毕业设计"><a href="#O1：毕业设计" class="headerlink" title="O1：毕业设计"></a>O1：毕业设计</h2><p>时间节点：3月1号交中期报告，3月31号交论文初稿。</p>
-<h3 id="KR：构建依赖图"><a href="#KR：构建依赖图" class="headerlink" title="KR：构建依赖图"></a>KR：构建依赖图</h3><p>暂定控制依赖和数据依赖，后续可完善函数调用和函数返回。</p>
-<h4 id="O：构建控制依赖关系"><a href="#O：构建控制依赖关系" class="headerlink" title="O：构建控制依赖关系"></a>O：构建控制依赖关系</h4><p>—-初步构建—-</p>
+<h2 id="o1毕业设计">O1：毕业设计</h2>
+<p>时间节点：3月1号交中期报告，3月31号交论文初稿。</p>
+<h3 id="kr构建依赖图">KR：构建依赖图</h3>
+<p>暂定控制依赖和数据依赖，后续可完善函数调用和函数返回。</p>
+<h4 id="o构建控制依赖关系">O：构建控制依赖关系</h4>
+<p>---初步构建---</p>
 <p>现存问题：</p>
 <ul>
 <li>节点粒度：基本块，语句</li>
 <li>图基座：ir，源码</li>
 </ul>
-<h4 id="O：构建数据依赖关系"><a href="#O：构建数据依赖关系" class="headerlink" title="O：构建数据依赖关系"></a>O：构建数据依赖关系</h4><p>—-初步构建—-</p>
+<h4 id="o构建数据依赖关系">O：构建数据依赖关系</h4>
+<p>---初步构建---</p>
 <p>分为状态依赖，局部依赖，暂时不考虑全局变量。</p>
 <p>现存问题：</p>
 <ul>
 <li>依赖关系缺失：当指令后跟变量时，变量追溯存在缺陷</li>
 </ul>
-<h4 id="O：构建函数调用关系"><a href="#O：构建函数调用关系" class="headerlink" title="O：构建函数调用关系"></a>O：构建函数调用关系</h4><p>待定，已初步构建。</p>
-<h4 id="O：构建函数返回关系"><a href="#O：构建函数返回关系" class="headerlink" title="O：构建函数返回关系"></a>O：构建函数返回关系</h4><p>待定，已初步构建。</p>
-<h3 id="KR：定义切片准则"><a href="#KR：定义切片准则" class="headerlink" title="KR：定义切片准则"></a>KR：定义切片准则</h3><p>待定，现考虑CALL，CALLER和CALLVALUE指令。</p>
-<h3 id="KR：切片算法"><a href="#KR：切片算法" class="headerlink" title="KR：切片算法"></a>KR：切片算法</h3><p>待定，书上为后向切片。</p>
-<h2 id="O2：DePIN项目"><a href="#O2：DePIN项目" class="headerlink" title="O2：DePIN项目"></a>O2：DePIN项目</h2><p>时间节点：3月1号出成品。</p>
-<h3 id="KR：官网"><a href="#KR：官网" class="headerlink" title="KR：官网"></a>KR：官网</h3><p>已有样式，全静态网站。</p>
-<h3 id="KR：APP"><a href="#KR：APP" class="headerlink" title="KR：APP"></a>KR：APP</h3><p>—-参与—-</p>
+<h4 id="o构建函数调用关系">O：构建函数调用关系</h4>
+<p>待定，已初步构建。</p>
+<h4 id="o构建函数返回关系">O：构建函数返回关系</h4>
+<p>待定，已初步构建。</p>
+<h3 id="kr定义切片准则">KR：定义切片准则</h3>
+<p>待定，现考虑CALL，CALLER和CALLVALUE指令。</p>
+<h3 id="kr切片算法">KR：切片算法</h3>
+<p>待定，书上为后向切片。</p>
+<h2 id="o2depin项目">O2：DePIN项目</h2>
+<p>时间节点：3月1号出成品。</p>
+<h3 id="kr官网">KR：官网</h3>
+<p>已有样式，全静态网站。</p>
+<h3 id="krapp">KR：APP</h3>
+<p>---参与---</p>
 <p>参考helium钱包app，未确定功能和文档，周二开会讨论。</p>
-<h3 id="KR：矿机"><a href="#KR：矿机" class="headerlink" title="KR：矿机"></a>KR：矿机</h3><p>已确定大致功能，待确定具体硬件模块。</p>
-<h3 id="KR：质押界面"><a href="#KR：质押界面" class="headerlink" title="KR：质押界面"></a>KR：质押界面</h3><p>已有样式，类似流支付协议界面。</p>
-<h3 id="KR：合约"><a href="#KR：合约" class="headerlink" title="KR：合约"></a>KR：合约</h3><p>—-参与—-</p>
+<h3 id="kr矿机">KR：矿机</h3>
+<p>已确定大致功能，待确定具体硬件模块。</p>
+<h3 id="kr质押界面">KR：质押界面</h3>
+<p>已有样式，类似流支付协议界面。</p>
+<h3 id="kr合约">KR：合约</h3>
+<p>---参与---</p>
 <p>未确定接口，至少有质押合约。</p>
-<h2 id="O3：升学"><a href="#O3：升学" class="headerlink" title="O3：升学"></a>O3：升学</h2><p>时间节点：去年2月10号开始报名，3月23号交材料，3月28号面试。</p>
-<h3 id="KR：材料准备"><a href="#KR：材料准备" class="headerlink" title="KR：材料准备"></a>KR：材料准备</h3><p>待定，2月准备。</p>
-<h3 id="KR：面试准备"><a href="#KR：面试准备" class="headerlink" title="KR：面试准备"></a>KR：面试准备</h3><p>数学、专业知识和项目经历。</p>
-<h4 id="O：高数"><a href="#O：高数" class="headerlink" title="O：高数"></a>O：高数</h4><p>已开始准备。</p>
-<h4 id="O：概率论"><a href="#O：概率论" class="headerlink" title="O：概率论"></a>O：概率论</h4><h4 id="O：线性代数"><a href="#O：线性代数" class="headerlink" title="O：线性代数"></a>O：线性代数</h4><h4 id="O：408"><a href="#O：408" class="headerlink" title="O：408"></a>O：408</h4><h4 id="O：项目经历"><a href="#O：项目经历" class="headerlink" title="O：项目经历"></a>O：项目经历</h4><h2 id="O4：MultiGo"><a href="#O4：MultiGo" class="headerlink" title="O4：MultiGo"></a>O4：MultiGo</h2><p>时间节点：无</p>
-<h3 id="KR：基本玩法设计"><a href="#KR：基本玩法设计" class="headerlink" title="KR：基本玩法设计"></a>KR：基本玩法设计</h3><h3 id="KR：单机demo"><a href="#KR：单机demo" class="headerlink" title="KR：单机demo"></a>KR：单机demo</h3><h3 id="KR：联机demo"><a href="#KR：联机demo" class="headerlink" title="KR：联机demo"></a>KR：联机demo</h3>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/02/node%E9%99%8D%E7%BA%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/02/node%E9%99%8D%E7%BA%A7/" class="post-title-link" itemprop="url">node降级</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-01-02 23:31:12" itemprop="dateCreated datePublished" datetime="2024-01-02T23:31:12+08:00">2024-01-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-15 10:58:54" itemprop="dateModified" datetime="2024-01-15T10:58:54+08:00">2024-01-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">环境配置</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/Node/" itemprop="url" rel="index"><span itemprop="name">Node</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>现node版本为20.10.0，想降为18.19.0，无法直接安装对应版本node，有以下两个工具可以进行node版本管理：</p>
-<ol>
-<li>从npm安装的nvmw</li>
-<li>从github安装的nvm</li>
-</ol>
-<p>我采用的是nvmw，有诸多不便，以后尝试nvm。</p>
-<p>安装nvmw命令：<code>npm install -g nvmw</code></p>
-<p>有安装node的命令<code>nvmw install version_you_want</code>，但是我下载不了，会卡住，可能得换源qaq。</p>
-<p>这里我的办法是手动下载node到user/nvmw/nodejs中，需要修改文件名为版本号。</p>
-<p>安装node后可以使用<code>nvmw ls</code>查看现有node版本。</p>
-<p>有两个命令来切换node版本：</p>
-<ol>
-<li>临时切换：<code>nvmw use version_you_want</code></li>
-<li>永久切换：<code>nvmw switch version_you_want</code></li>
-</ol>
-<p>however我不能用use命令来切换版本，只能switch后重启来切换cmd中的node版本，powershell中版本不受影响。</p>
-<p>—-2024.1.15更新—-</p>
-<p>装nvm，不用卸载原有node。装好后，安装对应版本的npm<code>npm install npm@version_you_want</code></p>
+<h2 id="o3升学">O3：升学</h2>
+<p>时间节点：去年2月10号开始报名，3月23号交材料，3月28号面试。</p>
+<h3 id="kr材料准备">KR：材料准备</h3>
+<p>待定，2月准备。</p>
+<h3 id="kr面试准备">KR：面试准备</h3>
+<p>数学、专业知识和项目经历。</p>
+<h4 id="o高数">O：高数</h4>
+<p>已开始准备。</p>
+<h4 id="o概率论">O：概率论</h4>
+<h4 id="o线性代数">O：线性代数</h4>
+<h4 id="o408">O：408</h4>
+<h4 id="o项目经历">O：项目经历</h4>
+<h2 id="o4multigo">O4：MultiGo</h2>
+<p>时间节点：无</p>
+<h3 id="kr基本玩法设计">KR：基本玩法设计</h3>
+<h3 id="kr单机demo">KR：单机demo</h3>
+<h3 id="kr联机demo">KR：联机demo</h3>
 
       
     </div>
@@ -1259,7 +1321,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

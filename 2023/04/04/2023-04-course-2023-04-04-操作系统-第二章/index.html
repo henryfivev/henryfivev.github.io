@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="2.3 同步与互斥基本概念临界资源，同步，互斥 实现互斥略，软件方式和硬件方式 互斥锁&amp;信号量互斥锁：原子操作acquire(), release()；需要忙等待 信号量类型：整型信号量，记录型信号量 整型信号量：wait(), signal()；wait当信号量大于0后信号量减一，signal信号量加一 记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为block，s">
+    <meta name="description" content="2.3 同步与互斥 基本概念 临界资源，同步，互斥 实现互斥 略，软件方式和硬件方式 互斥锁&amp;信号量 互斥锁：原子操作acquire(), release()；需要忙等待 信号量类型：整型信号量，记录型信号量 整型信号量：wait(), signal()；wait当信号量大于0后信号量减一，signal信号量加一 记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为blo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统-进程与线程2">
 <meta property="og:url" content="http://example.com/2023/04/04/2023-04-course-2023-04-04-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="2.3 同步与互斥基本概念临界资源，同步，互斥 实现互斥略，软件方式和硬件方式 互斥锁&amp;信号量互斥锁：原子操作acquire(), release()；需要忙等待 信号量类型：整型信号量，记录型信号量 整型信号量：wait(), signal()；wait当信号量大于0后信号量减一，signal信号量加一 记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为block，s">
+<meta property="og:description" content="2.3 同步与互斥 基本概念 临界资源，同步，互斥 实现互斥 略，软件方式和硬件方式 互斥锁&amp;信号量 互斥锁：原子操作acquire(), release()；需要忙等待 信号量类型：整型信号量，记录型信号量 整型信号量：wait(), signal()；wait当信号量大于0后信号量减一，signal信号量加一 记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为blo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-04T06:15:30.000Z">
 <meta property="article:modified_time" content="2023-09-04T07:56:14.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BA%92%E6%96%A5"><span class="nav-text">2.3 同步与互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5"><span class="nav-text">实现互斥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%94%81-amp-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-text">互斥锁&amp;信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%A8%8B"><span class="nav-text">管程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="nav-text">经典同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-text">1. 生产者-消费者问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-text">2. 读者-写者问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98"><span class="nav-text">3. 哲学家就餐问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%90%B8%E7%83%9F%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-text">4. 吸烟者问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E6%AD%BB%E9%94%81"><span class="nav-text">2.4 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2"><span class="nav-text">死锁预防</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%B8%8D%E4%BA%92%E6%96%A5"><span class="nav-text">1. 不互斥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8F%AF%E5%89%A5%E5%A4%BA"><span class="nav-text">2. 可剥夺</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%8E%B7%E5%BE%97%E6%89%80%E6%9C%89%E8%B5%84%E6%BA%90%E6%89%8D%E6%89%A7%E8%A1%8C"><span class="nav-text">3. 获得所有资源才执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%90%91%E5%90%8E%E7%94%B3%E8%AF%B7%E8%B5%84%E6%BA%90"><span class="nav-text">4. 向后申请资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D"><span class="nav-text">死锁避免</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%A4%E6%96%AD%E5%AE%89%E5%85%A8%E7%8A%B6%E6%80%81"><span class="nav-text">1. 判断安全状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="nav-text">2. 银行家算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B%E5%92%8C%E8%A7%A3%E9%99%A4"><span class="nav-text">死锁检测和解除</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BA%92%E6%96%A5"><span class="nav-text">2.3 同步与互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5"><span class="nav-text">实现互斥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%94%81%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-text">互斥锁&amp;信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%A8%8B"><span class="nav-text">管程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98"><span class="nav-text">经典同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-text">1. 生产者-消费者问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-text">2. 读者-写者问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98"><span class="nav-text">3. 哲学家就餐问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%B8%E7%83%9F%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-text">4. 吸烟者问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-text">2.4 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2"><span class="nav-text">死锁预防</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E4%BA%92%E6%96%A5"><span class="nav-text">1. 不互斥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E5%89%A5%E5%A4%BA"><span class="nav-text">2. 可剥夺</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E6%89%80%E6%9C%89%E8%B5%84%E6%BA%90%E6%89%8D%E6%89%A7%E8%A1%8C"><span class="nav-text">3. 获得所有资源才执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E5%90%8E%E7%94%B3%E8%AF%B7%E8%B5%84%E6%BA%90"><span class="nav-text">4. 向后申请资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D"><span class="nav-text">死锁避免</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AE%89%E5%85%A8%E7%8A%B6%E6%80%81"><span class="nav-text">1. 判断安全状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="nav-text">2. 银行家算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B%E5%92%8C%E8%A7%A3%E9%99%A4"><span class="nav-text">死锁检测和解除</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,36 +225,58 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="2-3-同步与互斥"><a href="#2-3-同步与互斥" class="headerlink" title="2.3 同步与互斥"></a>2.3 同步与互斥</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>临界资源，同步，互斥</p>
-<h3 id="实现互斥"><a href="#实现互斥" class="headerlink" title="实现互斥"></a>实现互斥</h3><p>略，软件方式和硬件方式</p>
-<h3 id="互斥锁-amp-信号量"><a href="#互斥锁-amp-信号量" class="headerlink" title="互斥锁&amp;信号量"></a>互斥锁&amp;信号量</h3><p>互斥锁：原子操作acquire(), release()；需要忙等待</p>
+        <h2 id="同步与互斥">2.3 同步与互斥</h2>
+<h3 id="基本概念">基本概念</h3>
+<p>临界资源，同步，互斥</p>
+<h3 id="实现互斥">实现互斥</h3>
+<p>略，软件方式和硬件方式</p>
+<h3 id="互斥锁信号量">互斥锁&amp;信号量</h3>
+<p>互斥锁：原子操作acquire(), release()；需要忙等待</p>
 <p>信号量类型：整型信号量，记录型信号量</p>
-<p>整型信号量：wait(), signal()；wait当信号量大于0后信号量减一，signal信号量加一</p>
+<p>整型信号量：wait(),
+signal()；wait当信号量大于0后信号量减一，signal信号量加一</p>
 <p>记录型信号量：wait信号量减一并将自己的进程加进等待队列，状态设置为block，signal信号量加一，当信号量大于0后从等待队列释放一个进程并唤醒该进程。</p>
 <p>信号量实现同步与互斥</p>
-<h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>略</p>
-<h3 id="经典同步问题"><a href="#经典同步问题" class="headerlink" title="经典同步问题"></a>经典同步问题</h3><h4 id="1-生产者-消费者问题"><a href="#1-生产者-消费者问题" class="headerlink" title="1. 生产者-消费者问题"></a>1. 生产者-消费者问题</h4><p>要求：生产者和消费者共享一个缓存区，生产者在没满时生成，消费者在没空时消费</p>
+<h3 id="管程">管程</h3>
+<p>略</p>
+<h3 id="经典同步问题">经典同步问题</h3>
+<h4 id="生产者-消费者问题">1. 生产者-消费者问题</h4>
+<p>要求：生产者和消费者共享一个缓存区，生产者在没满时生成，消费者在没空时消费</p>
 <p>三个信号量：mutex，full，empty</p>
 <p>先P(empty)或P(full)，再P(mutex)——可能死锁</p>
-<h4 id="2-读者-写者问题"><a href="#2-读者-写者问题" class="headerlink" title="2. 读者-写者问题"></a>2. 读者-写者问题</h4><p>要求：读可以同时；只能一个写；写操作未完成前不能读或写；执行写操作前无正在执行的读或写</p>
+<h4 id="读者-写者问题">2. 读者-写者问题</h4>
+<p>要求：读可以同时；只能一个写；写操作未完成前不能读或写；执行写操作前无正在执行的读或写</p>
 <p>（感觉就一句，除读读外，其他操作互斥）</p>
-<h4 id="3-哲学家就餐问题"><a href="#3-哲学家就餐问题" class="headerlink" title="3. 哲学家就餐问题"></a>3. 哲学家就餐问题</h4><p>解决办法：同时拿两根筷子；动作规定</p>
-<h4 id="4-吸烟者问题"><a href="#4-吸烟者问题" class="headerlink" title="4. 吸烟者问题"></a>4. 吸烟者问题</h4><p>问题描述：三个吸烟者和一个供应者。造烟需要三种材料，三个吸烟者各有一种。供应者每次拿出两种使得一个吸烟者能够吸烟。当其吸完了，供应者再拿出两种材料。</p>
+<h4 id="哲学家就餐问题">3. 哲学家就餐问题</h4>
+<p>解决办法：同时拿两根筷子；动作规定</p>
+<h4 id="吸烟者问题">4. 吸烟者问题</h4>
+<p>问题描述：三个吸烟者和一个供应者。造烟需要三种材料，三个吸烟者各有一种。供应者每次拿出两种使得一个吸烟者能够吸烟。当其吸完了，供应者再拿出两种材料。</p>
 <p>分析：供应者和吸烟者同步，吸烟者之间互斥</p>
-<h2 id="2-4-死锁"><a href="#2-4-死锁" class="headerlink" title="2.4 死锁"></a>2.4 死锁</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p>死锁原因：资源竞争+顺序不当</p>
+<h2 id="死锁">2.4 死锁</h2>
+<h3 id="基本概念-1">基本概念</h3>
+<p>死锁原因：资源竞争+顺序不当</p>
 <p>产生条件：互斥+不可剥夺+请求且持有资源+循环等待</p>
 <p>处理策略：预防or避免or检测并解除</p>
-<h3 id="死锁预防"><a href="#死锁预防" class="headerlink" title="死锁预防"></a>死锁预防</h3><p>破坏条件即可</p>
-<h4 id="1-不互斥"><a href="#1-不互斥" class="headerlink" title="1. 不互斥"></a>1. 不互斥</h4><p>对共享资源可行，对临界资源不可行</p>
-<h4 id="2-可剥夺"><a href="#2-可剥夺" class="headerlink" title="2. 可剥夺"></a>2. 可剥夺</h4><p>有的资源可行，有的不可行（打印机）</p>
-<h4 id="3-获得所有资源才执行"><a href="#3-获得所有资源才执行" class="headerlink" title="3. 获得所有资源才执行"></a>3. 获得所有资源才执行</h4><p>可能导致饿死</p>
-<h4 id="4-向后申请资源"><a href="#4-向后申请资源" class="headerlink" title="4. 向后申请资源"></a>4. 向后申请资源</h4><p>给资源编号，只能申请编号更大的资源。</p>
+<h3 id="死锁预防">死锁预防</h3>
+<p>破坏条件即可</p>
+<h4 id="不互斥">1. 不互斥</h4>
+<p>对共享资源可行，对临界资源不可行</p>
+<h4 id="可剥夺">2. 可剥夺</h4>
+<p>有的资源可行，有的不可行（打印机）</p>
+<h4 id="获得所有资源才执行">3. 获得所有资源才执行</h4>
+<p>可能导致饿死</p>
+<h4 id="向后申请资源">4. 向后申请资源</h4>
+<p>给资源编号，只能申请编号更大的资源。</p>
 <p>麻烦</p>
-<h3 id="死锁避免"><a href="#死锁避免" class="headerlink" title="死锁避免"></a>死锁避免</h3><h4 id="1-判断安全状态"><a href="#1-判断安全状态" class="headerlink" title="1. 判断安全状态"></a>1. 判断安全状态</h4><p>系统判断分配该资源后是否会导致死锁</p>
-<h4 id="2-银行家算法"><a href="#2-银行家算法" class="headerlink" title="2. 银行家算法"></a>2. 银行家算法</h4><p>进程事先向系统声明所需最大资源数</p>
+<h3 id="死锁避免">死锁避免</h3>
+<h4 id="判断安全状态">1. 判断安全状态</h4>
+<p>系统判断分配该资源后是否会导致死锁</p>
+<h4 id="银行家算法">2. 银行家算法</h4>
+<p>进程事先向系统声明所需最大资源数</p>
 <p>最大需求矩阵，分配矩阵，需求矩阵</p>
 <p>具体执行步骤略</p>
-<h3 id="死锁检测和解除"><a href="#死锁检测和解除" class="headerlink" title="死锁检测和解除"></a>死锁检测和解除</h3><p>资源分配图：进程，资源，请求边，分配边</p>
+<h3 id="死锁检测和解除">死锁检测和解除</h3>
+<p>资源分配图：进程，资源，请求边，分配边</p>
 <p>简化资源分配图后可检测系统是否死锁：略</p>
 <p>解除：剥夺资源，撤销进程和进程回退（这俩有啥区别？）</p>
 
@@ -301,7 +323,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

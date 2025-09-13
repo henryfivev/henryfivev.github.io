@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,186 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/" class="post-title-link" itemprop="url">精通以太坊-智能合约安全</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-10-17 09:59:12 / Modified: 17:47:42" itemprop="dateCreated datePublished" datetime="2023-10-17T09:59:12+08:00">2023-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="九智能合约安全">九、智能合约安全</h2>
+<h3 id="重入">9.3 重入</h3>
+<p>原理：调用外部fallback函数来进行转账，导致合约可重入</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>用transfer()进行转账，虽然会带来额外gas</li>
+<li>使用“检查-生效-交互”模式</li>
+<li>使用互斥锁</li>
+</ol>
+<p>案例：DAO攻击</p>
+<h3 id="算术溢出">9.4 算术溢出</h3>
+<p>原理：Solidity中整数存在上下限</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>使用SafeMath库合约</li>
+</ol>
+<p>案例：PoWHC</p>
+<h3 id="意外的以太币">9.5 意外的以太币</h3>
+<p>原理：强制发送以太币导致合约无法执行，self-destruct或预先发送都可以实现</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>少用this.balance，使用状态变量保存余额</li>
+</ol>
+<h3 id="delegatecall">9.6 delegatecall</h3>
+<p>原理：delegatecall保持上下文，状态或存储变量（可以在独立的交易之间保持其数值的变量）会按照它们被引入合约的顺序放置在存储槽中，这时我们改变的变量可能不是我们期望改变的。</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>使用library关键字可以保证库合约是无状态和不会自我销毁的</li>
+</ol>
+<p>案例：Parity多重签名钱包的第二次攻击</p>
+<h3 id="默认的可见性">9.7 默认的可见性</h3>
+<p>原理：Solidity函数可见性默认为public，可能出现纰漏</p>
+<p>防范技术：为每个函数都指定可见性</p>
+<p>案例：Parity多重签名钱包的首次攻击</p>
+<h3 id="无序错觉">9.8 无序错觉</h3>
+<p>原理：为了在以太坊中引入无序性（即随机性），使用哈希值、区块号等可被操控的区块变量作为随机值</p>
+<p>防范技术：无序性必须来自区块链外部</p>
+<p>案例：PRNG合约</p>
+<h3 id="外部合约引用">9.9 外部合约引用</h3>
+<p>原理：可以故意将地址指向错误的合约，假如引用的合约不包含要调用的函数，将执行回退函数。如果用户可以修改合约引用的合约库，那么基本上他们就可以使其他用户在不知情的情况下运行任意代码。</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>new一个要引用的合约</li>
+<li>对外部合约进行硬编码</li>
+</ol>
+<p>一般建议将合约地址设置为public以方便用户检查引用的合约</p>
+<p>案例：<a
+target="_blank" rel="noopener" href="https://www.reddit.com/r/ethdev/comments/7x5rwr/tricked_by_a_honeypot_contract_or_beaten_by/">可重入的蜜罐</a></p>
+<h3 id="短地址攻击">9.10 短地址攻击</h3>
+<p>原理：当实际发送的数据长度小于标准编码长度时，EVM将在数据末尾补0，这种操作可能影响末尾参数</p>
+<p>防范技术：对参数进行校验</p>
+<h3 id="未检查的调用返回值">9.11 未检查的调用返回值</h3>
+<p>原理：send和call外部调用失败仅返回false，不revert</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>检查返回值</li>
+<li>使用withdraw模式</li>
+</ol>
+<h3 id="预先交易">9.12 预先交易</h3>
+<p>原理：gas高的优先被打包</p>
+<p>防范技术：</p>
+<ol type="1">
+<li>设置gas上限</li>
+<li>使用commit-reveal模式</li>
+<li>submarine sends</li>
+</ol>
+<p>案例：erc20的approve函数</p>
+<h3 id="拒绝服务">9.13 拒绝服务</h3>
+<p>原理：各种原因使合约不可用，比如说事先向合约转账使合约无法通过某些限制条件</p>
+<p>防范技术：各个情况方法不同</p>
+<h3 id="区块时间戳操纵">9.14 区块时间戳操纵</h3>
+<p>原理：区块时间戳可被矿工指定。</p>
+<p>防范技术：不应使用区块时间戳作为随机数。</p>
+<p>案例：GovernMental</p>
+<h3 id="小心使用构造函数">9.15 小心使用构造函数</h3>
+<p>原理：solidity0.4.22前，构造函数和合约同名；若合约名称和构造函数名称不同，构造函数将变成一个普通函数。</p>
+<p>防范技术：使用constructor关键字。</p>
+<p>案例：Rubixi</p>
+<h3 id="未初始化的存储指针">9.16 未初始化的存储指针</h3>
+<p>原理：状态变量和复杂类型的局部变量都存储在storage中；状态变量按照顺序保存在storage中（存储槽），未初始化的局部变量可能指向已有的状态变量。</p>
+<p>防范技术：用storage和memory关键字明确指定变量的存储位置。</p>
+<p>案例：OpenAddressLottery</p>
+<h3 id="浮点数和精度">9.17 浮点数和精度</h3>
+<p>原理：solidity的除法会舍去小于除数的所有精度。</p>
+<p>防范技术：先执行加法和乘法，再执行减法和除法。</p>
+<p>案例：Ethstick</p>
+<h3 id="tx.origin验证">9.18 Tx.Origin验证</h3>
+<p>原理：全局变量tx.origin表示最初发起交易的账户地址；若使用tx.origin作为判定条件，合约易受到钓鱼攻击。</p>
+<p>防范技术：少用tx.origin作为判定条件。</p>
+<p>可用require(tx.origin == msg.sender)来拒绝外部合约调用。</p>
+<h3 id="合约程序库">9.19 合约程序库</h3>
+<p>OpenZepplin包含丰富的库合约。</p>
+<p>ZeppelinOS使开发者更简单地发布DApp。</p>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
+<li>谁可以调用合约的self-destruct</li>
+<li>外部合约引用的防范技术没看懂</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -220,26 +400,40 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="数据集蒸馏-调研梳理"><a href="#数据集蒸馏-调研梳理" class="headerlink" title="数据集蒸馏-调研梳理"></a>数据集蒸馏-调研梳理</h2><h3 id="一、动机"><a href="#一、动机" class="headerlink" title="一、动机"></a>一、动机</h3><p>大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。</p>
-<h3 id="二、基本思想"><a href="#二、基本思想" class="headerlink" title="二、基本思想"></a>二、基本思想</h3><p>数据集蒸馏的过程可以分为以下几个基本步骤：</p>
-<ol>
+          <h2 id="数据集蒸馏-调研梳理">数据集蒸馏-调研梳理</h2>
+<h3 id="一动机">一、动机</h3>
+<p>大规模数据集包含了大量的冗余信息和噪声，这可能会导致模型过拟合或训练时间过长。所以我们希望通过保留关键样本和信息，从而创建一个更紧凑的数据集，以加快模型的训练速度并提高模型的泛化性能。</p>
+<h3 id="二基本思想">二、基本思想</h3>
+<p>数据集蒸馏的过程可以分为以下几个基本步骤：</p>
+<ol type="1">
 <li><strong>初始化</strong>：先初始化一些合成数据和模型参数。</li>
 <li><strong>训练模型</strong>：然后我们使用这些合成数据来训练模型，得到模型结果。</li>
 <li><strong>优化合成数据</strong>：我们希望在当前模型参数下，模型在合成数据上的结果尽可能的接近原数据集的结果，所以每次训练我们将模型结果作为优化目标，更新合成数据。</li>
 </ol>
 <p>不同数据集蒸馏算法的主要不同在于优化目标不同，优化目标除了预测值外，还有模型参数更新的梯度、数据分布、优化轨迹等等。</p>
 <p>新提出了数据集蒸馏算法，基于因子分解。</p>
-<h3 id="三、局限性"><a href="#三、局限性" class="headerlink" title="三、局限性"></a>三、局限性</h3><p>数据集蒸馏还存在以下几个局限性：</p>
-<ol>
+<h3 id="三局限性">三、局限性</h3>
+<p>数据集蒸馏还存在以下几个局限性：</p>
+<ol type="1">
 <li><strong>可移植性</strong>：在不同的网络架构上的泛化能力较差。</li>
 <li><strong>计算量大</strong>：在训练时间和内存消耗方面存在一些限制。</li>
 <li><strong>性能下降</strong>：在处理具有更多类别和更少图像的数据集时表现不佳。</li>
 </ol>
-<h3 id="四、参考资料"><a href="#四、参考资料" class="headerlink" title="四、参考资料"></a>四、参考资料</h3><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.04272">Data Distillation: A Survey</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460485729">【知识蒸馏论文解读】Dataset Distillation 创新性十足的数据集蒸馏 - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358246160">浓缩的数据可以训练出一个好网络吗? - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43219992/article/details/129304244?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235^v38^pc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235^v38^pc_relevant_default_base3&amp;utm_relevant_index=7">DATASET CONDENSATION WITH GRADIENT MATCHING-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51653288/article/details/129555000">Dataset Condensation with Distribution Matching论文笔记-CSDN博客</a></p>
+<h3 id="四参考资料">四、参考资料</h3>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.04272">Data Distillation: A
+Survey</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460485729">【知识蒸馏论文解读】Dataset
+Distillation 创新性十足的数据集蒸馏 - 知乎 (zhihu.com)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358246160">浓缩的数据可以训练出一个好网络吗?
+- 知乎 (zhihu.com)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43219992/article/details/129304244?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235%5Ev38%5Epc_relevant_default_base3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-129304244-blog-129555000.235%5Ev38%5Epc_relevant_default_base3&amp;utm_relevant_index=7">DATASET
+CONDENSATION WITH GRADIENT MATCHING-CSDN博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51653288/article/details/129555000">Dataset
+Condensation with Distribution Matching论文笔记-CSDN博客</a></p>
 
       
     </div>
@@ -328,28 +522,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="十一、预言机"><a href="#十一、预言机" class="headerlink" title="十一、预言机"></a>十一、预言机</h2><h3 id="为什么需要预言机？"><a href="#为什么需要预言机？" class="headerlink" title="为什么需要预言机？"></a>为什么需要预言机？</h3><p>为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。</p>
+          <h2 id="十一预言机">十一、预言机</h2>
+<h3 id="为什么需要预言机">为什么需要预言机？</h3>
+<p>为了保持共识，EVM的执行过程必须完全确定，并且仅基于以太坊状态和签名交易的共享上下文。这导致两个后果：一个是EVM和智能合约没有内在的随机性来源；另一个是外部数据只能作为交易的数据载荷引入。</p>
 <p>假如提供随机性，网络将无法就结果状态应该是什么达成去中心化的共识。</p>
 <p>引入外部信息，包括随机性、价格信息、天气预报等，当作随机源，作为发送到网络的交易的数据部分。</p>
-<h3 id="预言机的应用场景和示例"><a href="#预言机的应用场景和示例" class="headerlink" title="预言机的应用场景和示例"></a>预言机的应用场景和示例</h3><p>理想情况下，预言机提供了一种无信任（或至少近乎无信任）的方式来获取外在的（即“真实世界”或“链外”）信息。</p>
+<h3 id="预言机的应用场景和示例">预言机的应用场景和示例</h3>
+<p>理想情况下，预言机提供了一种无信任（或至少近乎无信任）的方式来获取外在的（即“真实世界”或“链外”）信息。</p>
 <p>可以将预言机视为弥合链外世界与智能合约之间差距的机制。</p>
 <p>“证言”将成为未来区块链平台成功的重要组成部分，特别是在验证身份或声誉的相关问题方面，因此探索区块链平台如何为其提供服务非常重要。</p>
-<h3 id="预言机的设计模式"><a href="#预言机的设计模式" class="headerlink" title="预言机的设计模式"></a>预言机的设计模式</h3><p>一旦数据在智能合约的存储中可用，其他智能合约就可以通过调用预言机智能合约的“检索”功能来访问它；它也可以通过“查看”预言机的存储直接由以太坊节点或支持网络的客户端访问。</p>
+<h3 id="预言机的设计模式">预言机的设计模式</h3>
+<p>一旦数据在智能合约的存储中可用，其他智能合约就可以通过调用预言机智能合约的“检索”功能来访问它；它也可以通过“查看”预言机的存储直接由以太坊节点或支持网络的客户端访问。</p>
 <p>设置预言机的三种主要方式可以分为请求与响应、发布与订阅和立即读取。</p>
-<ol>
+<ol type="1">
 <li>立即读取：那些希望查询此类数据的人倾向于在“即时”的基础上这样做；查找是在需要信息时完成的，可能永远不会再次查找。</li>
 <li>发布与订阅：要对预期改变的数据（可能是定期和频繁地）提供有效的广播服务，预言机要么由链上的智能合约轮询，要么由链外守护进程监视和更新。</li>
 <li>请求/响应：这是数据空间太大而无法存储在智能合约中的情况，并且用户每次只需要整个数据集的一小部分。</li>
 </ol>
-<h3 id="数据认证"><a href="#数据认证" class="headerlink" title="数据认证"></a>数据认证</h3><p>两种常见的数据认证方法是真实性证明（authenticity proof）以及可信执行环境（Trusted Execution Environment，TEE）。</p>
+<h3 id="数据认证">数据认证</h3>
+<p>两种常见的数据认证方法是真实性证明（authenticity
+proof）以及可信执行环境（Trusted Execution Environment，TEE）。</p>
 <p>真实性证明是用密码学证据证明数据没有被篡改过。</p>
-<p>Town Crier（ <a target="_blank" rel="noopener" href="http://www.town-crier.org/">http://www.town-crier.org/</a> ）是一个基于可信执行环境的验证数据馈送预言机系统</p>
-<h3 id="计算性的预言机"><a href="#计算性的预言机" class="headerlink" title="计算性的预言机"></a>计算性的预言机</h3><p>预言机也可以用来执行任意计算，尤其是当给定gas上限和计算成本较贵时。</p>
+<p>Town Crier（ http://www.town-crier.org/
+）是一个基于可信执行环境的验证数据馈送预言机系统</p>
+<h3 id="计算性的预言机">计算性的预言机</h3>
+<p>预言机也可以用来执行任意计算，尤其是当给定gas上限和计算成本较贵时。</p>
 <p>计算预言机也可以用来执行带有一组输入的相关计算并返回计算结果，而这种计算可能无法在链上进行。</p>
-<h3 id="去中心化预言机"><a href="#去中心化预言机" class="headerlink" title="去中心化预言机"></a>去中心化预言机</h3><p>去中心化预言机可以用于保证数据可得性，还可搭配链上数据汇总系统创建独立数据提供者网络。</p>
+<h3 id="去中心化预言机">去中心化预言机</h3>
+<p>去中心化预言机可以用于保证数据可得性，还可搭配链上数据汇总系统创建独立数据提供者网络。</p>
 <p>谢林币协议：多个参与者记录数值，这些数值的中位数会被当成“正确”答案。记录者必须先质押保证金，这些保证金会根据它与中位数的接近程度重新分配，由此可以激励人们记录与其他人提供的值相近的值。这样共同的数值，也就是所谓的“谢林点”，预计会接近真实值，因为真实数值是响应者协作中所围绕的自然而明显的目标。</p>
-<h3 id="Solidity中的预言机客户端接口"><a href="#Solidity中的预言机客户端接口" class="headerlink" title="Solidity中的预言机客户端接口"></a>Solidity中的预言机客户端接口</h3><p>使用Oraclize库。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h3 id="solidity中的预言机客户端接口">Solidity中的预言机客户端接口</h3>
+<p>使用Oraclize库。</p>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>没太明白这章，具体预言机是怎么实现的？</li>
 <li>需要多读几遍</li>
 </ol>
@@ -441,18 +646,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="十、代币"><a href="#十、代币" class="headerlink" title="十、代币"></a>十、代币</h2><h3 id="代币和可替代性"><a href="#代币和可替代性" class="headerlink" title="代币和可替代性"></a>代币和可替代性</h3><p>严格意义上说，如果一个代币的交易历史是公开的，那么它就不完全是一个可互相替代的代币。根据代币交易历史的追踪，可由此设定对应的黑名单或白名单，这会降低甚至消除这个代币的可替代性。</p>
-<h3 id="对手方风险"><a href="#对手方风险" class="headerlink" title="对手方风险"></a>对手方风险</h3><p>对手方风险是指交易的另一方没有履行他们的承诺或义务。</p>
-<h3 id="代币和内在性"><a href="#代币和内在性" class="headerlink" title="代币和内在性"></a>代币和内在性</h3><p>有些代币所代表的资产是区块链内在的。这些资产是由共识规则所控制的，就如同代币本身。</p>
+          <h2 id="十代币">十、代币</h2>
+<h3 id="代币和可替代性">代币和可替代性</h3>
+<p>严格意义上说，如果一个代币的交易历史是公开的，那么它就不完全是一个可互相替代的代币。根据代币交易历史的追踪，可由此设定对应的黑名单或白名单，这会降低甚至消除这个代币的可替代性。</p>
+<h3 id="对手方风险">对手方风险</h3>
+<p>对手方风险是指交易的另一方没有履行他们的承诺或义务。</p>
+<h3 id="代币和内在性">代币和内在性</h3>
+<p>有些代币所代表的资产是区块链内在的。这些资产是由共识规则所控制的，就如同代币本身。</p>
 <p>区块链内在资产的代币不会有额外的对手方风险。</p>
 <p>一个非常重要的未来，就是用区块链内的资产替代区块链外的资产，因此可以消除对手方风险。</p>
-<h3 id="使用代币：工具型代币还是权益型代币？"><a href="#使用代币：工具型代币还是权益型代币？" class="headerlink" title="使用代币：工具型代币还是权益型代币？"></a>使用代币：工具型代币还是权益型代币？</h3><p>工具型代币是指用来支付某个服务、应用或资源的代币。</p>
+<h3
+id="使用代币工具型代币还是权益型代币">使用代币：工具型代币还是权益型代币？</h3>
+<p>工具型代币是指用来支付某个服务、应用或资源的代币。</p>
 <p>权益型代币可以被设定为没有投票权的，用来分红和分配利润的代币，也可以承载一个去中心化自治组织的投票权，这类组织的管理由持有代币的所有人共同投票决定。</p>
 <p>对于一个初创公司，每次创新都增加了失败的风险。</p>
 <p>有限的流动性、有限的应用范围和较高的沟通交易成本降低了代币的价值。</p>
 <p>如果你在进行创业并且面临的是一个全新的市场，发行工具型代币并不会为你带来优势。</p>
 <p>只有在你的应用必须使用工具型代币的时候，才考虑发行。使用代币来解决你所面临的市场准入或其他门槛问题。不要因为更快融资的原因而发行那些看上去不是公开募资的工具型代币。</p>
-<h3 id="以太坊的代币"><a href="#以太坊的代币" class="headerlink" title="以太坊的代币"></a>以太坊的代币</h3><p>以太坊账户的以太币余额在协议级别处理，而以太坊账户的代币余额在智能合约级别处理。</p>
+<h3 id="以太坊的代币">以太坊的代币</h3>
+<p>以太坊账户的以太币余额在协议级别处理，而以太坊账户的代币余额在智能合约级别处理。</p>
 <p>要在以太坊上创建新代币，你必须创建一个新的智能合约。</p>
 <p>ERC20代币标准是代币的第一个标准。</p>
 <p>ERC20标准定义了通过合约实现代币的通用接口，兼容此标准的所有代币都可以采用相同的方式被访问和使用。这个接口包含了一组必须实现的函数，及若干可选的函数和属性，可供开发者根据需要添加。</p>
@@ -468,10 +680,13 @@
 <p>ERC223方案试图解决不慎把代币转入不支持代币的合约这个问题，通过检测目标地址是否为合约的方式来完成。另一个针对代币合约的改进行方案是ERC777。</p>
 <p>ERC721方案是针对不可替代物代币的标准，也称为契约代币。</p>
 <p>ERC20将所有者作为映射的主键，跟踪每个所有者的余额；而ERC721将契约ID作为映射的主键，跟踪每个契约ID及其所有者。</p>
-<h3 id="代币标准"><a href="#代币标准" class="headerlink" title="代币标准"></a>代币标准</h3><p>代币标准是实现的最小化标准。</p>
+<h3 id="代币标准">代币标准</h3>
+<p>代币标准是实现的最小化标准。</p>
 <p>现存的实现，比如说OpenZeppin，是“经过实战检验的”。</p>
-<h3 id="代币接口标准的扩展"><a href="#代币接口标准的扩展" class="headerlink" title="代币接口标准的扩展"></a>代币接口标准的扩展</h3><p>很多项目在此基础上创建了扩展的实现，用于支持它们应用中所需要的功能。这些扩展包括：销毁、铸币、众筹、硬顶等等。</p>
-<h3 id="代币和ICO"><a href="#代币和ICO" class="headerlink" title="代币和ICO"></a>代币和ICO</h3><p>在代币世界中生存的诀窍是将这种技术的长期愿景和影响与可能是巨大的短期ICO泡沫分离开来，这种泡沫充斥着欺诈行为。</p>
+<h3 id="代币接口标准的扩展">代币接口标准的扩展</h3>
+<p>很多项目在此基础上创建了扩展的实现，用于支持它们应用中所需要的功能。这些扩展包括：销毁、铸币、众筹、硬顶等等。</p>
+<h3 id="代币和ico">代币和ICO</h3>
+<p>在代币世界中生存的诀窍是将这种技术的长期愿景和影响与可能是巨大的短期ICO泡沫分离开来，这种泡沫充斥着欺诈行为。</p>
 
       
     </div>
@@ -560,7 +775,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="三、以太坊客户端"><a href="#三、以太坊客户端" class="headerlink" title="三、以太坊客户端"></a>三、以太坊客户端</h2><p>不同客户端之间遵从相同协议和规范，所以在同一个网络中可以交互。</p>
+          <h2 id="三以太坊客户端">三、以太坊客户端</h2>
+<p>不同客户端之间遵从相同协议和规范，所以在同一个网络中可以交互。</p>
 <p>存在多个以太坊网络，比如以太坊、以太坊经典、Polygon、BSC等等。</p>
 <p>每一个全功能节点可以帮助其他新加入网络的节点获取开始运行所需要的区块数据，全功能节点的另一个重要任务是为用户提供独立和权威的交易及合约验证。</p>
 <p>运行一个全功能节点需要消耗大量的硬件资源和网络带宽。</p>
@@ -656,30 +872,40 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="四、以太坊背后的密码学"><a href="#四、以太坊背后的密码学" class="headerlink" title="四、以太坊背后的密码学"></a>四、以太坊背后的密码学</h2><h3 id="4-1-密钥和地址"><a href="#4-1-密钥和地址" class="headerlink" title="4.1 密钥和地址"></a>4.1 密钥和地址</h3><p>截至本书出版时（18年），以太坊协议本身并没有任何加密信息，也就是说，所有通信和交易数据都不是加密的，因此所有人都必然可以读取。</p>
+          <h2 id="四以太坊背后的密码学">四、以太坊背后的密码学</h2>
+<h3 id="密钥和地址">4.1 密钥和地址</h3>
+<p>截至本书出版时（18年），以太坊协议本身并没有任何加密信息，也就是说，所有通信和交易数据都不是加密的，因此所有人都必然可以读取。</p>
 <p>一个私钥会与唯一一个以太坊地址（也称为账户）挂钩。</p>
 <p>资金的访问与控制权都是通过数字签名实现的。</p>
 <p>外部账户的以太坊账户地址由密钥对中的公钥生成。</p>
 <p>合约背后就没有私钥来控制所有权。</p>
-<h3 id="4-2-公钥密码学和加密货币"><a href="#4-2-公钥密码学和加密货币" class="headerlink" title="4.2 公钥密码学和加密货币"></a>4.2 公钥密码学和加密货币</h3><p>质因数分解问题、离散对数难题。</p>
+<h3 id="公钥密码学和加密货币">4.2 公钥密码学和加密货币</h3>
+<p>质因数分解问题、离散对数难题。</p>
 <p>公钥和私钥一起表示一个以太坊账户，公钥用于可访问账户管理（也就是地址），而私钥用于控制账户内持有的以太币，并控制使用智能合约时所需的认证程序。</p>
-<h3 id="4-3-私钥"><a href="#4-3-私钥" class="headerlink" title="4.3 私钥"></a>4.3 私钥</h3><p>私钥就是一组随机获取的数字，以太坊软件使用底层操作系统的随机数生成器生成一个256位的“熵”，作为随机源，放入256比特的哈希算法中，产生一个256比特的数字。</p>
+<h3 id="私钥">4.3 私钥</h3>
+<p>私钥就是一组随机获取的数字，以太坊软件使用底层操作系统的随机数生成器生成一个256位的“熵”，作为随机源，放入256比特的哈希算法中，产生一个256比特的数字。</p>
 <p>请使用密码学安全的伪随机数生成器（如CSPRNG）生成私钥，并且使用熵源充足的随机源做种子。</p>
-<h3 id="4-4-公钥"><a href="#4-4-公钥" class="headerlink" title="4.4 公钥"></a>4.4 公钥</h3><p>每个以太坊公钥都是椭圆曲线上的一个点（x, y）。</p>
+<h3 id="公钥">4.4 公钥</h3>
+<p>每个以太坊公钥都是椭圆曲线上的一个点（x, y）。</p>
 <p>以太坊使用跟比特币系统相同的椭圆曲线算法，称为secp256k1。</p>
 <p>通过私钥可以推算出公钥，但是通过公钥无法反向计算得出私钥，因为这个数学算法是单向的。</p>
 <p>采用130个十六进制字符（65字节）表示的公钥。这是由SECG所发布的行业标准的一种序列化编码方式。</p>
 <p>以太坊只使用未压缩的公钥，因此唯一相关的前缀就是0x04。</p>
-<h3 id="4-5-密码学哈希函数"><a href="#4-5-密码学哈希函数" class="headerlink" title="4.5 密码学哈希函数"></a>4.5 密码学哈希函数</h3><p>以太坊协议中多处用到了名为Keccak-256的密码学哈希函数。</p>
+<h3 id="密码学哈希函数">4.5 密码学哈希函数</h3>
+<p>以太坊协议中多处用到了名为Keccak-256的密码学哈希函数。</p>
 <p>如何辨别所使用的程序库是FIPS-202 SHA-3还是Keccak-256：</p>
-<ol>
-<li>Keccak256(“”) = c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</li>
-<li>SHA3(“”) = a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a</li>
+<ol type="1">
+<li>Keccak256("") =
+c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</li>
+<li>SHA3("") =
+a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a</li>
 </ol>
-<h3 id="4-6-以太坊地址"><a href="#4-6-以太坊地址" class="headerlink" title="4.6 以太坊地址"></a>4.6 以太坊地址</h3><p>从私钥开始，通过椭圆曲线乘法运算获得了一个公钥，然后使用Keccak-256来计算公钥的哈希值，保留后20位（大端序中最末的字节），这就是我们的以太坊地址。</p>
+<h3 id="以太坊地址">4.6 以太坊地址</h3>
+<p>从私钥开始，通过椭圆曲线乘法运算获得了一个公钥，然后使用Keccak-256来计算公钥的哈希值，保留后20位（大端序中最末的字节），这就是我们的以太坊地址。</p>
 <p>ICAP地址可以用于编码以太坊地址，也可以用于编码注册在以太坊域名注册服务之下的通用名称。</p>
 <p>EIP-55为以太坊地址提供了一种后向兼容的校验机制，这个机制是通过修改十六进制地址中的大写字母来实现的：对全小写的十六进制地址计算Keccak-256哈希，如果在哈希中对应的十六进制大于或者等于8，就把这个字母改为大写。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>有效范围什么意思？</li>
 <li>公钥加密算法中的G是固定的吗</li>
 <li>为什么要对地址进行编码？</li>
@@ -768,42 +994,50 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="初入职场"><a href="#初入职场" class="headerlink" title="初入职场"></a>初入职场</h3><p>7月26号入职，进去先办手续，然后去工位，开始装环境装软件。</p>
+          <h3 id="初入职场">初入职场</h3>
+<p>7月26号入职，进去先办手续，然后去工位，开始装环境装软件。</p>
 <p>unity用的2018版本，IDE用的idea2017，项目管理用的Redmine，版本控制用的SVN，本地搭建了SVN服务器和共享云盘。</p>
 <p>为了实现热更新，使用c#实现底层逻辑，lua实现业务逻辑，平时不会动底层的c#，只需要编写业务层面的lua。</p>
 <p>前端框架为魔改后的luaframework，用的MVC架构，前端代码共100w+行，听说mj这体量还算小的qaq。</p>
 <p>后端框架用的SpringBoot，协议用的protobuf。</p>
 <p>说实话，平时福利我觉得还不错，包两餐，二四有下午茶，工作环境啥的都挺好的。</p>
 <!-- mj=魔镜 -->
-<h3 id="熟悉项目"><a href="#熟悉项目" class="headerlink" title="熟悉项目"></a>熟悉项目</h3><p>进去第一周，先看代码，熟悉项目，上手基本操作，比如说项目运行，挂载调试，设计UI场景，SVN提交等等。</p>
+<h3 id="熟悉项目">熟悉项目</h3>
+<p>进去第一周，先看代码，熟悉项目，上手基本操作，比如说项目运行，挂载调试，设计UI场景，SVN提交等等。</p>
 <p>项目是真的没多少注释，还没要求项目代码规范，每个人写的不一样，看得心累。</p>
 <p>直到自己处理了几个需求后，8月17号才理解他们的逻辑。</p>
 <p>其实就是在解析后端发送的数据，然后展示到对应的位置上。</p>
 <p>model负责请求数据，设计接口以便view来读取数据，view就负责展示数据并进行业务逻辑判断。</p>
 <!-- -->
-<h3 id="开始干活"><a href="#开始干活" class="headerlink" title="开始干活"></a>开始干活</h3><p>第二周开始干活，处理点海外的优化需求。</p>
+<h3 id="开始干活">开始干活</h3>
+<p>第二周开始干活，处理点海外的优化需求。</p>
 <p>果然还是得需求驱动，带着需求来看代码有干劲多了。</p>
 <p>二三四周一周一个优化需求，第五周一周来了5个优化需求qaq，还好离职前做完了。</p>
 <p>其实我没明白，为什么说我干活他们第一反应都是在做海外的活，无论是cm还是hy。</p>
 <!-- cm=林春敏，hy=徐惠园 -->
-<h3 id="当吃瓜群众"><a href="#当吃瓜群众" class="headerlink" title="当吃瓜群众"></a>当吃瓜群众</h3><p>呆到第三周才知道工作室领导集体离职了，我就说怎么领导只来两天，那两天还一直摸鱼。</p>
+<h3 id="当吃瓜群众">当吃瓜群众</h3>
+<p>呆到第三周才知道工作室领导集体离职了，我就说怎么领导只来两天，那两天还一直摸鱼。</p>
 <p>果然领导才是第一生产力，领导来的那两天hx哪敢这么摸鱼，现在晶核时间都比idea时间长（开个玩笑）。</p>
 <p>领导们走了之后，工作室是真乱啊，需求提的少了，大家都没事做，而且一直有人被hy叫去会议室面谈。</p>
 <p>可惜了，好像并不会叫实习生面谈，乐子没了。</p>
 <!-- hx=张鸿鑫，hy=徐惠园 -->
-<h3 id="初用unity感觉"><a href="#初用unity感觉" class="headerlink" title="初用unity感觉"></a>初用unity感觉</h3><p>感觉sk这种游戏公司里，使用unity、qt这类工具的程序员，和传统公司里用js的程序员区别有点大。</p>
+<h3 id="初用unity感觉">初用unity感觉</h3>
+<p>感觉sk这种游戏公司里，使用unity、qt这类工具的程序员，和传统公司里用js的程序员区别有点大。</p>
 <p>感觉他们的技术建立在unity这类工具上，而不是编程语言上。</p>
 <p>可能是mjwy是2d卡牌手游的缘故吧，不需要前端过多的处理界面，不需要前端做特效啥的。</p>
 <p>不知道他们的新项目xtc能不能做起来，祝好。</p>
 <!-- sk=3K，mjwy=魔镜物语，xtc=犀铁城 -->
-<h3 id="大无语事件"><a href="#大无语事件" class="headerlink" title="大无语事件"></a>大无语事件</h3><p>第二周的某天，在园区班车上听到hx用潮汕话说我，主要是没听清是说我好话还是坏话，有点郁闷。</p>
+<h3 id="大无语事件">大无语事件</h3>
+<p>第二周的某天，在园区班车上听到hx用潮汕话说我，主要是没听清是说我好话还是坏话，有点郁闷。</p>
 <p>真别在背后讨论别人，尤其用方言讨论，印象分大减。</p>
 <!-- hx=张鸿鑫 -->
-<h3 id="领导交接"><a href="#领导交接" class="headerlink" title="领导交接"></a>领导交接</h3><p>原来打包怎么复杂的嘛，fg学了半天还是战战兢兢的。</p>
+<h3 id="领导交接">领导交接</h3>
+<p>原来打包怎么复杂的嘛，fg学了半天还是战战兢兢的。</p>
 <p>早知道就留一份public了，说不定还能学点东西。</p>
 <p>之前瞅过一眼public里的代码，感觉就是在不停的解析参数，有点记不清了qaq，不管了。</p>
 <!-- fg=龙双峰（峰哥，带我的导师，叫声哥好吧） -->
-<h3 id="END"><a href="#END" class="headerlink" title="END"></a>END</h3><p>总的来说，还是有收获的，看看职场和学校的不同。</p>
+<h3 id="end">END</h3>
+<p>总的来说，还是有收获的，看看职场和学校的不同。</p>
 <p>可惜了，这一离职有很多人是真的见不到，成过客了，祝好叭，sayorala了各位。</p>
 
       
@@ -893,8 +1127,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="六、以太坊交易"><a href="#六、以太坊交易" class="headerlink" title="六、以太坊交易"></a>六、以太坊交易</h2><p>交易是从外部账户发出的经过签名的消息，经传播后记录在区块链上。</p>
-<h3 id="6-1-交易结构"><a href="#6-1-交易结构" class="headerlink" title="6.1 交易结构"></a>6.1 交易结构</h3><p>以太坊客户端在收到交易后会把交易保存在内存中并使用应用内部的交易格式，其中添加了一些推导出的数据，不具有普适性，这里讨论的交易格式为以太坊网络上交易传输时的交易格式，包括以下内容：</p>
+          <h2 id="六以太坊交易">六、以太坊交易</h2>
+<p>交易是从外部账户发出的经过签名的消息，经传播后记录在区块链上。</p>
+<h3 id="交易结构">6.1 交易结构</h3>
+<p>以太坊客户端在收到交易后会把交易保存在内存中并使用应用内部的交易格式，其中添加了一些推导出的数据，不具有普适性，这里讨论的交易格式为以太坊网络上交易传输时的交易格式，包括以下内容：</p>
 <ul>
 <li>nonce：由构建交易的外部账户提供，防止重放攻击</li>
 <li>gas price：支付的gas</li>
@@ -906,26 +1142,34 @@
 </ul>
 <p>使用RLP编码标准，其中不包含字段标识符，由长度偏移量表示每个字段的长度。</p>
 <p>应用添加的数据：外部地址、交易ID等等——为了节约空间，交易中并不包含外部用户的地址，vrs可计算出外部用户的公钥，由公钥可得出外部用户的地址，交易ID同理。</p>
-<h3 id="6-2-交易的随机数"><a href="#6-2-交易的随机数" class="headerlink" title="6.2 交易的随机数"></a>6.2 交易的随机数</h3><p>黄皮书中的定义：一个数值，等于这个地址发出的交易数量，当这个地址与合约关联时，是这个地址所创建的合约数量。</p>
+<h3 id="交易的随机数">6.2 交易的随机数</h3>
+<p>黄皮书中的定义：一个数值，等于这个地址发出的交易数量，当这个地址与合约关联时，是这个地址所创建的合约数量。</p>
 <p>nonce可以说是发送方地址的一个属性，用于确定发出的交易的顺序以及避免交易重复，不会显示保存而是由已确认的交易动态计算出的。</p>
 <p>交易待确认时getTransactionCount无法返回正确值，可用parity_nextNonce()计算下一个nonce。</p>
-<h3 id="6-3-交易的gas"><a href="#6-3-交易的gas" class="headerlink" title="6.3 交易的gas"></a>6.3 交易的gas</h3><p>独立的虚拟货币，和以太币有汇率关系。</p>
+<h3 id="交易的gas">6.3 交易的gas</h3>
+<p>独立的虚拟货币，和以太币有汇率关系。</p>
 <p>最低可到0，但存在交易无法确认的可能。</p>
 <p>由于合约所消耗的gas可能不同，所以需要设置gas limit</p>
-<h3 id="6-4-交易的接收方"><a href="#6-4-交易的接收方" class="headerlink" title="6.4 交易的接收方"></a>6.4 交易的接收方</h3><p>接收方在交易的to字段中指定，字段中包含了一个20字节的以太坊地址，该地址可以是外部账户，也可以是合约的地址。</p>
+<h3 id="交易的接收方">6.4 交易的接收方</h3>
+<p>接收方在交易的to字段中指定，字段中包含了一个20字节的以太坊地址，该地址可以是外部账户，也可以是合约的地址。</p>
 <p>以太坊不会验证地址的正确性。</p>
-<h3 id="6-5-交易中的以太币和数据"><a href="#6-5-交易中的以太币和数据" class="headerlink" title="6.5 交易中的以太币和数据"></a>6.5 交易中的以太币和数据</h3><p>交易只有value无data：支付操作</p>
+<h3 id="交易中的以太币和数据">6.5 交易中的以太币和数据</h3>
+<p>交易只有value无data：支付操作</p>
 <p>交易只有data无value：调用合约</p>
 <p>交易既没有value也没有data：没作用，但允许存在</p>
-<h4 id="目的地址"><a href="#目的地址" class="headerlink" title="目的地址"></a>目的地址</h4><p>如果目的地址为外部账户or未注册为合约的地址，以太坊会在目的账户余额中增加转入的以太币。</p>
+<h4 id="目的地址">目的地址</h4>
+<p>如果目的地址为外部账户or未注册为合约的地址，以太坊会在目的账户余额中增加转入的以太币。</p>
 <p>如果目的地址为合约，EVM则会执行这个合约，并调用data中指定的函数；若data中为空，则执行合约的回退函数。此时data中有以下部分：函数选择器、函数参数</p>
-<h3 id="6-6-特殊交易：合约创建"><a href="#6-6-特殊交易：合约创建" class="headerlink" title="6.6 特殊交易：合约创建"></a>6.6 特殊交易：合约创建</h3><p>合约创建交易的目的地址是一个特殊的地址——零地址，即to字段为0x0，该地址永远不能用来支付以太坊or触发交易。</p>
+<h3 id="特殊交易合约创建">6.6 特殊交易：合约创建</h3>
+<p>合约创建交易的目的地址是一个特殊的地址——零地址，即to字段为0x0，该地址永远不能用来支付以太坊or触发交易。</p>
 <p>向合约创建地址发送只有value无data的交易相当于转账，也有专门销毁以太币的地址。</p>
 <p>合约创建交易中的data为代码编译后的字节码，value中可以包含以太币作为合约的初始余额。</p>
-<h2 id="奇思妙想"><a href="#奇思妙想" class="headerlink" title="奇思妙想"></a>奇思妙想</h2><ol>
+<h2 id="奇思妙想">奇思妙想</h2>
+<ol type="1">
 <li>后面的nonce会被搁置，那可不可以先发后面的nonce来实现智能合约的操作？</li>
 </ol>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>交易触发合约执行？</li>
 <li>交易中的data有什么用？——普通交易中data经常为空，调用智能合约函数的交易中data为函数名和参数。</li>
 <li>交易中的随机数真的随机吗？</li>
@@ -1021,32 +1265,42 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="七、智能合约和Solidity"><a href="#七、智能合约和Solidity" class="headerlink" title="七、智能合约和Solidity"></a>七、智能合约和Solidity</h2><h3 id="7-1-什么是智能合约"><a href="#7-1-什么是智能合约" class="headerlink" title="7.1 什么是智能合约"></a>7.1 什么是智能合约</h3><p>数字化的承诺，运行在EVM中。</p>
+          <h2 id="七智能合约和solidity">七、智能合约和Solidity</h2>
+<h3 id="什么是智能合约">7.1 什么是智能合约</h3>
+<p>数字化的承诺，运行在EVM中。</p>
 <p>特点：</p>
 <ul>
 <li>不可改变</li>
 <li>有确定性：每次输出是相同的</li>
 </ul>
-<h3 id="7-2-智能合约的生命周期"><a href="#7-2-智能合约的生命周期" class="headerlink" title="7.2 智能合约的生命周期"></a>7.2 智能合约的生命周期</h3><p>合约的地址由合约的创建交易在创建账户和随机数时生成。</p>
+<h3 id="智能合约的生命周期">7.2 智能合约的生命周期</h3>
+<p>合约的地址由合约的创建交易在创建账户和随机数时生成。</p>
 <p>智能合约并没有对应的私钥。</p>
 <p>智能合约仅在被其他交易调用时执行。</p>
 <p>不存在并发执行——EVM可认为是一台单线程计算机。</p>
 <p>交易是原子的，若程序出错，则回滚之前所有操作，依旧会扣除gas。</p>
 <p>合约不能更改，但可以通过执行SELFDESTRUCT的EVM字节码来删除，删除会提供gas退款。</p>
 <p>SELFDESTRUCT需要开发者编写，否则无法删除。</p>
-<h3 id="7-3-以太坊高级编程语言"><a href="#7-3-以太坊高级编程语言" class="headerlink" title="7.3 以太坊高级编程语言"></a>7.3 以太坊高级编程语言</h3><p>EVM高度隔离且极其简单。</p>
+<h3 id="以太坊高级编程语言">7.3 以太坊高级编程语言</h3>
+<p>EVM高度隔离且极其简单。</p>
 <p>智能合约的编程语言应极力避免任何可能的副作用。</p>
 <p>Solidity为指令式编程语言。</p>
-<h3 id="7-4-使用Solidity编写智能合约"><a href="#7-4-使用Solidity编写智能合约" class="headerlink" title="7.4 使用Solidity编写智能合约"></a>7.4 使用Solidity编写智能合约</h3><p>Solidity项目主要产出为Solidity编译器和ABI接口标准</p>
-<h3 id="7-5-以太坊合约的应用程序二进制接口"><a href="#7-5-以太坊合约的应用程序二进制接口" class="headerlink" title="7.5 以太坊合约的应用程序二进制接口"></a>7.5 以太坊合约的应用程序二进制接口</h3><p>ABI是向机器指令层面编码和解码并传送数据的主要方式。</p>
+<h3 id="使用solidity编写智能合约">7.4 使用Solidity编写智能合约</h3>
+<p>Solidity项目主要产出为Solidity编译器和ABI接口标准</p>
+<h3 id="以太坊合约的应用程序二进制接口">7.5
+以太坊合约的应用程序二进制接口</h3>
+<p>ABI是向机器指令层面编码和解码并传送数据的主要方式。</p>
 <p>用JSON格式表示，包含描述函数和事件的数组。</p>
 <p>应用与合约的交互完全依赖于ABI和应用实例部署的以太坊地址。</p>
-<h3 id="7-6-使用Solidity进行编程"><a href="#7-6-使用Solidity进行编程" class="headerlink" title="7.6 使用Solidity进行编程"></a>7.6 使用Solidity进行编程</h3><h4 id="预定义的全局变量和函数"><a href="#预定义的全局变量和函数" class="headerlink" title="预定义的全局变量和函数"></a>预定义的全局变量和函数</h4><p>Solidity基本数据类型：</p>
-<ol>
+<h3 id="使用solidity进行编程">7.6 使用Solidity进行编程</h3>
+<h4 id="预定义的全局变量和函数">预定义的全局变量和函数</h4>
+<p>Solidity基本数据类型：</p>
+<ol type="1">
 <li>布尔型（bool）</li>
 <li>整数型（int, uint）</li>
-<li>固定浮点数（fixed, ufixed）:ufixed32x2表示该变量有32bit，小数点后有2位</li>
-<li>地址address，有成员函数balance, transfer…</li>
+<li>固定浮点数（fixed,
+ufixed）:ufixed32x2表示该变量有32bit，小数点后有2位</li>
+<li>地址address，有成员函数balance, transfer...</li>
 <li>字节数组，从bytes1到bytes32，有固定和动态的区别</li>
 <li>枚举，enum name{}</li>
 <li>数组</li>
@@ -1056,7 +1310,7 @@
 <li>以太币单位</li>
 </ol>
 <p>触发合约执行的交易(msg)的属性：</p>
-<ol>
+<ol type="1">
 <li>msg.sender：发起合约调用的地址</li>
 <li>msg.value：以太币数量</li>
 <li>msg.gas：当前可用gas数量</li>
@@ -1064,12 +1318,12 @@
 <li>msg.sig：函数选择器</li>
 </ol>
 <p>交易(tx)的属性：</p>
-<ol>
+<ol type="1">
 <li>tx.gasprice：调用交易的gas价格</li>
 <li>tx.origin：发起交易的外部账户的地址</li>
 </ol>
 <p>block的属性：</p>
-<ol>
+<ol type="1">
 <li>block.blockhash(blockNumber)：指定区块的哈希值，仅限于当前区块之前不超过256个区块</li>
 <li>block.coinbase：当前区块的矿工地址</li>
 <li>block.difficulty：POW的难度</li>
@@ -1078,7 +1332,7 @@
 <li>block.timestamp：当前区块的时间戳</li>
 </ol>
 <p>address的属性：</p>
-<ol>
+<ol type="1">
 <li>address.balance：地址余额</li>
 <li>address.transfer(amount)：转出一定以太币</li>
 <li>address.send(amount)：类似transfer</li>
@@ -1087,20 +1341,21 @@
 <li>address.delegatecall()</li>
 </ol>
 <p>内建函数：</p>
-<ol>
+<ol type="1">
 <li>addmod(), mulmod()</li>
 <li>sha256(), sha3()等等hash函数</li>
 <li>ecrecover，获得签名地址</li>
 <li>selfdestruct(recipient)，删除合约并将剩余以太币转到recipient</li>
 <li>this，当前账户以太坊地址</li>
 </ol>
-<h4 id="合约定义"><a href="#合约定义" class="headerlink" title="合约定义"></a>合约定义</h4><p>其他对象：</p>
-<ol>
+<h4 id="合约定义">合约定义</h4>
+<p>其他对象：</p>
+<ol type="1">
 <li>interface</li>
 <li>library：只被部署一次</li>
 </ol>
 <p>函数调用范围：</p>
-<ol>
+<ol type="1">
 <li>public：可被交易，其他合约和合约内部调用</li>
 <li>external：类似public，不能内部调用除非指明this</li>
 <li>internal：只能被当前合约及其子合约内部调用</li>
@@ -1108,7 +1363,7 @@
 </ol>
 <p>函数都是可见的。</p>
 <p>函数的行为：</p>
-<ol>
+<ol type="1">
 <li>constant和view：不修改任何状态</li>
 <li>pure：不会在区块链中读取or写入任何数据</li>
 <li>payable：接收外部支付</li>
@@ -1116,40 +1371,45 @@
 <p>构造函数constructor和自毁函数selfdestruct</p>
 <p>函数修饰符modifier：_的地方会被修饰符的代码代替</p>
 <p>继承is：contract 子合约 is 父合约1，父合约2 {}</p>
-<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>如果条件不满足则触发错误并且中止合约的执行：</p>
-<ol>
+<h4 id="错误处理">错误处理</h4>
+<p>如果条件不满足则触发错误并且中止合约的执行：</p>
+<ol type="1">
 <li>assert用于判断输出条件为真的情况</li>
 <li>require用来判断输入</li>
 </ol>
 <p>立即中止合约执行并把状态回滚：</p>
-<ol>
+<ol type="1">
 <li>revert</li>
 <li>throw已被淘汰</li>
 </ol>
-<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>当交易完成后，无论成功与否，都会生成一个交易收据，收据中包含由事件生成的日志。</p>
+<h4 id="事件">事件</h4>
+<p>当交易完成后，无论成功与否，都会生成一个交易收据，收据中包含由事件生成的日志。</p>
 <p>关键字：</p>
-<ol>
+<ol type="1">
 <li>indexed</li>
 <li>emit：将数据写入日志</li>
 </ol>
-<h4 id="调用其他合约"><a href="#调用其他合约" class="headerlink" title="调用其他合约"></a>调用其他合约</h4><p>import引入合约文件</p>
+<h4 id="调用其他合约">调用其他合约</h4>
+<p>import引入合约文件</p>
 <p>new实例化合约</p>
 <p>可以添加已存在的实例，但很危险</p>
 <p>call和delegatecall</p>
 <p>这里给了调用合约的例子，值得看一下。</p>
-<h4 id="与gas有关的注意事项"><a href="#与gas有关的注意事项" class="headerlink" title="与gas有关的注意事项"></a>与gas有关的注意事项</h4><p>如果gas耗尽，将触发以下事件：</p>
-<ol>
+<h4 id="与gas有关的注意事项">与gas有关的注意事项</h4>
+<p>如果gas耗尽，将触发以下事件：</p>
+<ol type="1">
 <li>抛出“out of gas”异常</li>
 <li>恢复状态</li>
 <li>消耗gas</li>
 </ol>
 <p>避免消耗过多gas：</p>
-<ol>
+<ol type="1">
 <li>避免动态大小的数组</li>
 <li>避免调用其他合约</li>
 <li>使用estimateGas估计gas开销</li>
 </ol>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>合约没有私钥，那要怎么使用其地址上的以太币？</li>
 <li>msg.sig是什么，有什么用？</li>
 <li>address.call是什么，有什么用？</li>
@@ -1247,168 +1507,77 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><p>type(val) == “nil”</p>
-<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><p>false和nil为false</p>
+          <h2 id="基本类型">基本类型</h2>
+<h3 id="nil">nil</h3>
+<p>type(val) == "nil"</p>
+<h3 id="布尔值">布尔值</h3>
+<p>false和nil为false</p>
 <p>0为true</p>
-<h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><p>双精度，表示所有数字</p>
-<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>‘和”都可以表示字符串</p>
+<h3 id="number">number</h3>
+<p>双精度，表示所有数字</p>
+<h3 id="string">string</h3>
+<p>'和"都可以表示字符串</p>
 <p>[[]]可以表示一块字符串</p>
 <p>+表示数学上的操作</p>
 <p>..表示字符串上的操作</p>
 <p>#表示字符串长度</p>
-<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p>可以是数组，也可以是字典</p>
+<h3 id="table">table</h3>
+<p>可以是数组，也可以是字典</p>
 <p>索引从1开始</p>
-<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p>可存在变量中</p>
+<h3 id="function">function</h3>
+<p>可存在变量中</p>
 <p>匿名函数</p>
-<h3 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h3><p>线程和协程</p>
-<h3 id="userdata"><a href="#userdata" class="headerlink" title="userdata"></a>userdata</h3><p>自定义类型</p>
+<h3 id="thread">thread</h3>
+<p>线程和协程</p>
+<h3 id="userdata">userdata</h3>
+<p>自定义类型</p>
 <p>struct和指针</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>全局变量无需声明</p>
+<h2 id="变量">变量</h2>
+<p>全局变量无需声明</p>
 <p>变量全是全局变量，除非local声明为局部变量</p>
 <p>局部变量作用域</p>
 <p>同时赋值时，左右个数不匹配时会忽略or用nil补足</p>
 <p>当table的索引为字符串时可用.操作符访问</p>
 <p>多值赋值时仅值传递，不会变量传递</p>
 <p>回收全局变量</p>
-<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>while … do … end</p>
-<p>for i=begin, end, step do … end</p>
+<h2 id="循环">循环</h2>
+<p>while ... do ... end</p>
+<p>for i=begin, end, step do ... end</p>
 <p>begin, end, step一次性求值</p>
 <p>pairs和ipairs：ipairs遇到nil则返回，ipairs从1开始遍历</p>
 <p>未完</p>
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>if … then … end</p>
-<p>if … then … else … end</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>可有多个返回值</p>
-<p>…表示可变参数</p>
-<p>select(“#”,…) 来获取可变参数的数量</p>
-<p>select(3,…) 表示从3开始到结束的所有参数列表</p>
+<h2 id="流程控制">流程控制</h2>
+<p>if ... then ... end</p>
+<p>if ... then ... else ... end</p>
+<h2 id="函数">函数</h2>
+<p>可有多个返回值</p>
+<p>...表示可变参数</p>
+<p>select("#",...) 来获取可变参数的数量</p>
+<p>select(3,...) 表示从3开始到结束的所有参数列表</p>
 <p>固定参数在变长参数前</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>//和/：//表示整除，lua5.3后才有</p>
+<h2 id="运算符">运算符</h2>
+<p>//和/：//表示整除，lua5.3后才有</p>
 <p>..表示字符串拼接</p>
 <p>#表示长度</p>
 <p>运算符优先级</p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>string.len</p>
+<h2 id="字符串">字符串</h2>
+<p>string.len</p>
 <p>有中文用utf8.len</p>
 <p>upper(), lower(), find(), reverse()</p>
 <p>sub()</p>
 <p>未完</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>索引可为负数</p>
-<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>未完</p>
-<h2 id="table-1"><a href="#table-1" class="headerlink" title="table"></a>table</h2><p>当我们为 table a 并设置元素，然后将 a 赋值给 b，则 a 与 b 都指向同一个内存。如果 a 设置为 nil ，则 b 同样能访问 table 的元素。</p>
+<h2 id="数组">数组</h2>
+<p>索引可为负数</p>
+<h2 id="迭代器">迭代器</h2>
+<p>未完</p>
+<h2 id="table-1">table</h2>
+<p>当我们为 table a 并设置元素，然后将 a 赋值给 b，则 a 与 b
+都指向同一个内存。如果 a 设置为 nil ，则 b 同样能访问 table 的元素。</p>
 <p>table的操作</p>
 <p>不能直接获得table的长度</p>
-<h2 id="模块和包"><a href="#模块和包" class="headerlink" title="模块和包"></a>模块和包</h2><p>table创建模块</p>
+<h2 id="模块和包">模块和包</h2>
+<p>table创建模块</p>
 <p>require调用模块</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/12/2023-07-2023-07-12-%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/07/12/2023-07-2023-07-12-%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">精通以太坊-以太坊基本概念</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-12 23:35:24" itemprop="dateCreated datePublished" datetime="2023-07-12T23:35:24+08:00">2023-07-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-04 16:03:50" itemprop="dateModified" datetime="2023-09-04T16:03:50+08:00">2023-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="二、以太坊基本概念"><a href="#二、以太坊基本概念" class="headerlink" title="二、以太坊基本概念"></a>二、以太坊基本概念</h2><p>10^18 wei = 1 ether</p>
-<p>换钱包仅需发起交易把以太币转移到新地址</p>
-<p>钱包中保存着私钥</p>
-<p>助记词用于恢复私钥</p>
-<p>EVM：全局性单体计算机，每个节点都运行着EVM的本地副本</p>
-<h3 id="账户"><a href="#账户" class="headerlink" title="账户"></a>账户</h3><p>以太坊中有两种账户——外部账户EOA和合约账户</p>
-<p>外部账户拥有私钥</p>
-<p>合约账户具有智能合约代码并受其控制，也拥有地址，可以收发以太币</p>
-<p>合约账户没有私钥，所有只有外部账户才能启动交易</p>
-<h3 id="智能合约"><a href="#智能合约" class="headerlink" title="智能合约"></a>智能合约</h3><p>没细看！！！</p>
-<p>编写，编译，部署，调用</p>
-<p>交易中的data指定调用的合约函数和传入的参数，若未指定则调用默认函数（默认函数无函数名）</p>
-<p>public：可被调用</p>
-<p>payable：可接收以太币</p>
-<p>由合约发起的交易叫内部交易</p>
-<p>这章总的来说就是教我们怎么创建钱包，怎么交易，怎么创建合约，怎么交互</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
-<li>智能合约可以撤销吗</li>
-<li>怎么理解“可编程区块链的威力在于可以用去中心化的软件来控制资产！”？</li>
-<li>调用智能合约函数算不算一次交易？——算的。</li>
-<li>注册合约的目标地址为？</li>
-<li>合约的地址和外部账户的地址都是怎么确定的？</li>
-</ol>
 
       
     </div>
@@ -1440,7 +1609,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

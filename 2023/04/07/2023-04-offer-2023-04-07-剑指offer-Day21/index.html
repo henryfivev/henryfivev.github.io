@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="剑指offer 15——二进制中1的个数 逐位判断 n&#x3D;10101000，n-1&#x3D;10100111；当n不为0时，执行n&amp;(n-1)，循环次数即是1的个数  剑指offer 65——不用加减乘除做加法位运算">
+    <meta name="description" content="剑指offer 15——二进制中1的个数  逐位判断 n&#x3D;10101000，n-1&#x3D;10100111；当n不为0时，执行n&amp;(n-1)，循环次数即是1的个数  剑指offer 65——不用加减乘除做加法 位运算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer-Day21">
 <meta property="og:url" content="http://example.com/2023/04/07/2023-04-offer-2023-04-07-%E5%89%91%E6%8C%87offer-Day21/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="剑指offer 15——二进制中1的个数 逐位判断 n&#x3D;10101000，n-1&#x3D;10100111；当n不为0时，执行n&amp;(n-1)，循环次数即是1的个数  剑指offer 65——不用加减乘除做加法位运算">
+<meta property="og:description" content="剑指offer 15——二进制中1的个数  逐位判断 n&#x3D;10101000，n-1&#x3D;10100111；当n不为0时，执行n&amp;(n-1)，循环次数即是1的个数  剑指offer 65——不用加减乘除做加法 位运算">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-07T07:10:30.000Z">
 <meta property="article:modified_time" content="2023-09-04T07:58:44.000Z">
@@ -112,7 +112,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-15%E2%80%94%E2%80%94%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-text">剑指offer 15——二进制中1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-65%E2%80%94%E2%80%94%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95"><span class="nav-text">剑指offer 65——不用加减乘除做加法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-15%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-text">剑指offer 15——二进制中1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer-65%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95"><span class="nav-text">剑指offer
+65——不用加减乘除做加法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +126,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,11 +226,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="剑指offer-15——二进制中1的个数"><a href="#剑指offer-15——二进制中1的个数" class="headerlink" title="剑指offer 15——二进制中1的个数"></a>剑指offer 15——二进制中1的个数</h2><ol>
+        <h2 id="剑指offer-15二进制中1的个数">剑指offer 15——二进制中1的个数</h2>
+<ol type="1">
 <li>逐位判断</li>
 <li>n=10101000，n-1=10100111；当n不为0时，执行n&amp;(n-1)，循环次数即是1的个数</li>
 </ol>
-<h2 id="剑指offer-65——不用加减乘除做加法"><a href="#剑指offer-65——不用加减乘除做加法" class="headerlink" title="剑指offer 65——不用加减乘除做加法"></a>剑指offer 65——不用加减乘除做加法</h2><p>位运算</p>
+<h2 id="剑指offer-65不用加减乘除做加法">剑指offer
+65——不用加减乘除做加法</h2>
+<p>位运算</p>
 
     </div>
 
@@ -274,7 +278,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

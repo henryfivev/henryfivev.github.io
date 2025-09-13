@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="一、概述控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG 程序切片从可执行到不可执行 根据输入分类：静态切片，动态切片，有条件切片 程序切片应用之处 二、图论基础控制流图基本块：第一句进入，最后一句离开 控制流图以基本块为节点 控制流和数据流控制流分析就是去发现过程内or过程间的控制流 什么是过程？~函数 控制流图表示形式：  AST CFG PDG中的控制依赖  数据流描述了变">
+    <meta name="description" content="一、概述 控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG 程序切片从可执行到不可执行 根据输入分类：静态切片，动态切片，有条件切片 程序切片应用之处 二、图论基础 控制流图 基本块：第一句进入，最后一句离开 控制流图以基本块为节点 控制流和数据流 控制流分析就是去发现过程内or过程间的控制流 什么是过程？~函数 控制流图表示形式：  AST CFG PDG中的控制依赖  数据流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态切片">
 <meta property="og:url" content="http://example.com/2023/10/30/%E9%9D%99%E6%80%81%E5%88%87%E7%89%87/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="一、概述控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG 程序切片从可执行到不可执行 根据输入分类：静态切片，动态切片，有条件切片 程序切片应用之处 二、图论基础控制流图基本块：第一句进入，最后一句离开 控制流图以基本块为节点 控制流和数据流控制流分析就是去发现过程内or过程间的控制流 什么是过程？~函数 控制流图表示形式：  AST CFG PDG中的控制依赖  数据流描述了变">
+<meta property="og:description" content="一、概述 控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG 程序切片从可执行到不可执行 根据输入分类：静态切片，动态切片，有条件切片 程序切片应用之处 二、图论基础 控制流图 基本块：第一句进入，最后一句离开 控制流图以基本块为节点 控制流和数据流 控制流分析就是去发现过程内or过程间的控制流 什么是过程？~函数 控制流图表示形式：  AST CFG PDG中的控制依赖  数据流">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-29T16:32:08.000Z">
 <meta property="article:modified_time" content="2023-11-02T07:38:48.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9B%BE%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-text">二、图论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E5%9B%BE"><span class="nav-text">控制流图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E5%92%8C%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-text">控制流和数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E4%BE%9D%E8%B5%96%E5%92%8C%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96"><span class="nav-text">控制依赖和数据依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E4%BE%9D%E8%B5%96%E5%9B%BE"><span class="nav-text">程序依赖图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90"><span class="nav-text">三、静态程序分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MarkWeiser%E7%A8%8B%E5%BA%8F%E5%88%87%E7%89%87"><span class="nav-text">MarkWeiser程序切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%86%85%E5%88%87%E7%89%87"><span class="nav-text">过程内切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E9%97%B4%E5%88%87%E7%89%87"><span class="nav-text">过程间切片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%A6%82%E8%BF%B0"><span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%9B%BE%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-text">二、图论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E5%9B%BE"><span class="nav-text">控制流图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E5%92%8C%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-text">控制流和数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E4%BE%9D%E8%B5%96%E5%92%8C%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96"><span class="nav-text">控制依赖和数据依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E4%BE%9D%E8%B5%96%E5%9B%BE"><span class="nav-text">程序依赖图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90"><span class="nav-text">三、静态程序分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#markweiser%E7%A8%8B%E5%BA%8F%E5%88%87%E7%89%87"><span class="nav-text">MarkWeiser程序切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%86%85%E5%88%87%E7%89%87"><span class="nav-text">过程内切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E9%97%B4%E5%88%87%E7%89%87"><span class="nav-text">过程间切片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,16 +225,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG</p>
+        <h2 id="一概述">一、概述</h2>
+<p>控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG</p>
 <p>程序切片从可执行到不可执行</p>
 <p>根据输入分类：静态切片，动态切片，有条件切片</p>
 <p>程序切片应用之处</p>
-<h2 id="二、图论基础"><a href="#二、图论基础" class="headerlink" title="二、图论基础"></a>二、图论基础</h2><h3 id="控制流图"><a href="#控制流图" class="headerlink" title="控制流图"></a>控制流图</h3><p>基本块：第一句进入，最后一句离开</p>
+<h2 id="二图论基础">二、图论基础</h2>
+<h3 id="控制流图">控制流图</h3>
+<p>基本块：第一句进入，最后一句离开</p>
 <p>控制流图以基本块为节点</p>
-<h3 id="控制流和数据流"><a href="#控制流和数据流" class="headerlink" title="控制流和数据流"></a>控制流和数据流</h3><p>控制流分析就是去发现过程内or过程间的控制流</p>
+<h3 id="控制流和数据流">控制流和数据流</h3>
+<p>控制流分析就是去发现过程内or过程间的控制流</p>
 <p>什么是过程？~函数</p>
 <p>控制流图表示形式：</p>
-<ol>
+<ol type="1">
 <li>AST</li>
 <li>CFG</li>
 <li>PDG中的控制依赖</li>
@@ -242,9 +246,10 @@
 <p>数据流描述了变量的值从定义点如何流到使用点</p>
 <p>数据流边表示什么？~变量和变量之间的关系</p>
 <p>可到达定义怎么计算？~求解数据流方程</p>
-<h3 id="控制依赖和数据依赖"><a href="#控制依赖和数据依赖" class="headerlink" title="控制依赖和数据依赖"></a>控制依赖和数据依赖</h3><p>控制依赖：控制流引起的程序实体之间的关系</p>
+<h3 id="控制依赖和数据依赖">控制依赖和数据依赖</h3>
+<p>控制依赖：控制流引起的程序实体之间的关系</p>
 <p>控制依赖定义：满足以下三个条件：</p>
-<ol>
+<ol type="1">
 <li>n1n2之间存在可执行路径</li>
 <li>对可到达路径上的其他点，n2都是它的后必经节点</li>
 <li>n2不是n1的后必经节点</li>
@@ -252,30 +257,38 @@
 <p>条件语句内部的语句控制依赖于条件部分</p>
 <p>数据依赖：由于数据定义和使用所形成的实体之间的关系</p>
 <p>数据依赖定义：满足以下三个条件：</p>
-<ol>
+<ol type="1">
 <li>n2定义了变量v</li>
 <li>n1使用了变量v</li>
 <li>n2n1存在可执行路径且变量v未重新定义</li>
 </ol>
-<h3 id="程序依赖图"><a href="#程序依赖图" class="headerlink" title="程序依赖图"></a>程序依赖图</h3><p>这里只是简单介绍</p>
+<h3 id="程序依赖图">程序依赖图</h3>
+<p>这里只是简单介绍</p>
 <p>过程内依赖图：即过程依赖图PrDG，即控制依赖图+数据依赖图</p>
 <p>过程间依赖图：即系统依赖图，各个过程依赖图+调用边+调用引起的依赖边</p>
-<h2 id="三、静态程序分析"><a href="#三、静态程序分析" class="headerlink" title="三、静态程序分析"></a>三、静态程序分析</h2><h3 id="MarkWeiser程序切片"><a href="#MarkWeiser程序切片" class="headerlink" title="MarkWeiser程序切片"></a>MarkWeiser程序切片</h3><p>切片准则：<n, V>，n表示某个语句，V表示代码中变量的子集</p>
+<h2 id="三静态程序分析">三、静态程序分析</h2>
+<h3 id="markweiser程序切片">MarkWeiser程序切片</h3>
+<p>切片准则：&lt;n, V&gt;，n表示某个语句，V表示代码中变量的子集</p>
 <p>其实就是在简化代码，希望留下切片准则相关的代码，求切片就是求图的可达性问题</p>
 <p>切片结果可能不符合语法</p>
 <p>切片优化：寻找最小切片问题是不可解的</p>
 <p>不足：只能解决简单的程序，为了解决过程和过程调用的问题提出了过程内切片和过程间切片</p>
-<h3 id="过程内切片"><a href="#过程内切片" class="headerlink" title="过程内切片"></a>过程内切片</h3><p>先在cfg上构建控制依赖图和数据依赖图，然后把两个图合并即可得到pdg</p>
+<h3 id="过程内切片">过程内切片</h3>
+<p>先在cfg上构建控制依赖图和数据依赖图，然后把两个图合并即可得到pdg</p>
 <p>先构建程序依赖图pdg，再应用图可达性算法</p>
 <p>前向后向区别：</p>
 <ul>
 <li>后向：是指以漏洞关注点为终点，能够到达该节点的所有路径上的所有节点</li>
 <li>前向：是指从关注点节点出发，能够达到达到的所有路径上的节点</li>
 </ul>
-<h3 id="过程间切片"><a href="#过程间切片" class="headerlink" title="过程间切片"></a>过程间切片</h3><p>一样的逻辑，构建系统依赖图，然后应用图可达性算法</p>
+<h3 id="过程间切片">过程间切片</h3>
+<p>一样的逻辑，构建系统依赖图，然后应用图可达性算法</p>
 <p>在过程依赖图上添加调用边、参数输入边和参数输出边形成系统依赖图（根据P50，好像有更多操作）</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>《程序切片技术及其应用》</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149894944">【南大软件分析】lecture7 笔记-Interprocedural Analysis</a></p>
+<h2 id="参考资料">参考资料</h2>
+<p>《程序切片技术及其应用》</p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149894944">【南大软件分析】lecture7
+笔记-Interprocedural Analysis</a></p>
 
     </div>
 
@@ -320,7 +333,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

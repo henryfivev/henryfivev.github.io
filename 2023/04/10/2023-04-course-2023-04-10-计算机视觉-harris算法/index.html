@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="计算机视觉-harris算法复习一下hw1所需知识。 四、特征检测2、角点检测Moravec略 Harris角点检测器原理窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。 窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为  E(u,v) &#x3D; \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}${w(x,y)}$是窗口函数，二维的滤波器。 ${I(">
+    <meta name="description" content="计算机视觉-harris算法 复习一下hw1所需知识。 四、特征检测 2、角点检测 Moravec 略 Harris角点检测器 原理 窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。 窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为 \[ E(u,v) &#x3D; \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2} \] \({w(x,y)}\)是窗口函">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机视觉-harris算法">
 <meta property="og:url" content="http://example.com/2023/04/10/2023-04-course-2023-04-10-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="计算机视觉-harris算法复习一下hw1所需知识。 四、特征检测2、角点检测Moravec略 Harris角点检测器原理窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。 窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为  E(u,v) &#x3D; \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}${w(x,y)}$是窗口函数，二维的滤波器。 ${I(">
+<meta property="og:description" content="计算机视觉-harris算法 复习一下hw1所需知识。 四、特征检测 2、角点检测 Moravec 略 Harris角点检测器 原理 窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。 窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为 \[ E(u,v) &#x3D; \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2} \] \({w(x,y)}\)是窗口函">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-10T05:28:19.000Z">
 <meta property="article:modified_time" content="2023-09-04T07:57:16.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95"><span class="nav-text">计算机视觉-harris算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%89%B9%E5%BE%81%E6%A3%80%E6%B5%8B"><span class="nav-text">四、特征检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%A7%92%E7%82%B9%E6%A3%80%E6%B5%8B"><span class="nav-text">2、角点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Moravec"><span class="nav-text">Moravec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Harris%E8%A7%92%E7%82%B9%E6%A3%80%E6%B5%8B%E5%99%A8"><span class="nav-text">Harris角点检测器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%B7%AE%E5%88%86%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%88DoG%EF%BC%89"><span class="nav-text">高斯差分滤波器（DoG）</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-harris%E7%AE%97%E6%B3%95"><span class="nav-text">计算机视觉-harris算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E7%89%B9%E5%BE%81%E6%A3%80%E6%B5%8B"><span class="nav-text">四、特征检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E7%82%B9%E6%A3%80%E6%B5%8B"><span class="nav-text">2、角点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#moravec"><span class="nav-text">Moravec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#harris%E8%A7%92%E7%82%B9%E6%A3%80%E6%B5%8B%E5%99%A8"><span class="nav-text">Harris角点检测器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-text">原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%B7%AE%E5%88%86%E6%BB%A4%E6%B3%A2%E5%99%A8dog"><span class="nav-text">高斯差分滤波器（DoG）</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,51 +225,79 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="计算机视觉-harris算法"><a href="#计算机视觉-harris算法" class="headerlink" title="计算机视觉-harris算法"></a>计算机视觉-harris算法</h2><p>复习一下hw1所需知识。</p>
-<h2 id="四、特征检测"><a href="#四、特征检测" class="headerlink" title="四、特征检测"></a>四、特征检测</h2><h3 id="2、角点检测"><a href="#2、角点检测" class="headerlink" title="2、角点检测"></a>2、角点检测</h3><h4 id="Moravec"><a href="#Moravec" class="headerlink" title="Moravec"></a>Moravec</h4><p>略</p>
-<h4 id="Harris角点检测器"><a href="#Harris角点检测器" class="headerlink" title="Harris角点检测器"></a>Harris角点检测器</h4><h5 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h5><p>窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。</p>
+        <h2 id="计算机视觉-harris算法">计算机视觉-harris算法</h2>
+<p>复习一下hw1所需知识。</p>
+<h2 id="四特征检测">四、特征检测</h2>
+<h3 id="角点检测">2、角点检测</h3>
+<h4 id="moravec">Moravec</h4>
+<p>略</p>
+<h4 id="harris角点检测器">Harris角点检测器</h4>
+<h5 id="原理">原理</h5>
+<p>窗口在角点上按任意角度移动时，窗口的灰度图都会有明显的变化。</p>
 <p>窗口滑动分别按x和y方向移动[u, v]后，灰度的变化为</p>
-<script type="math/tex; mode=display">
-E(u,v) = \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}</script><p>${w(x,y)}$是窗口函数，二维的滤波器。</p>
-<p>${I(x+u,y+v)}$和${I(x,y)}$分别是平移前和平移后的窗口灰度图。</p>
-<p>再用泰勒公式${f(x+u,y+v) = f(x,y)+uf_x(x,y)+vf_y(x,y)}$ 简化为</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
+E(u,v) = \sum_{x,y}w(x,y) { [I(x+u,y+v)-I(x,y)]^2}
+\]</span> <span
+class="math inline">\({w(x,y)}\)</span>是窗口函数，二维的滤波器。</p>
+<p><span class="math inline">\({I(x+u,y+v)}\)</span>和<span
+class="math inline">\({I(x,y)}\)</span>分别是平移前和平移后的窗口灰度图。</p>
+<p>再用泰勒公式<span class="math inline">\({f(x+u,y+v) =
+f(x,y)+uf_x(x,y)+vf_y(x,y)}\)</span> 简化为</p>
+<p><span class="math display">\[
 E(x,y)=[u,v]M{ \left[
- \begin{matrix}
+\begin{matrix}
    u\\v
   \end{matrix}
-  \right]}</script><script type="math/tex; mode=display">
+  \right]}
+\]</span> <span class="math display">\[
 M=\sum_{x,y}w(x,y){ \left[
- \begin{matrix}
-   I_x^2&I_xI_y\\
-   I_xI_y&I_y^2
+\begin{matrix}
+   I_x^2&amp;I_xI_y\\
+   I_xI_y&amp;I_y^2
   \end{matrix}
-  \right]}</script><p>${I_x}$和${I_y}$为x和y方向的梯度值，可以用Sobel进行计算。</p>
-<p>接着${M}$可以用实对称矩阵对角化进一步化简：</p>
-<script type="math/tex; mode=display">
+  \right]}
+\]</span></p>
+<p><span class="math inline">\({I_x}\)</span>和<span
+class="math inline">\({I_y}\)</span>为x和y方向的梯度值，可以用Sobel进行计算。</p>
+<p>接着<span
+class="math inline">\({M}\)</span>可以用实对称矩阵对角化进一步化简：</p>
+<p><span class="math display">\[
 M=R^{-1}
 {\left[
- \begin{matrix}
-   \lambda_1&0\\
-   0&\lambda_2
+\begin{matrix}
+   \lambda_1&amp;0\\
+   0&amp;\lambda_2
   \end{matrix}
   \right] }
-  R</script><p>最后根据${\lambda_1}$和${\lambda_2}$计算角点响应函数R：</p>
-<script type="math/tex; mode=display">
-R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2</script><p>k为经验常数，一般取0.04-0.06。</p>
+  R
+\]</span> 最后根据<span
+class="math inline">\({\lambda_1}\)</span>和<span
+class="math inline">\({\lambda_2}\)</span>计算角点响应函数R：</p>
+<p><span class="math display">\[
+R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2
+\]</span> k为经验常数，一般取0.04-0.06。</p>
 <p>当R很小且小于threshold时，认为是平坦区域；</p>
 <p>当R&lt;0且R&lt;threshold时，认为是边缘；</p>
 <p>当R&gt;0且R&gt;threshold时，认为是角点。</p>
-<h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><ol>
-<li>计算${I_x}$和${I_y}$</li>
-<li>计算${I_xI_y}$</li>
-<li>把${w(x,y)}$，一般是高斯滤波器，应用到${I_x}$、${I_y}$和${I_xI_y}$上，计算$M$矩阵</li>
+<h5 id="步骤">步骤</h5>
+<ol type="1">
+<li>计算<span class="math inline">\({I_x}\)</span>和<span
+class="math inline">\({I_y}\)</span></li>
+<li>计算<span class="math inline">\({I_xI_y}\)</span></li>
+<li>把<span
+class="math inline">\({w(x,y)}\)</span>，一般是高斯滤波器，应用到<span
+class="math inline">\({I_x}\)</span>、<span
+class="math inline">\({I_y}\)</span>和<span
+class="math inline">\({I_xI_y}\)</span>上，计算<span
+class="math inline">\(M\)</span>矩阵</li>
 <li>计算响应值R</li>
 </ol>
-<h5 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h5><p>平移不变性</p>
+<h5 id="特性">特性</h5>
+<p>平移不变性</p>
 <p>旋转不变性</p>
 <p>不满足尺度不变性</p>
-<h4 id="高斯差分滤波器（DoG）"><a href="#高斯差分滤波器（DoG）" class="headerlink" title="高斯差分滤波器（DoG）"></a>高斯差分滤波器（DoG）</h4><p>尺度不变性</p>
+<h4 id="高斯差分滤波器dog">高斯差分滤波器（DoG）</h4>
+<p>尺度不变性</p>
 
     </div>
 
@@ -314,7 +342,7 @@ R={\lambda_1\lambda_2}-k(\lambda_1+\lambda_2)^2</script><p>k为经验常数，�
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -149,6 +149,112 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/02/node%E9%99%8D%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="henryfivev">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="望尘可及的秘密基地">
+      <meta itemprop="description" content="简单地记录一下">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/02/node%E9%99%8D%E7%BA%A7/" class="post-title-link" itemprop="url">node降级</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-02 23:31:12" itemprop="dateCreated datePublished" datetime="2024-01-02T23:31:12+08:00">2024-01-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-15 10:58:54" itemprop="dateModified" datetime="2024-01-15T10:58:54+08:00">2024-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">环境配置</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/Node/" itemprop="url" rel="index"><span itemprop="name">Node</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>现node版本为20.10.0，想降为18.19.0，无法直接安装对应版本node，有以下两个工具可以进行node版本管理：</p>
+<ol type="1">
+<li>从npm安装的nvmw</li>
+<li>从github安装的nvm</li>
+</ol>
+<p>我采用的是nvmw，有诸多不便，以后尝试nvm。</p>
+<p>安装nvmw命令：<code>npm install -g nvmw</code></p>
+<p>有安装node的命令<code>nvmw install version_you_want</code>，但是我下载不了，会卡住，可能得换源qaq。</p>
+<p>这里我的办法是手动下载node到user/nvmw/nodejs中，需要修改文件名为版本号。</p>
+<p>安装node后可以使用<code>nvmw ls</code>查看现有node版本。</p>
+<p>有两个命令来切换node版本：</p>
+<ol type="1">
+<li>临时切换：<code>nvmw use version_you_want</code></li>
+<li>永久切换：<code>nvmw switch version_you_want</code></li>
+</ol>
+<p>however我不能用use命令来切换版本，只能switch后重启来切换cmd中的node版本，powershell中版本不受影响。</p>
+<p>---2024.1.15更新---</p>
+<p>装nvm，不用卸载原有node。装好后，安装对应版本的npm<code>npm install npm@version_you_want</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -706,26 +812,38 @@ As smart contracts on the blockchain are related to financial transactions and c
 ### 7. conclusion
 
 参考aibc：这篇文章中，我们提出了一个基于XXX进行庞氏检测的方法，XXX。这个方法主要解决了现有方法的XXX问题。我们先XXX，然后用XXX进行XXX。基于此，我们的方法除了利用XXX信息，还利用了XXX信息。同时，（机制中其他部分的作用）。评估表现。limitations。一句套话。 -->
-<h2 id="四、issta投稿"><a href="#四、issta投稿" class="headerlink" title="四、issta投稿"></a>四、issta投稿</h2><h3 id="4-1-写作思路回顾"><a href="#4-1-写作思路回顾" class="headerlink" title="4.1 写作思路回顾"></a>4.1 写作思路回顾</h3><p>这次的投稿文章有7个章节，abstract，introduction，background and motivation，overview，detail，evaluation，related work和conclusion。</p>
-<h4 id="内容较泛部分"><a href="#内容较泛部分" class="headerlink" title="内容较泛部分"></a>内容较泛部分</h4><p>可以一句话概括，然后用gpt进行扩写。</p>
-<p>适用内容较泛部分，比如abstract第一段，introduction前几段，background和related work，甚至overview中解释solution的时候也可以小用一下doge。</p>
-<h4 id="各部分内容"><a href="#各部分内容" class="headerlink" title="各部分内容"></a>各部分内容</h4><p>abstract简要介绍背景，motivation，提出的方法思路，表现。</p>
+<h2 id="四issta投稿">四、issta投稿</h2>
+<h3 id="写作思路回顾">4.1 写作思路回顾</h3>
+<p>这次的投稿文章有7个章节，abstract，introduction，background and
+motivation，overview，detail，evaluation，related work和conclusion。</p>
+<h4 id="内容较泛部分">内容较泛部分</h4>
+<p>可以一句话概括，然后用gpt进行扩写。</p>
+<p>适用内容较泛部分，比如abstract第一段，introduction前几段，background和related
+work，甚至overview中解释solution的时候也可以小用一下doge。</p>
+<h4 id="各部分内容">各部分内容</h4>
+<p>abstract简要介绍背景，motivation，提出的方法思路，表现。</p>
 <p>introduction介绍背景，现有工作不足，然后引出我们的方法，介绍我们的方法思路，最后讲评估表现。</p>
-<p>background and motivation要先介绍研究内容的基座，然后着重介绍我们设计方法的考量，用一个motivation example来说明我们发现了什么什么情况，基于这种情况我们这样设计模型。</p>
+<p>background and
+motivation要先介绍研究内容的基座，然后着重介绍我们设计方法的考量，用一个motivation
+example来说明我们发现了什么什么情况，基于这种情况我们这样设计模型。</p>
 <p>overview先摆我们遇到的挑战以及我们的解决方案，尽可能涉及我们用的所有部分，然后分部分说方法的整体框架。</p>
 <p>detail无他，就是详细介绍各个部分的细节。</p>
-<p>evaluation先介绍setup，其中包括实验环境，数据集，性能指标，RQ，参数等等。然后对应RQ开始评估，一般有对比实验，消融实验，参数实验，摆几个case study，最后可以来个limitations。表现能解释解释，不能解释就直接描述结果。case不用过于详尽，但要体现我们选他的理由。</p>
+<p>evaluation先介绍setup，其中包括实验环境，数据集，性能指标，RQ，参数等等。然后对应RQ开始评估，一般有对比实验，消融实验，参数实验，摆几个case
+study，最后可以来个limitations。表现能解释解释，不能解释就直接描述结果。case不用过于详尽，但要体现我们选他的理由。</p>
 <p>related work略。</p>
 <p>conclusion就是abstract- background and motivation。</p>
-<h3 id="4-2-标记规范"><a href="#4-2-标记规范" class="headerlink" title="4.2 标记规范"></a>4.2 标记规范</h3><p>自己瞎定的。</p>
-<ol>
+<h3 id="标记规范">4.2 标记规范</h3>
+<p>自己瞎定的。</p>
+<ol type="1">
 <li>用ffoo，XXX作为占位符</li>
 <li>完成情况标记：1210todo表示1210做，doing表示正在做，todo？表示不一定做，done表示完成</li>
 <li>原文注释规范：第X章开头：ffoo、第X节开头：ffoo</li>
 </ol>
-<h3 id="4-3-碎碎念"><a href="#4-3-碎碎念" class="headerlink" title="4.3 碎碎念"></a>4.3 碎碎念</h3><p>应该用钉钉的思维导图（okr那个），可以指派任务，完成后转移指派。</p>
+<h3 id="碎碎念">4.3 碎碎念</h3>
+<p>应该用钉钉的思维导图（okr那个），可以指派任务，完成后转移指派。</p>
 <p>写论文真得开个gpt4，神中神，写废话和写代码利器。</p>
-<p>chatgpt翻译 &lt; deepl翻译，gpt喜欢拽高级表述，很奇怪，会影响原文的重点，不过deepl有时候也是一坨。</p>
+<p>chatgpt翻译 &lt;
+deepl翻译，gpt喜欢拽高级表述，很奇怪，会影响原文的重点，不过deepl有时候也是一坨。</p>
 <p><a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/#">画latex表格网址</a></p>
 <p>excel画折线图，ppt画示意图，还可以用matlabplot画3d图和热力矩阵。</p>
 
@@ -814,26 +932,33 @@ As smart contracts on the blockchain are related to financial transactions and c
     <div class="post-body" itemprop="articleBody">
           <p>参加了一回港警招聘，记录一下相关信息。</p>
 <p>香港警务处有在官网和公众号宣传招聘信息和宣传点信息，在广州设立了三天的宣传点，两天在SYSU，一天在暨大。</p>
-<h2 id="宣传点"><a href="#宣传点" class="headerlink" title="宣传点"></a>宣传点</h2><p>先说宣传单上的信息吧。</p>
+<h2 id="宣传点">宣传点</h2>
+<p>先说宣传单上的信息吧。</p>
 <p>督察要求本科且中英文一级，月薪5w+，警员仅要求DSE，月薪2.8w+。</p>
 <p>督察先笔试，再两轮面试，警员无笔试仅有面试，都有体测，项目包括4x10、立定跳高、俯卧撑、800米。</p>
 <p>在宣传点当场咨询了一个警员和督察，根据了解的情况来说，督察的面试每次一天，内容包括中英文自我介绍，小组讨论，时事分析，领导力展示等等，存在户外面试。心理测试不筛人。</p>
 <p>PS. 确实存在中英夹杂的情况。</p>
-<h2 id="笔试情况"><a href="#笔试情况" class="headerlink" title="笔试情况"></a>笔试情况</h2><p>下面说说考试的情况。</p>
+<h2 id="笔试情况">笔试情况</h2>
+<p>下面说说考试的情况。</p>
 <p>在公教楼使用了D402和D401两间教室，一间进行警员面试，一间进行笔试。宣传单上表示警员无笔试，但实际上考场有看见警员笔试的信息。</p>
-<p>督察的话两篇作文，一篇中文一篇英文，各60分钟三百字，题目分别是《你希望居住在怎样的城市？》和《view on “money is not the only answer but it makes a difference”》，注意不接受简体字qaq。</p>
+<p>督察的话两篇作文，一篇中文一篇英文，各60分钟三百字，题目分别是《你希望居住在怎样的城市？》和《view
+on "money is not the only answer but it makes a
+difference"》，注意不接受简体字qaq。</p>
 <p>警员的话，就我所看到的，好像全是选择题，有中文有英文（maybe，仅供参考）</p>
 <p>考试氛围的话，十分的轻松，不用摘手表，不收手机，主监考十分友善hhhh。</p>
 <p>不知道为什么他们对信息的涂改很重视，动不动就换一张。</p>
-<h2 id="总体警员观感"><a href="#总体警员观感" class="headerlink" title="总体警员观感"></a>总体警员观感</h2><p>目测大概有7个人，两个督察，五个警员。</p>
+<h2 id="总体警员观感">总体警员观感</h2>
+<p>目测大概有7个人，两个督察，五个警员。</p>
 <p>一个女督察一个男督察貌似没笑过，男督察说实话有点像姚sw，说话风格和精神面貌像，梳个大背头，贼壮，不怎么笑。感觉在宣传点热情介绍那个的男警员有点怕男督察，有点阿谀奉承。</p>
 <p>在宣传点的另一个是女督察，也不笑，介绍情况倒是挺详细的。</p>
 <p>在考场的是三个警员，一个负责面试，一个负责笔试，一个两边跑。噢男督察也是宣传点考场两边跑。</p>
 <p>两边跑的警员也不爱笑，但不凶，我一开始拿红笔填信息她也没怪我，只是帮我换了一张，最后还鼓励我说努力hhhh。</p>
 <p>考完之后和监考姐聊了一会，她还问我为什么要当警察，理工科明明有更好的出路，当警察压力大，还要受气hhhh。我说我不会说白话，她还说我会，只不过歪音hhhh。</p>
-<h2 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h2><p>在外头填信息的时候和两个等待面试的同学聊，才知道督察面试对英语要求很高qaq，要英语自我介绍回答问题啥的。</p>
+<h2 id="闲聊">闲聊</h2>
+<p>在外头填信息的时候和两个等待面试的同学聊，才知道督察面试对英语要求很高qaq，要英语自我介绍回答问题啥的。</p>
 <p>他们还问我怎么敢没准备就报督导，还劝我换去警员hhhh。</p>
-<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><p>从这次应聘还发现一些问题。</p>
+<h2 id="反思">反思</h2>
+<p>从这次应聘还发现一些问题。</p>
 <p>一个是做事态度出了问题，现在不会高中那样，一点点分解问题，尽可能去解决问题，现在是遇到问题，尝试一下，然后心里就拼命敲响退堂鼓了。</p>
 <p>另一个是香港和内地工作氛围差异的问题，就从这次的观察来看，香港上下级之间的界限有点分明，工作氛围可能会压抑，可能存在职场霸凌？</p>
 
@@ -918,21 +1043,28 @@ As smart contracts on the blockchain are related to financial transactions and c
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>数据集：<a target="_blank" rel="noopener" href="https://xblock.pro/#/dataset/25">https://xblock.pro/#/dataset/25</a></p>
-<h2 id="传统庞氏合约"><a href="#传统庞氏合约" class="headerlink" title="传统庞氏合约"></a>传统庞氏合约</h2><p>目前将庞氏合约根据合约分配资金的模式分成4类：树形合约、链式合约、瀑布式合约和交接合约。</p>
-<h3 id="树形合约"><a href="#树形合约" class="headerlink" title="树形合约"></a>树形合约</h3><p>用户之间的关系为树形结构。每当用户加入这个合约时，他必须将另一个用户指示为邀请者（父节点）。</p>
+          <p>数据集：https://xblock.pro/#/dataset/25</p>
+<h2 id="传统庞氏合约">传统庞氏合约</h2>
+<p>目前将庞氏合约根据合约分配资金的模式分成4类：树形合约、链式合约、瀑布式合约和交接合约。</p>
+<h3 id="树形合约">树形合约</h3>
+<p>用户之间的关系为树形结构。每当用户加入这个合约时，他必须将另一个用户指示为邀请者（父节点）。</p>
 <p>新用户的钱在她的邀请者或邀请者的邀请者等等(即树形结构下的“祖先”)之间分配，逻辑是距离她越近邀请者获得的份额越大。</p>
 <p>例子：Etheramid和DynamicPyramid</p>
-<h3 id="链式合约"><a href="#链式合约" class="headerlink" title="链式合约"></a>链式合约</h3><p>用户之间的关系是线性的，每个节点都只有一个子节点。通常承诺一个常数因子（收益金额/投资金额），这个常数因子对所有用户都是相等的。合约按顺序一次性全额支付用户的收益。</p>
+<h3 id="链式合约">链式合约</h3>
+<p>用户之间的关系是线性的，每个节点都只有一个子节点。通常承诺一个常数因子（收益金额/投资金额），这个常数因子对所有用户都是相等的。合约按顺序一次性全额支付用户的收益。</p>
 <p>所有新的投资都被收集起来，直到获得到期的金额。</p>
 <p>例子：Doubler、dianaem和ZeroPonzi</p>
-<h3 id="瀑布式合约"><a href="#瀑布式合约" class="headerlink" title="瀑布式合约"></a>瀑布式合约</h3><p>类似于链式合约，但分配逻辑不同。分发总是从链的头部开始，按顺序支付用户的收益，直到余额耗尽。</p>
+<h3 id="瀑布式合约">瀑布式合约</h3>
+<p>类似于链式合约，但分配逻辑不同。分发总是从链的头部开始，按顺序支付用户的收益，直到余额耗尽。</p>
 <p>每次分钱会跳着分。</p>
 <p>例子：TreasureChest和PiggyBank</p>
-<h3 id="交接合约"><a href="#交接合约" class="headerlink" title="交接合约"></a>交接合约</h3><p>类似于链式合约，用户投资金额由合约决定，每次有新的用户加入，合约就会提高投资金额。合约将新用户的资金直接支付给前一个用户，前一个用户立即获得了利润。</p>
+<h3 id="交接合约">交接合约</h3>
+<p>类似于链式合约，用户投资金额由合约决定，每次有新的用户加入，合约就会提高投资金额。合约将新用户的资金直接支付给前一个用户，前一个用户立即获得了利润。</p>
 <p>例子：KingOfTheEtherThrone</p>
-<h2 id="新发现"><a href="#新发现" class="headerlink" title="新发现"></a>新发现</h2><p>在数据集中发现有很多被标记为庞氏的合约是建立在自己实现的token上的，不一定符合ERC20标准。这类合约接收到新投资后，一般会增加老投资者的分红变量，而不是直接向老投资者转账。</p>
-<h2 id="数据集不足"><a href="#数据集不足" class="headerlink" title="数据集不足"></a>数据集不足</h2><p>现在数据集有点旧，仅截止到2019年1月生成的区块7136486。</p>
+<h2 id="新发现">新发现</h2>
+<p>在数据集中发现有很多被标记为庞氏的合约是建立在自己实现的token上的，不一定符合ERC20标准。这类合约接收到新投资后，一般会增加老投资者的分红变量，而不是直接向老投资者转账。</p>
+<h2 id="数据集不足">数据集不足</h2>
+<p>现在数据集有点旧，仅截止到2019年1月生成的区块7136486。</p>
 <p>得更新一下数据集，从中找一个新模式的庞氏合约（或者我们自己想一个hhhh有没有可能整个跨链庞氏）</p>
 
       
@@ -1016,12 +1148,14 @@ As smart contracts on the blockchain are related to financial transactions and c
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>亲测<a target="_blank" rel="noopener" href="https://blog.csdn.net/Miracle_ps/article/details/114791335中的第二个办法可行，这里mark一下。">https://blog.csdn.net/Miracle_ps/article/details/114791335中的第二个办法可行，这里mark一下。</a></p>
+          <p>亲测https://blog.csdn.net/Miracle_ps/article/details/114791335中的第二个办法可行，这里mark一下。</p>
 <p>方法一：</p>
-<ol>
+<ol type="1">
 <li>找到Hexo下的_config.yml里的post_asset_folder，把这个选项从false改成true</li>
-<li>在Hexo目录下打开Git Brsh，执行一个下载上传图片插件的命令npm install hexo-asset-image —save。</li>
-<li>继续在Git Brsh下利用hexo n “xxxx”来生成md的文件（””里的内容填自己的文件名），这时就会在同级的目录下生成一个同名的文件夹。</li>
+<li>在Hexo目录下打开Git Brsh，执行一个下载上传图片插件的命令npm install
+hexo-asset-image --save。</li>
+<li>继续在Git Brsh下利用hexo n
+"xxxx"来生成md的文件（""里的内容填自己的文件名），这时就会在同级的目录下生成一个同名的文件夹。</li>
 <li>在.md的文件中要插入图片时，先要把所要插入的图片放在生成的同名文件夹下。</li>
 </ol>
 <p>方法二：</p>
@@ -1193,48 +1327,62 @@ As smart contracts on the blockchain are related to financial transactions and c
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="一、论文信息"><a href="#一、论文信息" class="headerlink" title="一、论文信息"></a>一、论文信息</h2><p>题目：《Ponzi Scheme Detection in Smart Contract via Transaction Semantic Representation Learning》</p>
+          <h2 id="一论文信息">一、论文信息</h2>
+<p>题目：《Ponzi Scheme Detection in Smart Contract via Transaction
+Semantic Representation Learning》</p>
 <p>级别：IEEE Transactions on Reliability，中科院二区，CCF-C类</p>
 <p>作者院校：扬州大学</p>
-<h2 id="二、论文动机"><a href="#二、论文动机" class="headerlink" title="二、论文动机"></a>二、论文动机</h2><p>现有方法的局限性：</p>
-<ol>
+<h2 id="二论文动机">二、论文动机</h2>
+<p>现有方法的局限性：</p>
+<ol type="1">
 <li>语义不足</li>
 <li>庞氏关键语义获取</li>
 <li>未充分利用特征</li>
 </ol>
 <p>提出一个基于学习交易语义的方法：用一种新的代码表示方法sTPG，将交易语义表示成一个图，然后利用gcn来学习交易模式。</p>
 <p>设计方法的考量：</p>
-<ol>
+<ol type="1">
 <li>为了处理复杂语义：cfg</li>
 <li>为了处理无关代码：切片</li>
 <li>状态变量的过程内数据依赖重要性</li>
 </ol>
-<h2 id="三、具体方法"><a href="#三、具体方法" class="headerlink" title="三、具体方法"></a>三、具体方法</h2><p>文中有给一个走完了全流程的例子，各部分的最后一段是对该例子的操作。</p>
-<h3 id="训练阶段"><a href="#训练阶段" class="headerlink" title="训练阶段"></a>训练阶段</h3><p>简单说就是通过静态分析，程序切片和过程内状态变量依赖分析这三个步骤，从一个合约中获得一组sTPG，然后用这些sTPG作为特征进行训练。</p>
-<h4 id="3-1-静态分析"><a href="#3-1-静态分析" class="headerlink" title="3.1 静态分析"></a>3.1 静态分析</h4><ol>
+<h2 id="三具体方法">三、具体方法</h2>
+<p>文中有给一个走完了全流程的例子，各部分的最后一段是对该例子的操作。</p>
+<h3 id="训练阶段">训练阶段</h3>
+<p>简单说就是通过静态分析，程序切片和过程内状态变量依赖分析这三个步骤，从一个合约中获得一组sTPG，然后用这些sTPG作为特征进行训练。</p>
+<h4 id="静态分析">3.1 静态分析</h4>
+<ol type="1">
 <li>先构建交易函数集</li>
 <li>然后用slither对每个交易函数构建cfg</li>
-<li>接着对每个cfg用forward dominance relation方法来获得控制依赖边，用变量def-use链来获得数据依赖边和数据流边</li>
+<li>接着对每个cfg用forward dominance
+relation方法来获得控制依赖边，用变量def-use链来获得数据依赖边和数据流边</li>
 <li>构建状态变量依赖边，从read到write</li>
 </ol>
 <p>至此对每个交易函数都有一个PDG图，图中有5种边，控制依赖边、数据依赖边、控制流边、数据流边和状态变量依赖边。</p>
-<h4 id="3-2-程序切片"><a href="#3-2-程序切片" class="headerlink" title="3.2 程序切片"></a>3.2 程序切片</h4><p>对静态分析中获得的每个PDG应用以下两个切片标准：</p>
-<ol>
+<h4 id="程序切片">3.2 程序切片</h4>
+<p>对静态分析中获得的每个PDG应用以下两个切片标准：</p>
+<ol type="1">
 <li>每个transfer API，后向切片</li>
 <li>切片1中存在的全部状态变量，后向前向切片</li>
 </ol>
-<h4 id="3-3-过程内状态变量依赖分析"><a href="#3-3-过程内状态变量依赖分析" class="headerlink" title="3.3 过程内状态变量依赖分析"></a>3.3 过程内状态变量依赖分析</h4><p>在所有可调用的函数中，查找修改了(交易API依赖的状态变量)的语句，添加过程间状态变量依赖边，从read到write。</p>
-<h4 id="3-4-模型训练"><a href="#3-4-模型训练" class="headerlink" title="3.4 模型训练"></a>3.4 模型训练</h4><p>初始化：</p>
+<h4 id="过程内状态变量依赖分析">3.3 过程内状态变量依赖分析</h4>
+<p>在所有可调用的函数中，查找修改了(交易API依赖的状态变量)的语句，添加过程间状态变量依赖边，从read到write。</p>
+<h4 id="模型训练">3.4 模型训练</h4>
+<p>初始化：</p>
 <ul>
 <li>节点嵌入初始化：用一个开源的基于AST的模型Infercode来获得向量</li>
 <li>边嵌入初始化：先合并同方向边，接着将边编码成五维的onehot形式，每一维度分别表示控制流、数据流、数据依赖、控制依赖和状态变量依赖</li>
 </ul>
-<p>为了利用上边的信息，他们提出了一个relation-sensitive gcn：先用一个MLP计算边的隐藏特征，然后将节点特征和隐藏特征相拼接，用拼接后的特征进行图卷积（不太了解图卷积，这里没懂），最后用一个最大池化层和MLP进行分。</p>
-<h3 id="检测阶段"><a href="#检测阶段" class="headerlink" title="检测阶段"></a>检测阶段</h3><p>类似训练阶段</p>
-<h2 id="四、实验复现"><a href="#四、实验复现" class="headerlink" title="四、实验复现"></a>四、实验复现</h2><p>数据集是开源的，放在了<a target="_blank" rel="noopener" href="https://github.com/smartcontract-detect-yzu/PonziDataset，一部分是之前文章的开源数据集，一部分是从各个地方找合约然后人工打标签的，剩下是etherscan上标记为庞氏的。">https://github.com/smartcontract-detect-yzu/PonziDataset，一部分是之前文章的开源数据集，一部分是从各个地方找合约然后人工打标签的，剩下是etherscan上标记为庞氏的。</a></p>
+<p>为了利用上边的信息，他们提出了一个relation-sensitive
+gcn：先用一个MLP计算边的隐藏特征，然后将节点特征和隐藏特征相拼接，用拼接后的特征进行图卷积（不太了解图卷积，这里没懂），最后用一个最大池化层和MLP进行分。</p>
+<h3 id="检测阶段">检测阶段</h3>
+<p>类似训练阶段</p>
+<h2 id="四实验复现">四、实验复现</h2>
+<p>数据集是开源的，放在了https://github.com/smartcontract-detect-yzu/PonziDataset，一部分是之前文章的开源数据集，一部分是从各个地方找合约然后人工打标签的，剩下是etherscan上标记为庞氏的。</p>
 <p>用slither进行静态分析，然后用Networkx构建sTPG，接着用Pytorch和PYG实现RS-GCN。</p>
 <p>硬件信息和模型参数都有交代，见EXPERIMENT章节的Implementation段</p>
-<h2 id="五、不足"><a href="#五、不足" class="headerlink" title="五、不足"></a>五、不足</h2><ol>
+<h2 id="五不足">五、不足</h2>
+<ol type="1">
 <li>仅针对solidity</li>
 <li>识别出的交易语义源自一个交易函数——可扩展到跨函数交易语义挖掘</li>
 <li>可尝试利用更多信息，比如AST中的信息</li>
@@ -1328,16 +1476,20 @@ As smart contracts on the blockchain are related to financial transactions and c
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG</p>
+          <h2 id="一概述">一、概述</h2>
+<p>控制流图CFG、数据流图DFG、程序依赖图PDG、系统依赖图SDG</p>
 <p>程序切片从可执行到不可执行</p>
 <p>根据输入分类：静态切片，动态切片，有条件切片</p>
 <p>程序切片应用之处</p>
-<h2 id="二、图论基础"><a href="#二、图论基础" class="headerlink" title="二、图论基础"></a>二、图论基础</h2><h3 id="控制流图"><a href="#控制流图" class="headerlink" title="控制流图"></a>控制流图</h3><p>基本块：第一句进入，最后一句离开</p>
+<h2 id="二图论基础">二、图论基础</h2>
+<h3 id="控制流图">控制流图</h3>
+<p>基本块：第一句进入，最后一句离开</p>
 <p>控制流图以基本块为节点</p>
-<h3 id="控制流和数据流"><a href="#控制流和数据流" class="headerlink" title="控制流和数据流"></a>控制流和数据流</h3><p>控制流分析就是去发现过程内or过程间的控制流</p>
+<h3 id="控制流和数据流">控制流和数据流</h3>
+<p>控制流分析就是去发现过程内or过程间的控制流</p>
 <p>什么是过程？~函数</p>
 <p>控制流图表示形式：</p>
-<ol>
+<ol type="1">
 <li>AST</li>
 <li>CFG</li>
 <li>PDG中的控制依赖</li>
@@ -1345,9 +1497,10 @@ As smart contracts on the blockchain are related to financial transactions and c
 <p>数据流描述了变量的值从定义点如何流到使用点</p>
 <p>数据流边表示什么？~变量和变量之间的关系</p>
 <p>可到达定义怎么计算？~求解数据流方程</p>
-<h3 id="控制依赖和数据依赖"><a href="#控制依赖和数据依赖" class="headerlink" title="控制依赖和数据依赖"></a>控制依赖和数据依赖</h3><p>控制依赖：控制流引起的程序实体之间的关系</p>
+<h3 id="控制依赖和数据依赖">控制依赖和数据依赖</h3>
+<p>控制依赖：控制流引起的程序实体之间的关系</p>
 <p>控制依赖定义：满足以下三个条件：</p>
-<ol>
+<ol type="1">
 <li>n1n2之间存在可执行路径</li>
 <li>对可到达路径上的其他点，n2都是它的后必经节点</li>
 <li>n2不是n1的后必经节点</li>
@@ -1355,30 +1508,38 @@ As smart contracts on the blockchain are related to financial transactions and c
 <p>条件语句内部的语句控制依赖于条件部分</p>
 <p>数据依赖：由于数据定义和使用所形成的实体之间的关系</p>
 <p>数据依赖定义：满足以下三个条件：</p>
-<ol>
+<ol type="1">
 <li>n2定义了变量v</li>
 <li>n1使用了变量v</li>
 <li>n2n1存在可执行路径且变量v未重新定义</li>
 </ol>
-<h3 id="程序依赖图"><a href="#程序依赖图" class="headerlink" title="程序依赖图"></a>程序依赖图</h3><p>这里只是简单介绍</p>
+<h3 id="程序依赖图">程序依赖图</h3>
+<p>这里只是简单介绍</p>
 <p>过程内依赖图：即过程依赖图PrDG，即控制依赖图+数据依赖图</p>
 <p>过程间依赖图：即系统依赖图，各个过程依赖图+调用边+调用引起的依赖边</p>
-<h2 id="三、静态程序分析"><a href="#三、静态程序分析" class="headerlink" title="三、静态程序分析"></a>三、静态程序分析</h2><h3 id="MarkWeiser程序切片"><a href="#MarkWeiser程序切片" class="headerlink" title="MarkWeiser程序切片"></a>MarkWeiser程序切片</h3><p>切片准则：<n, V>，n表示某个语句，V表示代码中变量的子集</p>
+<h2 id="三静态程序分析">三、静态程序分析</h2>
+<h3 id="markweiser程序切片">MarkWeiser程序切片</h3>
+<p>切片准则：&lt;n, V&gt;，n表示某个语句，V表示代码中变量的子集</p>
 <p>其实就是在简化代码，希望留下切片准则相关的代码，求切片就是求图的可达性问题</p>
 <p>切片结果可能不符合语法</p>
 <p>切片优化：寻找最小切片问题是不可解的</p>
 <p>不足：只能解决简单的程序，为了解决过程和过程调用的问题提出了过程内切片和过程间切片</p>
-<h3 id="过程内切片"><a href="#过程内切片" class="headerlink" title="过程内切片"></a>过程内切片</h3><p>先在cfg上构建控制依赖图和数据依赖图，然后把两个图合并即可得到pdg</p>
+<h3 id="过程内切片">过程内切片</h3>
+<p>先在cfg上构建控制依赖图和数据依赖图，然后把两个图合并即可得到pdg</p>
 <p>先构建程序依赖图pdg，再应用图可达性算法</p>
 <p>前向后向区别：</p>
 <ul>
 <li>后向：是指以漏洞关注点为终点，能够到达该节点的所有路径上的所有节点</li>
 <li>前向：是指从关注点节点出发，能够达到达到的所有路径上的节点</li>
 </ul>
-<h3 id="过程间切片"><a href="#过程间切片" class="headerlink" title="过程间切片"></a>过程间切片</h3><p>一样的逻辑，构建系统依赖图，然后应用图可达性算法</p>
+<h3 id="过程间切片">过程间切片</h3>
+<p>一样的逻辑，构建系统依赖图，然后应用图可达性算法</p>
 <p>在过程依赖图上添加调用边、参数输入边和参数输出边形成系统依赖图（根据P50，好像有更多操作）</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>《程序切片技术及其应用》</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149894944">【南大软件分析】lecture7 笔记-Interprocedural Analysis</a></p>
+<h2 id="参考资料">参考资料</h2>
+<p>《程序切片技术及其应用》</p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149894944">【南大软件分析】lecture7
+笔记-Interprocedural Analysis</a></p>
 
       
     </div>
@@ -1467,36 +1628,45 @@ As smart contracts on the blockchain are related to financial transactions and c
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Cosmos多链拆解"><a href="#Cosmos多链拆解" class="headerlink" title="Cosmos多链拆解"></a>Cosmos多链拆解</h2><p>区块链的发展：btc，eth，cosmos(多链)</p>
-<h3 id="Tendermint共识机制"><a href="#Tendermint共识机制" class="headerlink" title="Tendermint共识机制"></a>Tendermint共识机制</h3><p>tendermint分为core和abci两个组件</p>
-<h4 id="Tendermint-Core"><a href="#Tendermint-Core" class="headerlink" title="Tendermint Core"></a>Tendermint Core</h4><p>共识算法为优化后的POS</p>
+          <h2 id="cosmos多链拆解">Cosmos多链拆解</h2>
+<p>区块链的发展：btc，eth，cosmos(多链)</p>
+<h3 id="tendermint共识机制">Tendermint共识机制</h3>
+<p>tendermint分为core和abci两个组件</p>
+<h4 id="tendermint-core">Tendermint Core</h4>
+<p>共识算法为优化后的POS</p>
 <p>需要使用客户端以保证安全性和一致性</p>
-<p>tendermint core作为共识引擎，网络层使用Gossip协议，共识层使用BFT+POS共识算法</p>
+<p>tendermint
+core作为共识引擎，网络层使用Gossip协议，共识层使用BFT+POS共识算法</p>
 <p>验证者获得2/3的投票即添加新的区块</p>
 <p>节点上限100个以保证性能</p>
-<h4 id="ABCI接口"><a href="#ABCI接口" class="headerlink" title="ABCI接口"></a>ABCI接口</h4><ul>
+<h4 id="abci接口">ABCI接口</h4>
+<ul>
 <li>CheckTx：验证交易</li>
 <li>DeliverTx：提交并更新状态</li>
 <li>BeginBlock和EndBlock：查询状态</li>
 </ul>
-<h3 id="Cosmos-SDK"><a href="#Cosmos-SDK" class="headerlink" title="Cosmos SDK"></a>Cosmos SDK</h3><p>SDK内分成多个部分，开发者可以组合不同模块来构建DApp，也可以自行开发模块</p>
+<h3 id="cosmos-sdk">Cosmos SDK</h3>
+<p>SDK内分成多个部分，开发者可以组合不同模块来构建DApp，也可以自行开发模块</p>
 <p>支持WebAssembly</p>
 <p>支持对象能力模型，将模块的运行逻辑保存在Keeper中。</p>
-<h4 id="IBC协议"><a href="#IBC协议" class="headerlink" title="IBC协议"></a>IBC协议</h4><p>类似TCP/IP协议</p>
+<h4 id="ibc协议">IBC协议</h4>
+<p>类似TCP/IP协议</p>
 <p>建立握手连接：</p>
-<ol>
+<ol type="1">
 <li>A链发起跨链到B链的OpenInit请求，等待Relayer接收到该请求。</li>
 <li>Relayer收到OpenInit的请求之后，构造OpenTry的请求发送到B链上。</li>
 <li>B链收到OpenTry请求之后，同意并确认之后生成OpenACK数据包，并由Relayer按照同样的方式发送给A链。</li>
 <li>A链通过OpenACK数据包判断此次握手是否成功，成功则发送OpenConfirm并把包含信息的数据包返回B链，成功传输信息；否则握手失败。</li>
 </ol>
-<h3 id="Cosmos-vs-Polkadot"><a href="#Cosmos-vs-Polkadot" class="headerlink" title="Cosmos vs. Polkadot"></a>Cosmos vs. Polkadot</h3><ul>
+<h3 id="cosmos-vs.-polkadot">Cosmos vs. Polkadot</h3>
+<ul>
 <li>跨链协议：IBC和Parachain</li>
 <li>共识机制：Tendermint和GRANDPA（ghost协议）</li>
 <li>资产管理：账户模型和链上资产模型</li>
 </ul>
 <p>polkadot的中继链是平行链的唯一安全提供者，带来了一定的中心化。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>gossip协议是什么？</li>
 <li>ABCI接口没看明白？</li>
 <li>Multistore机制是什么意思？</li>
@@ -1591,19 +1761,24 @@ As smart contracts on the blockchain are related to financial transactions and c
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="跨链是如何实现的"><a href="#跨链是如何实现的" class="headerlink" title="跨链是如何实现的"></a>跨链是如何实现的</h2><p>由于区块链可扩展性未解决</p>
+          <h2 id="跨链是如何实现的">跨链是如何实现的</h2>
+<p>由于区块链可扩展性未解决</p>
 <p>链之间的交互，数据、资产和功能的互通</p>
-<h3 id="一、跨链通信"><a href="#一、跨链通信" class="headerlink" title="一、跨链通信"></a>一、跨链通信</h3><p>主要有两类跨链通信：</p>
-<ol>
+<h3 id="一跨链通信">一、跨链通信</h3>
+<p>主要有两类跨链通信：</p>
+<ol type="1">
 <li>最小化信任跨链通信：集群内部，rollups</li>
 <li>可信任跨链通信：集群之间</li>
 </ol>
-<h4 id="常见可信任跨链通信协议"><a href="#常见可信任跨链通信协议" class="headerlink" title="常见可信任跨链通信协议"></a>常见可信任跨链通信协议</h4><h5 id="1-IBC"><a href="#1-IBC" class="headerlink" title="1. IBC"></a>1. IBC</h5><p>cosmos中的核心部分，为一种标准（链间标准ICS），由TAO层和Application层组成。</p>
+<h4 id="常见可信任跨链通信协议">常见可信任跨链通信协议</h4>
+<h5 id="ibc">1. IBC</h5>
+<p>cosmos中的核心部分，为一种标准（链间标准ICS），由TAO层和Application层组成。</p>
 <p>点对点连接</p>
 <p>链之间不是直接通信，用专用通道发送信息，通道中包含一个轻客户端</p>
-<h5 id="2-ZK"><a href="#2-ZK" class="headerlink" title="2. ZK"></a>2. ZK</h5><p>用zkp代替原数据</p>
+<h5 id="zk">2. ZK</h5>
+<p>用zkp代替原数据</p>
 <p>步骤：</p>
-<ol>
+<ol type="1">
 <li>决定要传递的数据</li>
 <li>获取证明数据存在EVM中的存储证明</li>
 <li>由存储证明生成ZK证明，以默克尔树的形式</li>
@@ -1611,195 +1786,47 @@ As smart contracts on the blockchain are related to financial transactions and c
 <li>展开zkp</li>
 <li>读取跨链信息</li>
 </ol>
-<h5 id="3-LayerZero"><a href="#3-LayerZero" class="headerlink" title="3. LayerZero"></a>3. LayerZero</h5><p>传输层协议，架构由端点、中继点和预言机组成</p>
+<h5 id="layerzero">3. LayerZero</h5>
+<p>传输层协议，架构由端点、中继点和预言机组成</p>
 <p>步骤：</p>
-<ol>
+<ol type="1">
 <li>向communicator发送交易信息</li>
 <li>communicator将交易信息以某种形式发送给validator</li>
 <li>未完，有点复杂</li>
 </ol>
-<h5 id="4-axelar"><a href="#4-axelar" class="headerlink" title="4. axelar"></a>4. axelar</h5><p>验证者网络+网关智能合约+开发者工具</p>
+<h5 id="axelar">4. axelar</h5>
+<p>验证者网络+网关智能合约+开发者工具</p>
 <p>非点对点，链只需要接入一次即可跨多条链</p>
-<h5 id="5-wormhole"><a href="#5-wormhole" class="headerlink" title="5. wormhole"></a>5. wormhole</h5><p>POA共识机制，核心合约+守护者网络。</p>
+<h5 id="wormhole">5. wormhole</h5>
+<p>POA共识机制，核心合约+守护者网络。</p>
 <p>守护者网络有19名守护者，负责交易验证</p>
-<h3 id="二、跨链技术"><a href="#二、跨链技术" class="headerlink" title="二、跨链技术"></a>二、跨链技术</h3><h4 id="1-公证人机制"><a href="#1-公证人机制" class="headerlink" title="1. 公证人机制"></a>1. 公证人机制</h4><p>引入第三方来验证信息</p>
+<h3 id="二跨链技术">二、跨链技术</h3>
+<h4 id="公证人机制">1. 公证人机制</h4>
+<p>引入第三方来验证信息</p>
 <p>有点像交易所</p>
-<h4 id="2-哈希锁定"><a href="#2-哈希锁定" class="headerlink" title="2. 哈希锁定"></a>2. 哈希锁定</h4><p>借助哈希的单向性实现跨链交易</p>
-<h4 id="3-侧链"><a href="#3-侧链" class="headerlink" title="3. 侧链"></a>3. 侧链</h4><p>two-way peg，在主链锁定货币后在侧链中释放等价货币</p>
-<p>SPV模式：simplified payment verification，通过将交易发给本链的一个特殊地址，由此会自动创建一个SPV证明给侧链上并发起一个交易在侧链上解锁对应的资产。</p>
-<h4 id="4-中继机制"><a href="#4-中继机制" class="headerlink" title="4. 中继机制"></a>4. 中继机制</h4><p>跨链信息通过中继链的验证者验证后发布到中继链上</p>
-<h4 id="5-分布式私钥控制"><a href="#5-分布式私钥控制" class="headerlink" title="5. 分布式私钥控制"></a>5. 分布式私钥控制</h4><p>lock-in，lock-out，分片密钥</p>
-<h3 id="三、跨链的未来展望"><a href="#三、跨链的未来展望" class="headerlink" title="三、跨链的未来展望"></a>三、跨链的未来展望</h3><ul>
+<h4 id="哈希锁定">2. 哈希锁定</h4>
+<p>借助哈希的单向性实现跨链交易</p>
+<h4 id="侧链">3. 侧链</h4>
+<p>two-way peg，在主链锁定货币后在侧链中释放等价货币</p>
+<p>SPV模式：simplified payment
+verification，通过将交易发给本链的一个特殊地址，由此会自动创建一个SPV证明给侧链上并发起一个交易在侧链上解锁对应的资产。</p>
+<h4 id="中继机制">4. 中继机制</h4>
+<p>跨链信息通过中继链的验证者验证后发布到中继链上</p>
+<h4 id="分布式私钥控制">5. 分布式私钥控制</h4>
+<p>lock-in，lock-out，分片密钥</p>
+<h3 id="三跨链的未来展望">三、跨链的未来展望</h3>
+<ul>
 <li>跨链桥</li>
 <li>OmniChain NFT</li>
 <li>layerzero的新应用</li>
 <li>chainlink作为预言机</li>
 <li>整合ICS标准</li>
 </ul>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>跨链通信中的集群是什么意思？——同一生态，比如说polkadot中的平行链和中继链。</li>
 <li>跨链通信协议和跨链技术的区别？——跨链通信协议是一种标准化的规则和协议，用于确保区块链之间的通信。跨链技术是一组具体的技术和方法，用于实际实现区块链之间的互操作性。跨链技术依赖跨链通信协议来建立通信，以实现跨链交互。这两者共同协助解决了区块链互操作性的挑战。</li>
 <li>跨链桥是什么？——有点类似侧链</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="henryfivev">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="望尘可及的秘密基地">
-      <meta itemprop="description" content="简单地记录一下">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 望尘可及的秘密基地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/" class="post-title-link" itemprop="url">精通以太坊-智能合约安全</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-10-17 09:59:12 / Modified: 17:47:42" itemprop="dateCreated datePublished" datetime="2023-10-17T09:59:12+08:00">2023-10-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/" itemprop="url" rel="index"><span itemprop="name">Blockchain</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Blockchain/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">精通以太坊</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="九、智能合约安全"><a href="#九、智能合约安全" class="headerlink" title="九、智能合约安全"></a>九、智能合约安全</h2><h3 id="9-3-重入"><a href="#9-3-重入" class="headerlink" title="9.3 重入"></a>9.3 重入</h3><p>原理：调用外部fallback函数来进行转账，导致合约可重入</p>
-<p>防范技术：</p>
-<ol>
-<li>用transfer()进行转账，虽然会带来额外gas</li>
-<li>使用“检查-生效-交互”模式</li>
-<li>使用互斥锁</li>
-</ol>
-<p>案例：DAO攻击</p>
-<h3 id="9-4-算术溢出"><a href="#9-4-算术溢出" class="headerlink" title="9.4 算术溢出"></a>9.4 算术溢出</h3><p>原理：Solidity中整数存在上下限</p>
-<p>防范技术：</p>
-<ol>
-<li>使用SafeMath库合约</li>
-</ol>
-<p>案例：PoWHC</p>
-<h3 id="9-5-意外的以太币"><a href="#9-5-意外的以太币" class="headerlink" title="9.5 意外的以太币"></a>9.5 意外的以太币</h3><p>原理：强制发送以太币导致合约无法执行，self-destruct或预先发送都可以实现</p>
-<p>防范技术：</p>
-<ol>
-<li>少用this.balance，使用状态变量保存余额</li>
-</ol>
-<h3 id="9-6-delegatecall"><a href="#9-6-delegatecall" class="headerlink" title="9.6 delegatecall"></a>9.6 delegatecall</h3><p>原理：delegatecall保持上下文，状态或存储变量（可以在独立的交易之间保持其数值的变量）会按照它们被引入合约的顺序放置在存储槽中，这时我们改变的变量可能不是我们期望改变的。</p>
-<p>防范技术：</p>
-<ol>
-<li>使用library关键字可以保证库合约是无状态和不会自我销毁的</li>
-</ol>
-<p>案例：Parity多重签名钱包的第二次攻击</p>
-<h3 id="9-7-默认的可见性"><a href="#9-7-默认的可见性" class="headerlink" title="9.7 默认的可见性"></a>9.7 默认的可见性</h3><p>原理：Solidity函数可见性默认为public，可能出现纰漏</p>
-<p>防范技术：为每个函数都指定可见性</p>
-<p>案例：Parity多重签名钱包的首次攻击</p>
-<h3 id="9-8-无序错觉"><a href="#9-8-无序错觉" class="headerlink" title="9.8 无序错觉"></a>9.8 无序错觉</h3><p>原理：为了在以太坊中引入无序性（即随机性），使用哈希值、区块号等可被操控的区块变量作为随机值</p>
-<p>防范技术：无序性必须来自区块链外部</p>
-<p>案例：PRNG合约</p>
-<h3 id="9-9-外部合约引用"><a href="#9-9-外部合约引用" class="headerlink" title="9.9 外部合约引用"></a>9.9 外部合约引用</h3><p>原理：可以故意将地址指向错误的合约，假如引用的合约不包含要调用的函数，将执行回退函数。如果用户可以修改合约引用的合约库，那么基本上他们就可以使其他用户在不知情的情况下运行任意代码。</p>
-<p>防范技术：</p>
-<ol>
-<li>new一个要引用的合约</li>
-<li>对外部合约进行硬编码</li>
-</ol>
-<p>一般建议将合约地址设置为public以方便用户检查引用的合约</p>
-<p>案例：<a target="_blank" rel="noopener" href="https://www.reddit.com/r/ethdev/comments/7x5rwr/tricked_by_a_honeypot_contract_or_beaten_by/">可重入的蜜罐</a></p>
-<h3 id="9-10-短地址攻击"><a href="#9-10-短地址攻击" class="headerlink" title="9.10 短地址攻击"></a>9.10 短地址攻击</h3><p>原理：当实际发送的数据长度小于标准编码长度时，EVM将在数据末尾补0，这种操作可能影响末尾参数</p>
-<p>防范技术：对参数进行校验</p>
-<h3 id="9-11-未检查的调用返回值"><a href="#9-11-未检查的调用返回值" class="headerlink" title="9.11 未检查的调用返回值"></a>9.11 未检查的调用返回值</h3><p>原理：send和call外部调用失败仅返回false，不revert</p>
-<p>防范技术：</p>
-<ol>
-<li>检查返回值</li>
-<li>使用withdraw模式</li>
-</ol>
-<h3 id="9-12-预先交易"><a href="#9-12-预先交易" class="headerlink" title="9.12 预先交易"></a>9.12 预先交易</h3><p>原理：gas高的优先被打包</p>
-<p>防范技术：</p>
-<ol>
-<li>设置gas上限</li>
-<li>使用commit-reveal模式</li>
-<li>submarine sends</li>
-</ol>
-<p>案例：erc20的approve函数</p>
-<h3 id="9-13-拒绝服务"><a href="#9-13-拒绝服务" class="headerlink" title="9.13 拒绝服务"></a>9.13 拒绝服务</h3><p>原理：各种原因使合约不可用，比如说事先向合约转账使合约无法通过某些限制条件</p>
-<p>防范技术：各个情况方法不同</p>
-<h3 id="9-14-区块时间戳操纵"><a href="#9-14-区块时间戳操纵" class="headerlink" title="9.14 区块时间戳操纵"></a>9.14 区块时间戳操纵</h3><p>原理：区块时间戳可被矿工指定。</p>
-<p>防范技术：不应使用区块时间戳作为随机数。</p>
-<p>案例：GovernMental</p>
-<h3 id="9-15-小心使用构造函数"><a href="#9-15-小心使用构造函数" class="headerlink" title="9.15 小心使用构造函数"></a>9.15 小心使用构造函数</h3><p>原理：solidity0.4.22前，构造函数和合约同名；若合约名称和构造函数名称不同，构造函数将变成一个普通函数。</p>
-<p>防范技术：使用constructor关键字。</p>
-<p>案例：Rubixi</p>
-<h3 id="9-16-未初始化的存储指针"><a href="#9-16-未初始化的存储指针" class="headerlink" title="9.16 未初始化的存储指针"></a>9.16 未初始化的存储指针</h3><p>原理：状态变量和复杂类型的局部变量都存储在storage中；状态变量按照顺序保存在storage中（存储槽），未初始化的局部变量可能指向已有的状态变量。</p>
-<p>防范技术：用storage和memory关键字明确指定变量的存储位置。</p>
-<p>案例：OpenAddressLottery</p>
-<h3 id="9-17-浮点数和精度"><a href="#9-17-浮点数和精度" class="headerlink" title="9.17 浮点数和精度"></a>9.17 浮点数和精度</h3><p>原理：solidity的除法会舍去小于除数的所有精度。</p>
-<p>防范技术：先执行加法和乘法，再执行减法和除法。</p>
-<p>案例：Ethstick</p>
-<h3 id="9-18-Tx-Origin验证"><a href="#9-18-Tx-Origin验证" class="headerlink" title="9.18 Tx.Origin验证"></a>9.18 Tx.Origin验证</h3><p>原理：全局变量tx.origin表示最初发起交易的账户地址；若使用tx.origin作为判定条件，合约易受到钓鱼攻击。</p>
-<p>防范技术：少用tx.origin作为判定条件。</p>
-<p>可用require(tx.origin == msg.sender)来拒绝外部合约调用。</p>
-<h3 id="9-19-合约程序库"><a href="#9-19-合约程序库" class="headerlink" title="9.19 合约程序库"></a>9.19 合约程序库</h3><p>OpenZepplin包含丰富的库合约。</p>
-<p>ZeppelinOS使开发者更简单地发布DApp。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
-<li>谁可以调用合约的self-destruct</li>
-<li>外部合约引用的防范技术没看懂</li>
 </ol>
 
       
@@ -1832,7 +1859,7 @@ As smart contracts on the blockchain are related to financial transactions and c
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

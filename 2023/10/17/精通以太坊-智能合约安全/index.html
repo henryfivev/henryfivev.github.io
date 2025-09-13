@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="九、智能合约安全9.3 重入原理：调用外部fallback函数来进行转账，导致合约可重入 防范技术：  用transfer()进行转账，虽然会带来额外gas 使用“检查-生效-交互”模式 使用互斥锁  案例：DAO攻击 9.4 算术溢出原理：Solidity中整数存在上下限 防范技术：  使用SafeMath库合约  案例：PoWHC 9.5 意外的以太币原理：强制发送以太币导致合约无法执行，se">
+    <meta name="description" content="九、智能合约安全 9.3 重入 原理：调用外部fallback函数来进行转账，导致合约可重入 防范技术：  用transfer()进行转账，虽然会带来额外gas 使用“检查-生效-交互”模式 使用互斥锁  案例：DAO攻击 9.4 算术溢出 原理：Solidity中整数存在上下限 防范技术：  使用SafeMath库合约  案例：PoWHC 9.5 意外的以太币 原理：强制发送以太币导致合约无法执">
 <meta property="og:type" content="article">
 <meta property="og:title" content="精通以太坊-智能合约安全">
 <meta property="og:url" content="http://example.com/2023/10/17/%E7%B2%BE%E9%80%9A%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="九、智能合约安全9.3 重入原理：调用外部fallback函数来进行转账，导致合约可重入 防范技术：  用transfer()进行转账，虽然会带来额外gas 使用“检查-生效-交互”模式 使用互斥锁  案例：DAO攻击 9.4 算术溢出原理：Solidity中整数存在上下限 防范技术：  使用SafeMath库合约  案例：PoWHC 9.5 意外的以太币原理：强制发送以太币导致合约无法执行，se">
+<meta property="og:description" content="九、智能合约安全 9.3 重入 原理：调用外部fallback函数来进行转账，导致合约可重入 防范技术：  用transfer()进行转账，虽然会带来额外gas 使用“检查-生效-交互”模式 使用互斥锁  案例：DAO攻击 9.4 算术溢出 原理：Solidity中整数存在上下限 防范技术：  使用SafeMath库合约  案例：PoWHC 9.5 意外的以太币 原理：强制发送以太币导致合约无法执">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-17T01:59:12.000Z">
 <meta property="article:modified_time" content="2023-10-17T09:47:42.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8"><span class="nav-text">九、智能合约安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-%E9%87%8D%E5%85%A5"><span class="nav-text">9.3 重入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-%E7%AE%97%E6%9C%AF%E6%BA%A2%E5%87%BA"><span class="nav-text">9.4 算术溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-5-%E6%84%8F%E5%A4%96%E7%9A%84%E4%BB%A5%E5%A4%AA%E5%B8%81"><span class="nav-text">9.5 意外的以太币</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-6-delegatecall"><span class="nav-text">9.6 delegatecall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-7-%E9%BB%98%E8%AE%A4%E7%9A%84%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-text">9.7 默认的可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-8-%E6%97%A0%E5%BA%8F%E9%94%99%E8%A7%89"><span class="nav-text">9.8 无序错觉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-9-%E5%A4%96%E9%83%A8%E5%90%88%E7%BA%A6%E5%BC%95%E7%94%A8"><span class="nav-text">9.9 外部合约引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-10-%E7%9F%AD%E5%9C%B0%E5%9D%80%E6%94%BB%E5%87%BB"><span class="nav-text">9.10 短地址攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-11-%E6%9C%AA%E6%A3%80%E6%9F%A5%E7%9A%84%E8%B0%83%E7%94%A8%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-text">9.11 未检查的调用返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-12-%E9%A2%84%E5%85%88%E4%BA%A4%E6%98%93"><span class="nav-text">9.12 预先交易</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-13-%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1"><span class="nav-text">9.13 拒绝服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-14-%E5%8C%BA%E5%9D%97%E6%97%B6%E9%97%B4%E6%88%B3%E6%93%8D%E7%BA%B5"><span class="nav-text">9.14 区块时间戳操纵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-15-%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">9.15 小心使用构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-16-%E6%9C%AA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%AD%98%E5%82%A8%E6%8C%87%E9%92%88"><span class="nav-text">9.16 未初始化的存储指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-17-%E6%B5%AE%E7%82%B9%E6%95%B0%E5%92%8C%E7%B2%BE%E5%BA%A6"><span class="nav-text">9.17 浮点数和精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-18-Tx-Origin%E9%AA%8C%E8%AF%81"><span class="nav-text">9.18 Tx.Origin验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-19-%E5%90%88%E7%BA%A6%E7%A8%8B%E5%BA%8F%E5%BA%93"><span class="nav-text">9.19 合约程序库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%89%E5%85%A8"><span class="nav-text">九、智能合约安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%85%A5"><span class="nav-text">9.3 重入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E6%BA%A2%E5%87%BA"><span class="nav-text">9.4 算术溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%8F%E5%A4%96%E7%9A%84%E4%BB%A5%E5%A4%AA%E5%B8%81"><span class="nav-text">9.5 意外的以太币</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delegatecall"><span class="nav-text">9.6 delegatecall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E7%9A%84%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-text">9.7 默认的可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%BA%8F%E9%94%99%E8%A7%89"><span class="nav-text">9.8 无序错觉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E5%90%88%E7%BA%A6%E5%BC%95%E7%94%A8"><span class="nav-text">9.9 外部合约引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AD%E5%9C%B0%E5%9D%80%E6%94%BB%E5%87%BB"><span class="nav-text">9.10 短地址攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E6%A3%80%E6%9F%A5%E7%9A%84%E8%B0%83%E7%94%A8%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-text">9.11 未检查的调用返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E4%BA%A4%E6%98%93"><span class="nav-text">9.12 预先交易</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1"><span class="nav-text">9.13 拒绝服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E6%97%B6%E9%97%B4%E6%88%B3%E6%93%8D%E7%BA%B5"><span class="nav-text">9.14 区块时间戳操纵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E5%BF%83%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">9.15 小心使用构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%AD%98%E5%82%A8%E6%8C%87%E9%92%88"><span class="nav-text">9.16 未初始化的存储指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E5%92%8C%E7%B2%BE%E5%BA%A6"><span class="nav-text">9.17 浮点数和精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tx.origin%E9%AA%8C%E8%AF%81"><span class="nav-text">9.18 Tx.Origin验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E7%BA%A6%E7%A8%8B%E5%BA%8F%E5%BA%93"><span class="nav-text">9.19 合约程序库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -219,81 +219,101 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="九、智能合约安全"><a href="#九、智能合约安全" class="headerlink" title="九、智能合约安全"></a>九、智能合约安全</h2><h3 id="9-3-重入"><a href="#9-3-重入" class="headerlink" title="9.3 重入"></a>9.3 重入</h3><p>原理：调用外部fallback函数来进行转账，导致合约可重入</p>
+        <h2 id="九智能合约安全">九、智能合约安全</h2>
+<h3 id="重入">9.3 重入</h3>
+<p>原理：调用外部fallback函数来进行转账，导致合约可重入</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>用transfer()进行转账，虽然会带来额外gas</li>
 <li>使用“检查-生效-交互”模式</li>
 <li>使用互斥锁</li>
 </ol>
 <p>案例：DAO攻击</p>
-<h3 id="9-4-算术溢出"><a href="#9-4-算术溢出" class="headerlink" title="9.4 算术溢出"></a>9.4 算术溢出</h3><p>原理：Solidity中整数存在上下限</p>
+<h3 id="算术溢出">9.4 算术溢出</h3>
+<p>原理：Solidity中整数存在上下限</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>使用SafeMath库合约</li>
 </ol>
 <p>案例：PoWHC</p>
-<h3 id="9-5-意外的以太币"><a href="#9-5-意外的以太币" class="headerlink" title="9.5 意外的以太币"></a>9.5 意外的以太币</h3><p>原理：强制发送以太币导致合约无法执行，self-destruct或预先发送都可以实现</p>
+<h3 id="意外的以太币">9.5 意外的以太币</h3>
+<p>原理：强制发送以太币导致合约无法执行，self-destruct或预先发送都可以实现</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>少用this.balance，使用状态变量保存余额</li>
 </ol>
-<h3 id="9-6-delegatecall"><a href="#9-6-delegatecall" class="headerlink" title="9.6 delegatecall"></a>9.6 delegatecall</h3><p>原理：delegatecall保持上下文，状态或存储变量（可以在独立的交易之间保持其数值的变量）会按照它们被引入合约的顺序放置在存储槽中，这时我们改变的变量可能不是我们期望改变的。</p>
+<h3 id="delegatecall">9.6 delegatecall</h3>
+<p>原理：delegatecall保持上下文，状态或存储变量（可以在独立的交易之间保持其数值的变量）会按照它们被引入合约的顺序放置在存储槽中，这时我们改变的变量可能不是我们期望改变的。</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>使用library关键字可以保证库合约是无状态和不会自我销毁的</li>
 </ol>
 <p>案例：Parity多重签名钱包的第二次攻击</p>
-<h3 id="9-7-默认的可见性"><a href="#9-7-默认的可见性" class="headerlink" title="9.7 默认的可见性"></a>9.7 默认的可见性</h3><p>原理：Solidity函数可见性默认为public，可能出现纰漏</p>
+<h3 id="默认的可见性">9.7 默认的可见性</h3>
+<p>原理：Solidity函数可见性默认为public，可能出现纰漏</p>
 <p>防范技术：为每个函数都指定可见性</p>
 <p>案例：Parity多重签名钱包的首次攻击</p>
-<h3 id="9-8-无序错觉"><a href="#9-8-无序错觉" class="headerlink" title="9.8 无序错觉"></a>9.8 无序错觉</h3><p>原理：为了在以太坊中引入无序性（即随机性），使用哈希值、区块号等可被操控的区块变量作为随机值</p>
+<h3 id="无序错觉">9.8 无序错觉</h3>
+<p>原理：为了在以太坊中引入无序性（即随机性），使用哈希值、区块号等可被操控的区块变量作为随机值</p>
 <p>防范技术：无序性必须来自区块链外部</p>
 <p>案例：PRNG合约</p>
-<h3 id="9-9-外部合约引用"><a href="#9-9-外部合约引用" class="headerlink" title="9.9 外部合约引用"></a>9.9 外部合约引用</h3><p>原理：可以故意将地址指向错误的合约，假如引用的合约不包含要调用的函数，将执行回退函数。如果用户可以修改合约引用的合约库，那么基本上他们就可以使其他用户在不知情的情况下运行任意代码。</p>
+<h3 id="外部合约引用">9.9 外部合约引用</h3>
+<p>原理：可以故意将地址指向错误的合约，假如引用的合约不包含要调用的函数，将执行回退函数。如果用户可以修改合约引用的合约库，那么基本上他们就可以使其他用户在不知情的情况下运行任意代码。</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>new一个要引用的合约</li>
 <li>对外部合约进行硬编码</li>
 </ol>
 <p>一般建议将合约地址设置为public以方便用户检查引用的合约</p>
-<p>案例：<a target="_blank" rel="noopener" href="https://www.reddit.com/r/ethdev/comments/7x5rwr/tricked_by_a_honeypot_contract_or_beaten_by/">可重入的蜜罐</a></p>
-<h3 id="9-10-短地址攻击"><a href="#9-10-短地址攻击" class="headerlink" title="9.10 短地址攻击"></a>9.10 短地址攻击</h3><p>原理：当实际发送的数据长度小于标准编码长度时，EVM将在数据末尾补0，这种操作可能影响末尾参数</p>
+<p>案例：<a
+target="_blank" rel="noopener" href="https://www.reddit.com/r/ethdev/comments/7x5rwr/tricked_by_a_honeypot_contract_or_beaten_by/">可重入的蜜罐</a></p>
+<h3 id="短地址攻击">9.10 短地址攻击</h3>
+<p>原理：当实际发送的数据长度小于标准编码长度时，EVM将在数据末尾补0，这种操作可能影响末尾参数</p>
 <p>防范技术：对参数进行校验</p>
-<h3 id="9-11-未检查的调用返回值"><a href="#9-11-未检查的调用返回值" class="headerlink" title="9.11 未检查的调用返回值"></a>9.11 未检查的调用返回值</h3><p>原理：send和call外部调用失败仅返回false，不revert</p>
+<h3 id="未检查的调用返回值">9.11 未检查的调用返回值</h3>
+<p>原理：send和call外部调用失败仅返回false，不revert</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>检查返回值</li>
 <li>使用withdraw模式</li>
 </ol>
-<h3 id="9-12-预先交易"><a href="#9-12-预先交易" class="headerlink" title="9.12 预先交易"></a>9.12 预先交易</h3><p>原理：gas高的优先被打包</p>
+<h3 id="预先交易">9.12 预先交易</h3>
+<p>原理：gas高的优先被打包</p>
 <p>防范技术：</p>
-<ol>
+<ol type="1">
 <li>设置gas上限</li>
 <li>使用commit-reveal模式</li>
 <li>submarine sends</li>
 </ol>
 <p>案例：erc20的approve函数</p>
-<h3 id="9-13-拒绝服务"><a href="#9-13-拒绝服务" class="headerlink" title="9.13 拒绝服务"></a>9.13 拒绝服务</h3><p>原理：各种原因使合约不可用，比如说事先向合约转账使合约无法通过某些限制条件</p>
+<h3 id="拒绝服务">9.13 拒绝服务</h3>
+<p>原理：各种原因使合约不可用，比如说事先向合约转账使合约无法通过某些限制条件</p>
 <p>防范技术：各个情况方法不同</p>
-<h3 id="9-14-区块时间戳操纵"><a href="#9-14-区块时间戳操纵" class="headerlink" title="9.14 区块时间戳操纵"></a>9.14 区块时间戳操纵</h3><p>原理：区块时间戳可被矿工指定。</p>
+<h3 id="区块时间戳操纵">9.14 区块时间戳操纵</h3>
+<p>原理：区块时间戳可被矿工指定。</p>
 <p>防范技术：不应使用区块时间戳作为随机数。</p>
 <p>案例：GovernMental</p>
-<h3 id="9-15-小心使用构造函数"><a href="#9-15-小心使用构造函数" class="headerlink" title="9.15 小心使用构造函数"></a>9.15 小心使用构造函数</h3><p>原理：solidity0.4.22前，构造函数和合约同名；若合约名称和构造函数名称不同，构造函数将变成一个普通函数。</p>
+<h3 id="小心使用构造函数">9.15 小心使用构造函数</h3>
+<p>原理：solidity0.4.22前，构造函数和合约同名；若合约名称和构造函数名称不同，构造函数将变成一个普通函数。</p>
 <p>防范技术：使用constructor关键字。</p>
 <p>案例：Rubixi</p>
-<h3 id="9-16-未初始化的存储指针"><a href="#9-16-未初始化的存储指针" class="headerlink" title="9.16 未初始化的存储指针"></a>9.16 未初始化的存储指针</h3><p>原理：状态变量和复杂类型的局部变量都存储在storage中；状态变量按照顺序保存在storage中（存储槽），未初始化的局部变量可能指向已有的状态变量。</p>
+<h3 id="未初始化的存储指针">9.16 未初始化的存储指针</h3>
+<p>原理：状态变量和复杂类型的局部变量都存储在storage中；状态变量按照顺序保存在storage中（存储槽），未初始化的局部变量可能指向已有的状态变量。</p>
 <p>防范技术：用storage和memory关键字明确指定变量的存储位置。</p>
 <p>案例：OpenAddressLottery</p>
-<h3 id="9-17-浮点数和精度"><a href="#9-17-浮点数和精度" class="headerlink" title="9.17 浮点数和精度"></a>9.17 浮点数和精度</h3><p>原理：solidity的除法会舍去小于除数的所有精度。</p>
+<h3 id="浮点数和精度">9.17 浮点数和精度</h3>
+<p>原理：solidity的除法会舍去小于除数的所有精度。</p>
 <p>防范技术：先执行加法和乘法，再执行减法和除法。</p>
 <p>案例：Ethstick</p>
-<h3 id="9-18-Tx-Origin验证"><a href="#9-18-Tx-Origin验证" class="headerlink" title="9.18 Tx.Origin验证"></a>9.18 Tx.Origin验证</h3><p>原理：全局变量tx.origin表示最初发起交易的账户地址；若使用tx.origin作为判定条件，合约易受到钓鱼攻击。</p>
+<h3 id="tx.origin验证">9.18 Tx.Origin验证</h3>
+<p>原理：全局变量tx.origin表示最初发起交易的账户地址；若使用tx.origin作为判定条件，合约易受到钓鱼攻击。</p>
 <p>防范技术：少用tx.origin作为判定条件。</p>
 <p>可用require(tx.origin == msg.sender)来拒绝外部合约调用。</p>
-<h3 id="9-19-合约程序库"><a href="#9-19-合约程序库" class="headerlink" title="9.19 合约程序库"></a>9.19 合约程序库</h3><p>OpenZepplin包含丰富的库合约。</p>
+<h3 id="合约程序库">9.19 合约程序库</h3>
+<p>OpenZepplin包含丰富的库合约。</p>
 <p>ZeppelinOS使开发者更简单地发布DApp。</p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><ol>
+<h2 id="疑惑">疑惑</h2>
+<ol type="1">
 <li>谁可以调用合约的self-destruct</li>
 <li>外部合约引用的防范技术没看懂</li>
 </ol>
@@ -341,7 +361,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

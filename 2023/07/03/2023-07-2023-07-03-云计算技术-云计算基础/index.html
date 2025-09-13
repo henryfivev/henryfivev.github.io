@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="云计算基础三、理解云计算云计算的定义：一种分布式计算的特殊形式 数据（软件+平台+基础设施）服务 云使能技术 3.2 基本概念和术语云：远程供给可扩展和可测量资源 it资源 云提供者：提供基于云的IT资源 云用户：使用基于云的IT资源 可扩展性：IT资源可以处理增加或减少的使用需求的能力 云服务：任何可以通过云远程访问的IT资源 云服务用户：访问云服务的软件程序 四、基本概念与模型4.1 角色与边">
+    <meta name="description" content="云计算基础 三、理解云计算 云计算的定义：一种分布式计算的特殊形式 数据（软件+平台+基础设施）服务 云使能技术 3.2 基本概念和术语 云：远程供给可扩展和可测量资源 it资源 云提供者：提供基于云的IT资源 云用户：使用基于云的IT资源 可扩展性：IT资源可以处理增加或减少的使用需求的能力 云服务：任何可以通过云远程访问的IT资源 云服务用户：访问云服务的软件程序 四、基本概念与模型 4.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="云计算技术-云计算基础">
 <meta property="og:url" content="http://example.com/2023/07/03/2023-07-2023-07-03-%E4%BA%91%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF-%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="望尘可及的秘密基地">
-<meta property="og:description" content="云计算基础三、理解云计算云计算的定义：一种分布式计算的特殊形式 数据（软件+平台+基础设施）服务 云使能技术 3.2 基本概念和术语云：远程供给可扩展和可测量资源 it资源 云提供者：提供基于云的IT资源 云用户：使用基于云的IT资源 可扩展性：IT资源可以处理增加或减少的使用需求的能力 云服务：任何可以通过云远程访问的IT资源 云服务用户：访问云服务的软件程序 四、基本概念与模型4.1 角色与边">
+<meta property="og:description" content="云计算基础 三、理解云计算 云计算的定义：一种分布式计算的特殊形式 数据（软件+平台+基础设施）服务 云使能技术 3.2 基本概念和术语 云：远程供给可扩展和可测量资源 it资源 云提供者：提供基于云的IT资源 云用户：使用基于云的IT资源 可扩展性：IT资源可以处理增加或减少的使用需求的能力 云服务：任何可以通过云远程访问的IT资源 云服务用户：访问云服务的软件程序 四、基本概念与模型 4.1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-02T16:22:47.000Z">
 <meta property="article:modified_time" content="2023-09-04T08:01:16.000Z">
@@ -112,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80"><span class="nav-text">云计算基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%90%86%E8%A7%A3%E4%BA%91%E8%AE%A1%E7%AE%97"><span class="nav-text">三、理解云计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-text">3.2 基本概念和术语</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%A8%A1%E5%9E%8B"><span class="nav-text">四、基本概念与模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E8%A7%92%E8%89%B2%E4%B8%8E%E8%BE%B9%E7%95%8C"><span class="nav-text">4.1 角色与边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E4%BA%91%E7%89%B9%E6%80%A7"><span class="nav-text">4.2 云特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E4%BA%91%E4%BA%A4%E4%BB%98%E6%A8%A1%E5%9E%8B"><span class="nav-text">4.3 云交付模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E4%BA%91%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%9E%8B"><span class="nav-text">4.4 云部署模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BA%91%E4%BD%BF%E8%83%BD%E6%8A%80%E6%9C%AF"><span class="nav-text">五、云使能技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E5%AE%BD%E5%B8%A6%E7%BD%91%E7%BB%9C%E5%92%8CInternet%E6%9E%B6%E6%9E%84"><span class="nav-text">5.1 宽带网络和Internet架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E6%8A%80%E6%9C%AF"><span class="nav-text">5.2 数据中心技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="nav-text">5.3 虚拟化技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-Web%E6%8A%80%E6%9C%AF"><span class="nav-text">5.4 Web技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-5-%E5%A4%9A%E7%A7%9F%E6%88%B7%E6%8A%80%E6%9C%AF"><span class="nav-text">5.5 多租户技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-%E6%9C%8D%E5%8A%A1%E6%8A%80%E6%9C%AF"><span class="nav-text">5.6 服务技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%95%AA%E5%A4%96-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-text">番外 大数据处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BA%91%E5%AE%89%E5%85%A8"><span class="nav-text">六、基本云安全</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80"><span class="nav-text">云计算基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%90%86%E8%A7%A3%E4%BA%91%E8%AE%A1%E7%AE%97"><span class="nav-text">三、理解云计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-text">3.2 基本概念和术语</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%A8%A1%E5%9E%8B"><span class="nav-text">四、基本概念与模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E4%B8%8E%E8%BE%B9%E7%95%8C"><span class="nav-text">4.1 角色与边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%91%E7%89%B9%E6%80%A7"><span class="nav-text">4.2 云特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%91%E4%BA%A4%E4%BB%98%E6%A8%A1%E5%9E%8B"><span class="nav-text">4.3 云交付模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%91%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%9E%8B"><span class="nav-text">4.4 云部署模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E4%BA%91%E4%BD%BF%E8%83%BD%E6%8A%80%E6%9C%AF"><span class="nav-text">五、云使能技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%BD%E5%B8%A6%E7%BD%91%E7%BB%9C%E5%92%8Cinternet%E6%9E%B6%E6%9E%84"><span class="nav-text">5.1 宽带网络和Internet架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E6%8A%80%E6%9C%AF"><span class="nav-text">5.2 数据中心技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="nav-text">5.3 虚拟化技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E6%8A%80%E6%9C%AF"><span class="nav-text">5.4 Web技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E7%A7%9F%E6%88%B7%E6%8A%80%E6%9C%AF"><span class="nav-text">5.5 多租户技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E6%8A%80%E6%9C%AF"><span class="nav-text">5.6 服务技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%95%AA%E5%A4%96-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-text">番外 大数据处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E5%9F%BA%E6%9C%AC%E4%BA%91%E5%AE%89%E5%85%A8"><span class="nav-text">六、基本云安全</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -125,18 +125,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -225,35 +225,46 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="云计算基础"><a href="#云计算基础" class="headerlink" title="云计算基础"></a>云计算基础</h2><h3 id="三、理解云计算"><a href="#三、理解云计算" class="headerlink" title="三、理解云计算"></a>三、理解云计算</h3><p>云计算的定义：一种分布式计算的特殊形式</p>
+        <h2 id="云计算基础">云计算基础</h2>
+<h3 id="三理解云计算">三、理解云计算</h3>
+<p>云计算的定义：一种分布式计算的特殊形式</p>
 <p>数据<em>（软件+平台+基础设施）</em>服务</p>
 <p>云使能技术</p>
-<h4 id="3-2-基本概念和术语"><a href="#3-2-基本概念和术语" class="headerlink" title="3.2 基本概念和术语"></a>3.2 基本概念和术语</h4><p>云：远程供给可扩展和可测量资源</p>
+<h4 id="基本概念和术语">3.2 基本概念和术语</h4>
+<p>云：远程供给可扩展和可测量资源</p>
 <p>it资源</p>
 <p>云提供者：提供基于云的IT资源</p>
 <p>云用户：使用基于云的IT资源</p>
 <p>可扩展性：IT资源可以处理增加或减少的使用需求的能力</p>
 <p>云服务：任何可以通过云远程访问的IT资源</p>
 <p>云服务用户：访问云服务的软件程序</p>
-<h3 id="四、基本概念与模型"><a href="#四、基本概念与模型" class="headerlink" title="四、基本概念与模型"></a>四、基本概念与模型</h3><h4 id="4-1-角色与边界"><a href="#4-1-角色与边界" class="headerlink" title="4.1 角色与边界"></a>4.1 角色与边界</h4><p>云计算的优势</p>
+<h3 id="四基本概念与模型">四、基本概念与模型</h3>
+<h4 id="角色与边界">4.1 角色与边界</h4>
+<p>云计算的优势</p>
 <p>风险</p>
 <p>云提供者、云用户</p>
 <p>云服务拥有者：拥有云服务的个人或者组织</p>
 <p>云资源管理者：负责管理基于云的IT资源（包括云服务）的人或者组织</p>
 <p>组织边界：一个物理范围，是一个组织拥有和管理的IT资源的集合</p>
 <p>信任边界：一个逻辑范围，表明IT资源受信任的程度</p>
-<h4 id="4-2-云特性"><a href="#4-2-云特性" class="headerlink" title="4.2 云特性"></a>4.2 云特性</h4><p>随处访问、按需使用、可测量的使用、弹性、可恢复性、多租户</p>
+<h4 id="云特性">4.2 云特性</h4>
+<p>随处访问、按需使用、可测量的使用、弹性、可恢复性、多租户</p>
 <p>多租户：共享软件和实例</p>
 <p>可恢复性：通过资源复制和故障转移</p>
-<h4 id="4-3-云交付模型"><a href="#4-3-云交付模型" class="headerlink" title="4.3 云交付模型"></a>4.3 云交付模型</h4><p>IaaS：由以基础设施为中心的IT资源组成，虚拟化技术和资源动态管理技术</p>
+<h4 id="云交付模型">4.3 云交付模型</h4>
+<p>IaaS：由以基础设施为中心的IT资源组成，虚拟化技术和资源动态管理技术</p>
 <p>PaaS：预先定义好的“就绪可用”的环境</p>
 <p>SaaS：把软件程序定位成共享的云服务，呈现技术和多租户技术</p>
-<h4 id="4-4-云部署模型"><a href="#4-4-云部署模型" class="headerlink" title="4.4 云部署模型"></a>4.4 云部署模型</h4><p>公有云：是第三方所有的，通常向云用户组织提供商业化的云服务和IT资源</p>
+<h4 id="云部署模型">4.4 云部署模型</h4>
+<p>公有云：是第三方所有的，通常向云用户组织提供商业化的云服务和IT资源</p>
 <p>社区云</p>
 <p>私有云：是仅被一家组织所拥有的，并且位于该组织的范围之内</p>
 <p>混合云</p>
-<h3 id="五、云使能技术"><a href="#五、云使能技术" class="headerlink" title="五、云使能技术"></a>五、云使能技术</h3><h4 id="5-1-宽带网络和Internet架构"><a href="#5-1-宽带网络和Internet架构" class="headerlink" title="5.1 宽带网络和Internet架构"></a>5.1 宽带网络和Internet架构</h4><p>宽带网络</p>
-<h4 id="5-2-数据中心技术"><a href="#5-2-数据中心技术" class="headerlink" title="5.2 数据中心技术"></a>5.2 数据中心技术</h4><p>数据中心网络架构</p>
+<h3 id="五云使能技术">五、云使能技术</h3>
+<h4 id="宽带网络和internet架构">5.1 宽带网络和Internet架构</h4>
+<p>宽带网络</p>
+<h4 id="数据中心技术">5.2 数据中心技术</h4>
+<p>数据中心网络架构</p>
 <p>胖树架构</p>
 <p>微软网络架构VL2</p>
 <p>Dcell</p>
@@ -266,10 +277,11 @@
 <p>资源监控</p>
 <p>资源调度技术：在线/离线</p>
 <p>智能运维</p>
-<h4 id="5-3-虚拟化技术"><a href="#5-3-虚拟化技术" class="headerlink" title="5.3 虚拟化技术"></a>5.3 虚拟化技术</h4><p>虚拟机：将物理IT资源转换为虚拟IT资源的过程</p>
+<h4 id="虚拟化技术">5.3 虚拟化技术</h4>
+<p>虚拟机：将物理IT资源转换为虚拟IT资源的过程</p>
 <p>寄生、裸金属架构</p>
 <p>下面4种虚拟化技术：</p>
-<ol>
+<ol type="1">
 <li>硬件仿真：寄生</li>
 <li>全虚拟化：最常见</li>
 <li>半虚拟化：裸金属，性能最好</li>
@@ -286,20 +298,25 @@
 <p>桥接：交换机</p>
 <p>NAT：路由器</p>
 <p>存储虚拟化</p>
-<h4 id="5-4-Web技术"><a href="#5-4-Web技术" class="headerlink" title="5.4 Web技术"></a>5.4 Web技术</h4><h4 id="5-5-多租户技术"><a href="#5-5-多租户技术" class="headerlink" title="5.5 多租户技术"></a>5.5 多租户技术</h4><p>多租户技术</p>
-<h4 id="5-6-服务技术"><a href="#5-6-服务技术" class="headerlink" title="5.6 服务技术"></a>5.6 服务技术</h4><p>面向服务架构SOA：将应用程序的不同功能单元（称为服务）通过接口和契约联系起来</p>
+<h4 id="web技术">5.4 Web技术</h4>
+<h4 id="多租户技术">5.5 多租户技术</h4>
+<p>多租户技术</p>
+<h4 id="服务技术">5.6 服务技术</h4>
+<p>面向服务架构SOA：将应用程序的不同功能单元（称为服务）通过接口和契约联系起来</p>
 <p>restful</p>
 <p>消息队列</p>
 <p>微服务架构</p>
 <p>无服务器架构</p>
 <p>FaaS和BaaS</p>
-<h4 id="番外-大数据处理"><a href="#番外-大数据处理" class="headerlink" title="番外 大数据处理"></a>番外 大数据处理</h4><p>云计算数据处理架构</p>
+<h4 id="番外-大数据处理">番外 大数据处理</h4>
+<p>云计算数据处理架构</p>
 <p>分布式文件系统</p>
 <p>hdfs</p>
 <p>分布式数据库</p>
 <p>NoSQL：非关系型数据库管理系统</p>
 <p>MapReduce</p>
-<h3 id="六、基本云安全"><a href="#六、基本云安全" class="headerlink" title="六、基本云安全"></a>六、基本云安全</h3><p>保密性、完整性、真实性、可用性</p>
+<h3 id="六基本云安全">六、基本云安全</h3>
+<p>保密性、完整性、真实性、可用性</p>
 <p>流量窃听</p>
 <p>恶意媒介</p>
 <p>拒绝服务</p>
@@ -350,7 +367,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
